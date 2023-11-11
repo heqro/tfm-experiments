@@ -3,7 +3,7 @@
 <style|generic>
 
 <\body>
-  Given a set of centers <math|\<b-x\><rsub|1><rsup|c>,\<ldots\>,\<b-x\><rsub|N><rsup|c>\<in\>\<bbb-R\><rsup|d>>,
+  Given a set of <strong|centers> <math|\<b-x\><rsub|1><rsup|c>,\<ldots\>,\<b-x\><rsub|N><rsup|c>\<in\>\<bbb-R\><rsup|d>>,
   we define the <strong|RBF interpolant>,
 
   <\equation>
@@ -11,10 +11,11 @@
   </equation>
 
   where <math|\<phi\><around*|(|r,\<varepsilon\>|)>=<sqrt|1+\<varepsilon\><rsup|2>r<rsup|2>>>
-  is the multiquadric RBF function (MQ). The coefficients are chosen by
-  enforcing the <strong|interpolation condition>: if we want to interpolate a
-  set of points <math|<around*|{|\<b-x\><rsub|i>,f<around*|(|\<b-x\><rsub|i>|)>|}>>
-  we impose
+  is the multiquadric RBF function (MQ). The coefficients
+  <math|\<alpha\><rsub|j>> are chosen by enforcing the <strong|interpolation
+  condition>: if we want to interpolate a set of points
+  <math|<around*|{|\<b-x\><rsub|i>,f<around*|(|\<b-x\><rsub|i>|)>|}>> we
+  impose
 
   <\equation*>
     s<around*|(|\<b-x\><rsub|i>|)>=f<around*|(|\<b-x\><rsub|i>|)>
@@ -52,6 +53,6 @@
 <\references>
   <\collection>
     <associate|rbfInterpolantEq|<tuple|1|1|../../../../../home/heqro/.TeXmacs/texts/scratch/no_name_68.tm>>
-    <associate|setOfConditions|<tuple|2|?|../../../../../home/heqro/.TeXmacs/texts/scratch/no_name_68.tm>>
+    <associate|setOfConditions|<tuple|2|1|../../../../../home/heqro/.TeXmacs/texts/scratch/no_name_68.tm>>
   </collection>
 </references>
