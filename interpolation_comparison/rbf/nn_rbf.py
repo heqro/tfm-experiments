@@ -26,25 +26,35 @@ class RBFInterpolant(torch.nn.Module):
 
 
 class PolynomialRBFInterpolant(torch.nn.Module):
-    def __init__(self,
-                 centers: torch.Tensor, eps: float = 1.0, alphas: list[float] = None,
-                 cte: float = None, line: float = None, quad: float = None):
+    def __init__(self, degree: int,
+                 centers: torch.Tensor, eps: float = 1.0, alphas: list[float] = None, coefficients=None):
         super(PolynomialRBFInterpolant, self).__init__()
+
+        # RBFs
         self.eps = eps
         self.alphas = torch.nn.Parameter(
             (torch.rand_like(centers) - 0.5)) \
             if alphas is None else torch.nn.Parameter(
             torch.tensor(alphas))
         self.centers = centers
-        self.cte = torch.nn.Parameter(torch.rand(1)) if cte is None \
-            else torch.nn.Parameter(torch.tensor(cte))
-        self.line = torch.nn.Parameter(torch.rand(1)) if line is None \
-            else torch.nn.Parameter(torch.tensor(line))
-        self.quad = torch.nn.Parameter(torch.rand(1)) if quad is None \
-            else torch.nn.Parameter(torch.tensor(quad))
+
+        # Polynomials
+        if coefficients is None:
+            coefficients = torch.nn.Parameter(torch.rand(degree + 1))
+
+        self.coefficients = coefficients
+        self.powers = torch.arange(
+            self.coefficients.size(0), dtype=torch.float32)
+        self.powers = self.powers.view(-1, 1)
 
     def forward(self, x: torch.Tensor):
+        # RBF Section
         radius = torch.stack([torch.abs(x_input - self.centers)
                              for x_input in x])
         products_list = self.alphas * rbf_kernel(radius, self.eps)
-        return self.quad * x ** 2 + self.line * x + self.cte + torch.sum(products_list, dim=1)
+        rbf_result = torch.sum(products_list, dim=1)
+
+        # Polynomial Section
+        poly_result = torch.matmul(self.coefficients, x ** self.powers)
+
+        return poly_result + rbf_result
