@@ -1,21 +1,17 @@
 import torch
 
-# Define the RBF kernel
-
 
 def rbf_kernel(radius: torch.Tensor, eps: float):
     return torch.exp(-eps ** 2 * radius ** 2)
 
-# Define the RBF interpolant model
-
 
 class RBFInterpolant(torch.nn.Module):
-    def __init__(self, centers: torch.Tensor, eps: float = 1.0, alphas=None):
+    def __init__(self, centers: torch.Tensor, eps: float = 1.0, alphas: list[float] = None):
         super(RBFInterpolant, self).__init__()
         self.eps = eps
-        self.alphas = torch.nn.Parameter(
-            (torch.rand_like(centers) - 0.5)) if alphas is None else torch.nn.Parameter(
-                torch.tensor(alphas))
+        self.alphas = \
+            torch.nn.Parameter((torch.rand_like(centers) - 0.5)) if alphas is None \
+            else torch.nn.Parameter(torch.tensor(alphas))
         self.centers = centers
 
     def forward(self, x: torch.Tensor):
@@ -26,8 +22,9 @@ class RBFInterpolant(torch.nn.Module):
 
 
 class PolynomialRBFInterpolant(torch.nn.Module):
-    def __init__(self, degree: int,
-                 centers: torch.Tensor, eps: float = 1.0, alphas: list[float] = None, coefficients=None):
+    def __init__(self,
+                 centers: torch.Tensor, eps: float = 1.0,
+                 alphas: list[float] = None, degree: int = 2, coefficients: list[float] = None):
         super(PolynomialRBFInterpolant, self).__init__()
 
         # RBFs
@@ -39,10 +36,9 @@ class PolynomialRBFInterpolant(torch.nn.Module):
         self.centers = centers
 
         # Polynomials
-        if coefficients is None:
-            coefficients = torch.nn.Parameter(torch.rand(degree + 1))
+        self.coefficients = torch.nn.Parameter(torch.rand(
+            degree + 1)) if coefficients is None else torch.nn.Parameter(torch.tensor(coefficients))
 
-        self.coefficients = coefficients
         self.powers = torch.arange(
             self.coefficients.size(0), dtype=torch.float32)
         self.powers = self.powers.view(-1, 1)
