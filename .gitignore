@@ -1,3 +1,8 @@
 *__pycache__
 .venv
 .vscode
+5*.csv
+2*.csv
+deg*.csv
+untitled_fail.csv
+interpolation_comparison/rbf/epsilon_search.py
