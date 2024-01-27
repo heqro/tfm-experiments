@@ -6,3 +6,4 @@
 deg*.csv
 untitled_fail.csv
 interpolation_comparison/rbf/epsilon_search.py
+_test*
