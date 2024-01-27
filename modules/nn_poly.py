@@ -18,3 +18,6 @@ class PolynomialInterpolant(torch.nn.Module):
         input_vector = x.view(-1, 1)
         result = self.coefs @ (input_vector ** self.powers).t()
         return result.view_as(x)
+
+    def get_interpolation_matrix(self, x: torch.Tensor):
+        return x.view(-1, 1) ** self.powers
