@@ -22,5 +22,5 @@ class PolynomialInterpolant(torch.nn.Module):
     def get_interpolation_matrix(self, x: torch.Tensor):
         return x.view(-1, 1) ** self.powers
 
-    def set_coefs(self, coefs: torch.Tensor):
+    def set_coefs(self, coefs: torch.Tensor | list[float]):
         self.coefs = torch.nn.Parameter(torch.tensor(coefs))

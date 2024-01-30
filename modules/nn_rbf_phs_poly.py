@@ -13,7 +13,7 @@ class RBFInterpolant(torch.nn.Module):
     def forward(self, x: torch.Tensor):
         return self.rbf(x) + self.poly(x)
 
-    def get_interpolation_matrix(self, x: torch.Tensor):
+    def get_interpolation_matrix(self, x: torch.Tensor) -> torch.Tensor:
         A = self.rbf.get_interpolation_matrix()
         P = self.poly.get_interpolation_matrix(x)
         aux = torch.cat((A, P), dim=1)
@@ -22,9 +22,9 @@ class RBFInterpolant(torch.nn.Module):
         P_t_padded = torch.cat((P.t(), padding), dim=1)
         return torch.cat((aux, P_t_padded), dim=0)
 
-    def get_coefs(self):
+    def get_coefs(self) -> torch.Tensor:
         return torch.cat((self.rbf.coefs, self.poly.coefs))
 
-    def set_coefs(self, coefs):
+    def set_coefs(self, coefs: torch.Tensor | list[float]):
         self.rbf.set_coefs(coefs[:-(self.degree + 1)])
         self.poly.set_coefs(coefs[-(self.degree + 1):])
