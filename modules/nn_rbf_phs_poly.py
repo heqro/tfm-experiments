@@ -8,6 +8,7 @@ class RBFInterpolant(torch.nn.Module):
         super(RBFInterpolant, self).__init__()
         self.rbf = RBF(k, centers, coefs_rbf)
         self.poly = Poly(degree, coefs_poly)
+        self.degree = degree
 
     def forward(self, x: torch.Tensor):
         return self.rbf(x) + self.poly(x)
@@ -23,3 +24,7 @@ class RBFInterpolant(torch.nn.Module):
 
     def get_coefs(self):
         return torch.cat((self.rbf.coefs, self.poly.coefs))
+
+    def set_coefs(self, coefs):
+        self.rbf.set_coefs(coefs[:-(self.degree + 1)])
+        self.poly.set_coefs(coefs[-(self.degree + 1):])

@@ -16,6 +16,12 @@ class RBFInterpolant(torch.nn.Module):
                                ** self.exponent).t()
         return result.view_as(x)
 
-    def get_interpolation_matrix(self):
+    def get_interpolation_matrix(self, *args):
         auxiliary_vector = self.centers.view(-1, 1)
         return torch.abs(auxiliary_vector - self.centers) ** self.exponent
+
+    def get_coefs(self):
+        return self.coefs
+
+    def set_coefs(self, coefs: torch.Tensor):
+        self.coefs = torch.nn.Parameter(torch.tensor(coefs))
