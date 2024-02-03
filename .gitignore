@@ -7,3 +7,15 @@ deg*.csv
 untitled_fail.csv
 interpolation_comparison/rbf/epsilon_search.py
 _test*
+nn_rbf_phs_old.py
+rbf_variational-ill-conditioned*
+interpolation_comparison/rbf/phs/trim_csv.py
+interpolation_comparison/rbf/phs/compute_norms.py
+interpolation_comparison/rbf/phs/optimize_csv.py
+csvs_parsed
+csvs_raw
+interpolation_comparison/rbf/phs/generate_figures.py
+interpolation_comparison/rbf/phs/figures_norms.py
+interpolation_comparison/rbf/phs/compute_ortogonality_restriction.py
+interpolation_comparison/rbf/phs/csvs_optimum_params/r3_N6_deg1-worse.csv
+interpolation_comparison/rbf/phs/csvs_optimum_params/r3_N6_deg1-optimum.csv
