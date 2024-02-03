@@ -19,3 +19,4 @@ interpolation_comparison/rbf/phs/figures_norms.py
 interpolation_comparison/rbf/phs/compute_ortogonality_restriction.py
 interpolation_comparison/rbf/phs/csvs_optimum_params/r3_N6_deg1-worse.csv
 interpolation_comparison/rbf/phs/csvs_optimum_params/r3_N6_deg1-optimum.csv
+interpolation_comparison/rbf/phs/phs_script.py
