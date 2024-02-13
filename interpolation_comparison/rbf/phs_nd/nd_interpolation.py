@@ -9,7 +9,7 @@ sys.path.insert(0, '../../../modules')
 if True:
     from notable_functions import *
     from nn_rbf_phs import RBFInterpolant
-# Usage example: python nd_interpolation.py 5 1 -1 'a' 3
+# Usage example: python nd_interpolation.py 5 1 -1 'franke'
 N = int(sys.argv[1])
 k = int(sys.argv[2])
 degree = int(sys.argv[3])
@@ -56,22 +56,31 @@ best_coefs = torch.zeros_like(nn.get_coefs()).to('cuda')
 
 optimizer = torch.optim.Adam(nn.parameters(), lr=.75e-1)
 
-batch_size = 64
+batch_size = 12
 num_batches = len(target) // batch_size
 
 while True:
-    for i in range(100000):
-        loss = torch.mean(torch.sum((nn(grid) - target) ** 2))
+    indices = torch.randperm(len(target))
+    total_loss = 0.
+    for i in range(num_batches):
+        start_idx, end_idx = i * batch_size, (i+1) * batch_size
+        batch_indices = indices[start_idx: end_idx]
 
-        if loss.item() < best_loss:
-            best_loss = loss.item()
-            best_coefs = nn.get_coefs()
+        batch_grid = grid[batch_indices, :]
+        batch_target = target[batch_indices, :]
+
+        loss = torch.mean(torch.sum((nn(batch_grid) - batch_target) ** 2))
+
+        total_loss += loss.item()
 
         loss.backward()
         optimizer.step()
         optimizer.zero_grad()
-
-    with open(f'experiments_csv/{experiment_string}.csv', 'w') as csvfile:
-        csv_writer = csv.writer(csvfile)
-        csv_writer.writerow(
-            best_coefs.cpu().detach().numpy().tolist() + [best_loss])
+    epoch_loss = total_loss / num_batches
+    if epoch_loss < best_loss:
+        best_loss = epoch_loss
+        best_coefs = nn.get_coefs()
+        with open(f'experiments_csv/{experiment_string}.csv', 'w') as csvfile:
+            csv_writer = csv.writer(csvfile)
+            csv_writer.writerow(
+                best_coefs.cpu().detach().numpy().tolist() + [best_loss])
