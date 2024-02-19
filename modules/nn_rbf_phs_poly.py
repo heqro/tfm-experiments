@@ -4,14 +4,14 @@ from nn_poly import PolynomialInterpolant as Poly
 
 
 class RBFInterpolant(torch.nn.Module):
-    def __init__(self, k: int, centers: torch.Tensor, degree: int, coefs_rbf: list[float] = [], coefs_poly: list[float] = []):
+    def __init__(self, k: int, centers: torch.Tensor, degree: int, dev: torch.device | str = 'cpu', coefs_rbf: list[float] = [], coefs_poly: list[float] = [], dim=1):
         super(RBFInterpolant, self).__init__()
-        self.rbf = RBF(k, centers, coefs_rbf)
-        self.poly = Poly(degree, coefs_poly)
+        self.rbf = RBF(k, centers, coefs_rbf).to(dev)
+        self.poly = Poly(degree, coefs_poly, dim).to(dev)
         self.degree = degree
 
     def forward(self, x: torch.Tensor):
-        return self.rbf(x) + self.poly(x)
+        return self.poly(x) + self.rbf(x)
 
     def get_interpolation_matrix(self, x: torch.Tensor) -> torch.Tensor:
         A = self.rbf.get_interpolation_matrix()
@@ -26,5 +26,6 @@ class RBFInterpolant(torch.nn.Module):
         return torch.cat((self.rbf.coefs, self.poly.coefs))
 
     def set_coefs(self, coefs: torch.Tensor | list[float]):
-        self.rbf.set_coefs(coefs[:-(self.degree + 1)])
-        self.poly.set_coefs(coefs[-(self.degree + 1):])
+        idx = len(self.rbf.get_coefs())
+        self.rbf.set_coefs(coefs[:idx])
+        self.poly.set_coefs(coefs[idx:])
