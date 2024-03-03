@@ -1,12 +1,10 @@
 import torch
 from itertools import product
+from math import comb
 
 
 class PolynomialInterpolant(torch.nn.Module):
     def __init__(self, degree: int = 1, coefs: list[float] = [], dim: int = 1):
-        def set_coefs(coefs: torch.Tensor | list[float]):
-            coefs = torch.nn.Parameter(torch.tensor(coefs))
-
         def compute_products(dim: int, degree: int):
             products = []
             for exponents in product(range(degree + 1), repeat=dim):
@@ -14,32 +12,35 @@ class PolynomialInterpolant(torch.nn.Module):
                     products.append(exponents)
             return products
 
-        super(PolynomialInterpolant, self).__init__()
         if dim < 1:
             raise Exception(f'Input dimensions equal to {dim}!')
+
+        super(PolynomialInterpolant, self).__init__()
+
         self.dim = dim
+
         products_list = compute_products(dim=self.dim, degree=degree)
         self.exponents = torch.nn.Parameter(
             torch.tensor(products_list), requires_grad=False)
-        self.coefs = torch.nn.Parameter(
-            torch.tensor(torch.rand(len(products_list))))
+
+        self.output_layer = torch.nn.Linear(
+            in_features=comb(degree + dim, dim), out_features=1, bias=False)
+
         if coefs != []:
-            if len(coefs) != len(products_list):
-                raise Exception(f"Coefficients vector of length ({len(coefs)})  \
-                        does not fit prescribed degree ({degree}).")
-            else:
-                set_coefs(coefs)
+            self.set_coefs(coefs)
+
+    def get_products_list(self, x: torch.Tensor):
+        if x.shape[1] != self.dim:
+            raise Exception(f'Input tensor should have shape [N, {self.dim}].')
+        return x.unsqueeze(1) ** self.exponents
 
     def forward(self, x: torch.Tensor):
-        if x.shape[1] != 1 or x.shape[2] != self.dim:
-            raise Exception('Expected input tensor to have shape [N, 1, dim].')
-        poly_matrix = torch.prod(x ** self.exponents, dim=-1)
-        return (poly_matrix @ self.coefs).reshape([-1, 1])
+        poly_matrix = torch.prod(self.get_products_list(x), dim=-1)
+        return self.output_layer(poly_matrix)
 
     def get_interpolation_matrix(self, x: torch.Tensor):
-        if x.shape[1] != 1 or x.shape[2] != self.dim:
-            raise Exception('Expected input tensor to have shape [N, 1, dim].')
-        return (x ** self.exponents).squeeze()
+        return self.get_products_list(x)
 
     def set_coefs(self, coefs: torch.Tensor | list[float]):
-        self.coefs = torch.nn.Parameter(torch.tensor(coefs))
+        with torch.no_grad():
+            self.output_layer.weight = torch.FloatTensor(coefs)
