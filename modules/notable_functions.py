@@ -12,4 +12,28 @@ def franke_func(grid: torch.Tensor):
 
 
 def norm_cos(grid: torch.Tensor):
-    return torch.cos(grid.norm(p=2., dim=1))
+    return torch.cos(grid.norm(p=2., dim=1)**2)
+
+
+# 1-d functions
+
+
+def plane_0(x: torch.Tensor):
+    return torch.ones_like(x)
+
+
+def plane_1(x: torch.Tensor):
+    return x
+
+
+def plane_2(x: torch.Tensor):
+    return 1 - x
+
+
+def v_shaped(x: torch.Tensor):
+    return (x <= 0.5) * x + (x > 0.5) * (1-x)
+
+
+def exp_compressed(x: torch.Tensor):
+    # assume x in [0,1]
+    return torch.exp(x) / 3
