@@ -15,11 +15,14 @@ def norm_cos(grid: torch.Tensor):
     return torch.cos(grid.norm(p=2., dim=1)**2)
 
 
+def norm_cos_pi(grid: torch.Tensor):
+    return torch.cos(torch.pi * grid.norm(p=2., dim=1)**2)
+
 # 1-d functions
 
 
 def plane_0(x: torch.Tensor):
-    return torch.ones_like(x)
+    return torch.ones((x.shape[0], 1))
 
 
 def plane_1(x: torch.Tensor):
