@@ -20,3 +20,13 @@ interpolation_comparison/rbf/phs/compute_ortogonality_restriction.py
 interpolation_comparison/rbf/phs/csvs_optimum_params/r3_N6_deg1-worse.csv
 interpolation_comparison/rbf/phs/csvs_optimum_params/r3_N6_deg1-optimum.csv
 interpolation_comparison/rbf/phs/phs_script.py
+test.ipynb
+*_overdetermined*.csv
+norm_cos_interpolation*.csv
+interpolate/FFN/*.csv
+interpolate/RBF_NN/*.csv
+interpolate/RBF_Poly_NN/*.csv
+interpolate/RBF_NN/short-experiment-RBF.py
+interpolate/RBF_Poly_NN/short-experiment-PHS.py
+interpolate/RBF_NN/plots/*
+interpolate/RBF_Poly_NN/plots/*
