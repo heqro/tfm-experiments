@@ -27,7 +27,7 @@ class PolynomialInterpolant(torch.nn.Module):
             in_features=comb(degree + dim, dim), out_features=1, bias=False)
 
         if coefs != []:
-            self.set_coefs(coefs)
+            self.set_coefs(torch.tensor(coefs))
 
     def get_products_list(self, x: torch.Tensor):
         if x.shape[1] != self.dim:
@@ -41,6 +41,9 @@ class PolynomialInterpolant(torch.nn.Module):
     def get_interpolation_matrix(self, x: torch.Tensor):
         return self.get_products_list(x)
 
-    def set_coefs(self, coefs: torch.Tensor | list[float]):
+    def set_coefs(self, coefs: torch.Tensor):
         with torch.no_grad():
-            self.output_layer.weight = torch.FloatTensor(coefs)
+            self.output_layer.weight = torch.nn.Parameter(coefs)
+
+    def get_coefs(self):
+        return self.output_layer.weight
