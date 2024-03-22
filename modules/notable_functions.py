@@ -37,6 +37,9 @@ def v_shaped(x: torch.Tensor):
     return (x <= 0.5) * x + (x > 0.5) * (1-x)
 
 
-def exp_compressed(x: torch.Tensor):
-    # assume x in [0,1]
-    return torch.exp(x) / 3
+def runge_function(x: torch.Tensor):
+    return 1 / (1 + 25 * x ** 2)
+
+
+def gibbs_function(x: torch.Tensor):
+    return torch.atan(20 * x)
