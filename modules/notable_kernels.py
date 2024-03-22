@@ -12,17 +12,17 @@ def compute_radii(x: torch.Tensor, centers: torch.Tensor) -> torch.Tensor:
     return torch.cdist(x, centers)
 
 
-def gaussian_kernel(eps: float):
+def gaussian_kernel(eps: float | torch.Tensor):
     def fn(x: torch.Tensor, y: torch.Tensor) -> torch.Tensor:
         radii = compute_radii(x, y)
-        return torch.exp(-eps ** 2 * radii ** 2)
+        return torch.exp(-(eps * radii) ** 2)
     return fn
 
 
-def mq_kernel_sarra(eps: float):
+def mq_kernel_sarra(eps: float | torch.Tensor):
     def fn(x: torch.Tensor, y: torch.Tensor) -> torch.Tensor:
         radii = compute_radii(x, y)
-        return torch.sqrt(1 + eps ** 2 * radii ** 2)
+        return torch.sqrt(1 + (eps * radii) ** 2)
     return fn
 
 
