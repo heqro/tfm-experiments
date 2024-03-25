@@ -39,7 +39,7 @@ class PolynomialInterpolant(torch.nn.Module):
         return self.output_layer(poly_matrix)
 
     def get_interpolation_matrix(self, x: torch.Tensor):
-        return self.get_products_list(x)
+        return self.get_products_list(x).reshape(-1, len(self.exponents))
 
     def set_coefs(self, coefs: torch.Tensor):
         with torch.no_grad():

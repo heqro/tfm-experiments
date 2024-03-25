@@ -1,13 +1,12 @@
 from typing import Callable, Union
 import torch
 from torch import nn, Tensor
-from notable_kernels import gaussian_kernel
 
 
 class RBF_Free_All(nn.Module):
     def __init__(self, input_dim: int, num_centers: int, output_dim: int,
                  kernel: Callable[[Union[float, Tensor]],
-                                  Callable[[Tensor, Tensor], Tensor]] = gaussian_kernel,):
+                                  Callable[[Tensor, Tensor], Tensor]]):
 
         super(RBF_Free_All, self).__init__()
         self.centers = nn.Parameter(Tensor(num_centers, input_dim))
