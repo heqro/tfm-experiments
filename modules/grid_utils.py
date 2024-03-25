@@ -9,3 +9,10 @@ def d_meshgrid(*args):
     # Stack the grid tensors along a new dimension to create the d-dimensional meshgrid
     meshgrid = torch.stack(grid_tensors, dim=-1)
     return meshgrid
+
+
+def cheb_points(num: int):
+    naturals_list = torch.arange(start=0, end=num, step=1)
+    arg_cos = torch.pi * (2 * naturals_list + 1)/(2 * num)
+    # take opposite to return sorted list
+    return -torch.cos(arg_cos)
