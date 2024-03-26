@@ -31,3 +31,5 @@ interpolate/RBF_Poly_NN/short-experiment-PHS.py
 interpolate/RBF_NN/plots/*
 interpolate/RBF_Poly_NN/plots/*
 introductory_notebooks/polynomial_interpolation/chebyshev_nodes.txt
+learn_centers/experiments/*
+learn_centers/informal_experiments/*
