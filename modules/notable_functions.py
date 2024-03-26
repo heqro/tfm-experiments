@@ -43,3 +43,11 @@ def runge_function(x: torch.Tensor):
 
 def gibbs_function(x: torch.Tensor):
     return torch.atan(20 * x)
+
+
+def sin_pi_x_sq(x: torch.Tensor):  # sin(pi * x**2)
+    return torch.sin(torch.pi * x ** 2)
+
+
+def sin_higher_oscillations(x: torch.Tensor):  # sin(2.5*(x+1)**2)
+    return torch.sin(2.5 * (x+1) ** 2)
