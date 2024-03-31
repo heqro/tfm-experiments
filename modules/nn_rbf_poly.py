@@ -32,13 +32,13 @@ class RBF_Poly_Free_All(torch.nn.Module):
         return list_centers(self)
 
 
-class RBFInterpolant(torch.nn.Module):
+class RBF_Poly(torch.nn.Module):
     def __init__(self, centers: torch.Tensor, degree: int,
                  dev: torch.device | str = 'cpu', coefs_rbf: list[float] = [],
                  coefs_poly: list[float] = [], dim=1,
                  kernel: Callable[[torch.Tensor, torch.Tensor], torch.Tensor] = phs_kernel(3)):
 
-        super(RBFInterpolant, self).__init__()
+        super(RBF_Poly, self).__init__()
 
         from nn_rbf import RBF_Fix_All as RBF
         self.rbf = RBF(centers, kernel, coefs_rbf).to(dev)
@@ -88,26 +88,26 @@ class RBFInterpolantFreeCenters(torch.nn.Module):
         return list_centers(self)
 
 
-def interpolation_matrix(interpolant: RBF_Poly_Free_All | RBFInterpolant | RBFInterpolantFreeCenters, x: torch.Tensor) -> torch.Tensor:
-    A = interpolant.rbf.get_interpolation_matrix()
+def interpolation_matrix(interpolant: RBF_Poly_Free_All | RBF_Poly | RBFInterpolantFreeCenters, x: torch.Tensor) -> torch.Tensor:
+    A = interpolant.rbf.kernel(x, interpolant.get_centers())
     P = interpolant.poly.get_interpolation_matrix(x)
     aux = torch.cat((A, P), dim=1)
     padding = torch.zeros(
-        size=(P.t().size(0), aux.size(1) - P.t().size(1)), device=aux.device)
-    P_t_padded = torch.cat((P.t(), padding), dim=1)
+        size=(P.T.size(0), aux.size(1) - P.T.size(1)), device=aux.device)
+    P_t_padded = torch.cat((P.T, padding), dim=1)
     return torch.cat((aux, P_t_padded), dim=0)
 
 
-def list_coefs(interpolant: RBF_Poly_Free_All | RBFInterpolant | RBFInterpolantFreeCenters) -> tuple[torch.Tensor, torch.Tensor]:
+def list_coefs(interpolant: RBF_Poly_Free_All | RBF_Poly | RBFInterpolantFreeCenters) -> tuple[torch.Tensor, torch.Tensor]:
     return interpolant.rbf.get_coefs(), interpolant.poly.get_coefs()
 
 
-def fix_coefs(interpolant:  RBF_Poly_Free_All | RBFInterpolant | RBFInterpolantFreeCenters,
+def fix_coefs(interpolant:  RBF_Poly_Free_All | RBF_Poly | RBFInterpolantFreeCenters,
               rbf_coefs: torch.Tensor,
               poly_coefs: torch.Tensor):
     interpolant.rbf.set_coefs(rbf_coefs)
     interpolant.poly.set_coefs(poly_coefs)
 
 
-def list_centers(interpolant: RBF_Poly_Free_All | RBFInterpolant | RBFInterpolantFreeCenters):
+def list_centers(interpolant: RBF_Poly_Free_All | RBF_Poly | RBFInterpolantFreeCenters):
     return interpolant.rbf.centers

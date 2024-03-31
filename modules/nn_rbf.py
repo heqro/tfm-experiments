@@ -22,8 +22,8 @@ class RBF_Free_All(nn.Module):
         kernel_out = self.kernel(x, self.centers)
         return self.linear(kernel_out)
 
-    def get_interpolation_matrix(self, *args):
-        return interpolation_matrix(self)
+    def get_interpolation_matrix(self, x: Tensor):
+        return interpolation_matrix(self, x)
 
     def set_coefs(self, coefs: Tensor):
         return fix_coefs(self, coefs)
@@ -34,6 +34,9 @@ class RBF_Free_All(nn.Module):
     def set_centers(self, centers: Tensor):
         with torch.no_grad():
             self.centers.data = torch.nn.Parameter(centers)
+
+    def get_centers(self):
+        return list_centers(self)
 
 
 class RBF_Fix_All(nn.Module):
@@ -56,14 +59,17 @@ class RBF_Fix_All(nn.Module):
         result = self.output_layer(kernel_values)
         return result
 
-    def get_interpolation_matrix(self, *args):
-        return interpolation_matrix(self)
+    def get_interpolation_matrix(self, x: Tensor):
+        return interpolation_matrix(self, x)
 
     def set_coefs(self, coefs: Tensor):
         return fix_coefs(self, coefs)
 
     def get_coefs(self):
         return list_coefs(self)
+
+    def get_centers(self):
+        return list_centers(self)
 
 
 class RBF_Free_Centers(torch.nn.Module):
@@ -87,8 +93,8 @@ class RBF_Free_Centers(torch.nn.Module):
         result = self.output_layer(kernel_values)
         return result
 
-    def get_interpolation_matrix(self, *args):
-        return interpolation_matrix(self)
+    def get_interpolation_matrix(self, x: Tensor):
+        return interpolation_matrix(self, x)
 
     def set_coefs(self, coefs: Tensor):
         return fix_coefs(self, coefs)
@@ -100,9 +106,12 @@ class RBF_Free_Centers(torch.nn.Module):
         with torch.no_grad():
             self.centers.data = torch.nn.Parameter(centers)
 
+    def get_centers(self):
+        return list_centers(self)
 
-def interpolation_matrix(interpolant: RBF_Free_All | RBF_Fix_All | RBF_Free_Centers, *args) -> Tensor:
-    return interpolant.kernel(interpolant.centers, interpolant.centers)
+
+def interpolation_matrix(interpolant: RBF_Free_All | RBF_Fix_All | RBF_Free_Centers, x: Tensor) -> Tensor:
+    return interpolant.kernel(x, interpolant.centers)
 
 
 def fix_coefs(interpolant: RBF_Free_All | RBF_Fix_All | RBF_Free_Centers, coefs: Tensor):
@@ -112,3 +121,7 @@ def fix_coefs(interpolant: RBF_Free_All | RBF_Fix_All | RBF_Free_Centers, coefs:
 
 def list_coefs(interpolant: RBF_Free_All | RBF_Fix_All | RBF_Free_Centers):
     return interpolant.output_layer.weight
+
+
+def list_centers(interpolant: RBF_Free_All | RBF_Fix_All | RBF_Free_Centers):
+    return interpolant.centers
