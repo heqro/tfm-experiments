@@ -7,17 +7,17 @@
 \contentsline {section}{\numberline {2.2}PINNs}{3}{section.2.2}%
 \contentsline {section}{\numberline {2.3}RBF/Polynomial approximation}{6}{section.2.3}%
 \contentsline {chapter}{\numberline {3}Interpolation}{7}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Interpolation with RBFs and NN}{17}{section.3.1}%
+\contentsline {section}{\numberline {3.1}Interpolation with RBFs and NN}{18}{section.3.1}%
 \contentsline {chapter}{\numberline {4}Experimentation}{33}{chapter.4}%
 \contentsline {chapter}{\numberline {5}random info to organize}{34}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Quality metrics}{34}{section.5.1}%
 \contentsline {section}{\numberline {5.2}plots}{34}{section.5.2}%
 \contentsline {subsection}{\numberline {5.2.1}runge plots}{34}{subsection.5.2.1}%
 \contentsline {subsubsection}{rbf gaussian}{34}{subsection.5.2.1}%
-\contentsline {subsubsection}{phs}{35}{figure.caption.30}%
+\contentsline {subsubsection}{phs}{35}{figure.caption.27}%
 \contentsline {subsection}{\numberline {5.2.2}gibbs plots}{35}{subsection.5.2.2}%
 \contentsline {subsubsection}{arctan20x}{35}{subsection.5.2.2}%
-\contentsline {subsubsection}{sign}{35}{figure.caption.38}%
+\contentsline {subsubsection}{sign}{35}{figure.caption.35}%
 \contentsline {section}{\numberline {5.3}experiment}{35}{section.5.3}%
 \contentsline {chapter}{Bibliography}{56}{equation.5.3.1}%
 \contentsfinish 

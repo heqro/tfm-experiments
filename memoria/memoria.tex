@@ -357,7 +357,7 @@ hmargin=3cm
 \section{Objectives}
 
 \chapter{State of the art}
-\section{Neural Networks}
+\section{Neural Networks} \label{sec-neural-networks}
 The starting point for defining a Neural Network is the multilayer perceptron, whose recursive definition we express following \cite{lu2021deepxde}:
 \begin{definition}[Multilayer perceptron]
   Let \(L \in \mathbb{N}\) and \(\{ N_i \}_{i = 1}^L \subset \mathbb{N}\). The
@@ -422,7 +422,7 @@ proposed by Cybenko in \cite{cybenko1989approximation}, where a proof of this re
   Let \(\sigma\) be any continuous discriminatory function. Then, finite sums of
   the form
   \[ G (x) = \sum_{j = 1}^N \alpha_j \cdot \sigma (y_j^{\top} x + \theta_j) \]
-  are \textbf{dense} in \(C (I_n)\), i.e., for any $\varepsilon > 0 \text{ and } f \in C
+  are dense in \(C (I_n)\), i.e., for any $\varepsilon > 0 \text{ and } f \in C
   (I_n)$ we can find a sum \(G (x)\) such that
   \[ | G (x) - f (x) | < \varepsilon \text{, for } x \in I_n . \]
 \end{theorem}
@@ -575,7 +575,7 @@ evaluation of these operations in levels:
 
 As it follows from the example, we have been able to compute the differential of the function with respect to all of its variables by just traversing once the evaluation trace. 
 
-Figure \ref{fig:autodiffgraph} depicts the architectural scheme of a PINN during its training phase. Notice that it features the components present in every machine learning model's learning phase depiction (e.g., \cite{chollet2021deep}\footnote{Figure 1.9.}), but with the explicit presence of the automatic differentiation module, which allows for the computation of the loss function. 
+Figure \ref{fig:autodiffgraph} depicts the architectural scheme of a PINN during its training phase. Notice that it features the components present in every machine learning model's learning phase depiction (e.g., \cite{chollet2021deep}\footnote{Figure 1.9.}), but with the explicit presence of the automatic differentiation module, which allows for the computation of the loss function. For each input $\tmmathbf{z}$ and parameters $\theta$, the model generates a prediction $\mathcal{NN}(\tmmathbf{z};\theta)$ whose correctness is evaluated against our loss function $\mathcal{L}(\theta)$. Recall that the definition of the loss function comes prescribed by \eqref{loss-F} and \eqref{loss-boundary}, to be defined given a particular problem $(P)$. Because these components involve differential operators, the model is differentiated with respect to the input values by means of automatic differentiation. The parameters of the model are then updated by the action of the optimizer on the loss function. %The novelty introduced by PINNs with respect to the usual machine learning model's training phase depiction (e.g., \cite{chollet2021deep}) is the automatic differentiation mechanism, which is essential to the computation of the loss function.
 
 We remark that the component depicted as \textit{target} in the figure is not labeled data, but simply the restrictions imposed by the PDE. This implies that the forward problem can be regarded as an unsupervised learning problem, where $(P)$ represents the prior knowledge of the phenomenon under study, to be captured by $\mathcal{L}(\theta)$. An introductory discussion on supervised and unsupervised learning can be found in \cite{chollet2021deep}\footnote{Chapter 4.}.
 
@@ -583,7 +583,7 @@ We remark that the component depicted as \textit{target} in the figure is not la
     \centering
     % \frame
     {\includegraphics[width=\textwidth, clip=true, trim={3cm 20cm 3cm 4cm}]{imagenes/autodiffgraph.pdf}}
-    \caption{Components of a PINN during the training phase, where we solve \eqref{loss-fun-pinn}. For each input $\tmmathbf{z}$ and parameters $\theta$, the model generates a prediction $\mathcal{NN}(\tmmathbf{z};\theta)$ whose correctness is evaluated against our loss function $\mathcal{L}(\theta)$. Recall that the definition of the loss function comes prescribed by \eqref{loss-F} and \eqref{loss-boundary}, to be defined given a particular problem $(P)$. Because these components involve differential operators, the model is differentiated with respect to the input values by means of automatic differentiation. The parameters of the model are then updated by the action of the optimizer on the loss function. %The novelty introduced by PINNs with respect to the usual machine learning model's training phase depiction (e.g., \cite{chollet2021deep}) is the automatic differentiation mechanism, which is essential to the computation of the loss function.
+    \caption{Components of a PINN during the training phase, where we solve \eqref{loss-fun-pinn}. 
     }\label{fig:autodiffgraph}
 \end{figure}
 
@@ -1332,9 +1332,12 @@ end, we shall use the following Theorem:
   (\tmmathbf{x}) = \varphi (\| \tmmathbf{x} \|^2)$. To conclude the positive
   definiteness of $\phi$, we simply check the definition and apply the
   linearity of the integral:
-  \[ \sum_{j = 1}^N \sum_{k = 1}^N c_j c_k \phi (\tmmathbf{x}_j
+  \begin{equation}\label{eqn-linearity-of-integral}
+    \sum_{j = 1}^N \sum_{k = 1}^N c_j c_k \phi (\tmmathbf{x}_j
      -\tmmathbf{x}_k) = \int_0^{\infty} \sum_{j = 1}^N \sum_{k = 1}^N c_j c_k
-     e^{- t \| \tmmathbf{x}_j -\tmmathbf{x}_k \|^2} d \mu (t) . \]
+     e^{- t \| \tmmathbf{x}_j -\tmmathbf{x}_k \|^2} d \mu (t) .
+  \end{equation}
+  
   Noting that we integrate on $t \geq 0$, it follows that the quadratic form of
   the integrand involves Gaussians, which were shown in Example
   \ref{ex-gaussian-strictly-positive-definite} to be strictly positive
@@ -1343,15 +1346,35 @@ end, we shall use the following Theorem:
 \end{proof}
 
 \begin{theorem}
-  A function $\varphi : [0, \infty) \rightarrow \mathbb{R}$ is completely
-  monotone but not constant if and only if $\varphi (\| \cdot \|^2)$ is
-  strictly positive definite and radial on $\mathbb{R}^d$ for any $d$.
-  {\todo{schoenberg 1938a, p823}}
+  If $\varphi$ is completely monotone but not constant on $[0,\infty)$,
+  then the function ${\tmmathbf{x}} \mapsto \varphi(||\tmmathbf{x}||^2)$ is a radial,
+  strictly positive definite function on any inner-product space.
+
+  Thus, for any $n$ distinct points
+   $\{\tmmathbf{x}_1,\tmmathbf{x}_2,...,\tmmathbf{x}_n\}$ 
+   in such a space, the matrix 
+  $A_{i,j}=\varphi(||\tmmathbf{x}_i-\tmmathbf{x}_j||)$ is positive definite
+  (and therefore nonsingular).
 \end{theorem}
 
-\section{Interpolation with RBFs and NN}
+\begin{proof}
+  Because $\varphi$ is completely monotone, Theorem
+\ref{thm-hausdorff-bernstein-widder} implies that there is a bounded Borel
+measure $\mu$ on $[0, \infty)$ for which \eqref{phi-thm-hausdorff} holds.
+Moreover, $\varphi$ is assumed not to be constant, which implies that $\mu (0,
+\infty) > 0$ and ultimately that $d \mu$ is not concentrated at $0$. Now,
+taking $A_{i, j} = \varphi (\| \tmmathbf{x}_i -\tmmathbf{x}_j \|^2)$ and any
+$c = (c_1, c_2, \ldots, c_n) \neq 0$, we again come upon
+\eqref{eqn-linearity-of-integral}. Recalling that the integrand is positive
+and that the measure is not concentrated at $0$, the result follows.
+\end{proof}
 
-\todo[inline]{linkear}
+In the following, we turn to formulating Problem \ref{interpolationproblemstatement}
+with the definitions devised in Section \ref{sec-neural-networks}. Furthermore,
+we shall explicitly propose examples to move the discussion forward and identify
+concerns on the computational side of the Problem.
+
+\section{Interpolation with RBFs and NN}
 
 The radial basis function method for interpolating a function can then be
 proposed and solved by means of a neural network. One of the first works at
@@ -1681,7 +1704,7 @@ fixed $\tmmathbf{x}_j \in \mathbb{R}^d$ and $\varphi : [0, \infty) \rightarrow
 $\tmop{span} \{ p_1, p_2, \ldots, p_m \}$ should be equal to $\mathbb{P}_{k -
 1} (\mathbb{R}^d)$, the space of polynomials of total degree $\leq k - 1$.
 
-{\todo{we extend the definition}}
+
 
 \begin{definition}\label{def-rbf-poly}
   Let $\varphi : [0, \infty) \rightarrow \mathbb{R}$ be a continuous function,
@@ -1814,7 +1837,7 @@ $\varepsilon$.
     \label{fig:mq-rbf}
 \end{figure}
 
-\subsection*{Some pathological examples}
+\subsection*{Some ``pathological'' examples}
 
 As pointed out in Theorem \ref{thm-haar-spaces-polynomials}, pre-fixed
 generalized polynomials are not apt for interpolation problems of
@@ -2486,7 +2509,6 @@ As the rest of the report unfolds, we will provide some additional information o
     \label{fig:runge-function-phs-kernel-equi-comparison-methods}
 \end{figure}
 
-% \todo[inline]{comentar el caso de la phs function}
 
 A reasonable concern is the following: the results we have commented on are the comparison of the classic methodology against the iterations that minimized the $L^\infty-$norm on the verification dataset. If these optimal iterations are close to the maximum of iterations we have considered (recall that it is 50000), this indicates that our method ``converges'' to a solution which reduces the oscillations.%, and that this result we are showing is not a byproduct of us knowing the values of the functions between each training point.
 
