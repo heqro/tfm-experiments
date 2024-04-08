@@ -360,7 +360,7 @@ hmargin=3cm
 \section{Neural Networks}
 The starting point for defining a Neural Network is the multilayer perceptron, whose recursive definition we express following \cite{lu2021deepxde}:
 \begin{definition}[Multilayer perceptron]
-  Let $L \in \mathbb{N}$ and $\{ N_i \}_{i = 1}^L \subset \mathbb{N}$. The
+  Let \(L \in \mathbb{N}\) and \(\{ N_i \}_{i = 1}^L \subset \mathbb{N}\). The
   {\textbf{$L-$layer perceptron}} is a function
   \begin{equation}
       \begin{array}{llll}
@@ -375,18 +375,16 @@ The starting point for defining a Neural Network is the multilayer perceptron, w
   %      & \tmmathbf{x} & \hookrightarrow & \tmmathbf{W}^L \mathcal{N}^{L - 1}
   %      (\tmmathbf{x}) +\tmmathbf{b}^L
   %    \end{array}, \]
-  where $\mathcal{N}^{L - 1} : \mathbb{R}^{N_0} \rightarrow \mathbb{R}^{N_{L
-  - 1}}$ is defined according to the rule
+  where \(\mathcal{N}^{L - 1} : \mathbb{R}^{N_0} \rightarrow \mathbb{R}^{N_{L- 1}}\) is defined according to the rule
   \[ \mathcal{N}^{L - 1} (\tmmathbf{x}) = \left\{\begin{array}{ll}
        \tmmathbf{x}, & \text{if } L = 1\\
        \sigma_{L - 1} (\tmmathbf{W}^{L - 1} \mathcal{N}^{L - 2} (\tmmathbf{x})
        +\tmmathbf{b}^{L - 1}), & \text{otherwise}
      \end{array}\right. . \]
-  We shall refer to some $\tmmathbf{b}^i \in \mathbb{R}^{\mathbb{N}_i}, 1 \leq
-  i \leq L$ as the {\textbf{bias}} of the $i -$th layer, and each
-  $\tmmathbf{W}^i \in \mathbb{R}^{N_i \times N_{i - 1}}$ as the
-  \textbf{weights matrix} of the $i -$th layer. Finally, the \textbf{activation function} of the $i
-  -$th layer, $\sigma_i$, is commonly defined as
+  We shall refer to some \(\tmmathbf{b}^i \in \mathbb{R}^{\mathbb{N}_i}, 1 \leq i \leq L\) as the {\textbf{bias}} of the \(i -\)th layer, and each
+  \(\tmmathbf{W}^i \in \mathbb{R}^{N_i \times N_{i - 1}}\) as the
+  \textbf{weights matrix} of the \(i -\)th layer. Finally, the \textbf{activation function} of the $i
+  -$th layer, \(\sigma_i\), is commonly defined as
   \[ \begin{array}{cccc}
        \sigma_i : & \mathbb{R}^{\mathbb{N}_i} & \rightarrow &
        \mathbb{R}^{\mathbb{N}_i}\\
@@ -408,12 +406,12 @@ variables, } C (I_n)$. We briefly quote the terminology and formulation
 proposed by Cybenko in \cite{cybenko1989approximation}, where a proof of this result can be found.
 
 \begin{definition}[Discriminatory function]
-  Let $M (I_n)$ denote the space of finite, signed regular measures on $I_n$.
-  A function $\sigma$ is said to be {\tmstrong{discriminatory}} if for a
-  measure $\mu \in M (I_n)$ we have that
+  Let $M (I_n)$ denote the space of finite, signed regular measures on \(I_n\).
+  A function \(\sigma\) is said to be {\tmstrong{discriminatory}} if for a
+  measure \(\mu \in M (I_n)\) we have that
   \[ \int_{I_n} \sigma (y^{\top} x + \theta) d \mu (x) = 0 \text{ for all } y
      \in \mathbb{R}^n, \theta \in \mathbb{R} \]
-  implies that $\mu = 0$.
+  implies that \(\mu = 0\).
   % Moreover, a function $t \mapsto \sigma (t)$ is said
   % to be {\tmstrong{sigmoidal}} if
   % \[ \lim_{t \rightarrow + \infty} \sigma (t) = 1, \text{ and } \lim_{t
@@ -421,11 +419,11 @@ proposed by Cybenko in \cite{cybenko1989approximation}, where a proof of this re
 \end{definition}
 
 \begin{theorem}[Universal approximation]
-  Let $\sigma$ be any continuous discriminatory function. Then, finite sums of
+  Let \(\sigma\) be any continuous discriminatory function. Then, finite sums of
   the form
   \[ G (x) = \sum_{j = 1}^N \alpha_j \cdot \sigma (y_j^{\top} x + \theta_j) \]
-  are \textbf{dense} in $C (I_n)$, i.e., for any $\varepsilon > 0 \text{ and } f \in C
-  (I_n)$ we can find a sum $G (x)$ such that
+  are \textbf{dense} in \(C (I_n)\), i.e., for any $\varepsilon > 0 \text{ and } f \in C
+  (I_n)$ we can find a sum \(G (x)\) such that
   \[ | G (x) - f (x) | < \varepsilon \text{, for } x \in I_n . \]
 \end{theorem}
 
@@ -446,10 +444,10 @@ Equations, which are problems of the form
 \end{equation}
 where we consider the open set $\Omega \subset \mathbb{R}^d$ whose boundary is
 denoted $\partial \Omega$, with $\tmmathbf{z}= (\tmmathbf{x}, t)$. Moreover,
-$F$ is a non-linear differential operator whose arguments are the solution $u$
+\(F\) is a non-linear differential operator whose arguments are the solution $u$
 we want to find, up to some model parameters $\gamma$ and prescribed to be
-equal to our problem data $f$. Finally, $B$ is an operator which can denote
-initial ($t = 0$) or boundary conditions. For instance, if $B$ is set to be
+equal to our problem data \(f\). Finally, \(B\) is an operator which can denote
+initial (\(t = 0\)) or boundary conditions. For instance, if $B$ is set to be
 the identity operator (resp., gradient operator) we recover Dirichlet (resp.,
 Neumann) boundary conditions.
 
@@ -586,8 +584,7 @@ We remark that the component depicted as \textit{target} in the figure is not la
     % \frame
     {\includegraphics[width=\textwidth, clip=true, trim={3cm 20cm 3cm 4cm}]{imagenes/autodiffgraph.pdf}}
     \caption{Components of a PINN during the training phase, where we solve \eqref{loss-fun-pinn}. For each input $\tmmathbf{z}$ and parameters $\theta$, the model generates a prediction $\mathcal{NN}(\tmmathbf{z};\theta)$ whose correctness is evaluated against our loss function $\mathcal{L}(\theta)$. Recall that the definition of the loss function comes prescribed by \eqref{loss-F} and \eqref{loss-boundary}, to be defined given a particular problem $(P)$. Because these components involve differential operators, the model is differentiated with respect to the input values by means of automatic differentiation. The parameters of the model are then updated by the action of the optimizer on the loss function. %The novelty introduced by PINNs with respect to the usual machine learning model's training phase depiction (e.g., \cite{chollet2021deep}) is the automatic differentiation mechanism, which is essential to the computation of the loss function.
-    }
-    \label{fig:autodiffgraph}
+    }\label{fig:autodiffgraph}
 \end{figure}
 
 \section{RBF/Polynomial approximation}
@@ -625,31 +622,31 @@ such that
 Note the scalar products
 \[ \left\{\begin{array}{cll}
      \left(\begin{array}{ccc}
-       \lambda_1 & \ldots & \lambda_N
+       \lambda_1 & \cdots  & \lambda_N
      \end{array}\right) \left(\begin{array}{ccc}
-       \phi_1 (\tmmathbf{x}_1) & \ldots & \phi_N (\tmmathbf{x}_1)
+       \phi_1 (\tmmathbf{x}_1) & \cdots  & \phi_N (\tmmathbf{x}_1)
      \end{array}\right)^{\top} & = & \tmmathbf{y}_1\\
      \left(\begin{array}{ccc}
-       \lambda_1 & \ldots & \lambda_N
+       \lambda_1 & \cdots  & \lambda_N
      \end{array}\right) \left(\begin{array}{ccc}
-       \phi_1 (\tmmathbf{x}_2) & \ldots & \phi_N (\tmmathbf{x}_2)
+       \phi_1 (\tmmathbf{x}_2) & \cdots  & \phi_N (\tmmathbf{x}_2)
      \end{array}\right)^{\top} & = & \tmmathbf{y}_2\\
      \vdots &  & \\
      \left(\begin{array}{ccc}
-       \lambda_1 & \ldots & \lambda_N
+       \lambda_1 & \cdots  & \lambda_N
      \end{array}\right) \left(\begin{array}{ccc}
-       \phi_1 (\tmmathbf{x}_N) & \ldots & \phi_N (\tmmathbf{x}_N)
+       \phi_1 (\tmmathbf{x}_N) & \cdots  & \phi_N (\tmmathbf{x}_N)
      \end{array}\right)^{\top} & = & \tmmathbf{y}_N
    \end{array}\right. . \]
 This system induces the system of linear equations
 \begin{equation}
   \left(\begin{array}{cccc}
-    \phi_1 (\tmmathbf{x}_1) & \phi_2 (\tmmathbf{x}_1) & \ldots & \phi_N
+    \phi_1 (\tmmathbf{x}_1) & \phi_2 (\tmmathbf{x}_1) & \cdots  & \phi_N
     (\tmmathbf{x}_1)\\
-    \phi_1 (\tmmathbf{x}_2) & \phi_2 (\tmmathbf{x}_2) & \ldots & \phi_N
+    \phi_1 (\tmmathbf{x}_2) & \phi_2 (\tmmathbf{x}_2) & \cdots  & \phi_N
     (\tmmathbf{x}_2)\\
     \vdots & \vdots &  & \vdots\\
-    \phi_1 (\tmmathbf{x}_N) & \phi_2 (\tmmathbf{x}_N) & \ldots & \phi_N
+    \phi_1 (\tmmathbf{x}_N) & \phi_2 (\tmmathbf{x}_N) & \cdots  & \phi_N
     (\tmmathbf{x}_N)
   \end{array}\right) \left(\begin{array}{c}
     \lambda_1\\
@@ -712,12 +709,12 @@ considering any $N$ distinct points  \{$\tmmathbf{x}_1, \ldots,
 \tmmathbf{x}_N$\}  and checking that
 \[ \text{det}  [\hat{\tmmathbf{x}}_1, \hat{\tmmathbf{x}}_2, \ldots,
    \hat{\tmmathbf{x}}_n] = \left|\begin{array}{cccc}
-     \phi_1 (\tmmathbf{x}_1) & \phi_2 (\tmmathbf{x}_1) & \ldots & \phi_N
+     \phi_1 (\tmmathbf{x}_1) & \phi_2 (\tmmathbf{x}_1) & \cdots  & \phi_N
      (\tmmathbf{x}_1)\\
-     \phi_1 (\tmmathbf{x}_2) & \phi_2 (\tmmathbf{x}_2) & \ldots & \phi_N
+     \phi_1 (\tmmathbf{x}_2) & \phi_2 (\tmmathbf{x}_2) & \cdots  & \phi_N
      (\tmmathbf{x}_2)\\
      \vdots & \vdots &  & \vdots\\
-     \phi_1 (\tmmathbf{x}_N) & \phi_2 (\tmmathbf{x}_N) & \ldots & \phi_N
+     \phi_1 (\tmmathbf{x}_N) & \phi_2 (\tmmathbf{x}_N) & \cdots  & \phi_N
      (\tmmathbf{x}_N)
    \end{array}\right| \neq 0. \]
 Provided the Haar condition is satisfied,
@@ -942,23 +939,6 @@ be well-posed.
   \end{enumerate}
 \end{theorem}
 
-\begin{proof}
-  {\todo[inline]{evaluar importancia}}
-  \begin{enumerate}
-    \item
-    
-    \item
-    
-    \item
-    
-    \item
-    
-    \item
-    
-    \item 
-  \end{enumerate}
-\end{proof}
-
 Note that in the case that $\phi$ is a real function, property
 \eqref{propevennes} implies that $\phi$ is even. In fact, this allows us to
 characterize positive-definite real-valued continuous functions.
@@ -1016,14 +996,14 @@ A direct consequence of this Theorem is that the function proposed in Example
 definite function can be defined in terms of (infinite) linear combinations of
 it, which is a more surprising result that linear combinations of the form
 \eqref{linearcombinationofpsdf} resulting in (some) positive definite
-function.
+function. 
 
-{\todo[inline]{premisa: c{\'o}mo construimos strictly positive definite functions?}}
-
-% \subsection*{Characterizations in terms of Fourier transform}
-
-We need to take a step back and consider some required building blocks: we
-start off with some results as presented in {\cite{titchmarsh1939theory}}:
+Even though Theorem \ref{tm-bochner} highlights the relevance
+of the Gaussian function, its application is not straightforward 
+for deciding the positive definiteness of a function.
+We shall garner more specialized tools in the following. 
+To this end, we first take a step back and define some key building blocks: we
+start out following the presentation in {\cite{titchmarsh1939theory}}:
 
 \begin{definition}
   Let $\varnothing = \Omega \subset \mathbb{C}$ be an open set. A function $g
@@ -1078,7 +1058,7 @@ which is clear due to \eqref{analyticasseriedepotencia}.
   $z \in S$.
 \end{proof}
 
-The following two lemmas are due to {\cite{cheneylight2009course}}.
+The following two lemmas are as formulated in {\cite{cheneylight2009course}}.
 
 \begin{lemma}
   \label{lemma-linearly-independent-set-featuring-accumulation}Let $\{
@@ -1253,7 +1233,7 @@ radial function as well.
   The {\tmstrong{Gaussian}} function,
   \[ \phi (\tmmathbf{x}) = e^{- \varepsilon^2 \| \tmmathbf{x} \|^2}, \quad
      \varepsilon > 0 \]
-  is strictly positive definite on $\mathbb{R}^d$ for any $s$. Because it is
+  is strictly positive definite on $\mathbb{R}^d$ for any $d$. Because it is
   defined in terms of $\| \tmmathbf{x} \|$ rather than $\tmmathbf{x}$, it is
   direct to see that it is radial as well.
   
@@ -1303,7 +1283,10 @@ To do so, we first show that
     \label{fig:negative-exp-rbf}
 \end{figure}
 
-\todo[inline]{this is a cumbersome way of working, which motivates...}
+As the previous results show, one needs a firm grasp on Fourier transforms as well as
+measure theory to reliably make use of these results and ultimately showing that
+the Gaussian function is strictly positive definite. Because of this very reason, we turn 
+to the last set of (arguably more manageable) theoretical results.
 
 % \subsection*{Characterizations in terms of completely monotone functions}
 
@@ -1997,7 +1980,7 @@ We first consider $x \mapsto \arctan{20x}$, which we promptly depict in Figure \
     \label{fig:arctan-with-points}
 \end{figure}
 
-Strictly speaking, this function we first have considered is not exhibiting the Gibbs' phenomenon as we have defined it. Indeed, for a small sample of points, oscillations are evidently bound to occur as the distance between two consecutive interpolation points is too large for the interpolator. For an larger sample of points, however, oscillations start up by the hand of the ill-conditioning of both interpolation matrices. 
+Strictly speaking, this function we first have considered is not exhibiting the Gibbs' phenomenon as we have defined it. Indeed, for a small sample of points, oscillations are evidently bound to occur as the distance between two consecutive interpolation points is too large for the interpolator. For a larger sample of points, however, oscillations start up by the hand of the ill-conditioning of both interpolation matrices. 
 
 \begin{figure}[ht]
     \centering
