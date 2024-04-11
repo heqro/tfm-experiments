@@ -33,7 +33,7 @@ def mq_kernel_hardy(eps: float):
     return fn
 
 
-def phs_kernel(exponent: int):
+def phs_kernel(exponent: float | torch.Tensor):
     def fn(x: torch.Tensor, y: torch.Tensor) -> torch.Tensor:
         return compute_radii(x, y) ** exponent
     return fn

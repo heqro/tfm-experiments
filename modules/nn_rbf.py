@@ -6,21 +6,22 @@ from torch import nn, Tensor
 class RBF_Free_All(nn.Module):
     def __init__(self, input_dim: int, num_centers: int, output_dim: int,
                  kernel: Callable[[Union[float, Tensor]],
-                                  Callable[[Tensor, Tensor], Tensor]]):
+                                  Callable[[Tensor, Tensor], Tensor]], starting_shape: float = 1):
 
         super(RBF_Free_All, self).__init__()
         self.centers = nn.Parameter(Tensor(num_centers, input_dim))
-        nn.init.normal_(tensor=self.centers, mean=0, std=1)
+        # nn.init.normal_(tensor=self.centers, mean=0, std=1)
+        nn.init.uniform_(tensor=self.centers)
 
         self.shape = nn.Parameter(Tensor(num_centers))
-        nn.init.constant_(tensor=self.shape, val=1)
+        nn.init.constant_(tensor=self.shape, val=starting_shape)
 
-        self.linear = nn.Linear(num_centers, output_dim, bias=False)
+        self.output_layer = nn.Linear(num_centers, output_dim, bias=False)
         self.kernel = kernel(self.shape)
 
     def forward(self, x):
         kernel_out = self.kernel(x, self.centers)
-        return self.linear(kernel_out)
+        return self.output_layer(kernel_out)
 
     def get_interpolation_matrix(self, x: Tensor):
         return interpolation_matrix(self, x)
