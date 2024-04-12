@@ -7,42 +7,35 @@ def verify_input(x: torch.Tensor, y: torch.Tensor) -> None:
         raise Exception(
             f'Expected input tensor to have shape [N, 1, dim]. Received shape: {x.shape}.')
 
-
-# def compute_radii(x: torch.Tensor, centers: torch.Tensor) -> torch.Tensor:
-#     return torch.cdist(x, centers)
-
-def compute_radii(x: torch.Tensor, centers: torch.Tensor) -> torch.Tensor:
+def compute_radii_squared(x: torch.Tensor, centers: torch.Tensor) -> torch.Tensor:
     x = x.unsqueeze(1)  # Shape: (batch_size, 1, d)
     centers = centers.unsqueeze(0)  # Shape: (1, num_centers, d)
     
-    squared_distances = torch.sum((x - centers)**2, dim=2)  # Shape: (batch_size, num_centers)
-    distances = torch.sqrt(squared_distances)
-    
-    return distances
+    return torch.sum((x - centers)**2, dim=2)  # Shape: (batch_size, num_centers)
 
 
 def gaussian_kernel(eps: float | torch.Tensor):
     def fn(x: torch.Tensor, y: torch.Tensor) -> torch.Tensor:
-        radii = compute_radii(x, y)
-        return torch.exp(-(eps * radii) ** 2)
+        radii_sq = compute_radii_squared(x, y)
+        return torch.exp(-eps ** 2 * radii_sq)
     return fn
 
 
 def mq_kernel_sarra(eps: float | torch.Tensor):
     def fn(x: torch.Tensor, y: torch.Tensor) -> torch.Tensor:
-        radii = compute_radii(x, y)
-        return torch.sqrt(1 + (eps * radii) ** 2)
+        radii_sq = compute_radii_squared(x, y)
+        return torch.sqrt(1 + eps ** 2 * radii_sq)
     return fn
 
 
 def mq_kernel_hardy(eps: float):
     def fn(x: torch.Tensor, y: torch.Tensor) -> torch.Tensor:
-        radii = compute_radii(x, y)
-        return torch.sqrt(eps ** 2 + radii ** 2)
+        radii = compute_radii_squared(x, y)
+        return torch.sqrt(eps ** 2 + radii)
     return fn
 
 
 def phs_kernel(exponent: float | torch.Tensor):
     def fn(x: torch.Tensor, y: torch.Tensor) -> torch.Tensor:
-        return compute_radii(x, y) ** exponent
+        return compute_radii_squared(x, y) ** (exponent/2)
     return fn
