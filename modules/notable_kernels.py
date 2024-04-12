@@ -8,8 +8,17 @@ def verify_input(x: torch.Tensor, y: torch.Tensor) -> None:
             f'Expected input tensor to have shape [N, 1, dim]. Received shape: {x.shape}.')
 
 
+# def compute_radii(x: torch.Tensor, centers: torch.Tensor) -> torch.Tensor:
+#     return torch.cdist(x, centers)
+
 def compute_radii(x: torch.Tensor, centers: torch.Tensor) -> torch.Tensor:
-    return torch.cdist(x, centers)
+    x = x.unsqueeze(1)  # Shape: (batch_size, 1, d)
+    centers = centers.unsqueeze(0)  # Shape: (1, num_centers, d)
+    
+    squared_distances = torch.sum((x - centers)**2, dim=2)  # Shape: (batch_size, num_centers)
+    distances = torch.sqrt(squared_distances)
+    
+    return distances
 
 
 def gaussian_kernel(eps: float | torch.Tensor):
