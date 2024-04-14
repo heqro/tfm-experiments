@@ -65,7 +65,7 @@
 \contentsline {figure}{\numberline {5.41}{\ignorespaces Results of the interpolation of the Runge function (10 centers). Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: best epoch to total epochs ratio. Right-hand side: $\log _{10}(L^\infty )-$norm.}}{59}{figure.caption.67}%
 \contentsline {figure}{\numberline {5.42}{\ignorespaces Results of the interpolation of the Runge function (11 centers). Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: best epoch to total epochs ratio. Right-hand side: $\log _{10}(L^\infty )-$norm.}}{59}{figure.caption.68}%
 \contentsline {figure}{\numberline {5.43}{\ignorespaces Results of the interpolation of the Runge function (12 centers). Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: best epoch to total epochs ratio. Right-hand side: $\log _{10}(L^\infty )-$norm.}}{60}{figure.caption.69}%
-\contentsline {figure}{\numberline {5.44}{\ignorespaces Caption}}{}{figure.caption.72}%
+\contentsline {figure}{\numberline {5.44}{\ignorespaces Wengert trace of the Gaussian kernel.}}{61}{figure.caption.70}%
 \contentsline {figure}{\numberline {5.45}{\ignorespaces Caption}}{}{figure.caption.73}%
 \contentsline {figure}{\numberline {5.46}{\ignorespaces Caption}}{}{figure.caption.74}%
 \contentsline {figure}{\numberline {5.47}{\ignorespaces Caption}}{}{figure.caption.75}%
@@ -149,8 +149,8 @@
 \contentsline {figure}{\numberline {5.125}{\ignorespaces Caption}}{}{figure.caption.153}%
 \contentsline {figure}{\numberline {5.126}{\ignorespaces Caption}}{}{figure.caption.154}%
 \contentsline {figure}{\numberline {5.127}{\ignorespaces Caption}}{}{figure.caption.155}%
-\contentsfinish 
 \contentsline {figure}{\numberline {5.128}{\ignorespaces Caption}}{}{figure.caption.156}%
+\contentsfinish 
 \contentsline {figure}{\numberline {5.129}{\ignorespaces Caption}}{}{figure.caption.157}%
 \contentsline {figure}{\numberline {5.130}{\ignorespaces Caption}}{}{figure.caption.158}%
 \contentsline {figure}{\numberline {5.131}{\ignorespaces Caption}}{}{figure.caption.159}%
@@ -168,3 +168,4 @@
 \contentsline {figure}{\numberline {5.143}{\ignorespaces Caption}}{}{figure.caption.171}%
 \contentsline {figure}{\numberline {5.144}{\ignorespaces Caption}}{}{figure.caption.172}%
 \contentsline {figure}{\numberline {5.145}{\ignorespaces Caption}}{}{figure.caption.173}%
+\contentsline {figure}{\numberline {5.146}{\ignorespaces Caption}}{}{figure.caption.174}%

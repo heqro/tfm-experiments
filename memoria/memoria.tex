@@ -429,7 +429,7 @@ proposed by Cybenko in \cite{cybenko1989approximation}, where a proof of this re
 
 
 
-\section[PINNs]{PINNs\footnote{Throughout this section, we shall follow the order of presentation proposed in \cite{cuomo2022scientific}.}}
+\section[PINNs]{PINNs\footnote{Throughout this section, we shall follow the order of presentation proposed in \cite{cuomo2022scientific}.}}\label{section:pinns}
 
 Physics-Informed Neural Networks (PINNs in the following) constitute the
 machine learning techniques that are used to solve Partial Differential
@@ -2890,6 +2890,56 @@ of the centers at the end of the training process.
   providing this performance as well, but they are not found very often with our
   training methods and initial starting configuration.
 \end{itemize}
+
+\section{Solving differential equations}
+
+\subsection{An observation on the computation of derivatives}
+
+As anticipated in Section \ref{section:pinns}, automatic differentiation allows the
+practicioner to evaluate the derivatives of a given function to machine precision.
+However, some considerations need to be taken when carrying out this technique.
+As mentioned in the PyTorch documentation website, concretely the 
+``\href{https://pytorch.org/tutorials/beginner/blitz/autograd_tutorial.html}{A gentle
+introduction to \texttt{torch.autograd}}'' tutorial, PyTorch's automatic differentiation
+module records the tensors we consider for our computations alongside the operations 
+they are involved in by means of a directed acyclic graph. This is coherent with
+Figure \ref{fig:wengert-trace} proposed in the context of our example of reverse 
+mode automatic differentiation.
+
+An immediate conclusion is the following: memory-efficient code will benefit from us
+``massaging'' the expression of our problem into more manageable forms, i.e., applying
+simplifications or identities to reduce the number of nodes on our graph. 
+Even if memory is not a concern to us, the construction of the expression graph is 
+in the context of RBF. Indeed, Figure \ref{fig:wenger-trace-gaussian} 
+depicts the Wengert trace of an RBF equipped with the Gaussian kernel, operating in the 2D
+case.
+
+A cursory evaluation of the trace reveals that the Gaussian kernel defaults to one in
+the case the input coincides with the RBF center. Moreover, it is direct to see that  
+$r=0$ is the sole maximum of the Gaussian kernel, with $\varphi'(r)=-2 \varepsilon^2 r
+e^{-\varepsilon^2 r^2}$, whereupon $\varphi'(0)=0$. The Wengert trace as in Figure \ref{fig:wenger-trace-gaussian} 
+indeed corresponds to $\varphi(r)$, but will yield \texttt{nan} when trying to compute 
+$\varphi'(0)$.
+
+\begin{figure}[ht]
+  % \frame
+  {\includegraphics[width=\textwidth, trim={2cm 22cm 7cm 3cm}, clip=true]{imagenes/rbf_discussion/diagrama-gaussian-wengert.pdf}}
+  \caption{Wengert trace of the Gaussian kernel.}
+  \label{fig:wenger-trace-gaussian}
+\end{figure}
+
+The reason for this is hidden behind the computation of the square root during the reverse
+mode differentiation process. Its derivative at zero, precisely the case we
+are discussing, does not exist.
+However, we know the bigger picture of this computation: this square root is not
+necessary because we will square it out right after. For the sake of reproducibility 
+and inspection in higher detail of this numerical issue, check the
+\href{https://github.com/heqro/tfm-experiments/blob/main/introductory_notebooks/differentials_computation/differentials_rbf_NANs.ipynb}{linked
+Jupyter notebook}. For an implementation of a Gaussian kernel that solves this issue
+using the observation on the square root, as well 
+as the way one can compute its derivatives in PyTorch can be found in
+\href{https://github.com/heqro/tfm-experiments/blob/main/introductory_notebooks/differentials_computation/differentials_rbf_NANs_fixed.ipynb}
+{this other notebook}.
 
 
 % Start writing here----------------------------------------------------
