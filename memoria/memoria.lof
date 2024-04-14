@@ -56,15 +56,15 @@
 \contentsline {figure}{\numberline {5.32}{\ignorespaces Distribution of centers at the end of the training process.}}{52}{figure.caption.58}%
 \contentsline {figure}{\numberline {5.33}{\ignorespaces Left-hand side: epochs ratio for the interpolation of the Runge function with the PHS kernel. Right-hand side: distribution of centers with 15 (top) and 17 (bottom) training nodes.}}{53}{figure.caption.59}%
 \contentsline {figure}{\numberline {5.34}{\ignorespaces Distribution of centers at the end of our iterative process for 15, 19, 23 and 29 training nodes, all of them trained with equispaced training points.}}{53}{figure.caption.60}%
-\contentsline {figure}{\numberline {5.35}{\ignorespaces Caption}}{}{figure.caption.63}%
-\contentsline {figure}{\numberline {5.36}{\ignorespaces Caption}}{}{figure.caption.64}%
-\contentsline {figure}{\numberline {5.37}{\ignorespaces Caption}}{}{figure.caption.65}%
-\contentsline {figure}{\numberline {5.38}{\ignorespaces Caption}}{}{figure.caption.66}%
-\contentsline {figure}{\numberline {5.39}{\ignorespaces Caption}}{}{figure.caption.67}%
-\contentsline {figure}{\numberline {5.40}{\ignorespaces Caption}}{}{figure.caption.68}%
-\contentsline {figure}{\numberline {5.41}{\ignorespaces Caption}}{}{figure.caption.69}%
-\contentsline {figure}{\numberline {5.42}{\ignorespaces Caption}}{}{figure.caption.70}%
-\contentsline {figure}{\numberline {5.43}{\ignorespaces Caption}}{}{figure.caption.71}%
+\contentsline {figure}{\numberline {5.35}{\ignorespaces Left-hand side: Franke function as a surface. Right-hand side: its filled contour representation.}}{56}{figure.caption.61}%
+\contentsline {figure}{\numberline {5.36}{\ignorespaces Results of the interpolation of the Runge function (5 centers). Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: best epoch to total epochs ratio. Right-hand side: $\log _{10}(L^\infty )-$norm.}}{56}{figure.caption.62}%
+\contentsline {figure}{\numberline {5.37}{\ignorespaces Results of the interpolation of the Runge function (6 centers). Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: best epoch to total epochs ratio. Right-hand side: $\log _{10}(L^\infty )-$norm.}}{57}{figure.caption.63}%
+\contentsline {figure}{\numberline {5.38}{\ignorespaces Results of the interpolation of the Runge function (7 centers). Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: best epoch to total epochs ratio. Right-hand side: $\log _{10}(L^\infty )-$norm.}}{57}{figure.caption.64}%
+\contentsline {figure}{\numberline {5.39}{\ignorespaces Results of the interpolation of the Runge function (8 centers). Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: best epoch to total epochs ratio. Right-hand side: $\log _{10}(L^\infty )-$norm.}}{58}{figure.caption.65}%
+\contentsline {figure}{\numberline {5.40}{\ignorespaces Results of the interpolation of the Runge function (9 centers). Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: best epoch to total epochs ratio. Right-hand side: $\log _{10}(L^\infty )-$norm.}}{58}{figure.caption.66}%
+\contentsline {figure}{\numberline {5.41}{\ignorespaces Results of the interpolation of the Runge function (10 centers). Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: best epoch to total epochs ratio. Right-hand side: $\log _{10}(L^\infty )-$norm.}}{59}{figure.caption.67}%
+\contentsline {figure}{\numberline {5.42}{\ignorespaces Results of the interpolation of the Runge function (11 centers). Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: best epoch to total epochs ratio. Right-hand side: $\log _{10}(L^\infty )-$norm.}}{59}{figure.caption.68}%
+\contentsline {figure}{\numberline {5.43}{\ignorespaces Results of the interpolation of the Runge function (12 centers). Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: best epoch to total epochs ratio. Right-hand side: $\log _{10}(L^\infty )-$norm.}}{60}{figure.caption.69}%
 \contentsline {figure}{\numberline {5.44}{\ignorespaces Caption}}{}{figure.caption.72}%
 \contentsline {figure}{\numberline {5.45}{\ignorespaces Caption}}{}{figure.caption.73}%
 \contentsline {figure}{\numberline {5.46}{\ignorespaces Caption}}{}{figure.caption.74}%
@@ -140,7 +140,6 @@
 \contentsline {figure}{\numberline {5.116}{\ignorespaces Caption}}{}{figure.caption.144}%
 \contentsline {figure}{\numberline {5.117}{\ignorespaces Caption}}{}{figure.caption.145}%
 \contentsline {figure}{\numberline {5.118}{\ignorespaces Caption}}{}{figure.caption.146}%
-\contentsfinish 
 \contentsline {figure}{\numberline {5.119}{\ignorespaces Caption}}{}{figure.caption.147}%
 \contentsline {figure}{\numberline {5.120}{\ignorespaces Caption}}{}{figure.caption.148}%
 \contentsline {figure}{\numberline {5.121}{\ignorespaces Caption}}{}{figure.caption.149}%
@@ -150,6 +149,7 @@
 \contentsline {figure}{\numberline {5.125}{\ignorespaces Caption}}{}{figure.caption.153}%
 \contentsline {figure}{\numberline {5.126}{\ignorespaces Caption}}{}{figure.caption.154}%
 \contentsline {figure}{\numberline {5.127}{\ignorespaces Caption}}{}{figure.caption.155}%
+\contentsfinish 
 \contentsline {figure}{\numberline {5.128}{\ignorespaces Caption}}{}{figure.caption.156}%
 \contentsline {figure}{\numberline {5.129}{\ignorespaces Caption}}{}{figure.caption.157}%
 \contentsline {figure}{\numberline {5.130}{\ignorespaces Caption}}{}{figure.caption.158}%
@@ -159,3 +159,12 @@
 \contentsline {figure}{\numberline {5.134}{\ignorespaces Caption}}{}{figure.caption.162}%
 \contentsline {figure}{\numberline {5.135}{\ignorespaces Caption}}{}{figure.caption.163}%
 \contentsline {figure}{\numberline {5.136}{\ignorespaces Caption}}{}{figure.caption.164}%
+\contentsline {figure}{\numberline {5.137}{\ignorespaces Caption}}{}{figure.caption.165}%
+\contentsline {figure}{\numberline {5.138}{\ignorespaces Caption}}{}{figure.caption.166}%
+\contentsline {figure}{\numberline {5.139}{\ignorespaces Caption}}{}{figure.caption.167}%
+\contentsline {figure}{\numberline {5.140}{\ignorespaces Caption}}{}{figure.caption.168}%
+\contentsline {figure}{\numberline {5.141}{\ignorespaces Caption}}{}{figure.caption.169}%
+\contentsline {figure}{\numberline {5.142}{\ignorespaces Caption}}{}{figure.caption.170}%
+\contentsline {figure}{\numberline {5.143}{\ignorespaces Caption}}{}{figure.caption.171}%
+\contentsline {figure}{\numberline {5.144}{\ignorespaces Caption}}{}{figure.caption.172}%
+\contentsline {figure}{\numberline {5.145}{\ignorespaces Caption}}{}{figure.caption.173}%

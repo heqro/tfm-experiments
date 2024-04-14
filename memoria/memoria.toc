@@ -19,5 +19,6 @@
 \contentsline {subsubsection}{arctan20x}{35}{subsection.5.2.2}%
 \contentsline {subsubsection}{sign}{35}{figure.caption.35}%
 \contentsline {section}{\numberline {5.3}experiment}{35}{section.5.3}%
-\contentsline {chapter}{Bibliography}{56}{equation.5.3.1}%
+\contentsline {section}{\numberline {5.4}Interpolation of the Franke function}{55}{section.5.4}%
+\contentsline {chapter}{Bibliography}{62}{figure.caption.69}%
 \contentsfinish 

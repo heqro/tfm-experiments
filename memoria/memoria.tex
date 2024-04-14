@@ -2453,7 +2453,7 @@ We now address the results of our experiments on the function named for convenie
     \label{fig:sin-higher-oscillations-gaussian-kernel-comparison-methods}
 \end{figure}
 
-Much like to other experiments involving the multiquadric kernel, we observe that its performance is not as impressive as that of the Gaussian kernel, providing a digit of accuracy less than the latter. Such is the case again for \texttt{sin-higher-oscillations}, depicted in Figure \ref{fig:sin-higher-oscillations-mq-kernel-sarra-comparison-methods}. The addition of more centers does not have a noticeable affect on our method as well as on the classic method. %The former, however, is on a tendency to improve the results as more training points are provided (check, for instance, the 11th and 13th columns), whereas the latter seems not to improve performance past the addition of 13 centers. 
+Much like the other experiments involving the multiquadric kernel, we observe that its performance is not as impressive as that of the Gaussian kernel, providing a digit of accuracy less than the latter. Such is the case again for \texttt{sin-higher-oscillations}, depicted in Figure \ref{fig:sin-higher-oscillations-mq-kernel-sarra-comparison-methods}. The addition of more centers does not have a noticeable affect on our method as well as on the classic method. %The former, however, is on a tendency to improve the results as more training points are provided (check, for instance, the 11th and 13th columns), whereas the latter seems not to improve performance past the addition of 13 centers. 
 Providing more training points does not noticeably improve the results for the classic method, in coherence with the previous results we have observed.
 
 \begin{figure}[ht]
@@ -2746,6 +2746,150 @@ Finally, none of the methodologies are capable of dealing with the function
 $L^{\infty} -$norm not to yield any negative values. We located figures
 \ref{fig:torch-sign-gaussian} and \ref{fig:opt-torch-sign-gaussian} in the
 Appendix for the sake of completion.
+
+\section{Interpolation of the Franke function}
+
+\subsection*{Description of the experiment}
+
+The 1D experiment showed that the proposed methodology (employing the Gaussian 
+kernel RBF interpolator with freely adjustable centers and shape parameters) is 
+capable of interpolating most of the functions we proposed with a low amount of 
+centers.
+
+We now turn to the 2D case, where we experiment with the interpolation of the 
+Franke function (depicted in Figure \ref{fig:franke-function-surface-contour})
+providing a grid of equispaced points as input data. 
+We repeat each configuration of training points and centers
+multiple times to try and provide a statistic description of the results. 
+This is motivated by some of the outliers observed in the previous experiment
+(see e.g. Figure \ref{fig:sin-higher-oscillations-gaussian}), 
+whereby a very specific configuration of training points and centers would 
+produce notably better or worse results than neighboring configurations. 
+Another motivation for this experiment comes from the fact that the network 
+parameters (save for the shape parameters set to $1$) are randomly set, 
+which may cause a particular realization of the training process to get stuck in a
+local minimum.
+
+In particular, we consider a fine enough grid of training points consisting of
+the cartesian product of 12 equispaced points in $[0,1]$. We interpolate this
+function for a number of centers ranging from $5$ to $12$. Like in the previous
+experiment, we will capture the minimum of the $L^\infty-$norm on the 
+verification dataset across all training iterations. We complement 
+this result with the ratio of the such best epoch with respect to the 
+total of iterations we consider, which is set to 50000. Finally, for each
+configuration of training points and centers, we also will note the location 
+of the centers at the end of the training process.
+
+\begin{figure}[ht]
+  \includegraphics[width=\textwidth]{/mnt/sdb1/Proyectos/tfm-experiments/memoria/imagenes/experiments/2d/franke_interpolation/Franke_Function_Surface_Contour.pdf}
+  \caption{Left-hand side: Franke function as a surface. Right-hand side:
+  its filled contour representation.}
+  \label{fig:franke-function-surface-contour}
+\end{figure}
+
+
+\subsection*{Results}
+
+\begin{figure}[H]
+  % \frame
+  {\includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c5_franke.pdf}}
+  \caption{Results of the interpolation of the Runge function (5 centers). 
+  Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: best epoch to total epochs ratio.
+  Right-hand side: $\log_{10}(L^\infty)-$norm.}
+  \label{fig:franke-tr12-c5}
+\end{figure}
+
+\begin{figure}[H]
+  \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c6_franke.pdf}
+  \caption{Results of the interpolation of the Runge function (6 centers). 
+  Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: best epoch to total epochs ratio.
+  Right-hand side: $\log_{10}(L^\infty)-$norm.}
+  \label{fig:franke-tr12-c6}
+\end{figure}
+\begin{figure}[H]
+  \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c7_franke.pdf}
+  \caption{Results of the interpolation of the Runge function (7 centers). 
+  Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: best epoch to total epochs ratio.
+  Right-hand side: $\log_{10}(L^\infty)-$norm.}
+  \label{fig:franke-tr12-c7}
+\end{figure}
+\begin{figure}[H]
+  \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c8_franke.pdf}
+  \caption{Results of the interpolation of the Runge function (8 centers). 
+  Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: best epoch to total epochs ratio.
+  Right-hand side: $\log_{10}(L^\infty)-$norm.}
+  \label{fig:franke-tr12-c8}
+\end{figure}
+\begin{figure}[H]
+  \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c9_franke.pdf}
+  \caption{Results of the interpolation of the Runge function (9 centers). 
+  Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: best epoch to total epochs ratio.
+  Right-hand side: $\log_{10}(L^\infty)-$norm.}
+  \label{fig:franke-tr12-c9}
+\end{figure}
+\begin{figure}[H]
+  \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c10_franke.pdf}
+  \caption{Results of the interpolation of the Runge function (10 centers). 
+  Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: best epoch to total epochs ratio.
+  Right-hand side: $\log_{10}(L^\infty)-$norm.}
+  \label{fig:franke-tr12-c10}
+\end{figure}
+\begin{figure}[H]
+  \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c11_franke.pdf}
+  \caption{Results of the interpolation of the Runge function (11 centers). 
+  Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: best epoch to total epochs ratio.
+  Right-hand side: $\log_{10}(L^\infty)-$norm.}
+  \label{fig:franke-tr12-c11}
+\end{figure}
+\begin{figure}[H]
+  \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c12_franke.pdf}
+  \caption{Results of the interpolation of the Runge function (12 centers). 
+  Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: best epoch to total epochs ratio.
+  Right-hand side: $\log_{10}(L^\infty)-$norm.}
+  \label{fig:franke-tr12-c12}
+\end{figure}
+
+\subsection*{Conclusions}
+
+\begin{itemize}
+  \item The epochs ratio shifts towards $1.0$ as more centers are 
+  provided to train with. The middle of the $\log_{10}L^\infty-$norm 
+  shifts towards progressively smaller values. This shift is most noticeable when
+  moving from 5 centers to 6 centers (compare right-hand sides of Figures 
+  \ref{fig:franke-tr12-c5} and \ref{fig:franke-tr12-c6}).
+  \item As more centers are provided, the ratio of epochs is distributed 
+  following a ``trumpet-like'' shape. This is change is most clear in the progression
+  from 6, 7 and 8 centers (Figures \ref{fig:franke-tr12-c6}, \ref{fig:franke-tr12-c7},
+  \ref{fig:franke-tr12-c8}).
+  \item The $\log_{10}L^\infty-$norm metric distribution features a tail on the top
+  side of it. It is at its largest for 5 centers (Figure \ref{fig:franke-tr12-c5}),
+  then notably diminishing for 6 centers (Figure \ref{fig:franke-tr12-c6})
+  and dissipating for 10 centers onwards (Figures \ref{fig:franke-tr12-c10}, 
+  \ref{fig:franke-tr12-c11} and \ref{fig:franke-tr12-c12}).
+  
+  For 6 centers onwards, this tail is compartmentalized from the rest of the 
+  distribution of the data, which resembles a normal distribution.
+
+  \item Independently of the number of centers provided, the three extrema of the
+  interpolated function are always occupied with a center. After they have been
+  occupied, the rest of the centers distribute along the steepest ascent direction
+  of the Franke function, which is located outside of the domain and is not part of
+  the training data. This is
+  most notable from 8 centers onwards (Figure \ref{fig:franke-tr12-c8}).
+
+  The remaining centers distribute elsewhere, notably outside of the domain 
+  as well. An intuitive explanation for this phenomenon not entirely clear.
+  Irrespectively, this distribution is preserved from 10 centers onwards (Figures 
+  \ref{fig:franke-tr12-c10}, \ref{fig:franke-tr12-c11}, and
+  \ref{fig:franke-tr12-c12}).
+
+  \item The repetition of experiments shows that $10$ centers are enough to guarantee
+  from a practical perspective at least two digits of accuracy at the end of the
+  training process, with a median of three digits. Nevertheless, the data shows 
+  there exist configurations of our model involving 6 centers that are capable of
+  providing this performance as well, but they are not found very often with our
+  training methods and initial starting configuration.
+\end{itemize}
 
 
 % Start writing here----------------------------------------------------
