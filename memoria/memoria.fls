@@ -1184,6 +1184,11 @@ INPUT ./imagenes/experiments/1d/ode/ode_report.pdf
 INPUT ./imagenes/experiments/1d/ode/ode_report.pdf
 INPUT ./imagenes/experiments/1d/ode/ode_report.pdf
 INPUT ./imagenes/experiments/1d/ode/ode_report.pdf
+INPUT ./imagenes/experiments/1d/ode/parameters_of_rbf_interpolator.pdf
+INPUT ./imagenes/experiments/1d/ode/parameters_of_rbf_interpolator.pdf
+INPUT ./imagenes/experiments/1d/ode/parameters_of_rbf_interpolator.pdf
+INPUT ./imagenes/experiments/1d/ode/parameters_of_rbf_interpolator.pdf
+INPUT ./imagenes/experiments/1d/ode/parameters_of_rbf_interpolator.pdf
 INPUT /usr/share/texmf/fonts/tfm/public/txfonts/t1xsc.tfm
 INPUT /usr/share/texmf/fonts/vf/public/txfonts/t1xsc.vf
 INPUT /usr/share/texmf/fonts/tfm/public/txfonts/rtxsc.tfm

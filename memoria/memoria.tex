@@ -2636,7 +2636,7 @@ process:
 
 \newpage
 
-To close the report, we turn to elaborate on why the results may poor for the \textbf{PHS kernel}.
+To close the report, we turn to elaborate on why the results may be poor for the \textbf{PHS kernel}.
 The left-hand side of Figure \ref{fig:epochs-runge-phs-show} depicts the interpolation of the Runge function with a PHS kernel and equispaced points, indicating that the best iteration in the $L^\infty-$norm for the PHS kernel interpolation is close to the last iteration we consider. This is actually the case for every experiment involving this kernel.
 
 The right-hand side of this same figure depicts the distribution of the centers at the last iteration of our process, under 15 and 17 training points. Independently of the number of centers we consider, we observe that these centers are organized in well-distinguished groups. This is actually the case for a good part of all our experiments (see Figures \ref{fig:asymptotic-runge_function-TR15}-\ref{fig:asymptotic-sin_pi_x_sq-TR29} of the Appendix).
@@ -2748,6 +2748,7 @@ $L^{\infty} -$norm not to yield any negative values. We located figures
 Appendix for the sake of completion.
 
 \section{Interpolation of the Franke function}
+\label{section:interpolation-of-franke}
 
 \subsection*{Description of the experiment}
 
@@ -2998,16 +2999,42 @@ model solving this equation.
   \label{fig:solution-ode-1d}
 \end{figure}
 
+\begin{wrapfigure}{R}{.5\textwidth}
+  \caption{Parameters of the network.\label{fig-parameters-ode-1d}}
+  {\includegraphics[width=\textwidth]{imagenes/experiments/1d/ode/parameters_of_rbf_interpolator.pdf}}
+  \end{wrapfigure} 
+
 Some conclusions are in order:
 \begin{itemize}
   \item The absolute error (left-hand side image) shows that we can provide up to three digits
   of precision.
   \item The visual comparison of both solutions (middle image) shows that 
   some of the prescribed centers leave the problem domain.
-  \item The learning curves indicate that the $L^\infty-$norm as well as the MSE decrease, but the
-  former is stabilizing on a plateau towards the end of the training process. The action 
-  of the Adam optimizer explains the ``spikes'' showing up every few iterations.
+  \item The learning curves indicate that the $L^\infty-$norm as well as the MSE decrease.
+  Unlike the latter, the former is stabilizing on a plateau towards the end of the training process. 
+  The action of the Adam optimizer explains the ``spikes'' showing up every few iterations.
 \end{itemize}
+
+A deeper inspection on the parameters of the network is shown in Figure \ref{fig-parameters-ode-1d}.
+It shows the coefficients of each addend in the RBF model, the numeric location of
+their centers and the base-10 logarithms of the shape parameters.
+
+This complementary report shows that two of the five shape parameters are very close to zero,
+their contribution being comparable to that of a bias addend in an usual linear network layer. 
+Further conclusions can be drawn from this model:
+\begin{itemize}
+  \item From a practical perspective, considering three 
+  RBFs alongside a bias term could have sufficed to solve this differential equation
+  \footnote{However, we know from the conclusions devolved in the experiment in Section
+   \ref{section:interpolation-of-franke} that smaller models are less likely to find
+   satisfactory solutions.}.
+  \item Those RBFs whose shape parameter is large enough still feature $\varepsilon<1$, which is
+  known to provide better accuracy. Two of these RBFs are located outside the 
+  domain of the problem.
+\end{itemize} 
+
+
+
 
 
 % Start writing here----------------------------------------------------
