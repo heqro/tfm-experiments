@@ -2824,31 +2824,45 @@ Appendix for the sake of completion.
 The 1D experiment showed that the proposed methodology (employing the Gaussian 
 kernel RBF interpolator with freely adjustable centers and shape parameters) is 
 capable of interpolating most of the functions we proposed with a low amount of 
-centers.
+centers. 
 
-We now turn to the 2D case, where we experiment with the interpolation of the 
-Franke function (depicted in Figure \ref{fig:franke-function-surface-contour})
-providing a grid of equispaced points as input data. 
-We repeat each configuration of training points and centers
-multiple times to try and provide a statistic description of the results. 
-This is motivated by some of the outliers observed in the previous experiment
+We also observed that the ``classic'' methodology improved the accuracy
+more notably as more centers were provided,
+whereas the proposed one was seen to produce better results by supplying more 
+training points. However, our methodology also featured outliers,
 (see e.g. Figure \ref{fig:sin-higher-oscillations-gaussian}), 
 whereby a very specific configuration of training points and centers would 
 produce notably better or worse results than neighboring configurations. 
-Another motivation for this experiment comes from the fact that the network 
-parameters (save for the shape parameters set to $1$) are randomly set, 
-which may cause a particular realization of the training process to get stuck in a
-local minimum.
+
+We now turn to the 2D case, where we experiment with the interpolation of the 
+Franke function (depicted in Figure \ref{fig:franke-function-surface-contour})
+providing a dense enough grid of equispaced points as training data. 
+For each number of centers, we will repeat the interpolation experiment
+several times. 
 
 In particular, we consider a fine enough grid of training points consisting of
 the cartesian product of 12 equispaced points in $[0,1]$. We interpolate this
 function for a number of centers ranging from $5$ to $12$. Like in the previous
 experiment, we will capture the minimum of the $L^\infty-$norm on the 
-verification dataset across all training iterations. We complement 
+verification dataset across all training iterations. 
+
+We complement 
 this result with the ratio of the such best epoch with respect to the 
 total of iterations we consider, which is set to 50000. Finally, for each
 configuration of training points and centers, we also will note the location 
-of the centers at the end of the training process.
+of the centers at the end of the training process. With these ideas in mind,
+we ask the following questions:
+
+\begin{itemize}
+  \item What does the distribution of the centers look like at the end of the 
+  training processes? 
+  \item How do the $L^\infty-$norm and the ratio of best epochs distribute 
+  as the number of centers varies?
+  \item On the basis of repeated experiments, can we account for the outliers 
+  we observed in the 1D case?
+  \item Are there any trade-offs associated with decreasing
+  or increasing the number of centers in the interpolation process?
+\end{itemize}
 
 \begin{figure}[ht]
   \includegraphics[width=\textwidth]{/mnt/sdb1/Proyectos/tfm-experiments/memoria/imagenes/experiments/2d/franke_interpolation/Franke_Function_Surface_Contour.pdf}
@@ -2923,7 +2937,7 @@ of the centers at the end of the training process.
 
 \begin{itemize}
   \item The epochs ratio shifts towards $1.0$ as more centers are 
-  provided to train with. The middle of the $\log_{10}L^\infty-$norm 
+  provided to train with. The median of the $\log_{10}L^\infty-$norm 
   shifts towards progressively smaller values. This shift is most noticeable when
   moving from 5 centers to 6 centers (compare right-hand sides of Figures 
   \ref{fig:franke-tr12-c5} and \ref{fig:franke-tr12-c6}).
@@ -2948,8 +2962,8 @@ of the centers at the end of the training process.
   most notable from 8 centers onwards (Figure \ref{fig:franke-tr12-c8}).
 
   The remaining centers distribute elsewhere, notably outside of the domain 
-  as well. An intuitive explanation for this phenomenon not entirely clear.
-  Irrespectively, this distribution is preserved from 10 centers onwards (Figures 
+  as well. Their particular distribution seems to be preserved from 10 centers
+  onwards (Figures 
   \ref{fig:franke-tr12-c10}, \ref{fig:franke-tr12-c11}, and
   \ref{fig:franke-tr12-c12}).
 
@@ -2987,7 +3001,7 @@ case.
 A cursory evaluation of the trace reveals that the Gaussian kernel defaults to one in
 the case the input coincides with the RBF center. Moreover, it is direct to see that  
 $r=0$ is the sole maximum of the Gaussian kernel, with $\varphi'(r)=-2 \varepsilon^2 r
-e^{-\varepsilon^2 r^2}$, whereupon $\varphi'(0)=0$. The Wengert trace as in Figure \ref{fig:wenger-trace-gaussian} 
+e^{-\varepsilon^2 r^2}$, whereupon $\varphi'(0)=0$ iff $r=0$. The Wengert trace as in Figure \ref{fig:wenger-trace-gaussian} 
 indeed corresponds to $\varphi(r)$, but will yield \texttt{nan} when trying to compute 
 $\varphi'(0)$.
 
@@ -3080,8 +3094,8 @@ Some conclusions are in order:
   \item The visual comparison of both solutions (middle image) shows that 
   some of the prescribed centers leave the problem domain.
   \item The learning curves indicate that the $L^\infty-$norm as well as the MSE decrease.
-  Unlike the latter, the former is stabilizing on a plateau towards the end of the training process. 
-  The action of the Adam optimizer explains the ``spikes'' showing up every few iterations.
+  The action of the Adam optimizer explains the ``spikes'' showing up every few iterations
+  on both curves.
 \end{itemize}
 
 A deeper inspection on the parameters of the network is shown in Figure \ref{fig-parameters-ode-1d}.
@@ -3090,7 +3104,7 @@ their centers and the base-10 logarithms of the shape parameters.
 
 This complementary report shows that two of the five shape parameters are very close to zero,
 their contribution being comparable to that of a bias addend in an usual linear network layer. 
-Further conclusions can be drawn from this model:
+Further conclusions can be drawn from this image:
 \begin{itemize}
   \item From a practical perspective, considering three 
   RBFs alongside a bias term could have sufficed to solve this differential equation

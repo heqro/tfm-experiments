@@ -22,5 +22,5 @@
 \contentsline {section}{\numberline {5.5}Solving differential equations}{62}{section.5.5}%
 \contentsline {subsection}{\numberline {5.5.1}An observation on the computation of derivatives}{62}{subsection.5.5.1}%
 \contentsline {subsection}{\numberline {5.5.2}1D ODE}{63}{subsection.5.5.2}%
-\contentsline {chapter}{Bibliography}{65}{figure.caption.72}%
+\contentsline {chapter}{Bibliography}{66}{figure.caption.72}%
 \contentsfinish 
