@@ -192,8 +192,8 @@ def print_approximation(approx_points, target_points, xmax, xmin, res, centers, 
         plt.legend(loc='lower left', bbox_to_anchor=(-1, 1))
 
 
-def plot_data_3d(centers, nn, fn, xmin: float, xmax: float, dev, approx: torch.Tensor, target: torch.Tensor,
-                 val_domain: torch.Tensor, res: int, loss: list[float], linf: list[float],
+def plot_data_3d(centers, xmin: float, xmax: float, approx: torch.Tensor, target: torch.Tensor,
+                 res: int, loss: list[float], linf: list[float],
                  filename: str = 'output', title: str | None = None):
 
     with torch.no_grad():
