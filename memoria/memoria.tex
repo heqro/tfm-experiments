@@ -473,7 +473,7 @@ where
 \end{equation}
 and
 \begin{equation}
-    \mathcal{L}_B (\theta) = \int_{\Omega} (B (\mathcal{N}\mathcal{N}
+    \mathcal{L}_B (\theta) = \int_{\partial \Omega} (B (\mathcal{N}\mathcal{N}
    (\tmmathbf{z}; \theta)) - g (\tmmathbf{z}))^2 d\tmmathbf{z}
    \label{loss-boundary}
 \end{equation}
@@ -2923,7 +2923,7 @@ $\varphi'(0)$.
 
 \begin{figure}[ht]
   % \frame
-  {\includegraphics[width=\textwidth, trim={2cm 22cm 7cm 3cm}, clip=true]{imagenes/rbf_discussion/diagrama-gaussian-wengert.pdf}}
+  {\includegraphics[width=.85\textwidth, trim={2cm 22cm 7cm 3cm}, clip=true]{imagenes/rbf_discussion/diagrama-gaussian-wengert.pdf}}
   \caption{Wengert trace of the Gaussian kernel.}
   \label{fig:wenger-trace-gaussian}
 \end{figure}
@@ -2940,6 +2940,74 @@ using the observation on the square root, as well
 as the way one can compute its derivatives in PyTorch can be found in
 \href{https://github.com/heqro/tfm-experiments/blob/main/introductory_notebooks/differentials_computation/differentials_rbf_NANs_fixed.ipynb}
 {this other notebook}.
+
+\subsection{1D ODE}
+
+Consider the following boundary value problem:
+\[ \left\{\begin{array}{l}
+     y'' (x) = 2\\
+     y (0) = y (1) = 1 / 4
+   \end{array}\right. . \]
+
+This is an ODE in $x$ which features the explicit solution $(x - 1 / 2)^2$.
+Because it marks the first instance of our discussion of differential equations 
+with our model, we will provide more detail than in the following examples.
+
+Let $\mathcal{N}\mathcal{N} (z ; \theta)$ denote the application of our RBF
+model equipped with a set of parameters $\theta$ to a given input $z \in
+\mathbb{R}$. Equation \eqref{loss-fun-pinn}, which prescribes the loss function
+of a PINN as the weighted sum of the mean-squared errors inside the domain and at 
+the boundary, sets us out to solve
+\begin{equation}
+  \min_{\theta}  \int_0^1 \left( \frac{d^2}{d z^2} \mathcal{N}\mathcal{N} (z ;
+  \theta) - 2 \right)^2 d z + \int_{\{ 0, 1 \}} (\mathcal{N}\mathcal{N} (z ;
+  \theta) - 1 / 4)^2 d z, \label{eqn-lebesgue-ode-1}
+\end{equation}
+whereupon Lebesgue integration theory indicates that the second addend is zero.
+This effectively removes the boundary condition in the 1D case. We may 
+recover it in the following manner:
+
+Let $\tmmathbf{z}= \{ z_i \}_{i = 1}^n$ be an arbitrary subset of $(0, 1)$,
+and let $\mathcal{N}\mathcal{N} (\tmmathbf{z}; \theta)$ denote the
+element-wise application of $\mathcal{N}\mathcal{N}$ to each $z_i$. A
+formulation of \eqref{eqn-lebesgue-ode-1} that our PINN can solve for is
+\[ \min_{\theta}  \frac{1}{n} \left\| \frac{d^2}{d z^2} \mathcal{N}\mathcal{N}
+   (\tmmathbf{z}; \theta) - 2 \right\|_2^2 + \frac{1}{2} \left( \left\|
+   \mathcal{N}\mathcal{N} (0, \theta) - \frac{1}{4} \right\|_2^2 + \left\|
+   \mathcal{N}\mathcal{N} (1, \theta) - \frac{1}{4} \right\|_2^2 \right), \]
+which features the boundary conditions in $0$ and $1$ back again. We now solve the 
+differential equation minimizing this formulation, considering a grid of 
+five RBFs as prescribed in our model: with learnable shape parameters and centers.
+We provide an equispaced grid of 15 training points, which we shall train our 
+PINN against.
+The detailed implementation in code of the example is available in the 
+\href{https://github.com/heqro/tfm-experiments/blob/main/introductory_notebooks/solving_diff_eqs/1d/ode_example_1.ipynb}{corresponding Jupyter notebook}
+in the repository.
+We turn to Figure \ref{fig:solution-ode-1d} for a report on the performance of our 
+model solving this equation.
+
+\begin{figure}[ht]
+  % \frame
+  \hspace*{-2cm}
+  {\includegraphics[width=1.25\textwidth, trim={2cm 0 2.5cm 0}, clip=true]
+  {imagenes/experiments/1d/ode/ode_report.pdf}}
+  \caption{Left-hand side: absolute error of the model solution with regards to the actual
+  solution. Middle image: visual comparison of both solutions alongside the location of the 
+  model's centers.
+  Right-hand side: learning curves (mean squared error and $L^\infty-$norm) of the model.}
+  \label{fig:solution-ode-1d}
+\end{figure}
+
+Some conclusions are in order:
+\begin{itemize}
+  \item The absolute error (left-hand side image) shows that we can provide up to three digits
+  of precision.
+  \item The visual comparison of both solutions (middle image) shows that 
+  some of the prescribed centers leave the problem domain.
+  \item The learning curves indicate that the $L^\infty-$norm as well as the MSE decrease, but the
+  former is stabilizing on a plateau towards the end of the training process. The action 
+  of the Adam optimizer explains the ``spikes'' showing up every few iterations.
+\end{itemize}
 
 
 % Start writing here----------------------------------------------------

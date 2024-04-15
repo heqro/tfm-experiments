@@ -22,5 +22,6 @@
 \contentsline {section}{\numberline {5.4}Interpolation of the Franke function}{55}{section.5.4}%
 \contentsline {section}{\numberline {5.5}Solving differential equations}{61}{section.5.5}%
 \contentsline {subsection}{\numberline {5.5.1}An observation on the computation of derivatives}{61}{subsection.5.5.1}%
-\contentsline {chapter}{Bibliography}{63}{figure.caption.70}%
+\contentsline {subsection}{\numberline {5.5.2}1D ODE}{62}{subsection.5.5.2}%
+\contentsline {chapter}{Bibliography}{64}{figure.caption.71}%
 \contentsfinish 
