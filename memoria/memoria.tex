@@ -353,7 +353,76 @@ hmargin=3cm
 \pagenumbering{arabic} % numbering with Arabic numerals for the rest of the document.	
 
 \chapter{Introduction}
-\section{Motivation}
+% \section{Motivation}
+
+Machine Learning (ML) has experienced a surge in popularity and application across various 
+domains in recent years, which can be owed to different contributing factors.
+Firstly, the development of now readily available high performance hardware like
+Graphics Processing Units (GPUs) has significantly sped up the times of training 
+and inference of ML models, where 
+repeated operations are common \cite{oh2004gpu}. 
+Moreover, algorithmic improvements like automatic differentiation has enabled a streamlined
+way to find suitable parameters for models solving a wide variety of problems 
+\cite{baydin2018automatic}.
+
+A second contributing factor is data availability. Be it social media,  
+embedded hardware sensors or any of our technological devices, a copious amount of data 
+is produced
+by the minute which can then be labored by ML algorithms to identify patterns and
+make predictions. Not only that, governments worldwide are fostering open access to 
+data across domains as varied as culture, demography, environment and technology.
+In particular, the government of Spain, the country where this Master's thesis has been
+written in, is undertaking efforts in the framework of their
+\href{https://datos.gob.es/en}{Open Data initiative} to leverage collaboration between 
+analysts and contributing to the spread of knowledge.
+
+Precisely along this last idea, the third key contributing factor is found in the form
+of Free and Open Source Software (FOSS). The open nature of ML libraries like 
+\href{https://pytorch.org/}{PyTorch} and \href{https://www.tensorflow.org/}{TensorFlow} 
+have not only made state-of-the-art
+techniques accessible to the broad public, but also seen the benefits entailing any FOSS
+project: volunteers and professionals alike freely 
+contributing in a transparent environment 
+to the improvement, triaging, interoperability and other extensions of these projects.
+
+Despite its widespread adoption and empirical success, a robust theoretical foundation that 
+guarantees the effectiveness of ML is still lacking, while empirical evidence abounds 
+regarding its usefulness across multiple areas of knowledge.
+
+One notable characteristic of ML models is their inherent complexity, which often manifests 
+in intricate model architectures and parameter configurations \cite{cuomo2022scientific}. 
+The currently heuristic nature of ML techniques stands in the way of decisively 
+anticipating if a given model will be up to the task at hand. 
+Indeed, while it is true that one can always verify if the inputs of
+the model suit the problem parameters and if the output of the model suits the solution,
+providing a justification of the effectiveness of each intermediate layer that is
+exempt of heuristics is a non-trivial task.
+
+Drawing parallels with classical numerical methods, such as the finite element method (FEM) for 
+solving partial differential equations (PDEs), provides valuable insights into the underlying 
+principles of some models in ML. In the former framework, 
+basis functions are employed to 
+reconstruct the target function through a linear combination, akin to the linear combination 
+one would expect to find at the last layer of many neural networks.
+
+However, a fundamental distinction arises in the 
+prescription of basis functions: while numerical methods explicitly define basis functions, 
+such as ``hat'' functions for solving ordinary differential equations (ODEs), ML practitioners 
+rely on arbitrarily complex compositions of functions which have been empirically verified 
+to possess sufficient approximation capacity for the desired problem domains.
+
+Latent similarities between FEM (as well as other techniques) and ML practice 
+can help us show the way forward to reconciling well-known theoretical principles with 
+empirical methodologies. While numerical
+ methods offer formal formulations and verifiable procedures, ML adopts a more heuristic
+  approach, leveraging compositional functions with empirically validated approximation 
+  capabilities.
+
+The aim of this work is to establish an intermediary perspective that intertwines
+mathematical theory, particularly that of Radial Basis Functions (RBFs), with the
+computational power and flexibility supplied by ML techniques. 
+
+
 \section{Objectives}
 
 \chapter{State of the art}
