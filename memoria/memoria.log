@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/TeX Live for SUSE Linux) (preloaded format=pdflatex 2024.4.8)  16 APR 2024 10:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/TeX Live for SUSE Linux) (preloaded format=pdflatex 2024.4.8)  16 APR 2024 10:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -3317,7 +3317,7 @@ Here is how much of TeX's memory you used:
  475 hyphenation exceptions out of 8191
  117i,20n,121p,1360b,3893s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf/fonts/type1/public/txfonts/rtcxr.pfb></usr/share/texmf/fonts/type1/public/txfonts/rtxb.pfb></usr/share/texmf/fonts/type1/public/txfonts/rtxbi.pfb></usr/share/texmf/fonts/type1/public/txfonts/rtxi.pfb></usr/share/texmf/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texmf/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texmf/fonts/type1/public/txfonts/rtxsc.pfb></usr/share/texmf/fonts/type1/public/txfonts/t1xbtt.pfb></usr/share/texmf/fonts/type1/public/txfonts/t1xtt.pfb></usr/share/texmf/fonts/type1/public/txfonts/txex.pfb></usr/share/texmf/fonts/type1/public/txfonts/txsy.pfb></usr/share/texmf/fonts/type1/public/txfonts/txsya.pfb></usr/share/texmf/fonts/type1/public/txfonts/txsyb.pfb></usr/share/texmf/fonts/type1/public/txfonts/txsyc.pfb></usr/share/texmf/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texmf/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmri8a.pfb>
-Output written on memoria.pdf (141 pages, 9300079 bytes).
+Output written on memoria.pdf (141 pages, 9300088 bytes).
 PDF statistics:
  25364 PDF objects out of 26593 (max. 8388607)
  412 named destinations out of 1000 (max. 500000)
