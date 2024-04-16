@@ -1,7 +1,7 @@
 \babel@toc {english}{}\relax 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Wengert trace of the function proposed as an example.}}{6}{figure.caption.5}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Wengert's trace of the function proposed as an example.}}{6}{figure.caption.5}%
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Components of a PINN during the training phase, where we solve \eqref {loss-fun-pinn}. }}{7}{figure.caption.6}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Representation of the radial basis function $e^{-\varepsilon ^2 r^2}$. Note that a smaller value of $\varepsilon $ translates into a progressively flatter shape, whereas a larger value of $\varepsilon $ causes the function to feature a more stark cusp.}}{17}{figure.caption.7}%
@@ -9,7 +9,7 @@
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Contour of the \texttt {xor} binary operator with a Gaussian RBF expansion for different values of the shape parameter $\varepsilon $. In coherence with Figure \ref {fig:negative-exp-rbf}, larger values of $\varepsilon $ translate into starker cusps (see figures for $\varepsilon =3.5,5.0$).}}{22}{figure.caption.10}%
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Left-hand side: the condition number of the inversion of matrix $A$ of the \texttt {xor} binary operator interpolation problem. Right-hand side: order of magnitude of the largest (in absolute value) coefficient of the RBF expansion. Note that the ``empty'' values in the right-hand side figure are due to the numerical computation of the coefficients $\lambda _1, \lambda _2$ in \eqref {eqn-lda1-lda2} returning a value too large for the system's floating point system, which then defaults to infinity.}}{23}{figure.caption.11}%
 \contentsline {figure}{\numberline {3.5}{\ignorespaces Representation of the multiquadric radial basis function $\sqrt {1+\varepsilon ^2 r^2}$. Much like in the case \ref {fig:negative-exp-rbf}, that a smaller value of $\varepsilon $ translates into a progressively flatter shape, whereas a larger value of $\varepsilon $ causes the function to feature a more stark cusp.}}{25}{figure.caption.12}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Polynomial interpolation of the Runge function with a $n=5,8,11$ equispaced points. As one can see, larger degrees of the interpolating polynomial do not necessarily imply that the approximation will be close to the actual function between each pair of interpolation nodes.}}{26}{figure.caption.13}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Polynomial interpolation of the Runge function with $n=5,8,11$ equispaced points. As one can see, larger degrees of the interpolating polynomial do not necessarily imply that the approximation will be close to the actual function between each pair of interpolation nodes.}}{26}{figure.caption.13}%
 \contentsline {figure}{\numberline {3.7}{\ignorespaces Left-hand side: absolute error when using Bernstein polynomials of progressively higher degrees to approximate the Runge function. Right-hand side: a representation of the Runge function alongside a polynomial of higher degree.}}{28}{figure.caption.14}%
 \contentsline {figure}{\numberline {3.8}{\ignorespaces Distribution of Chebyshev nodes alongside the horizontal axis for an increasing number of nodes.}}{28}{figure.caption.15}%
 \contentsline {figure}{\numberline {3.9}{\ignorespaces Left-hand side: polynomial interpolation of the Runge function for $n=5, 8, 11, 20$ points distributed as in \eqref {eqn-chebyshev-nodes}. Right-hand side: the corresponding relative error in logarithmic scale.}}{29}{figure.caption.16}%
@@ -38,136 +38,136 @@
 \contentsline {figure}{\numberline {5.14}{\ignorespaces Caption}}{42}{figure.caption.37}%
 \contentsline {figure}{\numberline {5.15}{\ignorespaces Caption}}{42}{figure.caption.38}%
 \contentsline {figure}{\numberline {5.16}{\ignorespaces Caption}}{43}{figure.caption.39}%
-\contentsline {figure}{\numberline {5.17}{\ignorespaces Left-hand side: $\sin (x^2)$ for $x \in [0, 3]$. Right-hand side: $ \sin (\pi x^2)$ for $x \in [- 1, 1]$.}}{43}{figure.caption.40}%
-\contentsline {figure}{\numberline {5.18}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of the Runge function with a Gaussian kernel using equispaced nodes, comparing the performance our method using no polynomial term (left-hand side) as well as a linear polynomial term (right-hand side).}}{44}{figure.caption.42}%
-\contentsline {figure}{\numberline {5.19}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of the Runge function with a Gaussian kernel using equispaced nodes, comparing our method (left-hand side) with the classic method (right-hand side).}}{45}{figure.caption.43}%
-\contentsline {figure}{\numberline {5.20}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of the Runge function with the multiquadric kernel using equispaced nodes, comparing our method (left-hand side) with the classic method (right-hand side).}}{45}{figure.caption.44}%
-\contentsline {figure}{\numberline {5.21}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of the Gibbs function with a Gaussian kernel using equispaced nodes, comparing our method (left-hand side) with the classic method (right-hand side).}}{46}{figure.caption.45}%
-\contentsline {figure}{\numberline {5.22}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of \texttt {sin\_higher\_oscillations} with a Gaussian kernel using equispaced nodes, comparing our method (left-hand side) with the classic method (right-hand side).}}{46}{figure.caption.46}%
-\contentsline {figure}{\numberline {5.23}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of \texttt {sin\_higher\_oscillations} with a multiquadric kernel using equispaced nodes, comparing our method (left-hand side) with the classic method (right-hand side).}}{47}{figure.caption.47}%
-\contentsline {figure}{\numberline {5.24}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of \texttt {sin\_pi\_x\_sq} with a Gaussian kernel using equispaced nodes, comparing our method (left-hand side) with the classic method (right-hand side).}}{47}{figure.caption.48}%
-\contentsline {figure}{\numberline {5.25}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of \texttt {sin\_pi\_x\_sq} with a Gaussian kernel using equispaced nodes, comparing our method (left-hand side) with the classic method (right-hand side).}}{48}{figure.caption.49}%
-\contentsline {figure}{\numberline {5.26}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of \texttt {torch\_sign} with a Gaussian kernel using equispaced nodes, comparing our method (left-hand side) with the classic method (right-hand side).}}{48}{figure.caption.50}%
-\contentsline {figure}{\numberline {5.27}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of \texttt {runge\_function} with a PHS kernel using equispaced nodes, comparing our method (left-hand side) with the classic method (right-hand side).}}{49}{figure.caption.51}%
-\contentsline {figure}{\numberline {5.28}{\ignorespaces Ratio of the best epoch in the sense of the $L^\infty -$norm over the maximum number of epochs, for the interpolation of the Runge function with a multiquadric kernel and equispaced nodes.}}{50}{figure.caption.52}%
-\contentsline {figure}{\numberline {5.29}{\ignorespaces Left-hand side: epochs ratio for the interpolation of the Runge function. Right-hand side: epochs ratio for the interpolation of the Gibbs function. In both images, interpolation has been carried out with the Gaussian kernel.}}{51}{figure.caption.53}%
-\contentsline {figure}{\numberline {5.30}{\ignorespaces Last few iterations of the interpolation of \text {{\ttfamily {runge\_function}}} with 15 training points and 13 centers.}}{52}{figure.caption.56}%
-\contentsline {figure}{\numberline {5.31}{\ignorespaces Last few iterations of the interpolation of \text {{\ttfamily {gibbs\_function}}} with 29 training points and 7 centers.}}{53}{figure.caption.57}%
-\contentsline {figure}{\numberline {5.32}{\ignorespaces Distribution of centers at the end of the training process.}}{53}{figure.caption.58}%
-\contentsline {figure}{\numberline {5.33}{\ignorespaces Left-hand side: epochs ratio for the interpolation of the Runge function with the PHS kernel. Right-hand side: distribution of centers with 15 (top) and 17 (bottom) training nodes.}}{54}{figure.caption.59}%
-\contentsline {figure}{\numberline {5.34}{\ignorespaces Distribution of centers at the end of our iterative process for 15, 19, 23 and 29 training nodes, all of them trained with equispaced training points.}}{54}{figure.caption.60}%
-\contentsline {figure}{\numberline {5.35}{\ignorespaces Left-hand side: Franke function as a surface. Right-hand side: its filled contour representation.}}{57}{figure.caption.61}%
-\contentsline {figure}{\numberline {5.36}{\ignorespaces Results of the interpolation of the Runge function (5 centers). Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: best epoch to total epochs ratio. Right-hand side: $\log _{10}(L^\infty )-$norm.}}{58}{figure.caption.62}%
-\contentsline {figure}{\numberline {5.37}{\ignorespaces Results of the interpolation of the Runge function (6 centers). Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: best epoch to total epochs ratio. Right-hand side: $\log _{10}(L^\infty )-$norm.}}{58}{figure.caption.63}%
-\contentsline {figure}{\numberline {5.38}{\ignorespaces Results of the interpolation of the Runge function (7 centers). Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: best epoch to total epochs ratio. Right-hand side: $\log _{10}(L^\infty )-$norm.}}{59}{figure.caption.64}%
-\contentsline {figure}{\numberline {5.39}{\ignorespaces Results of the interpolation of the Runge function (8 centers). Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: best epoch to total epochs ratio. Right-hand side: $\log _{10}(L^\infty )-$norm.}}{59}{figure.caption.65}%
-\contentsline {figure}{\numberline {5.40}{\ignorespaces Results of the interpolation of the Runge function (9 centers). Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: best epoch to total epochs ratio. Right-hand side: $\log _{10}(L^\infty )-$norm.}}{60}{figure.caption.66}%
-\contentsline {figure}{\numberline {5.41}{\ignorespaces Results of the interpolation of the Runge function (10 centers). Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: best epoch to total epochs ratio. Right-hand side: $\log _{10}(L^\infty )-$norm.}}{60}{figure.caption.67}%
-\contentsline {figure}{\numberline {5.42}{\ignorespaces Results of the interpolation of the Runge function (11 centers). Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: best epoch to total epochs ratio. Right-hand side: $\log _{10}(L^\infty )-$norm.}}{61}{figure.caption.68}%
-\contentsline {figure}{\numberline {5.43}{\ignorespaces Results of the interpolation of the Runge function (12 centers). Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: best epoch to total epochs ratio. Right-hand side: $\log _{10}(L^\infty )-$norm.}}{61}{figure.caption.69}%
-\contentsline {figure}{\numberline {5.44}{\ignorespaces Wengert trace of the Gaussian kernel.}}{63}{figure.caption.70}%
-\contentsline {figure}{\numberline {5.45}{\ignorespaces Left-hand side: absolute error of the model solution with regards to the actual solution. Middle image: visual comparison of both solutions alongside the location of the model's centers. Right-hand side: learning curves (mean squared error and $L^\infty -$norm) of the model.}}{64}{figure.caption.71}%
-\contentsline {figure}{\numberline {5.46}{\ignorespaces Parameters of the network.}}{64}{figure.caption.72}%
-\contentsline {figure}{\numberline {5.47}{\ignorespaces Caption}}{}{figure.caption.75}%
-\contentsline {figure}{\numberline {5.48}{\ignorespaces Caption}}{}{figure.caption.76}%
-\contentsline {figure}{\numberline {5.49}{\ignorespaces Caption}}{}{figure.caption.77}%
-\contentsline {figure}{\numberline {5.50}{\ignorespaces Caption}}{}{figure.caption.78}%
-\contentsline {figure}{\numberline {5.51}{\ignorespaces Caption}}{}{figure.caption.79}%
-\contentsline {figure}{\numberline {5.52}{\ignorespaces Caption}}{}{figure.caption.80}%
-\contentsline {figure}{\numberline {5.53}{\ignorespaces Caption}}{}{figure.caption.81}%
-\contentsline {figure}{\numberline {5.54}{\ignorespaces Caption}}{}{figure.caption.82}%
-\contentsline {figure}{\numberline {5.55}{\ignorespaces Caption}}{}{figure.caption.83}%
-\contentsline {figure}{\numberline {5.56}{\ignorespaces Caption}}{}{figure.caption.84}%
-\contentsline {figure}{\numberline {5.57}{\ignorespaces Caption}}{}{figure.caption.85}%
-\contentsline {figure}{\numberline {5.58}{\ignorespaces Caption}}{}{figure.caption.86}%
-\contentsline {figure}{\numberline {5.59}{\ignorespaces Caption}}{}{figure.caption.87}%
-\contentsline {figure}{\numberline {5.60}{\ignorespaces Caption}}{}{figure.caption.88}%
-\contentsline {figure}{\numberline {5.61}{\ignorespaces Caption}}{}{figure.caption.89}%
-\contentsline {figure}{\numberline {5.62}{\ignorespaces Caption}}{}{figure.caption.90}%
-\contentsline {figure}{\numberline {5.63}{\ignorespaces Caption}}{}{figure.caption.91}%
-\contentsline {figure}{\numberline {5.64}{\ignorespaces Caption}}{}{figure.caption.92}%
-\contentsline {figure}{\numberline {5.65}{\ignorespaces Caption}}{}{figure.caption.93}%
-\contentsline {figure}{\numberline {5.66}{\ignorespaces Caption}}{}{figure.caption.94}%
-\contentsline {figure}{\numberline {5.67}{\ignorespaces Caption}}{}{figure.caption.95}%
-\contentsline {figure}{\numberline {5.68}{\ignorespaces Caption}}{}{figure.caption.96}%
-\contentsline {figure}{\numberline {5.69}{\ignorespaces Caption}}{}{figure.caption.97}%
-\contentsline {figure}{\numberline {5.70}{\ignorespaces Caption}}{}{figure.caption.98}%
-\contentsline {figure}{\numberline {5.71}{\ignorespaces Caption}}{}{figure.caption.99}%
-\contentsline {figure}{\numberline {5.72}{\ignorespaces Caption}}{}{figure.caption.100}%
-\contentsline {figure}{\numberline {5.73}{\ignorespaces Caption}}{}{figure.caption.101}%
-\contentsline {figure}{\numberline {5.74}{\ignorespaces Caption}}{}{figure.caption.102}%
-\contentsline {figure}{\numberline {5.75}{\ignorespaces Caption}}{}{figure.caption.103}%
-\contentsline {figure}{\numberline {5.76}{\ignorespaces Caption}}{}{figure.caption.104}%
-\contentsline {figure}{\numberline {5.77}{\ignorespaces Caption}}{}{figure.caption.105}%
-\contentsline {figure}{\numberline {5.78}{\ignorespaces Caption}}{}{figure.caption.106}%
-\contentsline {figure}{\numberline {5.79}{\ignorespaces Caption}}{}{figure.caption.107}%
-\contentsline {figure}{\numberline {5.80}{\ignorespaces Caption}}{}{figure.caption.108}%
-\contentsline {figure}{\numberline {5.81}{\ignorespaces Caption}}{}{figure.caption.109}%
-\contentsline {figure}{\numberline {5.82}{\ignorespaces Caption}}{}{figure.caption.110}%
-\contentsline {figure}{\numberline {5.83}{\ignorespaces Caption}}{}{figure.caption.111}%
-\contentsline {figure}{\numberline {5.84}{\ignorespaces Caption}}{}{figure.caption.112}%
-\contentsline {figure}{\numberline {5.85}{\ignorespaces Caption}}{}{figure.caption.113}%
-\contentsline {figure}{\numberline {5.86}{\ignorespaces Caption}}{}{figure.caption.114}%
-\contentsline {figure}{\numberline {5.87}{\ignorespaces Caption}}{}{figure.caption.115}%
-\contentsline {figure}{\numberline {5.88}{\ignorespaces Caption}}{}{figure.caption.116}%
-\contentsline {figure}{\numberline {5.89}{\ignorespaces Caption}}{}{figure.caption.117}%
-\contentsline {figure}{\numberline {5.90}{\ignorespaces Caption}}{}{figure.caption.118}%
-\contentsline {figure}{\numberline {5.91}{\ignorespaces Caption}}{}{figure.caption.119}%
-\contentsline {figure}{\numberline {5.92}{\ignorespaces Caption}}{}{figure.caption.120}%
-\contentsline {figure}{\numberline {5.93}{\ignorespaces Caption}}{}{figure.caption.121}%
-\contentsline {figure}{\numberline {5.94}{\ignorespaces Caption}}{}{figure.caption.122}%
-\contentsline {figure}{\numberline {5.95}{\ignorespaces Caption}}{}{figure.caption.123}%
-\contentsline {figure}{\numberline {5.96}{\ignorespaces Caption}}{}{figure.caption.124}%
-\contentsline {figure}{\numberline {5.97}{\ignorespaces Caption}}{}{figure.caption.125}%
-\contentsline {figure}{\numberline {5.98}{\ignorespaces Caption}}{}{figure.caption.126}%
-\contentsline {figure}{\numberline {5.99}{\ignorespaces Caption}}{}{figure.caption.127}%
-\contentsline {figure}{\numberline {5.100}{\ignorespaces Caption}}{}{figure.caption.128}%
-\contentsline {figure}{\numberline {5.101}{\ignorespaces Caption}}{}{figure.caption.129}%
-\contentsline {figure}{\numberline {5.102}{\ignorespaces Caption}}{}{figure.caption.130}%
-\contentsline {figure}{\numberline {5.103}{\ignorespaces Caption}}{}{figure.caption.131}%
-\contentsline {figure}{\numberline {5.104}{\ignorespaces Caption}}{}{figure.caption.132}%
-\contentsline {figure}{\numberline {5.105}{\ignorespaces Caption}}{}{figure.caption.133}%
-\contentsline {figure}{\numberline {5.106}{\ignorespaces Caption}}{}{figure.caption.134}%
-\contentsline {figure}{\numberline {5.107}{\ignorespaces Caption}}{}{figure.caption.135}%
-\contentsline {figure}{\numberline {5.108}{\ignorespaces Caption}}{}{figure.caption.136}%
-\contentsline {figure}{\numberline {5.109}{\ignorespaces Caption}}{}{figure.caption.137}%
-\contentsline {figure}{\numberline {5.110}{\ignorespaces Caption}}{}{figure.caption.138}%
-\contentsline {figure}{\numberline {5.111}{\ignorespaces Caption}}{}{figure.caption.139}%
-\contentsline {figure}{\numberline {5.112}{\ignorespaces Caption}}{}{figure.caption.140}%
-\contentsline {figure}{\numberline {5.113}{\ignorespaces Caption}}{}{figure.caption.141}%
-\contentsline {figure}{\numberline {5.114}{\ignorespaces Caption}}{}{figure.caption.142}%
-\contentsline {figure}{\numberline {5.115}{\ignorespaces Caption}}{}{figure.caption.143}%
-\contentsline {figure}{\numberline {5.116}{\ignorespaces Caption}}{}{figure.caption.144}%
-\contentsline {figure}{\numberline {5.117}{\ignorespaces Caption}}{}{figure.caption.145}%
-\contentsline {figure}{\numberline {5.118}{\ignorespaces Caption}}{}{figure.caption.146}%
-\contentsline {figure}{\numberline {5.119}{\ignorespaces Caption}}{}{figure.caption.147}%
-\contentsline {figure}{\numberline {5.120}{\ignorespaces Caption}}{}{figure.caption.148}%
-\contentsline {figure}{\numberline {5.121}{\ignorespaces Caption}}{}{figure.caption.149}%
-\contentsline {figure}{\numberline {5.122}{\ignorespaces Caption}}{}{figure.caption.150}%
-\contentsline {figure}{\numberline {5.123}{\ignorespaces Caption}}{}{figure.caption.151}%
-\contentsline {figure}{\numberline {5.124}{\ignorespaces Caption}}{}{figure.caption.152}%
-\contentsline {figure}{\numberline {5.125}{\ignorespaces Caption}}{}{figure.caption.153}%
-\contentsline {figure}{\numberline {5.126}{\ignorespaces Caption}}{}{figure.caption.154}%
-\contentsline {figure}{\numberline {5.127}{\ignorespaces Caption}}{}{figure.caption.155}%
-\contentsline {figure}{\numberline {5.128}{\ignorespaces Caption}}{}{figure.caption.156}%
-\contentsline {figure}{\numberline {5.129}{\ignorespaces Caption}}{}{figure.caption.157}%
-\contentsline {figure}{\numberline {5.130}{\ignorespaces Caption}}{}{figure.caption.158}%
+\contentsline {figure}{\numberline {5.17}{\ignorespaces Left-hand side: $\sin (x^2)$ for $x \in [0, 3]$. Right-hand side: $ \sin (\pi x^2)$ for $x \in [- 1, 1]$.}}{44}{figure.caption.41}%
+\contentsline {figure}{\numberline {5.18}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of the Runge function with a Gaussian kernel using equispaced nodes, comparing the performance our method using no polynomial term (left-hand side) as well as a linear polynomial term (right-hand side).}}{45}{figure.caption.43}%
+\contentsline {figure}{\numberline {5.19}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of the Runge function with a Gaussian kernel using equispaced nodes, comparing our method (left-hand side) with the classic method (right-hand side).}}{45}{figure.caption.44}%
+\contentsline {figure}{\numberline {5.20}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of the Runge function with the multiquadric kernel using equispaced nodes, comparing our method (left-hand side) with the classic method (right-hand side).}}{46}{figure.caption.45}%
+\contentsline {figure}{\numberline {5.21}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of the Gibbs function with a Gaussian kernel using equispaced nodes, comparing our method (left-hand side) with the classic method (right-hand side).}}{46}{figure.caption.46}%
+\contentsline {figure}{\numberline {5.22}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of \texttt {sin\_higher\_oscillations} with a Gaussian kernel using equispaced nodes, comparing our method (left-hand side) with the classic method (right-hand side).}}{47}{figure.caption.47}%
+\contentsline {figure}{\numberline {5.23}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of \texttt {sin\_higher\_oscillations} with a multiquadric kernel using equispaced nodes, comparing our method (left-hand side) with the classic method (right-hand side).}}{47}{figure.caption.48}%
+\contentsline {figure}{\numberline {5.24}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of \texttt {sin\_pi\_x\_sq} with a Gaussian kernel using equispaced nodes, comparing our method (left-hand side) with the classic method (right-hand side).}}{48}{figure.caption.49}%
+\contentsline {figure}{\numberline {5.25}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of \texttt {sin\_pi\_x\_sq} with a Gaussian kernel using equispaced nodes, comparing our method (left-hand side) with the classic method (right-hand side).}}{48}{figure.caption.50}%
+\contentsline {figure}{\numberline {5.26}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of \texttt {torch\_sign} with a Gaussian kernel using equispaced nodes, comparing our method (left-hand side) with the classic method (right-hand side).}}{49}{figure.caption.51}%
+\contentsline {figure}{\numberline {5.27}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of \texttt {runge\_function} with a PHS kernel using equispaced nodes, comparing our method (left-hand side) with the classic method (right-hand side).}}{49}{figure.caption.52}%
+\contentsline {figure}{\numberline {5.28}{\ignorespaces Ratio of the best epoch in the sense of the $L^\infty -$norm over the maximum number of epochs, for the interpolation of the Runge function with a multiquadric kernel and equispaced nodes.}}{50}{figure.caption.53}%
+\contentsline {figure}{\numberline {5.29}{\ignorespaces Left-hand side: epochs ratio for the interpolation of the Runge function. Right-hand side: epochs ratio for the interpolation of the Gibbs function. In both images, interpolation has been carried out with the Gaussian kernel.}}{51}{figure.caption.54}%
+\contentsline {figure}{\numberline {5.30}{\ignorespaces Last few iterations of the interpolation of \text {{\ttfamily {runge\_function}}} with 15 training points and 13 centers.}}{52}{figure.caption.57}%
+\contentsline {figure}{\numberline {5.31}{\ignorespaces Last few iterations of the interpolation of \text {{\ttfamily {gibbs\_function}}} with 29 training points and 7 centers.}}{53}{figure.caption.58}%
+\contentsline {figure}{\numberline {5.32}{\ignorespaces Distribution of centers at the end of the training process.}}{53}{figure.caption.59}%
+\contentsline {figure}{\numberline {5.33}{\ignorespaces Left-hand side: epochs ratio for the interpolation of the Runge function with the PHS kernel. Right-hand side: distribution of centers with 15 (top) and 17 (bottom) training nodes.}}{54}{figure.caption.60}%
+\contentsline {figure}{\numberline {5.34}{\ignorespaces Distribution of centers at the end of our iterative process for 15, 19, 23 and 29 training nodes, all of them trained with equispaced training points.}}{54}{figure.caption.61}%
+\contentsline {figure}{\numberline {5.35}{\ignorespaces Left-hand side: Franke function as a surface. Right-hand side: its filled contour representation.}}{57}{figure.caption.62}%
+\contentsline {figure}{\numberline {5.36}{\ignorespaces Results of the interpolation of the Runge function (5 centers). Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{58}{figure.caption.63}%
+\contentsline {figure}{\numberline {5.37}{\ignorespaces Results of the interpolation of the Runge function (6 centers). Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{58}{figure.caption.64}%
+\contentsline {figure}{\numberline {5.38}{\ignorespaces Results of the interpolation of the Runge function (7 centers). Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{59}{figure.caption.65}%
+\contentsline {figure}{\numberline {5.39}{\ignorespaces Results of the interpolation of the Runge function (8 centers). Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{59}{figure.caption.66}%
+\contentsline {figure}{\numberline {5.40}{\ignorespaces Results of the interpolation of the Runge function (9 centers). Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{60}{figure.caption.67}%
+\contentsline {figure}{\numberline {5.41}{\ignorespaces Results of the interpolation of the Runge function (10 centers). Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{60}{figure.caption.68}%
+\contentsline {figure}{\numberline {5.42}{\ignorespaces Results of the interpolation of the Runge function (11 centers). Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{61}{figure.caption.69}%
+\contentsline {figure}{\numberline {5.43}{\ignorespaces Results of the interpolation of the Runge function (12 centers). Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{61}{figure.caption.70}%
+\contentsline {figure}{\numberline {5.44}{\ignorespaces Wengert's trace of the Gaussian kernel.}}{63}{figure.caption.71}%
+\contentsline {figure}{\numberline {5.45}{\ignorespaces Left-hand side: absolute error of the model solution regarding the actual solution. Middle image: visual comparison of both solutions alongside the location of the model's centers. Right-hand side: learning curves (mean squared error and $L^\infty -$norm) of the model.}}{64}{figure.caption.72}%
+\contentsline {figure}{\numberline {5.46}{\ignorespaces Parameters of the network.}}{64}{figure.caption.73}%
+\contentsline {figure}{\numberline {5.47}{\ignorespaces Caption}}{}{figure.caption.76}%
+\contentsline {figure}{\numberline {5.48}{\ignorespaces Caption}}{}{figure.caption.77}%
+\contentsline {figure}{\numberline {5.49}{\ignorespaces Caption}}{}{figure.caption.78}%
+\contentsline {figure}{\numberline {5.50}{\ignorespaces Caption}}{}{figure.caption.79}%
+\contentsline {figure}{\numberline {5.51}{\ignorespaces Caption}}{}{figure.caption.80}%
+\contentsline {figure}{\numberline {5.52}{\ignorespaces Caption}}{}{figure.caption.81}%
+\contentsline {figure}{\numberline {5.53}{\ignorespaces Caption}}{}{figure.caption.82}%
+\contentsline {figure}{\numberline {5.54}{\ignorespaces Caption}}{}{figure.caption.83}%
+\contentsline {figure}{\numberline {5.55}{\ignorespaces Caption}}{}{figure.caption.84}%
+\contentsline {figure}{\numberline {5.56}{\ignorespaces Caption}}{}{figure.caption.85}%
+\contentsline {figure}{\numberline {5.57}{\ignorespaces Caption}}{}{figure.caption.86}%
+\contentsline {figure}{\numberline {5.58}{\ignorespaces Caption}}{}{figure.caption.87}%
+\contentsline {figure}{\numberline {5.59}{\ignorespaces Caption}}{}{figure.caption.88}%
+\contentsline {figure}{\numberline {5.60}{\ignorespaces Caption}}{}{figure.caption.89}%
+\contentsline {figure}{\numberline {5.61}{\ignorespaces Caption}}{}{figure.caption.90}%
+\contentsline {figure}{\numberline {5.62}{\ignorespaces Caption}}{}{figure.caption.91}%
+\contentsline {figure}{\numberline {5.63}{\ignorespaces Caption}}{}{figure.caption.92}%
+\contentsline {figure}{\numberline {5.64}{\ignorespaces Caption}}{}{figure.caption.93}%
+\contentsline {figure}{\numberline {5.65}{\ignorespaces Caption}}{}{figure.caption.94}%
+\contentsline {figure}{\numberline {5.66}{\ignorespaces Caption}}{}{figure.caption.95}%
+\contentsline {figure}{\numberline {5.67}{\ignorespaces Caption}}{}{figure.caption.96}%
+\contentsline {figure}{\numberline {5.68}{\ignorespaces Caption}}{}{figure.caption.97}%
+\contentsline {figure}{\numberline {5.69}{\ignorespaces Caption}}{}{figure.caption.98}%
+\contentsline {figure}{\numberline {5.70}{\ignorespaces Caption}}{}{figure.caption.99}%
+\contentsline {figure}{\numberline {5.71}{\ignorespaces Caption}}{}{figure.caption.100}%
+\contentsline {figure}{\numberline {5.72}{\ignorespaces Caption}}{}{figure.caption.101}%
+\contentsline {figure}{\numberline {5.73}{\ignorespaces Caption}}{}{figure.caption.102}%
+\contentsline {figure}{\numberline {5.74}{\ignorespaces Caption}}{}{figure.caption.103}%
+\contentsline {figure}{\numberline {5.75}{\ignorespaces Caption}}{}{figure.caption.104}%
+\contentsline {figure}{\numberline {5.76}{\ignorespaces Caption}}{}{figure.caption.105}%
+\contentsline {figure}{\numberline {5.77}{\ignorespaces Caption}}{}{figure.caption.106}%
+\contentsline {figure}{\numberline {5.78}{\ignorespaces Caption}}{}{figure.caption.107}%
+\contentsline {figure}{\numberline {5.79}{\ignorespaces Caption}}{}{figure.caption.108}%
+\contentsline {figure}{\numberline {5.80}{\ignorespaces Caption}}{}{figure.caption.109}%
+\contentsline {figure}{\numberline {5.81}{\ignorespaces Caption}}{}{figure.caption.110}%
+\contentsline {figure}{\numberline {5.82}{\ignorespaces Caption}}{}{figure.caption.111}%
+\contentsline {figure}{\numberline {5.83}{\ignorespaces Caption}}{}{figure.caption.112}%
+\contentsline {figure}{\numberline {5.84}{\ignorespaces Caption}}{}{figure.caption.113}%
+\contentsline {figure}{\numberline {5.85}{\ignorespaces Caption}}{}{figure.caption.114}%
+\contentsline {figure}{\numberline {5.86}{\ignorespaces Caption}}{}{figure.caption.115}%
+\contentsline {figure}{\numberline {5.87}{\ignorespaces Caption}}{}{figure.caption.116}%
+\contentsline {figure}{\numberline {5.88}{\ignorespaces Caption}}{}{figure.caption.117}%
+\contentsline {figure}{\numberline {5.89}{\ignorespaces Caption}}{}{figure.caption.118}%
+\contentsline {figure}{\numberline {5.90}{\ignorespaces Caption}}{}{figure.caption.119}%
+\contentsline {figure}{\numberline {5.91}{\ignorespaces Caption}}{}{figure.caption.120}%
+\contentsline {figure}{\numberline {5.92}{\ignorespaces Caption}}{}{figure.caption.121}%
+\contentsline {figure}{\numberline {5.93}{\ignorespaces Caption}}{}{figure.caption.122}%
+\contentsline {figure}{\numberline {5.94}{\ignorespaces Caption}}{}{figure.caption.123}%
+\contentsline {figure}{\numberline {5.95}{\ignorespaces Caption}}{}{figure.caption.124}%
+\contentsline {figure}{\numberline {5.96}{\ignorespaces Caption}}{}{figure.caption.125}%
+\contentsline {figure}{\numberline {5.97}{\ignorespaces Caption}}{}{figure.caption.126}%
+\contentsline {figure}{\numberline {5.98}{\ignorespaces Caption}}{}{figure.caption.127}%
+\contentsline {figure}{\numberline {5.99}{\ignorespaces Caption}}{}{figure.caption.128}%
+\contentsline {figure}{\numberline {5.100}{\ignorespaces Caption}}{}{figure.caption.129}%
+\contentsline {figure}{\numberline {5.101}{\ignorespaces Caption}}{}{figure.caption.130}%
+\contentsline {figure}{\numberline {5.102}{\ignorespaces Caption}}{}{figure.caption.131}%
+\contentsline {figure}{\numberline {5.103}{\ignorespaces Caption}}{}{figure.caption.132}%
+\contentsline {figure}{\numberline {5.104}{\ignorespaces Caption}}{}{figure.caption.133}%
+\contentsline {figure}{\numberline {5.105}{\ignorespaces Caption}}{}{figure.caption.134}%
+\contentsline {figure}{\numberline {5.106}{\ignorespaces Caption}}{}{figure.caption.135}%
+\contentsline {figure}{\numberline {5.107}{\ignorespaces Caption}}{}{figure.caption.136}%
+\contentsline {figure}{\numberline {5.108}{\ignorespaces Caption}}{}{figure.caption.137}%
+\contentsline {figure}{\numberline {5.109}{\ignorespaces Caption}}{}{figure.caption.138}%
+\contentsline {figure}{\numberline {5.110}{\ignorespaces Caption}}{}{figure.caption.139}%
+\contentsline {figure}{\numberline {5.111}{\ignorespaces Caption}}{}{figure.caption.140}%
+\contentsline {figure}{\numberline {5.112}{\ignorespaces Caption}}{}{figure.caption.141}%
+\contentsline {figure}{\numberline {5.113}{\ignorespaces Caption}}{}{figure.caption.142}%
+\contentsline {figure}{\numberline {5.114}{\ignorespaces Caption}}{}{figure.caption.143}%
+\contentsline {figure}{\numberline {5.115}{\ignorespaces Caption}}{}{figure.caption.144}%
+\contentsline {figure}{\numberline {5.116}{\ignorespaces Caption}}{}{figure.caption.145}%
+\contentsline {figure}{\numberline {5.117}{\ignorespaces Caption}}{}{figure.caption.146}%
+\contentsline {figure}{\numberline {5.118}{\ignorespaces Caption}}{}{figure.caption.147}%
+\contentsline {figure}{\numberline {5.119}{\ignorespaces Caption}}{}{figure.caption.148}%
+\contentsline {figure}{\numberline {5.120}{\ignorespaces Caption}}{}{figure.caption.149}%
+\contentsline {figure}{\numberline {5.121}{\ignorespaces Caption}}{}{figure.caption.150}%
+\contentsline {figure}{\numberline {5.122}{\ignorespaces Caption}}{}{figure.caption.151}%
+\contentsline {figure}{\numberline {5.123}{\ignorespaces Caption}}{}{figure.caption.152}%
+\contentsline {figure}{\numberline {5.124}{\ignorespaces Caption}}{}{figure.caption.153}%
+\contentsline {figure}{\numberline {5.125}{\ignorespaces Caption}}{}{figure.caption.154}%
+\contentsline {figure}{\numberline {5.126}{\ignorespaces Caption}}{}{figure.caption.155}%
+\contentsline {figure}{\numberline {5.127}{\ignorespaces Caption}}{}{figure.caption.156}%
+\contentsline {figure}{\numberline {5.128}{\ignorespaces Caption}}{}{figure.caption.157}%
+\contentsline {figure}{\numberline {5.129}{\ignorespaces Caption}}{}{figure.caption.158}%
+\contentsline {figure}{\numberline {5.130}{\ignorespaces Caption}}{}{figure.caption.159}%
 \contentsfinish 
-\contentsline {figure}{\numberline {5.131}{\ignorespaces Caption}}{}{figure.caption.159}%
-\contentsline {figure}{\numberline {5.132}{\ignorespaces Caption}}{}{figure.caption.160}%
-\contentsline {figure}{\numberline {5.133}{\ignorespaces Caption}}{}{figure.caption.161}%
-\contentsline {figure}{\numberline {5.134}{\ignorespaces Caption}}{}{figure.caption.162}%
-\contentsline {figure}{\numberline {5.135}{\ignorespaces Caption}}{}{figure.caption.163}%
-\contentsline {figure}{\numberline {5.136}{\ignorespaces Caption}}{}{figure.caption.164}%
-\contentsline {figure}{\numberline {5.137}{\ignorespaces Caption}}{}{figure.caption.165}%
-\contentsline {figure}{\numberline {5.138}{\ignorespaces Caption}}{}{figure.caption.166}%
-\contentsline {figure}{\numberline {5.139}{\ignorespaces Caption}}{}{figure.caption.167}%
-\contentsline {figure}{\numberline {5.140}{\ignorespaces Caption}}{}{figure.caption.168}%
-\contentsline {figure}{\numberline {5.141}{\ignorespaces Caption}}{}{figure.caption.169}%
-\contentsline {figure}{\numberline {5.142}{\ignorespaces Caption}}{}{figure.caption.170}%
-\contentsline {figure}{\numberline {5.143}{\ignorespaces Caption}}{}{figure.caption.171}%
-\contentsline {figure}{\numberline {5.144}{\ignorespaces Caption}}{}{figure.caption.172}%
-\contentsline {figure}{\numberline {5.145}{\ignorespaces Caption}}{}{figure.caption.173}%
-\contentsline {figure}{\numberline {5.146}{\ignorespaces Caption}}{}{figure.caption.174}%
-\contentsline {figure}{\numberline {5.147}{\ignorespaces Caption}}{}{figure.caption.175}%
-\contentsline {figure}{\numberline {5.148}{\ignorespaces Caption}}{}{figure.caption.176}%
+\contentsline {figure}{\numberline {5.131}{\ignorespaces Caption}}{}{figure.caption.160}%
+\contentsline {figure}{\numberline {5.132}{\ignorespaces Caption}}{}{figure.caption.161}%
+\contentsline {figure}{\numberline {5.133}{\ignorespaces Caption}}{}{figure.caption.162}%
+\contentsline {figure}{\numberline {5.134}{\ignorespaces Caption}}{}{figure.caption.163}%
+\contentsline {figure}{\numberline {5.135}{\ignorespaces Caption}}{}{figure.caption.164}%
+\contentsline {figure}{\numberline {5.136}{\ignorespaces Caption}}{}{figure.caption.165}%
+\contentsline {figure}{\numberline {5.137}{\ignorespaces Caption}}{}{figure.caption.166}%
+\contentsline {figure}{\numberline {5.138}{\ignorespaces Caption}}{}{figure.caption.167}%
+\contentsline {figure}{\numberline {5.139}{\ignorespaces Caption}}{}{figure.caption.168}%
+\contentsline {figure}{\numberline {5.140}{\ignorespaces Caption}}{}{figure.caption.169}%
+\contentsline {figure}{\numberline {5.141}{\ignorespaces Caption}}{}{figure.caption.170}%
+\contentsline {figure}{\numberline {5.142}{\ignorespaces Caption}}{}{figure.caption.171}%
+\contentsline {figure}{\numberline {5.143}{\ignorespaces Caption}}{}{figure.caption.172}%
+\contentsline {figure}{\numberline {5.144}{\ignorespaces Caption}}{}{figure.caption.173}%
+\contentsline {figure}{\numberline {5.145}{\ignorespaces Caption}}{}{figure.caption.174}%
+\contentsline {figure}{\numberline {5.146}{\ignorespaces Caption}}{}{figure.caption.175}%
+\contentsline {figure}{\numberline {5.147}{\ignorespaces Caption}}{}{figure.caption.176}%
+\contentsline {figure}{\numberline {5.148}{\ignorespaces Caption}}{}{figure.caption.177}%

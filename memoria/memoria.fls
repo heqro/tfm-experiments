@@ -632,6 +632,8 @@ INPUT /usr/share/texmf/fonts/vf/public/txfonts/txbmi.vf
 INPUT /usr/share/texmf/fonts/tfm/public/txfonts/rtxbmi.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/txfonts/rtxptmbi.tfm
 INPUT /usr/share/texmf/fonts/vf/public/txfonts/txr.vf
+INPUT /usr/share/texmf/fonts/tfm/public/txfonts/t1xr.tfm
+INPUT /usr/share/texmf/fonts/tfm/public/txfonts/t1xr.tfm
 OUTPUT memoria.lof
 INPUT ./memoria.lot
 INPUT ./memoria.lot
@@ -641,8 +643,6 @@ INPUT /usr/share/texmf/fonts/tfm/public/txfonts/t1xi.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/txfonts/t1xbi.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/txfonts/t1xi.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/txfonts/t1xi.tfm
-INPUT /usr/share/texmf/fonts/tfm/public/txfonts/t1xr.tfm
-INPUT /usr/share/texmf/fonts/tfm/public/txfonts/t1xr.tfm
 INPUT /usr/share/texmf/fonts/vf/public/txfonts/t1xi.vf
 INPUT /usr/share/texmf/fonts/tfm/public/txfonts/rtxi.tfm
 INPUT /usr/share/texmf/fonts/vf/public/txfonts/t1xbi.vf

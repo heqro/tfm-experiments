@@ -214,6 +214,7 @@ hmargin=3cm
 \providecommand{\xequal}[2][]{\mathop{=}\limits_{#1}^{#2}}
 \newcommand{\tmcolor}[2]{{\color{#1}{#2}}}
 \newcommand{\mathLaplace}{\Delta}
+\hfuzz=60.0pt 
 % end TeXmacs macros
 \usepackage{pdfpages}
 
@@ -589,7 +590,7 @@ differentiation techniques that are often studied in undergraduate courses:
 
 There is a fourth method, called \textbf{automatic differentiation}. This term refers to a set of techniques that exploit the chain rule to evaluate the differential of a given function to machine precision, that is, the differential is as precise as the floating point system we are using on the computing device. This technique also stems from the fact that, in its simplest terms, computer-assisted computations feature elemental functions such as the sine or exponential, as well as elementary arithmetic operations like the sum or product \cite{verma2000introduction}.
 
-To preserve the relevancy of the discussion, we turn to a short example for illustrating automatic differentiation using the so-called ``reverse mode'', which is present in current machine learning software packages such as PyTorch or Tensorflow.
+To preserve the relevancy of the discussion, we turn to a short example for illustrating automatic differentiation using the so-called ``reverse mode'', which is present in current machine learning software packages such as PyTorch or TensorFlow.
 
 Consider the function $f (x_1, x_2) = e^{2 x_1} - \cos (x_1 x_2)$, which we
 shall apply reverse mode automatic differentiation on. This function can be
@@ -599,7 +600,7 @@ as the Wengert trace.
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\textwidth]{imagenes/wengert-trace.pdf}
-  \caption{Wengert trace of the function proposed as an example.}
+  \caption{Wengert's trace of the function proposed as an example.}
   \label{fig:wengert-trace}
 \end{figure}
 
@@ -750,7 +751,7 @@ which follows the familiar form
 We shall now present some broadly stated results that can be found in Cheney \cite{cheney1966introduction}:
 
 \begin{theorem}
-  (Existence of best approximations in a metric space). Let $K$ denote a
+  (Existence of the best approximations in a metric space). Let $K$ denote a
   compact set in a metric space $\mathcal{X}$. Then, for every $p \in
     \mathcal{X}$ there corresponds
   \[ k^{\ast} = \arg \min_{k \in K} d (p, k), \]
@@ -758,7 +759,7 @@ We shall now present some broadly stated results that can be found in Cheney \ci
 \end{theorem}
 
 This statement may (mis)lead us into only regarding $p$ and $k$ as points in
-an Euclidean space. On the contrary, recall that any two functions $f, g \in
+a Euclidean space. On the contrary, recall that any two functions $f, g \in
   L^p (\Omega)$ with $\Omega$ a bounded set, are also governed by the previous
 theorem by setting $d (f, g) = \| f - g \|_{L^p}$, where $\| \cdot \|_{L^p}$
 denotes the $L^p -$norm. Profound yet manageable results on generalized
@@ -1084,14 +1085,14 @@ start out following the presentation in {\cite{titchmarsh1939theory}}:
     g (z) = \sum_{n = 0}^{\infty} a_n (z - a)^n
     \label{analyticasseriedepotencia}, \text{ with } | z - a | < \rho .
   \end{equation}
-  That is, $g$ coincides with a power series in a neighbourhood of $a$.
+  That is, $g$ coincides with a power series in a neighborhood of $a$.
   Moreover, $g$ is said to be {\tmstrong{analytic}} in $\Omega$ if it is
   analytic for every $a \in \Omega$.
 \end{definition}
 
 Note that $g (a) = 0 \Rightarrow a_0 = 0$. In fact, some other coefficients
 $a_1, a_2, \ldots$ may be zero. Furthermore, if $a_n = 0$ for all $n < m \in
-  \mathbb{N}$ and $a_m \neq 0$, we say $g$ to have a {\tmstrong{zero of the }}$m
+  \mathbb{N}$ and $a_m \neq 0$, we say $g$ to have a {\tmstrong{zero of the}} $m
   -${\tmstrong{th order}}. In such case, we also have
 \[ g (a) = g' (a) = \cdots = g^{m - 1} (a) = 0, \text{ and } g^m (a) \neq 0,
 \]
@@ -1409,7 +1410,7 @@ end, we shall use the following Theorem:
   \end{equation}
 
   Noting that we integrate on $t \geq 0$, it follows that the quadratic form of
-  the integrand involves Gaussians, which were shown in Example
+  the integrand involves Gaussian functions, which were shown in Example
   \ref{ex-gaussian-strictly-positive-definite} to be strictly positive
   definite. Consequently, the quadratic form is non-negative, which ultimately
   implies the positive definiteness of $\varphi$.
@@ -1457,7 +1458,7 @@ To solve this problem, the multi-layer perceptron \eqref{perceptronRule}
 (actually, a three-layer perceptron) was seen to fit the radial basis function
 expansion \eqref{eqn-p-is-a-linear-combination-of-rbfs}. Indeed, suppose we want
 to interpolate specific realizations of a map $f : \mathbb{R}^d \rightarrow
-  \mathbb{R}$ with a RBF expansion of $N$ centers. In such case, multi-layer
+  \mathbb{R}$ with an RBF expansion of $N$ centers. In such case, multi-layer
 perceptron theory allows one to define a function of the form
 \[ \begin{array}{cccc}
     \mathcal{N}^3 : & \mathbb{R}^N & \rightarrow & \mathbb{R}                             \\
@@ -1539,7 +1540,7 @@ binary operator that obeys the rule expressed in the left-hand side of Table
     \frame
     {\begin{tabular}{|c|c|c|}
          \hline
-         \tmverbatim{A} & \tmverbatim{B} & \tmverbatim{xor(A,B)} \\
+         \tmverbatim{A} & \tmverbatim{B} & \tmverbatim{xor(A, B)} \\
          \hline
          0              & 0              & 0                     \\
          \hline
@@ -1569,7 +1570,7 @@ single affine transformation.
 However, we can solve this problem in terms of an RBF expansion, that is, in
 terms of a neural network with a single hidden layer. To this end, note that
 we have defined the \tmverbatim{xor} operator by extension: there are exactly
-four bi-dimensional possible inputs. It is in those inputs where our centers where will be located.
+four bi-dimensional possible inputs. It is in those inputs where our centers will be located.
 Considering so far an arbitrary radial basis function $\varphi (\| \cdot \|)$
 and operating under the Euclidean norm, we wish to find a function $\sum_{i =
     1}^4 \lambda_i \varphi (\| \tmmathbf{x}-\tmmathbf{x}_j \|_2)$, where
@@ -1924,7 +1925,7 @@ Prior to seeing this depiction, one could mistakenly believe that supplying a la
 \begin{figure}[ht]
   \centering
   \includegraphics[width=.55\textwidth]{imagenes/polynomial_interpolation/Runge_Polynomial_interpolation.pdf}
-  \caption{Polynomial interpolation of the Runge function with a $n=5,8,11$ equispaced points. As one can see, larger degrees of the interpolating polynomial do not necessarily imply that the approximation will be close to the actual function between each pair of interpolation nodes.}
+  \caption{Polynomial interpolation of the Runge function with $n=5,8,11$ equispaced points. As one can see, larger degrees of the interpolating polynomial do not necessarily imply that the approximation will be close to the actual function between each pair of interpolation nodes.}
   \label{fig:runge-polynomial-interpolation}
 \end{figure}
 
@@ -2095,7 +2096,7 @@ Gibbs' phenomenon shows up for increasingly larger coefficients of $x$ in $\arct
   \label{fig:sign-with-20-pts}
 \end{figure}
 
-Figure \ref{fig:sign-with-curves} shows a poorer version of the situation shown in previously-analyzed Figure \ref{fig:arctan-with-curves}: even though the number of points where the condition number of the matrices prove to be too large for our problem are similar, neither of the two methods are capable of reducing the $L^\infty-$norm so as to provide any digit of accuracy in the worst case scenario.
+Figure \ref{fig:sign-with-curves} shows a poorer version of the situation shown in previously-analyzed Figure \ref{fig:arctan-with-curves}: even though the number of points where the condition number of the matrices prove to be too large for our problem are similar, neither of the two methods are capable of reducing the $L^\infty-$norm to provide any digit of accuracy in the worst case scenario.
 
 \begin{figure}[ht]
   \centering
@@ -2122,7 +2123,7 @@ $L^{\infty}$ error
 \section{plots}
 \subsection{runge plots}
 
-\subsubsection{rbf gaussian}
+\subsubsection{rbf Gaussian}
 
 \begin{figure}[ht]
   \centering
@@ -2300,7 +2301,29 @@ $L^{\infty}$ error
 % \end{table}
 
 
-\section{experiment}
+\section{Hardware information}
+
+All the experimentation featured in the following has been carried out in a server 
+kindly provided by my advisors.
+
+\begin{table}[h]
+  \begin{tabular}{|l|l|}
+    \hline
+    CPU & $\times 39$ Intel{\textregistered} Xeon{\textregistered} Silver
+    4210R @ 2.40 GHz\\
+    \hline
+    GPU & NVIDIA RTX A6000 (49140 MiB)\\
+    \hline
+    RAM & 251 Gi\\
+    \hline
+    OS & Ubuntu 22.04.1 (Kernel 6.5.0-14)\\
+    \hline
+  \end{tabular}
+  \caption{Description of the hardware used for experiments and development.}
+\end{table}
+
+\section{experiments}
+
 
 \subsection*{problem statement}
 
@@ -2322,7 +2345,7 @@ three different functions:
 \end{itemize}
 
 We will also consider some additional functions which, despite exhibiting some
-oscillations in their graph, we have preliminary seen them not to pose any
+oscillations in their graph, we have preliminarily seen them not to pose any
 pathologies when interpolating unlike the former two. This allows to verify that
 the proposed methods do indeed work on a ``better-posed'' setting. In
 particular, we consider the ``control'' functions
@@ -2494,7 +2517,7 @@ with the Gaussian kernel (see Figure
 \ref{fig:gibbs-gaussian-kernel-comparison-methods}), because the same
 observations will hold for the multiquadric kernel as well\footnote{See Figure \ref{fig:gibbs-sarra}.}. For the
 classic methodology, it suffices to note that we need to consider
-about 21 centers just to be able to remove oscillations to the first digit of
+21 centers just to be able to remove oscillations to the first digit of
 accuracy. However, a number of centers larger than 7 and a number of training
 points larger than 23 is sufficient to give this first digit of accuracy.
 
@@ -2513,7 +2536,7 @@ Notwithstanding, neither of the two methods are not able to decisively reduce th
   \label{fig:gibbs-gaussian-kernel-comparison-methods}
 \end{figure}
 
-We now address the results of our experiments on the function named for convenience \texttt{sin\_higher\_oscillations}. As for the Gaussian kernel (see Figure \ref{fig:sin-higher-oscillations-gaussian-kernel-comparison-methods}), we observe that our method is capable of providing two digits of accuracy in almost every experiment configuration, bar the ones involving 5 centers and 15 and 19 training points. In a similar vein to the previous experiments, we observe that there are indeed dispositions of centers that are able to minimize oscillations providing three digits of accuracy (compare, for instance, the results of both methods involving 17 training points and 9 centres).
+We now address the results of our experiments on the function named for convenience \texttt{sin\_higher\_oscillations}. As for the Gaussian kernel (see Figure \ref{fig:sin-higher-oscillations-gaussian-kernel-comparison-methods}), we observe that our method is capable of providing two digits of accuracy in almost every experiment configuration, bar the ones involving 5 centers and 15 and 19 training points. In a similar vein to the previous experiments, we observe that there are indeed dispositions of centers that are able to minimize oscillations providing three digits of accuracy (compare, for instance, the results of both methods involving 17 training points and 9 centers).
 
 \begin{figure}[ht]
   \centering
@@ -2523,7 +2546,7 @@ We now address the results of our experiments on the function named for convenie
   \label{fig:sin-higher-oscillations-gaussian-kernel-comparison-methods}
 \end{figure}
 
-Much like the other experiments involving the multiquadric kernel, we observe that its performance is not as impressive as that of the Gaussian kernel, providing a digit of accuracy less than the latter. Such is the case again for \texttt{sin-higher-oscillations}, depicted in Figure \ref{fig:sin-higher-oscillations-mq-kernel-sarra-comparison-methods}. The addition of more centers does not have a noticeable affect on our method as well as on the classic method. %The former, however, is on a tendency to improve the results as more training points are provided (check, for instance, the 11th and 13th columns), whereas the latter seems not to improve performance past the addition of 13 centers. 
+Much like the other experiments involving the multiquadric kernel, we observe that its performance is not as impressive as that of the Gaussian kernel, providing a digit of accuracy less than the latter. Such is the case again for \texttt{sin-higher-oscillations}, depicted in Figure \ref{fig:sin-higher-oscillations-mq-kernel-sarra-comparison-methods}. The addition of more centers does not have a noticeable effect on our method as well as on the classic method. %The former, however, is on a tendency to improve the results as more training points are provided (check, for instance, the 11th and 13th columns), whereas the latter seems not to improve performance past the addition of 13 centers. 
 Providing more training points does not noticeably improve the results for the classic method, in coherence with the previous results we have observed.
 
 \begin{figure}[ht]
@@ -2584,7 +2607,7 @@ A reasonable concern is the following: the results we have commented on are the 
 
 Other verification methods could have been considered, for instance:
 \begin{enumerate}
-  \item The ratio of the $L^\infty-$norms between the last and best iterations. Because we trained using the Adam optimizer, which considers ``jumps'' every so often to avoid converging to local minima, this ratio does not yield useful information, for any such ``jumps'' could occurred close to the last iterations, which could lead us into the wrong direction.
+  \item The ratio of the $L^\infty-$norms between the last and best iterations. Because we trained using the Adam optimizer, which considers ``jumps'' every so often to avoid converging to local minima, this ratio does not yield useful information, for any such ``jumps'' could have occurred close to the last iterations, which could lead us into the wrong direction.
   \item Refining the previous method, this time around inspecting the $L^\infty-$norm values iteration after iteration for every experiment, to verify if the few last thousands of iterations are reasonably close in value to the best iteration. Whereas this is indeed a sound strategy, it does not scale for the amount of experiments we have carried out. %To keep it simple and avoid explicitly defining concepts such as ``reasonably close'' in number of iterations and $L^\infty-$norm as well, this option was discarded for showing all the results, but 
         It is worth considering, however, for specific experiments. \label{option-method}
 \end{enumerate}
@@ -2611,7 +2634,7 @@ Figure \ref{fig:epochs-gaussian-kernel-report} paints a different picture for th
   \label{fig:epochs-gaussian-kernel-report}
 \end{figure}
 
-One could argue that, perhaps, the last iterations are not that ``far away'' in the $L^\infty-$norm from the optimal iteration we have come upon. In this case we can use method \ref{option-method} and take a closer look at the data of specific experiments to show whether or not that is the case. In particular, we take a look at the two training results reported in Table
+One could argue that, perhaps, the last iterations are not that ``far away'' in the $L^\infty-$norm from the optimal iteration we have come upon. In this case we can use method \ref{option-method} and take a closer look at the data of specific experiments to show whether that is the case. In particular, we take a look at the two training results reported in Table
 \ref{table-compare-instances}, involving the Gaussian kernel (without
 polynomial term) and equispaced points.
 
@@ -2745,7 +2768,7 @@ We finally recall that we are searching for the parameters for any arbitrary int
 
 However, this new metric urges us to determine some adequate weights $\alpha_1,\alpha_2$ to successfully interpolate while satisfying the constraints. This is actually what is proposed in \cite{hryniowski2018polyneuron} in the context of learning the parameters of polyharmonic splines and using them as activation functions for neurons. It is \textit{heuristically} found that $\alpha_1=0,\alpha_2=10^{-2}$. Because this alternative formulation entails a large deal of trial and error with several pairs $(\alpha_1,\alpha_2)$, we choose not to delve deeper into this strategy.
 
-After been through the data yielded from the experiments, some conclusions can
+After being through the data yielded from the experiments, some conclusions can
 be drawn to answer questions (i) and (iii) about our methodology. We exclude
 from this first set of conclusions the kernel \tmverbatim{phs\_kernel} as well
 as the function \tmverbatim{torch\_sign}.
@@ -2800,7 +2823,7 @@ drawn:
 
   \item Under almost every experiment, the centers are visibly seen to be
         clustered in four to five groups. Moreover, they tend to be located on the
-        semiplane $x > 0$ (recall Figure \ref{fig:epochs-runge-phs-show} as well as
+        half-plane $x > 0$ (recall Figure \ref{fig:epochs-runge-phs-show} as well as
         the ones provided in the Appendix).
 
   \item The sole successful experiment with this kernel involves
@@ -2842,7 +2865,7 @@ For each number of centers, we will repeat the interpolation experiment
 several times.
 
 In particular, we consider a fine enough grid of training points consisting of
-the cartesian product of 12 equispaced points in $[0,1]$. We interpolate this
+the Cartesian product of 12 equispaced points in $[0,1]$. We interpolate this
 function for a number of centers ranging from $5$ to $12$. Like in the previous
 experiment, we will capture the minimum of the $L^\infty-$norm on the
 verification dataset across all training iterations.
@@ -2857,7 +2880,7 @@ we ask the following questions:
 \begin{itemize}
   \item What does the distribution of the centers look like at the end of the
         training processes?
-  \item How do the $L^\infty-$norm and the ratio of best epochs distribute
+  \item How do the $L^\infty-$norm and the best epochs' ratio distribute
         as the number of centers varies?
   \item On the basis of repeated experiments, can we account for the outliers
         we observed in the 1D case?
@@ -2879,65 +2902,65 @@ we ask the following questions:
   % \frame
   {\includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c5_franke.pdf}}
   \caption{Results of the interpolation of the Runge function (5 centers).
-    Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: best epoch to total epochs ratio.
-    Right-hand side: $\log_{10}(L^\infty)-$norm.}
+    Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: the best epoch to total epochs' ratio.
+    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
   \label{fig:franke-tr12-c5}
 \end{figure}
 
 \begin{figure}[H]
   \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c6_franke.pdf}
   \caption{Results of the interpolation of the Runge function (6 centers).
-    Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: best epoch to total epochs ratio.
-    Right-hand side: $\log_{10}(L^\infty)-$norm.}
+    Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: the best epoch to total epochs' ratio.
+    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
   \label{fig:franke-tr12-c6}
 \end{figure}
 \begin{figure}[H]
   \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c7_franke.pdf}
   \caption{Results of the interpolation of the Runge function (7 centers).
-    Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: best epoch to total epochs ratio.
-    Right-hand side: $\log_{10}(L^\infty)-$norm.}
+    Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: the best epoch to total epochs' ratio.
+    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
   \label{fig:franke-tr12-c7}
 \end{figure}
 \begin{figure}[H]
   \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c8_franke.pdf}
   \caption{Results of the interpolation of the Runge function (8 centers).
-    Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: best epoch to total epochs ratio.
-    Right-hand side: $\log_{10}(L^\infty)-$norm.}
+    Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: the best epoch to total epochs' ratio.
+    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
   \label{fig:franke-tr12-c8}
 \end{figure}
 \begin{figure}[H]
   \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c9_franke.pdf}
   \caption{Results of the interpolation of the Runge function (9 centers).
-    Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: best epoch to total epochs ratio.
-    Right-hand side: $\log_{10}(L^\infty)-$norm.}
+    Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: the best epoch to total epochs' ratio.
+    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
   \label{fig:franke-tr12-c9}
 \end{figure}
 \begin{figure}[H]
   \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c10_franke.pdf}
   \caption{Results of the interpolation of the Runge function (10 centers).
-    Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: best epoch to total epochs ratio.
-    Right-hand side: $\log_{10}(L^\infty)-$norm.}
+    Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: the best epoch to total epochs' ratio.
+    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
   \label{fig:franke-tr12-c10}
 \end{figure}
 \begin{figure}[H]
   \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c11_franke.pdf}
   \caption{Results of the interpolation of the Runge function (11 centers).
-    Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: best epoch to total epochs ratio.
-    Right-hand side: $\log_{10}(L^\infty)-$norm.}
+    Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: the best epoch to total epochs' ratio.
+    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
   \label{fig:franke-tr12-c11}
 \end{figure}
 \begin{figure}[H]
   \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c12_franke.pdf}
   \caption{Results of the interpolation of the Runge function (12 centers).
-    Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: best epoch to total epochs ratio.
-    Right-hand side: $\log_{10}(L^\infty)-$norm.}
+    Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: the best epoch to total epochs' ratio.
+    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
   \label{fig:franke-tr12-c12}
 \end{figure}
 
 \subsection*{Conclusions}
 
 \begin{itemize}
-  \item The epochs ratio shifts towards $1.0$ as more centers are
+  \item The epochs' ratio shifts towards $1.0$ as more centers are
         provided to train with. The median of the $\log_{10}L^\infty-$norm
         shifts towards progressively smaller values. This shift is most noticeable when
         moving from 5 centers to 6 centers (compare right-hand sides of Figures
@@ -2958,11 +2981,11 @@ we ask the following questions:
   \item Independently of the number of centers provided, the three extrema of the
         interpolated function are always occupied with a center. After they have been
         occupied, the rest of the centers distribute along the steepest ascent direction
-        of the Franke function, which is located outside of the domain and is not part of
+        of Franke's function, which is located outside the domain and is not part of
         the training data. This is
         most notable from 8 centers onwards (Figure \ref{fig:franke-tr12-c8}).
 
-        The remaining centers distribute elsewhere, notably outside of the domain
+        The remaining centers distribute elsewhere, notably outside the domain
         as well. Their particular distribution seems to be preserved from 10 centers
         onwards (Figures
         \ref{fig:franke-tr12-c10}, \ref{fig:franke-tr12-c11}, and
@@ -2981,7 +3004,7 @@ we ask the following questions:
 \subsection{An observation on the computation of derivatives}
 
 As anticipated in Section \ref{section:pinns}, automatic differentiation allows the
-practicioner to evaluate the derivatives of a given function to machine precision.
+practitioner to evaluate the derivatives of a given function to machine precision.
 However, some considerations need to be taken when carrying out this technique.
 As mentioned in the PyTorch documentation website, concretely the
 ``\href{https://pytorch.org/tutorials/beginner/blitz/autograd_tutorial.html}{A gentle
@@ -2989,7 +3012,7 @@ As mentioned in the PyTorch documentation website, concretely the
 module records the tensors we consider for our computations alongside the operations
 they are involved in by means of a directed acyclic graph. This is coherent with
 Figure \ref{fig:wengert-trace} proposed in the context of our example of reverse
-mode automatic differentiation.
+mode automatic differentiation. 
 
 An immediate conclusion is the following: memory-efficient code will benefit from us
 ``massaging'' the expression of our problem into more manageable forms, i.e., applying
@@ -3002,14 +3025,14 @@ case.
 A cursory evaluation of the trace reveals that the Gaussian kernel defaults to one in
 the case the input coincides with the RBF center. Moreover, it is direct to see that
 $r=0$ is the sole maximum of the Gaussian kernel, with $\varphi'(r)=-2 \varepsilon^2 r
-  e^{-\varepsilon^2 r^2}$, whereupon $\varphi'(0)=0$ iff $r=0$. The Wengert trace as in Figure \ref{fig:wenger-trace-gaussian}
-indeed corresponds to $\varphi(r)$, but will yield \texttt{nan} when trying to compute
+  e^{-\varepsilon^2 r^2}$, whereupon $\varphi'(0)=0$ iff $r=0$. Wengert's trace as in Figure \ref{fig:wenger-trace-gaussian}
+indeed corresponds to $\varphi(r)$, but will yield \texttt{NaN} when trying to compute
 $\varphi'(0)$.
 
 \begin{figure}[ht]
   % \frame
   {\includegraphics[width=.85\textwidth, trim={2cm 22cm 7cm 3cm}, clip=true]{imagenes/rbf_discussion/diagrama-gaussian-wengert.pdf}}
-  \caption{Wengert trace of the Gaussian kernel.}
+  \caption{Wengert's trace of the Gaussian kernel.}
   \label{fig:wenger-trace-gaussian}
 \end{figure}
 
@@ -3076,7 +3099,7 @@ model solving this equation.
   \hspace*{-2cm}
   {\includegraphics[width=1.25\textwidth, trim={2cm 0 2.5cm 0}, clip=true]
     {imagenes/experiments/1d/ode/ode_report.pdf}}
-  \caption{Left-hand side: absolute error of the model solution with regards to the actual
+  \caption{Left-hand side: absolute error of the model solution regarding the actual
     solution. Middle image: visual comparison of both solutions alongside the location of the
     model's centers.
     Right-hand side: learning curves (mean squared error and $L^\infty-$norm) of the model.}
@@ -3093,7 +3116,7 @@ Some conclusions are in order:
   \item The absolute error (left-hand side image) shows that we can provide up to three digits
         of precision.
   \item The visual comparison of both solutions (middle image) shows that
-        some of the prescribed centers leave the problem domain.
+        some centers leave the problem domain.
   \item The learning curves indicate that the $L^\infty-$norm as well as the MSE decrease.
         The action of the Adam optimizer explains the ``spikes'' showing up every few iterations
         on both curves.
@@ -3104,7 +3127,7 @@ It shows the coefficients of each addend in the RBF model, the numeric location 
 their centers and the base-10 logarithms of the shape parameters.
 
 This complementary report shows that two of the five shape parameters are very close to zero,
-their contribution being comparable to that of a bias addend in an usual linear network layer.
+their contribution being comparable to that of a bias addend in a usual linear network layer.
 Further conclusions can be drawn from this image:
 \begin{itemize}
   \item From a practical perspective, considering three
@@ -3135,7 +3158,7 @@ $(x, y)$, let $\mathcal{N}\mathcal{N} (x, y ; \theta)$ be the application to
 $(x, y)$ of our RBF model with parameters $\theta$. Consider $0 < x_1 < x_2 <
   \cdots < x_n < 1$ and $0 < y_1 < y_2 < \cdots < y_m < 1$ two sets of points in
 $\mathbb{R}$, say $X$ and $Y$. The domain of \eqref{eqn-problem-pde-2d} is
-then discretized as the cartesian product of those two sets. The associated (discretized) minimization problem is
+then discretized as the Cartesian product of those two sets. The associated (discretized) minimization problem is
 \[ \min_{\theta} \frac{1}{n m} \sum_{x \in \tmmathbf{x}, y \in \tmmathbf{y}}
   \left( \frac{\partial^2}{\partial x^2} \mathcal{N}\mathcal{N} (x, y ;
     \theta) + \frac{\partial^2}{\partial y^2} \mathcal{N}\mathcal{N} (x, y ;
