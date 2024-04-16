@@ -1542,13 +1542,13 @@ binary operator that obeys the rule expressed in the left-hand side of Table
          \hline
          \tmverbatim{A} & \tmverbatim{B} & \tmverbatim{xor(A, B)} \\
          \hline
-         0              & 0              & 0                     \\
+         0              & 0              & 0                      \\
          \hline
-         0              & 1              & 1                     \\
+         0              & 1              & 1                      \\
          \hline
-         1              & 0              & 1                     \\
+         1              & 0              & 1                      \\
          \hline
-         1              & 1              & 0                     \\
+         1              & 1              & 0                      \\
          \hline
        \end{tabular}} &
     {\includegraphics[width=.41\textwidth]{imagenes/rbf_discussion/drawing-xor.pdf}}
@@ -2303,20 +2303,20 @@ $L^{\infty}$ error
 
 \section{Hardware information}
 
-All the experimentation featured in the following has been carried out in a server 
+All the experimentation featured in the following has been carried out in a server
 kindly provided by my advisors.
 
 \begin{table}[h]
   \begin{tabular}{|l|l|}
     \hline
     CPU & $\times 39$ Intel{\textregistered} Xeon{\textregistered} Silver
-    4210R @ 2.40 GHz\\
+    4210R @ 2.40 GHz                                                      \\
     \hline
-    GPU & NVIDIA RTX A6000 (49140 MiB)\\
+    GPU & NVIDIA RTX A6000 (49140 MiB)                                    \\
     \hline
-    RAM & 251 Gi\\
+    RAM & 251 Gi                                                          \\
     \hline
-    OS & Ubuntu 22.04.1 (Kernel 6.5.0-14)\\
+    OS  & Ubuntu 22.04.1 (Kernel 6.5.0-14)                                \\
     \hline
   \end{tabular}
   \caption{Description of the hardware used for experiments and development.}
@@ -2421,10 +2421,13 @@ After having commented the experiments and terminology we will follow during the
 
 \subsection*{report}
 
-We first report the results involving the $L^\infty-$norm on the verification dataset. We show them in the form of 3D heat maps, whereby the $x$ and $y$ coordinates correspond to the number of centers and training points respectively, and the $z$ entry corresponds to the minimum across all iterations of the logarithm of this norm. % \footnote{
-We will also show during which iterations these values are achieved. This way, we can possibly tell if we have ``stabilized'' to a solution without oscillations or if this may not be the case.
-% }. 
-% This way, we can easily determine the number of digits of precision we are able to guarantee under each interpolation experiment. 
+We first report the results involving the $L^\infty-$norm on the verification dataset
+in the form of 3D heat maps, whereby the $x$ and $y$ coordinates correspond to the number of centers
+and training points respectively, and the $z$ entry corresponds to the minimum across all iterations
+of the logarithm of this norm.
+We will also show during which iterations these values are achieved. This way, we can possibly tell if
+we have ``stabilized'' to a solution without oscillations or if this may not be the case.
+
 
 We start the report by assessing the impact of the last two experiment keys
 of Table \ref{tab:keys-table}, namely the addition of a polynomial term and
@@ -3012,7 +3015,7 @@ As mentioned in the PyTorch documentation website, concretely the
 module records the tensors we consider for our computations alongside the operations
 they are involved in by means of a directed acyclic graph. This is coherent with
 Figure \ref{fig:wengert-trace} proposed in the context of our example of reverse
-mode automatic differentiation. 
+mode automatic differentiation.
 
 An immediate conclusion is the following: memory-efficient code will benefit from us
 ``massaging'' the expression of our problem into more manageable forms, i.e., applying

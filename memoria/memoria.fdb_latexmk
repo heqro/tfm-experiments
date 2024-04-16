@@ -1,14 +1,14 @@
 # Fdb version 4
-["biber memoria"] 1713254701.67713 "memoria.bcf" "memoria.bbl" "memoria" 1713277178.27419 0
-  "memoria.bcf" 1713277177.81147 108876 a643186d71f8cb3f3a475509206e62fa "pdflatex"
+["biber memoria"] 1713254701.67713 "memoria.bcf" "memoria.bbl" "memoria" 1713277474.4796 0
+  "memoria.bcf" 1713277474.13943 108876 a643186d71f8cb3f3a475509206e62fa "pdflatex"
   "referencias.bib" 1713187231.20906 6817 7cecbf8c1e609d8f7ed6785345fde32d ""
   (generated)
   "memoria.bbl"
   "memoria.blg"
   (rewritten before read)
-["pdflatex"] 1713277172.47301 "/mnt/sdb1/Proyectos/tfm-experiments/memoria/memoria.tex" "memoria.pdf" "memoria" 1713277178.27467 0
+["pdflatex"] 1713277469.67041 "/mnt/sdb1/Proyectos/tfm-experiments/memoria/memoria.tex" "memoria.pdf" "memoria" 1713277474.48011 0
   "/etc/texmf/web2c/texmf.cnf" 1710926362 42612 09b3c6dec2a078bd30d80981dc2f43a3 ""
-  "/mnt/sdb1/Proyectos/tfm-experiments/memoria/memoria.tex" 1713277171.19881 213209 879f03902c1fe5a38ea7f9f53053ab76 ""
+  "/mnt/sdb1/Proyectos/tfm-experiments/memoria/memoria.tex" 1713277469.32786 213227 ec4d8dbd30c86bae824b4580d1a51cf0 ""
   "/usr/share/texmf/fonts/enc/dvips/base/8r.enc" 1710926362 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texmf/fonts/map/fontname/texfonts.map" 1710926362 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf/fonts/tfm/public/cm/cmr12.tfm" 1710926362 1288 655e228510b4c2a1abe905c368440826 ""
@@ -539,16 +539,16 @@
   "imagenes/xor/xor5.0.pdf" 1712598014.19585 14534 cbf4675a0ae1e8f5283c90b14ef4bfd3 ""
   "imagenes/xor/xor_conditioning_graph.pdf" 1712598014.1963 29191 0b23103edc57b2e54725a728e81e5456 ""
   "imagenes/xor/xor_largest_coef_graph.pdf" 1712598014.1967 24087 3920fd8fc9286f889fcbcc87c8f92dea ""
-  "memoria.aux" 1713277177.79624 68503 22bbf7f6f919334a3a6793a168394552 "pdflatex"
+  "memoria.aux" 1713277474.12565 68503 22bbf7f6f919334a3a6793a168394552 "pdflatex"
   "memoria.bbl" 1713254702.91752 26137 3218576de14a36cac2cfbb671f1b39dc "biber memoria"
-  "memoria.lof" 1713277177.81337 25150 35ef5f5ecbde81dcca94ffa50cca9fac "pdflatex"
-  "memoria.lot" 1713277177.8135 953 0bed4e5755e13bd0b3450b6ba14bc3f8 "pdflatex"
-  "memoria.out" 1713277177.8066 1467 72df97286ba848f79ad1199e965425fb "pdflatex"
-  "memoria.run.xml" 1713277177.81311 2424 94d23da05289d46c128a5c2dcaea6575 "pdflatex"
-  "memoria.tex" 1713277171.19881 213209 879f03902c1fe5a38ea7f9f53053ab76 ""
-  "memoria.toc" 1713277177.8133 2026 713a530c494a7589e16992456a696e0e "pdflatex"
+  "memoria.lof" 1713277474.14065 25150 35ef5f5ecbde81dcca94ffa50cca9fac "pdflatex"
+  "memoria.lot" 1713277474.1407 953 0bed4e5755e13bd0b3450b6ba14bc3f8 "pdflatex"
+  "memoria.out" 1713277474.13452 1467 72df97286ba848f79ad1199e965425fb "pdflatex"
+  "memoria.run.xml" 1713277474.14049 2424 94d23da05289d46c128a5c2dcaea6575 "pdflatex"
+  "memoria.tex" 1713277469.32786 213227 ec4d8dbd30c86bae824b4580d1a51cf0 ""
+  "memoria.toc" 1713277474.1406 2026 713a530c494a7589e16992456a696e0e "pdflatex"
   "new_results_05-04-24.pdf" 1712598014.30434 3049699 cc3551aef0a072445012f44b7846cad0 ""
-  "pdfa.xmpi" 1713277172.97597 5042 456477b1a70582842c498ec63a39cb9c "pdflatex"
+  "pdfa.xmpi" 1713277470.14112 5042 19ab58b43d803cb0059fb4a19af9c089 "pdflatex"
   (generated)
   "memoria.aux"
   "memoria.bcf"

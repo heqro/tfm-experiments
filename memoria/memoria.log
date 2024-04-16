@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/TeX Live for SUSE Linux) (preloaded format=pdflatex 2024.4.8)  16 APR 2024 16:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/TeX Live for SUSE Linux) (preloaded format=pdflatex 2024.4.8)  16 APR 2024 16:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1596,122 +1596,122 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <imagenes/experiments/1d/variational/runge_function-Kgaussian_kernel-Equi.pdf, id=2738, 304.16293pt x 224.27563pt>
 File: imagenes/experiments/1d/variational/runge_function-Kgaussian_kernel-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/runge_function-Kgaussian_kernel-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/runge_function-Kgaussian_kernel-Equi.pdf  used on input line 2444.
+Package pdftex.def Info: imagenes/experiments/1d/variational/runge_function-Kgaussian_kernel-Equi.pdf  used on input line 2447.
 (pdftex.def)             Requested size: 209.1301pt x 154.20279pt.
 <imagenes/experiments/1d/variational/runge_function-Kgaussian_kernel-Poly-Equi.pdf, id=2739, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/variational/runge_function-Kgaussian_kernel-Poly-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/runge_function-Kgaussian_kernel-Poly-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/runge_function-Kgaussian_kernel-Poly-Equi.pdf  used on input line 2445.
+Package pdftex.def Info: imagenes/experiments/1d/variational/runge_function-Kgaussian_kernel-Poly-Equi.pdf  used on input line 2448.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
  [43 <./imagenes/phs_interpolation/sign_r7_deg1.pdf>]
 File: imagenes/experiments/1d/variational/runge_function-Kgaussian_kernel-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/runge_function-Kgaussian_kernel-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/runge_function-Kgaussian_kernel-Equi.pdf  used on input line 2496.
+Package pdftex.def Info: imagenes/experiments/1d/variational/runge_function-Kgaussian_kernel-Equi.pdf  used on input line 2499.
 (pdftex.def)             Requested size: 209.1301pt x 154.20279pt.
 <imagenes/experiments/1d/least_squares/opt-runge_function-Kgaussian_kernel-Equi.pdf, id=2802, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/least_squares/opt-runge_function-Kgaussian_kernel-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-runge_function-Kgaussian_kernel-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-runge_function-Kgaussian_kernel-Equi.pdf  used on input line 2497.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-runge_function-Kgaussian_kernel-Equi.pdf  used on input line 2500.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/variational/runge_function-Kmq_kernel_sarra-Equi.pdf, id=2804, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/variational/runge_function-Kmq_kernel_sarra-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/runge_function-Kmq_kernel_sarra-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/runge_function-Kmq_kernel_sarra-Equi.pdf  used on input line 2509.
+Package pdftex.def Info: imagenes/experiments/1d/variational/runge_function-Kmq_kernel_sarra-Equi.pdf  used on input line 2512.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/least_squares/opt-runge_function-Kmq_kernel_sarra-Equi.pdf, id=2805, 288.19704pt x 224.27563pt>
 File: imagenes/experiments/1d/least_squares/opt-runge_function-Kmq_kernel_sarra-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-runge_function-Kmq_kernel_sarra-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-runge_function-Kmq_kernel_sarra-Equi.pdf  used on input line 2510.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-runge_function-Kmq_kernel_sarra-Equi.pdf  used on input line 2513.
 (pdftex.def)             Requested size: 209.1301pt x 162.74794pt.
  [44 <./imagenes/experiments/1d/intro/sin_higher_oscillations.pdf> <./imagenes/experiments/1d/intro/sin_pi_x_sq.pdf>]
 <imagenes/experiments/1d/variational/gibbs_function-Kgaussian_kernel-Equi.pdf, id=2862, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/variational/gibbs_function-Kgaussian_kernel-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/gibbs_function-Kgaussian_kernel-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/gibbs_function-Kgaussian_kernel-Equi.pdf  used on input line 2533.
+Package pdftex.def Info: imagenes/experiments/1d/variational/gibbs_function-Kgaussian_kernel-Equi.pdf  used on input line 2536.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/least_squares/opt-gibbs_function-Kgaussian_kernel-Equi.pdf, id=2863, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/least_squares/opt-gibbs_function-Kgaussian_kernel-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-gibbs_function-Kgaussian_kernel-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-gibbs_function-Kgaussian_kernel-Equi.pdf  used on input line 2534.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-gibbs_function-Kgaussian_kernel-Equi.pdf  used on input line 2537.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/variational/sin_higher_oscillations-Kgaussian_kernel-Equi.pdf, id=2865, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/variational/sin_higher_oscillations-Kgaussian_kernel-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/sin_higher_oscillations-Kgaussian_kernel-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/sin_higher_oscillations-Kgaussian_kernel-Equi.pdf  used on input line 2543.
+Package pdftex.def Info: imagenes/experiments/1d/variational/sin_higher_oscillations-Kgaussian_kernel-Equi.pdf  used on input line 2546.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kgaussian_kernel-Equi.pdf, id=2866, 288.19704pt x 224.27563pt>
 File: imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kgaussian_kernel-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kgaussian_kernel-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kgaussian_kernel-Equi.pdf  used on input line 2544.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kgaussian_kernel-Equi.pdf  used on input line 2547.
 (pdftex.def)             Requested size: 209.1301pt x 162.74794pt.
  [45 <./imagenes/experiments/1d/variational/runge_function-Kgaussian_kernel-Equi.pdf> <./imagenes/experiments/1d/variational/runge_function-Kgaussian_kernel-Poly-Equi.pdf> <./imagenes/experiments/1d/least_squares/opt-runge_function-Kgaussian_kernel-Equi.pdf>]
 <imagenes/experiments/1d/variational/sin_higher_oscillations-Kmq_kernel_sarra-Equi.pdf, id=3038, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/variational/sin_higher_oscillations-Kmq_kernel_sarra-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/sin_higher_oscillations-Kmq_kernel_sarra-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/sin_higher_oscillations-Kmq_kernel_sarra-Equi.pdf  used on input line 2554.
+Package pdftex.def Info: imagenes/experiments/1d/variational/sin_higher_oscillations-Kmq_kernel_sarra-Equi.pdf  used on input line 2557.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kmq_kernel_sarra-Equi.pdf, id=3039, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kmq_kernel_sarra-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kmq_kernel_sarra-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kmq_kernel_sarra-Equi.pdf  used on input line 2555.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kmq_kernel_sarra-Equi.pdf  used on input line 2558.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
  [46 <./imagenes/experiments/1d/variational/runge_function-Kmq_kernel_sarra-Equi.pdf> <./imagenes/experiments/1d/least_squares/opt-runge_function-Kmq_kernel_sarra-Equi.pdf> <./imagenes/experiments/1d/variational/gibbs_function-Kgaussian_kernel-Equi.pdf> <./imagenes/experiments/1d/least_squares/opt-gibbs_function-Kgaussian_kernel-Equi.pdf>]
 <imagenes/experiments/1d/variational/sin_pi_x_sq-Kgaussian_kernel-Equi.pdf, id=3274, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/variational/sin_pi_x_sq-Kgaussian_kernel-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/sin_pi_x_sq-Kgaussian_kernel-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/sin_pi_x_sq-Kgaussian_kernel-Equi.pdf  used on input line 2564.
+Package pdftex.def Info: imagenes/experiments/1d/variational/sin_pi_x_sq-Kgaussian_kernel-Equi.pdf  used on input line 2567.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kgaussian_kernel-Equi.pdf, id=3275, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kgaussian_kernel-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kgaussian_kernel-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kgaussian_kernel-Equi.pdf  used on input line 2565.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kgaussian_kernel-Equi.pdf  used on input line 2568.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/variational/sin_pi_x_sq-Kgaussian_kernel-Poly-Cheb.pdf, id=3277, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/variational/sin_pi_x_sq-Kgaussian_kernel-Poly-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/sin_pi_x_sq-Kgaussian_kernel-Poly-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/sin_pi_x_sq-Kgaussian_kernel-Poly-Cheb.pdf  used on input line 2574.
+Package pdftex.def Info: imagenes/experiments/1d/variational/sin_pi_x_sq-Kgaussian_kernel-Poly-Cheb.pdf  used on input line 2577.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kgaussian_kernel-Poly-Cheb.pdf, id=3278, 288.19704pt x 224.27563pt>
 File: imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kgaussian_kernel-Poly-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kgaussian_kernel-Poly-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kgaussian_kernel-Poly-Cheb.pdf  used on input line 2575.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kgaussian_kernel-Poly-Cheb.pdf  used on input line 2578.
 (pdftex.def)             Requested size: 209.1301pt x 162.74794pt.
 <imagenes/experiments/1d/variational/torch_sign-Kgaussian_kernel-Equi.pdf, id=3280, 304.16293pt x 224.27563pt>
 File: imagenes/experiments/1d/variational/torch_sign-Kgaussian_kernel-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/torch_sign-Kgaussian_kernel-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/torch_sign-Kgaussian_kernel-Equi.pdf  used on input line 2585.
+Package pdftex.def Info: imagenes/experiments/1d/variational/torch_sign-Kgaussian_kernel-Equi.pdf  used on input line 2588.
 (pdftex.def)             Requested size: 209.1301pt x 154.20279pt.
 <imagenes/experiments/1d/least_squares/opt-torch_sign-Kgaussian_kernel-Equi.pdf, id=3281, 295.75653pt x 224.27563pt>
 File: imagenes/experiments/1d/least_squares/opt-torch_sign-Kgaussian_kernel-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-torch_sign-Kgaussian_kernel-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-torch_sign-Kgaussian_kernel-Equi.pdf  used on input line 2586.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-torch_sign-Kgaussian_kernel-Equi.pdf  used on input line 2589.
 (pdftex.def)             Requested size: 209.1301pt x 158.5866pt.
  [47 <./imagenes/experiments/1d/variational/sin_higher_oscillations-Kgaussian_kernel-Equi.pdf> <./imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kgaussian_kernel-Equi.pdf> <./imagenes/experiments/1d/variational/sin_higher_oscillations-Kmq_kernel_sarra-Equi.pdf> <./imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kmq_kernel_sarra-Equi.pdf>]
 <imagenes/experiments/1d/variational/runge_function-Kphs_kernel-Equi.pdf, id=3510, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/variational/runge_function-Kphs_kernel-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/runge_function-Kphs_kernel-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/runge_function-Kphs_kernel-Equi.pdf  used on input line 2599.
+Package pdftex.def Info: imagenes/experiments/1d/variational/runge_function-Kphs_kernel-Equi.pdf  used on input line 2602.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/least_squares/opt-runge_function-Kphs_kernel-Equi.pdf, id=3511, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/least_squares/opt-runge_function-Kphs_kernel-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-runge_function-Kphs_kernel-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-runge_function-Kphs_kernel-Equi.pdf  used on input line 2600.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-runge_function-Kphs_kernel-Equi.pdf  used on input line 2603.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
  [48 <./imagenes/experiments/1d/variational/sin_pi_x_sq-Kgaussian_kernel-Equi.pdf> <./imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kgaussian_kernel-Equi.pdf> <./imagenes/experiments/1d/variational/sin_pi_x_sq-Kgaussian_kernel-Poly-Cheb.pdf> <./imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kgaussian_kernel-Poly-Cheb.pdf>] [49 <./imagenes/experiments/1d/variational/torch_sign-Kgaussian_kernel-Equi.pdf> <./imagenes/experiments/1d/least_squares/opt-torch_sign-Kgaussian_kernel-Equi.pdf> <./imagenes/experiments/1d/variational/runge_function-Kphs_kernel-Equi.pdf> <./imagenes/experiments/1d/least_squares/opt-runge_function-Kphs_kernel-Equi.pdf>]
 <imagenes/experiments/1d/variational_epochs/runge_function-Kmq_kernel_sarra-Equi-epochs.pdf, id=3975, 300.8355pt x 223.24052pt>
 File: imagenes/experiments/1d/variational_epochs/runge_function-Kmq_kernel_sarra-Equi-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/runge_function-Kmq_kernel_sarra-Equi-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/runge_function-Kmq_kernel_sarra-Equi-epochs.pdf  used on input line 2619.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/runge_function-Kmq_kernel_sarra-Equi-epochs.pdf  used on input line 2622.
 (pdftex.def)             Requested size: 209.1301pt x 155.19089pt.
 <imagenes/experiments/1d/variational_epochs/runge_function-Kgaussian_kernel-Equi-epochs.pdf, id=3983, 300.8355pt x 223.24052pt>
 File: imagenes/experiments/1d/variational_epochs/runge_function-Kgaussian_kernel-Equi-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/runge_function-Kgaussian_kernel-Equi-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/runge_function-Kgaussian_kernel-Equi-epochs.pdf  used on input line 2631.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/runge_function-Kgaussian_kernel-Equi-epochs.pdf  used on input line 2634.
 (pdftex.def)             Requested size: 209.1301pt x 155.19089pt.
 <imagenes/experiments/1d/variational_epochs/gibbs_function-Kgaussian_kernel-Equi-epochs.pdf, id=3984, 299.8239pt x 223.24052pt>
 File: imagenes/experiments/1d/variational_epochs/gibbs_function-Kgaussian_kernel-Equi-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/gibbs_function-Kgaussian_kernel-Equi-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/gibbs_function-Kgaussian_kernel-Equi-epochs.pdf  used on input line 2632.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/gibbs_function-Kgaussian_kernel-Equi-epochs.pdf  used on input line 2635.
 (pdftex.def)             Requested size: 209.1301pt x 155.71545pt.
 
 
@@ -1721,126 +1721,126 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <imagenes/experiments/1d/re_testing/reproducibility_runge.pdf, id=4143, 384.11177pt x 296.09998pt>
 File: imagenes/experiments/1d/re_testing/reproducibility_runge.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/re_testing/reproducibility_runge.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/re_testing/reproducibility_runge.pdf  used on input line 2710.
+Package pdftex.def Info: imagenes/experiments/1d/re_testing/reproducibility_runge.pdf  used on input line 2713.
 (pdftex.def)             Requested size: 384.1096pt x 296.10828pt.
 <imagenes/experiments/1d/re_testing/reproducibility_gibbs.pdf, id=4144, 341.43294pt x 259.05925pt>
 File: imagenes/experiments/1d/re_testing/reproducibility_gibbs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/re_testing/reproducibility_gibbs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/re_testing/reproducibility_gibbs.pdf  used on input line 2718.
+Package pdftex.def Info: imagenes/experiments/1d/re_testing/reproducibility_gibbs.pdf  used on input line 2721.
 (pdftex.def)             Requested size: 384.1096pt x 291.4607pt.
 <imagenes/experiments/1d/re_testing/reproducibility_centers.pdf, id=4145, 128.03741pt x 88.10493pt>
 File: imagenes/experiments/1d/re_testing/reproducibility_centers.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/re_testing/reproducibility_centers.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/re_testing/reproducibility_centers.pdf  used on input line 2727.
+Package pdftex.def Info: imagenes/experiments/1d/re_testing/reproducibility_centers.pdf  used on input line 2730.
 (pdftex.def)             Requested size: 170.71393pt x 117.47652pt.
  [52 <./imagenes/experiments/1d/re_testing/reproducibility_runge.pdf>]
 <imagenes/experiments/1d/variational_epochs/runge_function-Kphs_kernel-Equi-epochs.pdf, id=4165, 307.21872pt x 223.24052pt>
 File: imagenes/experiments/1d/variational_epochs/runge_function-Kphs_kernel-Equi-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/runge_function-Kphs_kernel-Equi-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/runge_function-Kphs_kernel-Equi-epochs.pdf  used on input line 2739.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/runge_function-Kphs_kernel-Equi-epochs.pdf  used on input line 2742.
 (pdftex.def)             Requested size: 209.1301pt x 151.96846pt.
 <imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR15.pdf, id=4166, 342.44815pt x 264.97371pt>
 File: imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR15.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR15.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR15.pdf  used on input line 2741.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR15.pdf  used on input line 2744.
 (pdftex.def)             Requested size: 192.0548pt x 77.27744pt.
 <imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR17.pdf, id=4168, 332.86546pt x 264.97371pt>
 File: imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR17.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR17.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR17.pdf  used on input line 2742.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR17.pdf  used on input line 2745.
 (pdftex.def)             Requested size: 192.0548pt x 79.50188pt.
  [53 <./imagenes/experiments/1d/re_testing/reproducibility_gibbs.pdf> <./imagenes/experiments/1d/re_testing/reproducibility_centers.pdf>]
 <imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR15.pdf, id=4254, 341.27188pt x 264.97371pt>
 File: imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR15.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR15.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR15.pdf  used on input line 2755.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR15.pdf  used on input line 2758.
 (pdftex.def)             Requested size: 192.0548pt x 77.54234pt.
 <imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR19.pdf, id=4256, 341.27188pt x 264.97371pt>
 File: imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR19.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR19.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR19.pdf  used on input line 2756.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR19.pdf  used on input line 2759.
 (pdftex.def)             Requested size: 192.0548pt x 77.54234pt.
 <imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR23.pdf, id=4258, 341.27188pt x 264.97371pt>
 File: imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR23.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR23.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR23.pdf  used on input line 2757.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR23.pdf  used on input line 2760.
 (pdftex.def)             Requested size: 192.0548pt x 77.54234pt.
 <imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR29.pdf, id=4260, 341.27188pt x 264.97371pt>
 File: imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR29.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR29.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR29.pdf  used on input line 2758.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR29.pdf  used on input line 2761.
 (pdftex.def)             Requested size: 192.0548pt x 77.54234pt.
  [54 <./imagenes/experiments/1d/variational_epochs/runge_function-Kphs_kernel-Equi-epochs.pdf> <./imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR15.pdf> <./imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR17.pdf> <./imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR15.pdf> <./imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR19.pdf> <./imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR23.pdf> <./imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR29.pdf>] [55] [56]
 </mnt/sdb1/Proyectos/tfm-experiments/memoria/imagenes/experiments/2d/franke_interpolation/Franke_Function_Surface_Contour.pdf, id=4718, 551.42009pt x 244.9953pt>
 File: /mnt/sdb1/Proyectos/tfm-experiments/memoria/imagenes/experiments/2d/franke_interpolation/Franke_Function_Surface_Contour.pdf Graphic file (type pdf)
 <use /mnt/sdb1/Proyectos/tfm-experiments/memoria/imagenes/experiments/2d/franke_interpolation/Franke_Function_Surface_Contour.pdf>
-Package pdftex.def Info: /mnt/sdb1/Proyectos/tfm-experiments/memoria/imagenes/experiments/2d/franke_interpolation/Franke_Function_Surface_Contour.pdf  used on input line 2892.
+Package pdftex.def Info: /mnt/sdb1/Proyectos/tfm-experiments/memoria/imagenes/experiments/2d/franke_interpolation/Franke_Function_Surface_Contour.pdf  used on input line 2895.
 (pdftex.def)             Requested size: 426.79135pt x 189.62639pt.
 <imagenes/experiments/2d/franke_interpolation/tr12_c5_franke.pdf, id=4719, 867.24pt x 289.08pt>
 File: imagenes/experiments/2d/franke_interpolation/tr12_c5_franke.pdf Graphic file (type pdf)
 <use imagenes/experiments/2d/franke_interpolation/tr12_c5_franke.pdf>
-Package pdftex.def Info: imagenes/experiments/2d/franke_interpolation/tr12_c5_franke.pdf  used on input line 2903.
+Package pdftex.def Info: imagenes/experiments/2d/franke_interpolation/tr12_c5_franke.pdf  used on input line 2906.
 (pdftex.def)             Requested size: 426.79135pt x 168.85307pt.
  [57 </mnt/sdb1/Proyectos/tfm-experiments/memoria/imagenes/experiments/2d/franke_interpolation/Franke_Function_Surface_Contour.pdf>]
 <imagenes/experiments/2d/franke_interpolation/tr12_c6_franke.pdf, id=4756, 867.24pt x 289.08pt>
 File: imagenes/experiments/2d/franke_interpolation/tr12_c6_franke.pdf Graphic file (type pdf)
 <use imagenes/experiments/2d/franke_interpolation/tr12_c6_franke.pdf>
-Package pdftex.def Info: imagenes/experiments/2d/franke_interpolation/tr12_c6_franke.pdf  used on input line 2911.
+Package pdftex.def Info: imagenes/experiments/2d/franke_interpolation/tr12_c6_franke.pdf  used on input line 2914.
 (pdftex.def)             Requested size: 426.79135pt x 168.85307pt.
 <imagenes/experiments/2d/franke_interpolation/tr12_c7_franke.pdf, id=4758, 867.24pt x 289.08pt>
 File: imagenes/experiments/2d/franke_interpolation/tr12_c7_franke.pdf Graphic file (type pdf)
 <use imagenes/experiments/2d/franke_interpolation/tr12_c7_franke.pdf>
-Package pdftex.def Info: imagenes/experiments/2d/franke_interpolation/tr12_c7_franke.pdf  used on input line 2918.
+Package pdftex.def Info: imagenes/experiments/2d/franke_interpolation/tr12_c7_franke.pdf  used on input line 2921.
 (pdftex.def)             Requested size: 426.79135pt x 168.85307pt.
  [58 <./imagenes/experiments/2d/franke_interpolation/tr12_c5_franke.pdf> <./imagenes/experiments/2d/franke_interpolation/tr12_c6_franke.pdf>]
 <imagenes/experiments/2d/franke_interpolation/tr12_c8_franke.pdf, id=4870, 867.24pt x 289.08pt>
 File: imagenes/experiments/2d/franke_interpolation/tr12_c8_franke.pdf Graphic file (type pdf)
 <use imagenes/experiments/2d/franke_interpolation/tr12_c8_franke.pdf>
-Package pdftex.def Info: imagenes/experiments/2d/franke_interpolation/tr12_c8_franke.pdf  used on input line 2925.
+Package pdftex.def Info: imagenes/experiments/2d/franke_interpolation/tr12_c8_franke.pdf  used on input line 2928.
 (pdftex.def)             Requested size: 426.79135pt x 168.85307pt.
 <imagenes/experiments/2d/franke_interpolation/tr12_c9_franke.pdf, id=4872, 867.24pt x 289.08pt>
 File: imagenes/experiments/2d/franke_interpolation/tr12_c9_franke.pdf Graphic file (type pdf)
 <use imagenes/experiments/2d/franke_interpolation/tr12_c9_franke.pdf>
-Package pdftex.def Info: imagenes/experiments/2d/franke_interpolation/tr12_c9_franke.pdf  used on input line 2932.
+Package pdftex.def Info: imagenes/experiments/2d/franke_interpolation/tr12_c9_franke.pdf  used on input line 2935.
 (pdftex.def)             Requested size: 426.79135pt x 168.85307pt.
  [59 <./imagenes/experiments/2d/franke_interpolation/tr12_c7_franke.pdf> <./imagenes/experiments/2d/franke_interpolation/tr12_c8_franke.pdf>]
 <imagenes/experiments/2d/franke_interpolation/tr12_c10_franke.pdf, id=4985, 867.24pt x 289.08pt>
 File: imagenes/experiments/2d/franke_interpolation/tr12_c10_franke.pdf Graphic file (type pdf)
 <use imagenes/experiments/2d/franke_interpolation/tr12_c10_franke.pdf>
-Package pdftex.def Info: imagenes/experiments/2d/franke_interpolation/tr12_c10_franke.pdf  used on input line 2939.
+Package pdftex.def Info: imagenes/experiments/2d/franke_interpolation/tr12_c10_franke.pdf  used on input line 2942.
 (pdftex.def)             Requested size: 426.79135pt x 168.85307pt.
 <imagenes/experiments/2d/franke_interpolation/tr12_c11_franke.pdf, id=4987, 867.24pt x 289.08pt>
 File: imagenes/experiments/2d/franke_interpolation/tr12_c11_franke.pdf Graphic file (type pdf)
 <use imagenes/experiments/2d/franke_interpolation/tr12_c11_franke.pdf>
-Package pdftex.def Info: imagenes/experiments/2d/franke_interpolation/tr12_c11_franke.pdf  used on input line 2946.
+Package pdftex.def Info: imagenes/experiments/2d/franke_interpolation/tr12_c11_franke.pdf  used on input line 2949.
 (pdftex.def)             Requested size: 426.79135pt x 168.85307pt.
  [60 <./imagenes/experiments/2d/franke_interpolation/tr12_c9_franke.pdf> <./imagenes/experiments/2d/franke_interpolation/tr12_c10_franke.pdf>]
 <imagenes/experiments/2d/franke_interpolation/tr12_c12_franke.pdf, id=5102, 867.24pt x 289.08pt>
 File: imagenes/experiments/2d/franke_interpolation/tr12_c12_franke.pdf Graphic file (type pdf)
 <use imagenes/experiments/2d/franke_interpolation/tr12_c12_franke.pdf>
-Package pdftex.def Info: imagenes/experiments/2d/franke_interpolation/tr12_c12_franke.pdf  used on input line 2953.
+Package pdftex.def Info: imagenes/experiments/2d/franke_interpolation/tr12_c12_franke.pdf  used on input line 2956.
 (pdftex.def)             Requested size: 426.79135pt x 168.85307pt.
  [61 <./imagenes/experiments/2d/franke_interpolation/tr12_c11_franke.pdf> <./imagenes/experiments/2d/franke_interpolation/tr12_c12_franke.pdf>]
 <imagenes/rbf_discussion/diagrama-gaussian-wengert.pdf, id=5237, 597.51166pt x 845.0523pt>
 File: imagenes/rbf_discussion/diagrama-gaussian-wengert.pdf Graphic file (type pdf)
 <use imagenes/rbf_discussion/diagrama-gaussian-wengert.pdf>
-Package pdftex.def Info: imagenes/rbf_discussion/diagrama-gaussian-wengert.pdf  used on input line 3034.
+Package pdftex.def Info: imagenes/rbf_discussion/diagrama-gaussian-wengert.pdf  used on input line 3037.
 (pdftex.def)             Requested size: 362.77525pt x 142.10164pt.
  [62] [63 <./imagenes/rbf_discussion/diagrama-gaussian-wengert.pdf>]
 <imagenes/experiments/1d/ode/ode_report.pdf, id=5299, 867.24pt x 216.81pt>
 File: imagenes/experiments/1d/ode/ode_report.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/ode/ode_report.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/ode/ode_report.pdf  used on input line 3101.
+Package pdftex.def Info: imagenes/experiments/1d/ode/ode_report.pdf  used on input line 3104.
 (pdftex.def)             Requested size: 533.48918pt x 156.4736pt.
 
-Overfull \hbox (52.07233pt too wide) in paragraph at lines 3099--3105
+Overfull \hbox (52.07233pt too wide) in paragraph at lines 3102--3108
  []|  [] 
  []
 
 <imagenes/experiments/1d/ode/parameters_of_rbf_interpolator.pdf, id=5301, 289.8027pt x 147.4308pt>
 File: imagenes/experiments/1d/ode/parameters_of_rbf_interpolator.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/ode/parameters_of_rbf_interpolator.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/ode/parameters_of_rbf_interpolator.pdf  used on input line 3111.
+Package pdftex.def Info: imagenes/experiments/1d/ode/parameters_of_rbf_interpolator.pdf  used on input line 3114.
 (pdftex.def)             Requested size: 213.39568pt x 108.56166pt.
 [64 <./imagenes/experiments/1d/ode/parameters_of_rbf_interpolator.pdf> <./imagenes/experiments/1d/ode/ode_report.pdf>] [65] [66
 
@@ -1848,214 +1848,214 @@ Package pdftex.def Info: imagenes/experiments/1d/ode/parameters_of_rbf_interpola
 ] [67]
 File: imagenes/experiments/1d/variational/runge_function-Kgaussian_kernel-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/runge_function-Kgaussian_kernel-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/runge_function-Kgaussian_kernel-Equi.pdf  used on input line 3202.
+Package pdftex.def Info: imagenes/experiments/1d/variational/runge_function-Kgaussian_kernel-Equi.pdf  used on input line 3205.
 (pdftex.def)             Requested size: 209.1301pt x 154.20279pt.
 <imagenes/experiments/1d/variational/runge_function-Kgaussian_kernel-Cheb.pdf, id=5426, 304.16293pt x 224.27563pt>
 File: imagenes/experiments/1d/variational/runge_function-Kgaussian_kernel-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/runge_function-Kgaussian_kernel-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/runge_function-Kgaussian_kernel-Cheb.pdf  used on input line 3203.
+Package pdftex.def Info: imagenes/experiments/1d/variational/runge_function-Kgaussian_kernel-Cheb.pdf  used on input line 3206.
 (pdftex.def)             Requested size: 209.1301pt x 154.20279pt.
 File: imagenes/experiments/1d/variational/runge_function-Kgaussian_kernel-Poly-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/runge_function-Kgaussian_kernel-Poly-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/runge_function-Kgaussian_kernel-Poly-Equi.pdf  used on input line 3212.
+Package pdftex.def Info: imagenes/experiments/1d/variational/runge_function-Kgaussian_kernel-Poly-Equi.pdf  used on input line 3215.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/variational/runge_function-Kgaussian_kernel-Poly-Cheb.pdf, id=5427, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/variational/runge_function-Kgaussian_kernel-Poly-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/runge_function-Kgaussian_kernel-Poly-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/runge_function-Kgaussian_kernel-Poly-Cheb.pdf  used on input line 3213.
+Package pdftex.def Info: imagenes/experiments/1d/variational/runge_function-Kgaussian_kernel-Poly-Cheb.pdf  used on input line 3216.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 File: imagenes/experiments/1d/variational/runge_function-Kmq_kernel_sarra-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/runge_function-Kmq_kernel_sarra-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/runge_function-Kmq_kernel_sarra-Equi.pdf  used on input line 3221.
+Package pdftex.def Info: imagenes/experiments/1d/variational/runge_function-Kmq_kernel_sarra-Equi.pdf  used on input line 3224.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/variational/runge_function-Kmq_kernel_sarra-Cheb.pdf, id=5428, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/variational/runge_function-Kmq_kernel_sarra-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/runge_function-Kmq_kernel_sarra-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/runge_function-Kmq_kernel_sarra-Cheb.pdf  used on input line 3222.
+Package pdftex.def Info: imagenes/experiments/1d/variational/runge_function-Kmq_kernel_sarra-Cheb.pdf  used on input line 3225.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 File: imagenes/experiments/1d/variational/runge_function-Kphs_kernel-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/runge_function-Kphs_kernel-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/runge_function-Kphs_kernel-Equi.pdf  used on input line 3231.
+Package pdftex.def Info: imagenes/experiments/1d/variational/runge_function-Kphs_kernel-Equi.pdf  used on input line 3234.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/variational/runge_function-Kphs_kernel-Cheb.pdf, id=5429, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/variational/runge_function-Kphs_kernel-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/runge_function-Kphs_kernel-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/runge_function-Kphs_kernel-Cheb.pdf  used on input line 3232.
+Package pdftex.def Info: imagenes/experiments/1d/variational/runge_function-Kphs_kernel-Cheb.pdf  used on input line 3235.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 File: imagenes/experiments/1d/variational/gibbs_function-Kgaussian_kernel-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/gibbs_function-Kgaussian_kernel-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/gibbs_function-Kgaussian_kernel-Equi.pdf  used on input line 3243.
+Package pdftex.def Info: imagenes/experiments/1d/variational/gibbs_function-Kgaussian_kernel-Equi.pdf  used on input line 3246.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/variational/gibbs_function-Kgaussian_kernel-Cheb.pdf, id=5430, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/variational/gibbs_function-Kgaussian_kernel-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/gibbs_function-Kgaussian_kernel-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/gibbs_function-Kgaussian_kernel-Cheb.pdf  used on input line 3244.
+Package pdftex.def Info: imagenes/experiments/1d/variational/gibbs_function-Kgaussian_kernel-Cheb.pdf  used on input line 3247.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/variational/gibbs_gaussian_extended.pdf, id=5431, 307.22124pt x 227.33394pt>
 File: imagenes/experiments/1d/variational/gibbs_gaussian_extended.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/gibbs_gaussian_extended.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/gibbs_gaussian_extended.pdf  used on input line 3252.
+Package pdftex.def Info: imagenes/experiments/1d/variational/gibbs_gaussian_extended.pdf  used on input line 3255.
 (pdftex.def)             Requested size: 256.07741pt x 189.4884pt.
 <imagenes/experiments/1d/least_squares/gibbs_exact_solution_fucks_up.pdf, id=5432, 307.22124pt x 227.33394pt>
 File: imagenes/experiments/1d/least_squares/gibbs_exact_solution_fucks_up.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/gibbs_exact_solution_fucks_up.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/gibbs_exact_solution_fucks_up.pdf  used on input line 3260.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/gibbs_exact_solution_fucks_up.pdf  used on input line 3263.
 (pdftex.def)             Requested size: 256.07741pt x 189.4884pt.
 <imagenes/experiments/1d/variational/gibbs_function-Kgaussian_kernel-Poly-Equi.pdf, id=5433, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/variational/gibbs_function-Kgaussian_kernel-Poly-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/gibbs_function-Kgaussian_kernel-Poly-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/gibbs_function-Kgaussian_kernel-Poly-Equi.pdf  used on input line 3269.
+Package pdftex.def Info: imagenes/experiments/1d/variational/gibbs_function-Kgaussian_kernel-Poly-Equi.pdf  used on input line 3272.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/variational/gibbs_function-Kgaussian_kernel-Poly-Cheb.pdf, id=5434, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/variational/gibbs_function-Kgaussian_kernel-Poly-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/gibbs_function-Kgaussian_kernel-Poly-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/gibbs_function-Kgaussian_kernel-Poly-Cheb.pdf  used on input line 3270.
+Package pdftex.def Info: imagenes/experiments/1d/variational/gibbs_function-Kgaussian_kernel-Poly-Cheb.pdf  used on input line 3273.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/variational/gibbs_function-Kmq_kernel_sarra-Equi.pdf, id=5435, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/variational/gibbs_function-Kmq_kernel_sarra-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/gibbs_function-Kmq_kernel_sarra-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/gibbs_function-Kmq_kernel_sarra-Equi.pdf  used on input line 3278.
+Package pdftex.def Info: imagenes/experiments/1d/variational/gibbs_function-Kmq_kernel_sarra-Equi.pdf  used on input line 3281.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/variational/gibbs_function-Kmq_kernel_sarra-Cheb.pdf, id=5436, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/variational/gibbs_function-Kmq_kernel_sarra-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/gibbs_function-Kmq_kernel_sarra-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/gibbs_function-Kmq_kernel_sarra-Cheb.pdf  used on input line 3279.
+Package pdftex.def Info: imagenes/experiments/1d/variational/gibbs_function-Kmq_kernel_sarra-Cheb.pdf  used on input line 3282.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/variational/gibbs_function-Kphs_kernel-Equi.pdf, id=5437, 304.16293pt x 224.27563pt>
 File: imagenes/experiments/1d/variational/gibbs_function-Kphs_kernel-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/gibbs_function-Kphs_kernel-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/gibbs_function-Kphs_kernel-Equi.pdf  used on input line 3287.
+Package pdftex.def Info: imagenes/experiments/1d/variational/gibbs_function-Kphs_kernel-Equi.pdf  used on input line 3290.
 (pdftex.def)             Requested size: 209.1301pt x 154.20279pt.
 <imagenes/experiments/1d/variational/gibbs_function-Kphs_kernel-Cheb.pdf, id=5438, 304.16293pt x 224.27563pt>
 File: imagenes/experiments/1d/variational/gibbs_function-Kphs_kernel-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/gibbs_function-Kphs_kernel-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/gibbs_function-Kphs_kernel-Cheb.pdf  used on input line 3288.
+Package pdftex.def Info: imagenes/experiments/1d/variational/gibbs_function-Kphs_kernel-Cheb.pdf  used on input line 3291.
 (pdftex.def)             Requested size: 209.1301pt x 154.20279pt.
 File: imagenes/experiments/1d/variational/torch_sign-Kgaussian_kernel-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/torch_sign-Kgaussian_kernel-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/torch_sign-Kgaussian_kernel-Equi.pdf  used on input line 3299.
+Package pdftex.def Info: imagenes/experiments/1d/variational/torch_sign-Kgaussian_kernel-Equi.pdf  used on input line 3302.
 (pdftex.def)             Requested size: 209.1301pt x 154.20279pt.
 <imagenes/experiments/1d/variational/torch_sign-Kgaussian_kernel-Cheb.pdf, id=5439, 295.75653pt x 224.27563pt>
 File: imagenes/experiments/1d/variational/torch_sign-Kgaussian_kernel-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/torch_sign-Kgaussian_kernel-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/torch_sign-Kgaussian_kernel-Cheb.pdf  used on input line 3300.
+Package pdftex.def Info: imagenes/experiments/1d/variational/torch_sign-Kgaussian_kernel-Cheb.pdf  used on input line 3303.
 (pdftex.def)             Requested size: 209.1301pt x 158.5866pt.
 <imagenes/experiments/1d/variational/torch_sign-Kgaussian_kernel-Poly-Equi.pdf, id=5440, 304.16293pt x 224.27563pt>
 File: imagenes/experiments/1d/variational/torch_sign-Kgaussian_kernel-Poly-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/torch_sign-Kgaussian_kernel-Poly-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/torch_sign-Kgaussian_kernel-Poly-Equi.pdf  used on input line 3309.
+Package pdftex.def Info: imagenes/experiments/1d/variational/torch_sign-Kgaussian_kernel-Poly-Equi.pdf  used on input line 3312.
 (pdftex.def)             Requested size: 209.1301pt x 154.20279pt.
 <imagenes/experiments/1d/variational/torch_sign-Kgaussian_kernel-Poly-Cheb.pdf, id=5441, 295.75653pt x 224.27563pt>
 File: imagenes/experiments/1d/variational/torch_sign-Kgaussian_kernel-Poly-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/torch_sign-Kgaussian_kernel-Poly-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/torch_sign-Kgaussian_kernel-Poly-Cheb.pdf  used on input line 3310.
+Package pdftex.def Info: imagenes/experiments/1d/variational/torch_sign-Kgaussian_kernel-Poly-Cheb.pdf  used on input line 3313.
 (pdftex.def)             Requested size: 209.1301pt x 158.5866pt.
 <imagenes/experiments/1d/variational/torch_sign-Kmq_kernel_sarra-Equi.pdf, id=5442, 304.16293pt x 224.27563pt>
 File: imagenes/experiments/1d/variational/torch_sign-Kmq_kernel_sarra-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/torch_sign-Kmq_kernel_sarra-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/torch_sign-Kmq_kernel_sarra-Equi.pdf  used on input line 3319.
+Package pdftex.def Info: imagenes/experiments/1d/variational/torch_sign-Kmq_kernel_sarra-Equi.pdf  used on input line 3322.
 (pdftex.def)             Requested size: 209.1301pt x 154.20279pt.
 <imagenes/experiments/1d/variational/torch_sign-Kmq_kernel_sarra-Cheb.pdf, id=5443, 295.75653pt x 224.27563pt>
 File: imagenes/experiments/1d/variational/torch_sign-Kmq_kernel_sarra-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/torch_sign-Kmq_kernel_sarra-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/torch_sign-Kmq_kernel_sarra-Cheb.pdf  used on input line 3320.
+Package pdftex.def Info: imagenes/experiments/1d/variational/torch_sign-Kmq_kernel_sarra-Cheb.pdf  used on input line 3323.
 (pdftex.def)             Requested size: 209.1301pt x 158.5866pt.
 <imagenes/experiments/1d/variational/torch_sign-Kphs_kernel-Equi.pdf, id=5444, 295.75653pt x 224.27563pt>
 File: imagenes/experiments/1d/variational/torch_sign-Kphs_kernel-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/torch_sign-Kphs_kernel-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/torch_sign-Kphs_kernel-Equi.pdf  used on input line 3328.
+Package pdftex.def Info: imagenes/experiments/1d/variational/torch_sign-Kphs_kernel-Equi.pdf  used on input line 3331.
 (pdftex.def)             Requested size: 209.1301pt x 158.5866pt.
 <imagenes/experiments/1d/variational/torch_sign-Kphs_kernel-Cheb.pdf, id=5445, 295.75653pt x 224.27563pt>
 File: imagenes/experiments/1d/variational/torch_sign-Kphs_kernel-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/torch_sign-Kphs_kernel-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/torch_sign-Kphs_kernel-Cheb.pdf  used on input line 3329.
+Package pdftex.def Info: imagenes/experiments/1d/variational/torch_sign-Kphs_kernel-Cheb.pdf  used on input line 3332.
 (pdftex.def)             Requested size: 209.1301pt x 158.5866pt.
 LaTeX Font Info:    Font shape `T1/txtt/b/n' in size <12> not available
-(Font)              Font shape `T1/txtt/bx/n' tried instead on input line 3334.
+(Font)              Font shape `T1/txtt/bx/n' tried instead on input line 3337.
 File: imagenes/experiments/1d/variational/sin_higher_oscillations-Kgaussian_kernel-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/sin_higher_oscillations-Kgaussian_kernel-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/sin_higher_oscillations-Kgaussian_kernel-Equi.pdf  used on input line 3339.
+Package pdftex.def Info: imagenes/experiments/1d/variational/sin_higher_oscillations-Kgaussian_kernel-Equi.pdf  used on input line 3342.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/variational/sin_higher_oscillations-Kgaussian_kernel-Cheb.pdf, id=5446, 304.16293pt x 224.27563pt>
 File: imagenes/experiments/1d/variational/sin_higher_oscillations-Kgaussian_kernel-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/sin_higher_oscillations-Kgaussian_kernel-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/sin_higher_oscillations-Kgaussian_kernel-Cheb.pdf  used on input line 3340.
+Package pdftex.def Info: imagenes/experiments/1d/variational/sin_higher_oscillations-Kgaussian_kernel-Cheb.pdf  used on input line 3343.
 (pdftex.def)             Requested size: 209.1301pt x 154.20279pt.
 <imagenes/experiments/1d/variational/sin_higher_oscillations-Kgaussian_kernel-Poly-Equi.pdf, id=5447, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/variational/sin_higher_oscillations-Kgaussian_kernel-Poly-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/sin_higher_oscillations-Kgaussian_kernel-Poly-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/sin_higher_oscillations-Kgaussian_kernel-Poly-Equi.pdf  used on input line 3348.
+Package pdftex.def Info: imagenes/experiments/1d/variational/sin_higher_oscillations-Kgaussian_kernel-Poly-Equi.pdf  used on input line 3351.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/variational/sin_higher_oscillations-Kgaussian_kernel-Poly-Cheb.pdf, id=5448, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/variational/sin_higher_oscillations-Kgaussian_kernel-Poly-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/sin_higher_oscillations-Kgaussian_kernel-Poly-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/sin_higher_oscillations-Kgaussian_kernel-Poly-Cheb.pdf  used on input line 3349.
+Package pdftex.def Info: imagenes/experiments/1d/variational/sin_higher_oscillations-Kgaussian_kernel-Poly-Cheb.pdf  used on input line 3352.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 File: imagenes/experiments/1d/variational/sin_higher_oscillations-Kmq_kernel_sarra-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/sin_higher_oscillations-Kmq_kernel_sarra-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/sin_higher_oscillations-Kmq_kernel_sarra-Equi.pdf  used on input line 3357.
+Package pdftex.def Info: imagenes/experiments/1d/variational/sin_higher_oscillations-Kmq_kernel_sarra-Equi.pdf  used on input line 3360.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/variational/sin_higher_oscillations-Kmq_kernel_sarra-Cheb.pdf, id=5449, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/variational/sin_higher_oscillations-Kmq_kernel_sarra-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/sin_higher_oscillations-Kmq_kernel_sarra-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/sin_higher_oscillations-Kmq_kernel_sarra-Cheb.pdf  used on input line 3358.
+Package pdftex.def Info: imagenes/experiments/1d/variational/sin_higher_oscillations-Kmq_kernel_sarra-Cheb.pdf  used on input line 3361.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/variational/sin_higher_oscillations-Kphs_kernel-Equi.pdf, id=5450, 304.16293pt x 224.27563pt>
 File: imagenes/experiments/1d/variational/sin_higher_oscillations-Kphs_kernel-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/sin_higher_oscillations-Kphs_kernel-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/sin_higher_oscillations-Kphs_kernel-Equi.pdf  used on input line 3366.
+Package pdftex.def Info: imagenes/experiments/1d/variational/sin_higher_oscillations-Kphs_kernel-Equi.pdf  used on input line 3369.
 (pdftex.def)             Requested size: 209.1301pt x 154.20279pt.
 <imagenes/experiments/1d/variational/sin_higher_oscillations-Kphs_kernel-Cheb.pdf, id=5451, 304.16293pt x 224.27563pt>
 File: imagenes/experiments/1d/variational/sin_higher_oscillations-Kphs_kernel-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/sin_higher_oscillations-Kphs_kernel-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/sin_higher_oscillations-Kphs_kernel-Cheb.pdf  used on input line 3367.
+Package pdftex.def Info: imagenes/experiments/1d/variational/sin_higher_oscillations-Kphs_kernel-Cheb.pdf  used on input line 3370.
 (pdftex.def)             Requested size: 209.1301pt x 154.20279pt.
 File: imagenes/experiments/1d/variational/sin_pi_x_sq-Kgaussian_kernel-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/sin_pi_x_sq-Kgaussian_kernel-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/sin_pi_x_sq-Kgaussian_kernel-Equi.pdf  used on input line 3377.
+Package pdftex.def Info: imagenes/experiments/1d/variational/sin_pi_x_sq-Kgaussian_kernel-Equi.pdf  used on input line 3380.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/variational/sin_pi_x_sq-Kgaussian_kernel-Cheb.pdf, id=5452, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/variational/sin_pi_x_sq-Kgaussian_kernel-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/sin_pi_x_sq-Kgaussian_kernel-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/sin_pi_x_sq-Kgaussian_kernel-Cheb.pdf  used on input line 3378.
+Package pdftex.def Info: imagenes/experiments/1d/variational/sin_pi_x_sq-Kgaussian_kernel-Cheb.pdf  used on input line 3381.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/variational/sin_pi_x_sq-Kgaussian_kernel-Poly-Equi.pdf, id=5453, 304.16293pt x 224.27563pt>
 File: imagenes/experiments/1d/variational/sin_pi_x_sq-Kgaussian_kernel-Poly-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/sin_pi_x_sq-Kgaussian_kernel-Poly-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/sin_pi_x_sq-Kgaussian_kernel-Poly-Equi.pdf  used on input line 3386.
+Package pdftex.def Info: imagenes/experiments/1d/variational/sin_pi_x_sq-Kgaussian_kernel-Poly-Equi.pdf  used on input line 3389.
 (pdftex.def)             Requested size: 209.1301pt x 154.20279pt.
 File: imagenes/experiments/1d/variational/sin_pi_x_sq-Kgaussian_kernel-Poly-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/sin_pi_x_sq-Kgaussian_kernel-Poly-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/sin_pi_x_sq-Kgaussian_kernel-Poly-Cheb.pdf  used on input line 3387.
+Package pdftex.def Info: imagenes/experiments/1d/variational/sin_pi_x_sq-Kgaussian_kernel-Poly-Cheb.pdf  used on input line 3390.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/variational/sin_pi_x_sq-Kmq_kernel_sarra-Equi.pdf, id=5454, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/variational/sin_pi_x_sq-Kmq_kernel_sarra-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/sin_pi_x_sq-Kmq_kernel_sarra-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/sin_pi_x_sq-Kmq_kernel_sarra-Equi.pdf  used on input line 3396.
+Package pdftex.def Info: imagenes/experiments/1d/variational/sin_pi_x_sq-Kmq_kernel_sarra-Equi.pdf  used on input line 3399.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/variational/sin_pi_x_sq-Kmq_kernel_sarra-Cheb.pdf, id=5455, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/variational/sin_pi_x_sq-Kmq_kernel_sarra-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/sin_pi_x_sq-Kmq_kernel_sarra-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/sin_pi_x_sq-Kmq_kernel_sarra-Cheb.pdf  used on input line 3397.
+Package pdftex.def Info: imagenes/experiments/1d/variational/sin_pi_x_sq-Kmq_kernel_sarra-Cheb.pdf  used on input line 3400.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/variational/sin_pi_x_sq-Kphs_kernel-Equi.pdf, id=5456, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/variational/sin_pi_x_sq-Kphs_kernel-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/sin_pi_x_sq-Kphs_kernel-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/sin_pi_x_sq-Kphs_kernel-Equi.pdf  used on input line 3405.
+Package pdftex.def Info: imagenes/experiments/1d/variational/sin_pi_x_sq-Kphs_kernel-Equi.pdf  used on input line 3408.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/variational/sin_pi_x_sq-Kphs_kernel-Cheb.pdf, id=5457, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/variational/sin_pi_x_sq-Kphs_kernel-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational/sin_pi_x_sq-Kphs_kernel-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational/sin_pi_x_sq-Kphs_kernel-Cheb.pdf  used on input line 3406.
+Package pdftex.def Info: imagenes/experiments/1d/variational/sin_pi_x_sq-Kphs_kernel-Cheb.pdf  used on input line 3409.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 File: imagenes/experiments/1d/variational_epochs/runge_function-Kgaussian_kernel-Equi-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/runge_function-Kgaussian_kernel-Equi-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/runge_function-Kgaussian_kernel-Equi-epochs.pdf  used on input line 3418.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/runge_function-Kgaussian_kernel-Equi-epochs.pdf  used on input line 3421.
 (pdftex.def)             Requested size: 209.1301pt x 155.19089pt.
 <imagenes/experiments/1d/variational_epochs/runge_function-Kgaussian_kernel-Cheb-epochs.pdf, id=5458, 300.8355pt x 223.24052pt>
 File: imagenes/experiments/1d/variational_epochs/runge_function-Kgaussian_kernel-Cheb-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/runge_function-Kgaussian_kernel-Cheb-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/runge_function-Kgaussian_kernel-Cheb-epochs.pdf  used on input line 3419.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/runge_function-Kgaussian_kernel-Cheb-epochs.pdf  used on input line 3422.
 (pdftex.def)             Requested size: 209.1301pt x 155.19089pt.
  [1
 
@@ -2063,781 +2063,781 @@ Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/runge_functi
 <imagenes/experiments/1d/variational_epochs/runge_function-Kgaussian_kernel-Poly-Equi-epochs.pdf, id=5577, 300.8355pt x 223.24052pt>
 File: imagenes/experiments/1d/variational_epochs/runge_function-Kgaussian_kernel-Poly-Equi-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/runge_function-Kgaussian_kernel-Poly-Equi-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/runge_function-Kgaussian_kernel-Poly-Equi-epochs.pdf  used on input line 3428.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/runge_function-Kgaussian_kernel-Poly-Equi-epochs.pdf  used on input line 3431.
 (pdftex.def)             Requested size: 209.1301pt x 155.19089pt.
 <imagenes/experiments/1d/variational_epochs/runge_function-Kgaussian_kernel-Poly-Cheb-epochs.pdf, id=5578, 300.8355pt x 223.24052pt>
 File: imagenes/experiments/1d/variational_epochs/runge_function-Kgaussian_kernel-Poly-Cheb-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/runge_function-Kgaussian_kernel-Poly-Cheb-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/runge_function-Kgaussian_kernel-Poly-Cheb-epochs.pdf  used on input line 3429.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/runge_function-Kgaussian_kernel-Poly-Cheb-epochs.pdf  used on input line 3432.
 (pdftex.def)             Requested size: 209.1301pt x 155.19089pt.
 File: imagenes/experiments/1d/variational_epochs/runge_function-Kmq_kernel_sarra-Equi-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/runge_function-Kmq_kernel_sarra-Equi-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/runge_function-Kmq_kernel_sarra-Equi-epochs.pdf  used on input line 3437.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/runge_function-Kmq_kernel_sarra-Equi-epochs.pdf  used on input line 3440.
 (pdftex.def)             Requested size: 209.1301pt x 155.19089pt.
 <imagenes/experiments/1d/variational_epochs/runge_function-Kmq_kernel_sarra-Cheb-epochs.pdf, id=5579, 300.8355pt x 223.24052pt>
 File: imagenes/experiments/1d/variational_epochs/runge_function-Kmq_kernel_sarra-Cheb-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/runge_function-Kmq_kernel_sarra-Cheb-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/runge_function-Kmq_kernel_sarra-Cheb-epochs.pdf  used on input line 3438.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/runge_function-Kmq_kernel_sarra-Cheb-epochs.pdf  used on input line 3441.
 (pdftex.def)             Requested size: 209.1301pt x 155.19089pt.
 File: imagenes/experiments/1d/variational_epochs/runge_function-Kphs_kernel-Equi-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/runge_function-Kphs_kernel-Equi-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/runge_function-Kphs_kernel-Equi-epochs.pdf  used on input line 3447.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/runge_function-Kphs_kernel-Equi-epochs.pdf  used on input line 3450.
 (pdftex.def)             Requested size: 209.1301pt x 151.96846pt.
 <imagenes/experiments/1d/variational_epochs/runge_function-Kphs_kernel-Cheb-epochs.pdf, id=5580, 307.21872pt x 223.24052pt>
 File: imagenes/experiments/1d/variational_epochs/runge_function-Kphs_kernel-Cheb-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/runge_function-Kphs_kernel-Cheb-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/runge_function-Kphs_kernel-Cheb-epochs.pdf  used on input line 3448.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/runge_function-Kphs_kernel-Cheb-epochs.pdf  used on input line 3451.
 (pdftex.def)             Requested size: 209.1301pt x 151.96846pt.
 File: imagenes/experiments/1d/variational_epochs/gibbs_function-Kgaussian_kernel-Equi-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/gibbs_function-Kgaussian_kernel-Equi-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/gibbs_function-Kgaussian_kernel-Equi-epochs.pdf  used on input line 3459.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/gibbs_function-Kgaussian_kernel-Equi-epochs.pdf  used on input line 3462.
 (pdftex.def)             Requested size: 209.1301pt x 155.71545pt.
 <imagenes/experiments/1d/variational_epochs/gibbs_function-Kgaussian_kernel-Cheb-epochs.pdf, id=5581, 299.8239pt x 223.24052pt>
 File: imagenes/experiments/1d/variational_epochs/gibbs_function-Kgaussian_kernel-Cheb-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/gibbs_function-Kgaussian_kernel-Cheb-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/gibbs_function-Kgaussian_kernel-Cheb-epochs.pdf  used on input line 3460.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/gibbs_function-Kgaussian_kernel-Cheb-epochs.pdf  used on input line 3463.
 (pdftex.def)             Requested size: 209.1301pt x 155.71545pt.
 <imagenes/experiments/1d/variational_epochs/gibbs_function-Kgaussian_kernel-Poly-Equi-epochs.pdf, id=5582, 299.8239pt x 223.24052pt>
 File: imagenes/experiments/1d/variational_epochs/gibbs_function-Kgaussian_kernel-Poly-Equi-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/gibbs_function-Kgaussian_kernel-Poly-Equi-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/gibbs_function-Kgaussian_kernel-Poly-Equi-epochs.pdf  used on input line 3470.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/gibbs_function-Kgaussian_kernel-Poly-Equi-epochs.pdf  used on input line 3473.
 (pdftex.def)             Requested size: 209.1301pt x 155.71545pt.
 <imagenes/experiments/1d/variational_epochs/gibbs_function-Kgaussian_kernel-Poly-Cheb-epochs.pdf, id=5583, 299.8239pt x 223.24052pt>
 File: imagenes/experiments/1d/variational_epochs/gibbs_function-Kgaussian_kernel-Poly-Cheb-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/gibbs_function-Kgaussian_kernel-Poly-Cheb-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/gibbs_function-Kgaussian_kernel-Poly-Cheb-epochs.pdf  used on input line 3471.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/gibbs_function-Kgaussian_kernel-Poly-Cheb-epochs.pdf  used on input line 3474.
 (pdftex.def)             Requested size: 209.1301pt x 155.71545pt.
 <imagenes/experiments/1d/variational_epochs/gibbs_function-Kmq_kernel_sarra-Equi-epochs.pdf, id=5584, 299.8239pt x 223.24052pt>
 File: imagenes/experiments/1d/variational_epochs/gibbs_function-Kmq_kernel_sarra-Equi-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/gibbs_function-Kmq_kernel_sarra-Equi-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/gibbs_function-Kmq_kernel_sarra-Equi-epochs.pdf  used on input line 3479.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/gibbs_function-Kmq_kernel_sarra-Equi-epochs.pdf  used on input line 3482.
 (pdftex.def)             Requested size: 209.1301pt x 155.71545pt.
 <imagenes/experiments/1d/variational_epochs/gibbs_function-Kmq_kernel_sarra-Cheb-epochs.pdf, id=5585, 299.8239pt x 223.24052pt>
 File: imagenes/experiments/1d/variational_epochs/gibbs_function-Kmq_kernel_sarra-Cheb-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/gibbs_function-Kmq_kernel_sarra-Cheb-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/gibbs_function-Kmq_kernel_sarra-Cheb-epochs.pdf  used on input line 3480.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/gibbs_function-Kmq_kernel_sarra-Cheb-epochs.pdf  used on input line 3483.
 (pdftex.def)             Requested size: 209.1301pt x 155.71545pt.
 <imagenes/experiments/1d/variational_epochs/gibbs_function-Kphs_kernel-Equi-epochs.pdf, id=5586, 299.8239pt x 223.24052pt>
 File: imagenes/experiments/1d/variational_epochs/gibbs_function-Kphs_kernel-Equi-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/gibbs_function-Kphs_kernel-Equi-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/gibbs_function-Kphs_kernel-Equi-epochs.pdf  used on input line 3488.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/gibbs_function-Kphs_kernel-Equi-epochs.pdf  used on input line 3491.
 (pdftex.def)             Requested size: 209.1301pt x 155.71545pt.
 <imagenes/experiments/1d/variational_epochs/gibbs_function-Kphs_kernel-Cheb-epochs.pdf, id=5587, 299.8239pt x 223.24052pt>
 File: imagenes/experiments/1d/variational_epochs/gibbs_function-Kphs_kernel-Cheb-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/gibbs_function-Kphs_kernel-Cheb-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/gibbs_function-Kphs_kernel-Cheb-epochs.pdf  used on input line 3489.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/gibbs_function-Kphs_kernel-Cheb-epochs.pdf  used on input line 3492.
 (pdftex.def)             Requested size: 209.1301pt x 155.71545pt.
 <imagenes/experiments/1d/variational_epochs/torch_sign-Kgaussian_kernel-Equi-epochs.pdf, id=5588, 290.10793pt x 223.24052pt>
 File: imagenes/experiments/1d/variational_epochs/torch_sign-Kgaussian_kernel-Equi-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/torch_sign-Kgaussian_kernel-Equi-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/torch_sign-Kgaussian_kernel-Equi-epochs.pdf  used on input line 3500.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/torch_sign-Kgaussian_kernel-Equi-epochs.pdf  used on input line 3503.
 (pdftex.def)             Requested size: 209.1301pt x 160.93402pt.
 <imagenes/experiments/1d/variational_epochs/torch_sign-Kgaussian_kernel-Cheb-epochs.pdf, id=5589, 309.25758pt x 223.24052pt>
 File: imagenes/experiments/1d/variational_epochs/torch_sign-Kgaussian_kernel-Cheb-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/torch_sign-Kgaussian_kernel-Cheb-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/torch_sign-Kgaussian_kernel-Cheb-epochs.pdf  used on input line 3501.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/torch_sign-Kgaussian_kernel-Cheb-epochs.pdf  used on input line 3504.
 (pdftex.def)             Requested size: 209.1301pt x 150.96358pt.
 <imagenes/experiments/1d/variational_epochs/torch_sign-Kgaussian_kernel-Poly-Equi-epochs.pdf, id=5590, 290.10793pt x 223.24052pt>
 File: imagenes/experiments/1d/variational_epochs/torch_sign-Kgaussian_kernel-Poly-Equi-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/torch_sign-Kgaussian_kernel-Poly-Equi-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/torch_sign-Kgaussian_kernel-Poly-Equi-epochs.pdf  used on input line 3510.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/torch_sign-Kgaussian_kernel-Poly-Equi-epochs.pdf  used on input line 3513.
 (pdftex.def)             Requested size: 209.1301pt x 160.93402pt.
 <imagenes/experiments/1d/variational_epochs/torch_sign-Kgaussian_kernel-Poly-Cheb-epochs.pdf, id=5591, 309.25758pt x 223.24052pt>
 File: imagenes/experiments/1d/variational_epochs/torch_sign-Kgaussian_kernel-Poly-Cheb-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/torch_sign-Kgaussian_kernel-Poly-Cheb-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/torch_sign-Kgaussian_kernel-Poly-Cheb-epochs.pdf  used on input line 3511.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/torch_sign-Kgaussian_kernel-Poly-Cheb-epochs.pdf  used on input line 3514.
 (pdftex.def)             Requested size: 209.1301pt x 150.96358pt.
 <imagenes/experiments/1d/variational_epochs/torch_sign-Kmq_kernel_sarra-Equi-epochs.pdf, id=5592, 290.10793pt x 223.24052pt>
 File: imagenes/experiments/1d/variational_epochs/torch_sign-Kmq_kernel_sarra-Equi-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/torch_sign-Kmq_kernel_sarra-Equi-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/torch_sign-Kmq_kernel_sarra-Equi-epochs.pdf  used on input line 3520.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/torch_sign-Kmq_kernel_sarra-Equi-epochs.pdf  used on input line 3523.
 (pdftex.def)             Requested size: 209.1301pt x 160.93402pt.
 <imagenes/experiments/1d/variational_epochs/torch_sign-Kmq_kernel_sarra-Cheb-epochs.pdf, id=5593, 309.25758pt x 223.24052pt>
 File: imagenes/experiments/1d/variational_epochs/torch_sign-Kmq_kernel_sarra-Cheb-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/torch_sign-Kmq_kernel_sarra-Cheb-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/torch_sign-Kmq_kernel_sarra-Cheb-epochs.pdf  used on input line 3521.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/torch_sign-Kmq_kernel_sarra-Cheb-epochs.pdf  used on input line 3524.
 (pdftex.def)             Requested size: 209.1301pt x 150.96358pt.
 <imagenes/experiments/1d/variational_epochs/torch_sign-Kphs_kernel-Equi-epochs.pdf, id=5594, 290.10793pt x 223.24052pt>
 File: imagenes/experiments/1d/variational_epochs/torch_sign-Kphs_kernel-Equi-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/torch_sign-Kphs_kernel-Equi-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/torch_sign-Kphs_kernel-Equi-epochs.pdf  used on input line 3529.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/torch_sign-Kphs_kernel-Equi-epochs.pdf  used on input line 3532.
 (pdftex.def)             Requested size: 209.1301pt x 160.93402pt.
 <imagenes/experiments/1d/variational_epochs/torch_sign-Kphs_kernel-Cheb-epochs.pdf, id=5595, 296.49113pt x 223.24052pt>
 File: imagenes/experiments/1d/variational_epochs/torch_sign-Kphs_kernel-Cheb-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/torch_sign-Kphs_kernel-Cheb-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/torch_sign-Kphs_kernel-Cheb-epochs.pdf  used on input line 3530.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/torch_sign-Kphs_kernel-Cheb-epochs.pdf  used on input line 3533.
 (pdftex.def)             Requested size: 209.1301pt x 157.46294pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3535 \clearpage
+l.3538 \clearpage
                   [2 <./imagenes/experiments/1d/variational/runge_function-Kmq_kernel_sarra-Cheb.pdf> <./imagenes/experiments/1d/variational/runge_function-Kphs_kernel-Cheb.pdf>]
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3535 \clearpage
+l.3538 \clearpage
                   [3 <./imagenes/experiments/1d/variational/gibbs_function-Kgaussian_kernel-Cheb.pdf> <./imagenes/experiments/1d/variational/gibbs_gaussian_extended.pdf> <./imagenes/experiments/1d/least_squares/gibbs_exact_solution_fucks_up.pdf>]
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3535 \clearpage
+l.3538 \clearpage
                   [4 <./imagenes/experiments/1d/variational/gibbs_function-Kgaussian_kernel-Poly-Equi.pdf> <./imagenes/experiments/1d/variational/gibbs_function-Kgaussian_kernel-Poly-Cheb.pdf> <./imagenes/experiments/1d/variational/gibbs_function-Kmq_kernel_sarra-Equi.pdf> <./imagenes/experiments/1d/variational/gibbs_function-Kmq_kernel_sarra-Cheb.pdf> <./imagenes/experiments/1d/variational/gibbs_function-Kphs_kernel-Equi.pdf> <./imagenes/experiments/1d/variational/gibbs_function-Kphs_kernel-Cheb.pdf>]
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3535 \clearpage
+l.3538 \clearpage
                   [5 <./imagenes/experiments/1d/variational/torch_sign-Kgaussian_kernel-Cheb.pdf> <./imagenes/experiments/1d/variational/torch_sign-Kgaussian_kernel-Poly-Equi.pdf> <./imagenes/experiments/1d/variational/torch_sign-Kgaussian_kernel-Poly-Cheb.pdf> <./imagenes/experiments/1d/variational/torch_sign-Kmq_kernel_sarra-Equi.pdf> <./imagenes/experiments/1d/variational/torch_sign-Kmq_kernel_sarra-Cheb.pdf>]
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3535 \clearpage
+l.3538 \clearpage
                   [6 <./imagenes/experiments/1d/variational/torch_sign-Kphs_kernel-Equi.pdf> <./imagenes/experiments/1d/variational/torch_sign-Kphs_kernel-Cheb.pdf> <./imagenes/experiments/1d/variational/sin_higher_oscillations-Kgaussian_kernel-Cheb.pdf> <./imagenes/experiments/1d/variational/sin_higher_oscillations-Kgaussian_kernel-Poly-Equi.pdf> <./imagenes/experiments/1d/variational/sin_higher_oscillations-Kgaussian_kernel-Poly-Cheb.pdf>]
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3535 \clearpage
+l.3538 \clearpage
                   [7 <./imagenes/experiments/1d/variational/sin_higher_oscillations-Kmq_kernel_sarra-Cheb.pdf> <./imagenes/experiments/1d/variational/sin_higher_oscillations-Kphs_kernel-Equi.pdf> <./imagenes/experiments/1d/variational/sin_higher_oscillations-Kphs_kernel-Cheb.pdf> <./imagenes/experiments/1d/variational/sin_pi_x_sq-Kgaussian_kernel-Cheb.pdf>]
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3535 \clearpage
+l.3538 \clearpage
                   [8 <./imagenes/experiments/1d/variational/sin_pi_x_sq-Kgaussian_kernel-Poly-Equi.pdf> <./imagenes/experiments/1d/variational/sin_pi_x_sq-Kmq_kernel_sarra-Equi.pdf> <./imagenes/experiments/1d/variational/sin_pi_x_sq-Kmq_kernel_sarra-Cheb.pdf> <./imagenes/experiments/1d/variational/sin_pi_x_sq-Kphs_kernel-Equi.pdf> <./imagenes/experiments/1d/variational/sin_pi_x_sq-Kphs_kernel-Cheb.pdf>]
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3535 \clearpage
+l.3538 \clearpage
                   [9 <./imagenes/experiments/1d/variational_epochs/runge_function-Kgaussian_kernel-Cheb-epochs.pdf> <./imagenes/experiments/1d/variational_epochs/runge_function-Kgaussian_kernel-Poly-Equi-epochs.pdf> <./imagenes/experiments/1d/variational_epochs/runge_function-Kgaussian_kernel-Poly-Cheb-epochs.pdf> <./imagenes/experiments/1d/variational_epochs/runge_function-Kmq_kernel_sarra-Cheb-epochs.pdf>]
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3535 \clearpage
+l.3538 \clearpage
                   [10 <./imagenes/experiments/1d/variational_epochs/runge_function-Kphs_kernel-Cheb-epochs.pdf> <./imagenes/experiments/1d/variational_epochs/gibbs_function-Kgaussian_kernel-Cheb-epochs.pdf> <./imagenes/experiments/1d/variational_epochs/gibbs_function-Kgaussian_kernel-Poly-Equi-epochs.pdf> <./imagenes/experiments/1d/variational_epochs/gibbs_function-Kgaussian_kernel-Poly-Cheb-epochs.pdf>]
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3535 \clearpage
+l.3538 \clearpage
                   [11 <./imagenes/experiments/1d/variational_epochs/gibbs_function-Kmq_kernel_sarra-Equi-epochs.pdf> <./imagenes/experiments/1d/variational_epochs/gibbs_function-Kmq_kernel_sarra-Cheb-epochs.pdf> <./imagenes/experiments/1d/variational_epochs/gibbs_function-Kphs_kernel-Equi-epochs.pdf> <./imagenes/experiments/1d/variational_epochs/gibbs_function-Kphs_kernel-Cheb-epochs.pdf> <./imagenes/experiments/1d/variational_epochs/torch_sign-Kgaussian_kernel-Equi-epochs.pdf> <./imagenes/experiments/1d/variational_epochs/torch_sign-Kgaussian_kernel-Cheb-epochs.pdf>]
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3535 \clearpage
+l.3538 \clearpage
                   [12 <./imagenes/experiments/1d/variational_epochs/torch_sign-Kgaussian_kernel-Poly-Equi-epochs.pdf> <./imagenes/experiments/1d/variational_epochs/torch_sign-Kgaussian_kernel-Poly-Cheb-epochs.pdf> <./imagenes/experiments/1d/variational_epochs/torch_sign-Kmq_kernel_sarra-Equi-epochs.pdf> <./imagenes/experiments/1d/variational_epochs/torch_sign-Kmq_kernel_sarra-Cheb-epochs.pdf> <./imagenes/experiments/1d/variational_epochs/torch_sign-Kphs_kernel-Equi-epochs.pdf> <./imagenes/experiments/1d/variational_epochs/torch_sign-Kphs_kernel-Cheb-epochs.pdf>]
 <imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kgaussian_kernel-Equi-epochs.pdf, id=8305, 333.25441pt x 223.24052pt>
 File: imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kgaussian_kernel-Equi-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kgaussian_kernel-Equi-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kgaussian_kernel-Equi-epochs.pdf  used on input line 3541.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kgaussian_kernel-Equi-epochs.pdf  used on input line 3544.
 (pdftex.def)             Requested size: 209.1301pt x 140.09044pt.
 <imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kgaussian_kernel-Cheb-epochs.pdf, id=8306, 333.25441pt x 223.24052pt>
 File: imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kgaussian_kernel-Cheb-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kgaussian_kernel-Cheb-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kgaussian_kernel-Cheb-epochs.pdf  used on input line 3542.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kgaussian_kernel-Cheb-epochs.pdf  used on input line 3545.
 (pdftex.def)             Requested size: 209.1301pt x 140.09044pt.
 <imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kgaussian_kernel-Poly-Equi-epochs.pdf, id=8307, 333.25441pt x 223.24052pt>
 File: imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kgaussian_kernel-Poly-Equi-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kgaussian_kernel-Poly-Equi-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kgaussian_kernel-Poly-Equi-epochs.pdf  used on input line 3550.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kgaussian_kernel-Poly-Equi-epochs.pdf  used on input line 3553.
 (pdftex.def)             Requested size: 209.1301pt x 140.09044pt.
 <imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kgaussian_kernel-Poly-Cheb-epochs.pdf, id=8308, 333.25441pt x 223.24052pt>
 File: imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kgaussian_kernel-Poly-Cheb-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kgaussian_kernel-Poly-Cheb-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kgaussian_kernel-Poly-Cheb-epochs.pdf  used on input line 3551.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kgaussian_kernel-Poly-Cheb-epochs.pdf  used on input line 3554.
 (pdftex.def)             Requested size: 209.1301pt x 140.09044pt.
 <imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kmq_kernel_sarra-Equi-epochs.pdf, id=8309, 333.25441pt x 223.24052pt>
 File: imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kmq_kernel_sarra-Equi-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kmq_kernel_sarra-Equi-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kmq_kernel_sarra-Equi-epochs.pdf  used on input line 3559.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kmq_kernel_sarra-Equi-epochs.pdf  used on input line 3562.
 (pdftex.def)             Requested size: 209.1301pt x 140.09044pt.
 <imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kmq_kernel_sarra-Cheb-epochs.pdf, id=8310, 333.25441pt x 223.24052pt>
 File: imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kmq_kernel_sarra-Cheb-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kmq_kernel_sarra-Cheb-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kmq_kernel_sarra-Cheb-epochs.pdf  used on input line 3560.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kmq_kernel_sarra-Cheb-epochs.pdf  used on input line 3563.
 (pdftex.def)             Requested size: 209.1301pt x 140.09044pt.
 <imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kphs_kernel-Equi-epochs.pdf, id=8311, 333.25441pt x 223.24052pt>
 File: imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kphs_kernel-Equi-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kphs_kernel-Equi-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kphs_kernel-Equi-epochs.pdf  used on input line 3568.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kphs_kernel-Equi-epochs.pdf  used on input line 3571.
 (pdftex.def)             Requested size: 209.1301pt x 140.09044pt.
 <imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kphs_kernel-Cheb-epochs.pdf, id=8312, 333.25441pt x 223.24052pt>
 File: imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kphs_kernel-Cheb-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kphs_kernel-Cheb-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kphs_kernel-Cheb-epochs.pdf  used on input line 3569.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kphs_kernel-Cheb-epochs.pdf  used on input line 3572.
 (pdftex.def)             Requested size: 209.1301pt x 140.09044pt.
 <imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kgaussian_kernel-Equi-epochs.pdf, id=8313, 292.16248pt x 223.24052pt>
 File: imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kgaussian_kernel-Equi-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kgaussian_kernel-Equi-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kgaussian_kernel-Equi-epochs.pdf  used on input line 3579.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kgaussian_kernel-Equi-epochs.pdf  used on input line 3582.
 (pdftex.def)             Requested size: 209.1301pt x 159.7963pt.
 <imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kgaussian_kernel-Cheb-epochs.pdf, id=8314, 292.16248pt x 223.24052pt>
 File: imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kgaussian_kernel-Cheb-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kgaussian_kernel-Cheb-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kgaussian_kernel-Cheb-epochs.pdf  used on input line 3580.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kgaussian_kernel-Cheb-epochs.pdf  used on input line 3583.
 (pdftex.def)             Requested size: 209.1301pt x 159.7963pt.
 <imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kgaussian_kernel-Poly-Equi-epochs.pdf, id=8315, 292.16248pt x 223.24052pt>
 File: imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kgaussian_kernel-Poly-Equi-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kgaussian_kernel-Poly-Equi-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kgaussian_kernel-Poly-Equi-epochs.pdf  used on input line 3588.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kgaussian_kernel-Poly-Equi-epochs.pdf  used on input line 3591.
 (pdftex.def)             Requested size: 209.1301pt x 159.7963pt.
 <imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kgaussian_kernel-Poly-Cheb-epochs.pdf, id=8316, 292.16248pt x 223.24052pt>
 File: imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kgaussian_kernel-Poly-Cheb-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kgaussian_kernel-Poly-Cheb-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kgaussian_kernel-Poly-Cheb-epochs.pdf  used on input line 3589.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kgaussian_kernel-Poly-Cheb-epochs.pdf  used on input line 3592.
 (pdftex.def)             Requested size: 209.1301pt x 159.7963pt.
 <imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kmq_kernel_sarra-Equi-epochs.pdf, id=8317, 292.16248pt x 223.24052pt>
 File: imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kmq_kernel_sarra-Equi-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kmq_kernel_sarra-Equi-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kmq_kernel_sarra-Equi-epochs.pdf  used on input line 3598.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kmq_kernel_sarra-Equi-epochs.pdf  used on input line 3601.
 (pdftex.def)             Requested size: 209.1301pt x 159.7963pt.
 <imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kmq_kernel_sarra-Cheb-epochs.pdf, id=8318, 292.16248pt x 223.24052pt>
 File: imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kmq_kernel_sarra-Cheb-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kmq_kernel_sarra-Cheb-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kmq_kernel_sarra-Cheb-epochs.pdf  used on input line 3599.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kmq_kernel_sarra-Cheb-epochs.pdf  used on input line 3602.
 (pdftex.def)             Requested size: 209.1301pt x 159.7963pt.
 <imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kphs_kernel-Equi-epochs.pdf, id=8319, 292.16248pt x 223.24052pt>
 File: imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kphs_kernel-Equi-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kphs_kernel-Equi-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kphs_kernel-Equi-epochs.pdf  used on input line 3607.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kphs_kernel-Equi-epochs.pdf  used on input line 3610.
 (pdftex.def)             Requested size: 209.1301pt x 159.7963pt.
 <imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kphs_kernel-Cheb-epochs.pdf, id=8320, 292.16248pt x 223.24052pt>
 File: imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kphs_kernel-Cheb-epochs.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kphs_kernel-Cheb-epochs.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kphs_kernel-Cheb-epochs.pdf  used on input line 3608.
+Package pdftex.def Info: imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kphs_kernel-Cheb-epochs.pdf  used on input line 3611.
 (pdftex.def)             Requested size: 209.1301pt x 159.7963pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3613 \clearpage
+l.3616 \clearpage
                   [13
 
  <./imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kgaussian_kernel-Equi-epochs.pdf> <./imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kgaussian_kernel-Cheb-epochs.pdf> <./imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kgaussian_kernel-Poly-Equi-epochs.pdf> <./imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kgaussian_kernel-Poly-Cheb-epochs.pdf>]
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3613 \clearpage
+l.3616 \clearpage
                   [14 <./imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kmq_kernel_sarra-Equi-epochs.pdf> <./imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kmq_kernel_sarra-Cheb-epochs.pdf> <./imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kphs_kernel-Equi-epochs.pdf> <./imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kphs_kernel-Cheb-epochs.pdf> <./imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kgaussian_kernel-Equi-epochs.pdf> <./imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kgaussian_kernel-Cheb-epochs.pdf>]
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3613 \clearpage
+l.3616 \clearpage
                   [15 <./imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kgaussian_kernel-Poly-Equi-epochs.pdf> <./imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kgaussian_kernel-Poly-Cheb-epochs.pdf> <./imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kmq_kernel_sarra-Equi-epochs.pdf> <./imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kmq_kernel_sarra-Cheb-epochs.pdf> <./imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kphs_kernel-Equi-epochs.pdf> <./imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kphs_kernel-Cheb-epochs.pdf>]
 File: imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR15.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR15.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR15.pdf  used on input line 3617.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR15.pdf  used on input line 3620.
 (pdftex.def)             Requested size: 256.07741pt x 198.14757pt.
 File: imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR17.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR17.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR17.pdf  used on input line 3618.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR17.pdf  used on input line 3621.
 (pdftex.def)             Requested size: 256.07741pt x 203.85652pt.
 <imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR19.pdf, id=9096, 342.44815pt x 264.97371pt>
 File: imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR19.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR19.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR19.pdf  used on input line 3619.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR19.pdf  used on input line 3622.
 (pdftex.def)             Requested size: 256.07741pt x 198.14757pt.
 <imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR21.pdf, id=9097, 342.44815pt x 264.97371pt>
 File: imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR21.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR21.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR21.pdf  used on input line 3620.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR21.pdf  used on input line 3623.
 (pdftex.def)             Requested size: 256.07741pt x 198.14757pt.
 <imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR23.pdf, id=9098, 342.44815pt x 264.97371pt>
 File: imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR23.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR23.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR23.pdf  used on input line 3621.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR23.pdf  used on input line 3624.
 (pdftex.def)             Requested size: 256.07741pt x 198.14757pt.
 <imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR25.pdf, id=9099, 332.86546pt x 264.97371pt>
 File: imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR25.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR25.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR25.pdf  used on input line 3622.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR25.pdf  used on input line 3625.
 (pdftex.def)             Requested size: 256.07741pt x 203.85652pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3623 \clearpage
+l.3626 \clearpage
                   [16
 
 ]
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3623 \clearpage
+l.3626 \clearpage
                   [17 <./imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR19.pdf> <./imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR21.pdf> <./imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR23.pdf>]
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3623 \clearpage
+l.3626 \clearpage
                   [18 <./imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR25.pdf>]
 <imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR27.pdf, id=9366, 332.86546pt x 264.97371pt>
 File: imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR27.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR27.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR27.pdf  used on input line 3624.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR27.pdf  used on input line 3627.
 (pdftex.def)             Requested size: 256.07741pt x 203.85652pt.
 <imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR29.pdf, id=9367, 342.44815pt x 264.97371pt>
 File: imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR29.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR29.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR29.pdf  used on input line 3625.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR29.pdf  used on input line 3628.
 (pdftex.def)             Requested size: 256.07741pt x 198.14757pt.
 <imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR15.pdf, id=9368, 342.44815pt x 264.97371pt>
 File: imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR15.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR15.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR15.pdf  used on input line 3626.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR15.pdf  used on input line 3629.
 (pdftex.def)             Requested size: 256.07741pt x 198.14757pt.
 <imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR17.pdf, id=9369, 342.44815pt x 264.97371pt>
 File: imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR17.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR17.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR17.pdf  used on input line 3627.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR17.pdf  used on input line 3630.
 (pdftex.def)             Requested size: 256.07741pt x 198.14757pt.
 <imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR19.pdf, id=9370, 350.85455pt x 264.97371pt>
 File: imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR19.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR19.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR19.pdf  used on input line 3628.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR19.pdf  used on input line 3631.
 (pdftex.def)             Requested size: 256.07741pt x 193.4009pt.
 <imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR21.pdf, id=9371, 342.44815pt x 264.97371pt>
 File: imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR21.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR21.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR21.pdf  used on input line 3629.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR21.pdf  used on input line 3632.
 (pdftex.def)             Requested size: 256.07741pt x 198.14757pt.
 <imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR23.pdf, id=9372, 342.44815pt x 264.97371pt>
 File: imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR23.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR23.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR23.pdf  used on input line 3630.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR23.pdf  used on input line 3633.
 (pdftex.def)             Requested size: 256.07741pt x 198.14757pt.
 <imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR25.pdf, id=9373, 350.85455pt x 264.97371pt>
 File: imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR25.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR25.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR25.pdf  used on input line 3631.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR25.pdf  used on input line 3634.
 (pdftex.def)             Requested size: 256.07741pt x 193.4009pt.
 <imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR27.pdf, id=9374, 332.86546pt x 264.97371pt>
 File: imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR27.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR27.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR27.pdf  used on input line 3632.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR27.pdf  used on input line 3635.
 (pdftex.def)             Requested size: 256.07741pt x 203.85652pt.
 <imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR29.pdf, id=9375, 350.85455pt x 264.97371pt>
 File: imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR29.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR29.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR29.pdf  used on input line 3633.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR29.pdf  used on input line 3636.
 (pdftex.def)             Requested size: 256.07741pt x 193.4009pt.
 <imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR15.pdf, id=9376, 332.86546pt x 264.97371pt>
 File: imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR15.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR15.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR15.pdf  used on input line 3634.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR15.pdf  used on input line 3637.
 (pdftex.def)             Requested size: 256.07741pt x 203.85652pt.
 <imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR17.pdf, id=9377, 350.85455pt x 264.97371pt>
 File: imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR17.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR17.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR17.pdf  used on input line 3635.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR17.pdf  used on input line 3638.
 (pdftex.def)             Requested size: 256.07741pt x 193.4009pt.
 <imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR19.pdf, id=9378, 342.44815pt x 264.97371pt>
 File: imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR19.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR19.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR19.pdf  used on input line 3636.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR19.pdf  used on input line 3639.
 (pdftex.def)             Requested size: 256.07741pt x 198.14757pt.
 <imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR21.pdf, id=9379, 332.86546pt x 264.97371pt>
 File: imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR21.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR21.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR21.pdf  used on input line 3637.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR21.pdf  used on input line 3640.
 (pdftex.def)             Requested size: 256.07741pt x 203.85652pt.
 <imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR23.pdf, id=9380, 342.44815pt x 264.97371pt>
 File: imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR23.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR23.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR23.pdf  used on input line 3638.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR23.pdf  used on input line 3641.
 (pdftex.def)             Requested size: 256.07741pt x 198.14757pt.
 <imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR25.pdf, id=9381, 332.86546pt x 264.97371pt>
 File: imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR25.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR25.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR25.pdf  used on input line 3639.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR25.pdf  used on input line 3642.
 (pdftex.def)             Requested size: 256.07741pt x 203.85652pt.
 <imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR27.pdf, id=9382, 342.44815pt x 264.97371pt>
 File: imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR27.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR27.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR27.pdf  used on input line 3640.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR27.pdf  used on input line 3643.
 (pdftex.def)             Requested size: 256.07741pt x 198.14757pt.
 <imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR29.pdf, id=9383, 332.86546pt x 264.97371pt>
 File: imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR29.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR29.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR29.pdf  used on input line 3641.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR29.pdf  used on input line 3644.
 (pdftex.def)             Requested size: 256.07741pt x 203.85652pt.
 <imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR15.pdf, id=9384, 342.44815pt x 264.97371pt>
 File: imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR15.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR15.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR15.pdf  used on input line 3642.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR15.pdf  used on input line 3645.
 (pdftex.def)             Requested size: 256.07741pt x 198.14757pt.
 <imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR17.pdf, id=9385, 342.44815pt x 264.97371pt>
 File: imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR17.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR17.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR17.pdf  used on input line 3643.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR17.pdf  used on input line 3646.
 (pdftex.def)             Requested size: 256.07741pt x 198.14757pt.
 <imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR19.pdf, id=9386, 342.44815pt x 264.97371pt>
 File: imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR19.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR19.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR19.pdf  used on input line 3644.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR19.pdf  used on input line 3647.
 (pdftex.def)             Requested size: 256.07741pt x 198.14757pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3645 \clearpage
+l.3648 \clearpage
                   [19
 
  <./imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR27.pdf> <./imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR29.pdf>]
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3645 \clearpage
+l.3648 \clearpage
                   [20 <./imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR15.pdf> <./imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR17.pdf> <./imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR19.pdf>]
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3645 \clearpage
+l.3648 \clearpage
                   [21 <./imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR21.pdf> <./imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR23.pdf> <./imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR25.pdf>]
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3645 \clearpage
+l.3648 \clearpage
                   [22 <./imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR27.pdf> <./imagenes/experiments/1d/phs_nodes_asymptotic/gibbs_function_TR29.pdf> <./imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR15.pdf>]
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3645 \clearpage
+l.3648 \clearpage
                   [23 <./imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR17.pdf> <./imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR19.pdf> <./imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR21.pdf>]
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3645 \clearpage
+l.3648 \clearpage
                   [24 <./imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR23.pdf> <./imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR25.pdf> <./imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR27.pdf>]
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3645 \clearpage
+l.3648 \clearpage
                   [25 <./imagenes/experiments/1d/phs_nodes_asymptotic/torch_sign_TR29.pdf> <./imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR15.pdf> <./imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR17.pdf>]
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3645 \clearpage
+l.3648 \clearpage
                   [26 <./imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR19.pdf>]
 <imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR21.pdf, id=10758, 342.44815pt x 264.97371pt>
 File: imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR21.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR21.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR21.pdf  used on input line 3646.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR21.pdf  used on input line 3649.
 (pdftex.def)             Requested size: 256.07741pt x 198.14757pt.
 <imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR23.pdf, id=10759, 342.44815pt x 264.97371pt>
 File: imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR23.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR23.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR23.pdf  used on input line 3647.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR23.pdf  used on input line 3650.
 (pdftex.def)             Requested size: 256.07741pt x 198.14757pt.
 <imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR25.pdf, id=10760, 342.44815pt x 264.97371pt>
 File: imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR25.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR25.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR25.pdf  used on input line 3648.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR25.pdf  used on input line 3651.
 (pdftex.def)             Requested size: 256.07741pt x 198.14757pt.
 <imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR27.pdf, id=10761, 342.44815pt x 264.97371pt>
 File: imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR27.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR27.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR27.pdf  used on input line 3649.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR27.pdf  used on input line 3652.
 (pdftex.def)             Requested size: 256.07741pt x 198.14757pt.
 <imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR29.pdf, id=10762, 342.44815pt x 264.97371pt>
 File: imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR29.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR29.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR29.pdf  used on input line 3650.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR29.pdf  used on input line 3653.
 (pdftex.def)             Requested size: 256.07741pt x 198.14757pt.
 File: imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR15.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR15.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR15.pdf  used on input line 3651.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR15.pdf  used on input line 3654.
 (pdftex.def)             Requested size: 256.07741pt x 198.8349pt.
 <imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR17.pdf, id=10763, 332.86546pt x 264.97371pt>
 File: imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR17.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR17.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR17.pdf  used on input line 3652.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR17.pdf  used on input line 3655.
 (pdftex.def)             Requested size: 256.07741pt x 203.85652pt.
 File: imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR19.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR19.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR19.pdf  used on input line 3653.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR19.pdf  used on input line 3656.
 (pdftex.def)             Requested size: 256.07741pt x 198.8349pt.
 <imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR21.pdf, id=10764, 341.27188pt x 264.97371pt>
 File: imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR21.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR21.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR21.pdf  used on input line 3654.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR21.pdf  used on input line 3657.
 (pdftex.def)             Requested size: 256.07741pt x 198.8349pt.
 File: imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR23.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR23.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR23.pdf  used on input line 3655.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR23.pdf  used on input line 3658.
 (pdftex.def)             Requested size: 256.07741pt x 198.8349pt.
 <imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR25.pdf, id=10765, 341.27188pt x 264.97371pt>
 File: imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR25.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR25.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR25.pdf  used on input line 3656.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR25.pdf  used on input line 3659.
 (pdftex.def)             Requested size: 256.07741pt x 198.8349pt.
 <imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR27.pdf, id=10766, 341.27188pt x 264.97371pt>
 File: imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR27.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR27.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR27.pdf  used on input line 3657.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR27.pdf  used on input line 3660.
 (pdftex.def)             Requested size: 256.07741pt x 198.8349pt.
 File: imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR29.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR29.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR29.pdf  used on input line 3658.
+Package pdftex.def Info: imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR29.pdf  used on input line 3661.
 (pdftex.def)             Requested size: 256.07741pt x 198.8349pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3659 \clearpage
+l.3662 \clearpage
                   [27
 
  <./imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR21.pdf> <./imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR23.pdf>]
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3659 \clearpage
+l.3662 \clearpage
                   [28 <./imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR25.pdf> <./imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR27.pdf> <./imagenes/experiments/1d/phs_nodes_asymptotic/sin_higher_oscillations_TR29.pdf>]
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3659 \clearpage
+l.3662 \clearpage
                   [29 <./imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR17.pdf>]
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3659 \clearpage
+l.3662 \clearpage
                   [30 <./imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR21.pdf> <./imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR25.pdf>]
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3659 \clearpage
+l.3662 \clearpage
                   [31 <./imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR27.pdf>]
 File: imagenes/experiments/1d/least_squares/opt-runge_function-Kgaussian_kernel-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-runge_function-Kgaussian_kernel-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-runge_function-Kgaussian_kernel-Equi.pdf  used on input line 3669.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-runge_function-Kgaussian_kernel-Equi.pdf  used on input line 3672.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/least_squares/opt-runge_function-Kgaussian_kernel-Cheb.pdf, id=11393, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/least_squares/opt-runge_function-Kgaussian_kernel-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-runge_function-Kgaussian_kernel-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-runge_function-Kgaussian_kernel-Cheb.pdf  used on input line 3670.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-runge_function-Kgaussian_kernel-Cheb.pdf  used on input line 3673.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/least_squares/opt-runge_function-Kgaussian_kernel-Poly-Equi.pdf, id=11394, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/least_squares/opt-runge_function-Kgaussian_kernel-Poly-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-runge_function-Kgaussian_kernel-Poly-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-runge_function-Kgaussian_kernel-Poly-Equi.pdf  used on input line 3679.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-runge_function-Kgaussian_kernel-Poly-Equi.pdf  used on input line 3682.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/least_squares/opt-runge_function-Kgaussian_kernel-Poly-Cheb.pdf, id=11395, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/least_squares/opt-runge_function-Kgaussian_kernel-Poly-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-runge_function-Kgaussian_kernel-Poly-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-runge_function-Kgaussian_kernel-Poly-Cheb.pdf  used on input line 3680.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-runge_function-Kgaussian_kernel-Poly-Cheb.pdf  used on input line 3683.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 File: imagenes/experiments/1d/least_squares/opt-runge_function-Kmq_kernel_sarra-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-runge_function-Kmq_kernel_sarra-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-runge_function-Kmq_kernel_sarra-Equi.pdf  used on input line 3688.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-runge_function-Kmq_kernel_sarra-Equi.pdf  used on input line 3691.
 (pdftex.def)             Requested size: 209.1301pt x 162.74794pt.
 <imagenes/experiments/1d/least_squares/opt-runge_function-Kmq_kernel_sarra-Cheb.pdf, id=11396, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/least_squares/opt-runge_function-Kmq_kernel_sarra-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-runge_function-Kmq_kernel_sarra-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-runge_function-Kmq_kernel_sarra-Cheb.pdf  used on input line 3689.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-runge_function-Kmq_kernel_sarra-Cheb.pdf  used on input line 3692.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 File: imagenes/experiments/1d/least_squares/opt-runge_function-Kphs_kernel-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-runge_function-Kphs_kernel-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-runge_function-Kphs_kernel-Equi.pdf  used on input line 3698.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-runge_function-Kphs_kernel-Equi.pdf  used on input line 3701.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/least_squares/opt-runge_function-Kphs_kernel-Cheb.pdf, id=11397, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/least_squares/opt-runge_function-Kphs_kernel-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-runge_function-Kphs_kernel-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-runge_function-Kphs_kernel-Cheb.pdf  used on input line 3699.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-runge_function-Kphs_kernel-Cheb.pdf  used on input line 3702.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 File: imagenes/experiments/1d/least_squares/opt-gibbs_function-Kgaussian_kernel-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-gibbs_function-Kgaussian_kernel-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-gibbs_function-Kgaussian_kernel-Equi.pdf  used on input line 3710.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-gibbs_function-Kgaussian_kernel-Equi.pdf  used on input line 3713.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/least_squares/opt-gibbs_function-Kgaussian_kernel-Cheb.pdf, id=11398, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/least_squares/opt-gibbs_function-Kgaussian_kernel-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-gibbs_function-Kgaussian_kernel-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-gibbs_function-Kgaussian_kernel-Cheb.pdf  used on input line 3711.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-gibbs_function-Kgaussian_kernel-Cheb.pdf  used on input line 3714.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/least_squares/opt-gibbs_function-Kgaussian_kernel-Poly-Equi.pdf, id=11399, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/least_squares/opt-gibbs_function-Kgaussian_kernel-Poly-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-gibbs_function-Kgaussian_kernel-Poly-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-gibbs_function-Kgaussian_kernel-Poly-Equi.pdf  used on input line 3720.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-gibbs_function-Kgaussian_kernel-Poly-Equi.pdf  used on input line 3723.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/least_squares/opt-gibbs_function-Kgaussian_kernel-Poly-Cheb.pdf, id=11400, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/least_squares/opt-gibbs_function-Kgaussian_kernel-Poly-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-gibbs_function-Kgaussian_kernel-Poly-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-gibbs_function-Kgaussian_kernel-Poly-Cheb.pdf  used on input line 3721.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-gibbs_function-Kgaussian_kernel-Poly-Cheb.pdf  used on input line 3724.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/least_squares/opt-gibbs_function-Kmq_kernel_sarra-Equi.pdf, id=11401, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/least_squares/opt-gibbs_function-Kmq_kernel_sarra-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-gibbs_function-Kmq_kernel_sarra-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-gibbs_function-Kmq_kernel_sarra-Equi.pdf  used on input line 3729.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-gibbs_function-Kmq_kernel_sarra-Equi.pdf  used on input line 3732.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/least_squares/opt-gibbs_function-Kmq_kernel_sarra-Cheb.pdf, id=11402, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/least_squares/opt-gibbs_function-Kmq_kernel_sarra-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-gibbs_function-Kmq_kernel_sarra-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-gibbs_function-Kmq_kernel_sarra-Cheb.pdf  used on input line 3730.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-gibbs_function-Kmq_kernel_sarra-Cheb.pdf  used on input line 3733.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/least_squares/opt-gibbs_function-Kphs_kernel-Equi.pdf, id=11403, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/least_squares/opt-gibbs_function-Kphs_kernel-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-gibbs_function-Kphs_kernel-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-gibbs_function-Kphs_kernel-Equi.pdf  used on input line 3738.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-gibbs_function-Kphs_kernel-Equi.pdf  used on input line 3741.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/least_squares/opt-gibbs_function-Kphs_kernel-Cheb.pdf, id=11404, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/least_squares/opt-gibbs_function-Kphs_kernel-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-gibbs_function-Kphs_kernel-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-gibbs_function-Kphs_kernel-Cheb.pdf  used on input line 3739.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-gibbs_function-Kphs_kernel-Cheb.pdf  used on input line 3742.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 File: imagenes/experiments/1d/least_squares/opt-torch_sign-Kgaussian_kernel-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-torch_sign-Kgaussian_kernel-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-torch_sign-Kgaussian_kernel-Equi.pdf  used on input line 3750.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-torch_sign-Kgaussian_kernel-Equi.pdf  used on input line 3753.
 (pdftex.def)             Requested size: 209.1301pt x 158.5866pt.
 <imagenes/experiments/1d/least_squares/opt-torch_sign-Kgaussian_kernel-Cheb.pdf, id=11405, 302.13974pt x 224.27563pt>
 File: imagenes/experiments/1d/least_squares/opt-torch_sign-Kgaussian_kernel-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-torch_sign-Kgaussian_kernel-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-torch_sign-Kgaussian_kernel-Cheb.pdf  used on input line 3751.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-torch_sign-Kgaussian_kernel-Cheb.pdf  used on input line 3754.
 (pdftex.def)             Requested size: 209.1301pt x 155.23972pt.
 <imagenes/experiments/1d/least_squares/opt-torch_sign-Kgaussian_kernel-Poly-Equi.pdf, id=11406, 289.3733pt x 224.27563pt>
 File: imagenes/experiments/1d/least_squares/opt-torch_sign-Kgaussian_kernel-Poly-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-torch_sign-Kgaussian_kernel-Poly-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-torch_sign-Kgaussian_kernel-Poly-Equi.pdf  used on input line 3760.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-torch_sign-Kgaussian_kernel-Poly-Equi.pdf  used on input line 3763.
 (pdftex.def)             Requested size: 209.1301pt x 162.09088pt.
 <imagenes/experiments/1d/least_squares/opt-torch_sign-Kgaussian_kernel-Poly-Cheb.pdf, id=11407, 295.75653pt x 224.27563pt>
 File: imagenes/experiments/1d/least_squares/opt-torch_sign-Kgaussian_kernel-Poly-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-torch_sign-Kgaussian_kernel-Poly-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-torch_sign-Kgaussian_kernel-Poly-Cheb.pdf  used on input line 3761.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-torch_sign-Kgaussian_kernel-Poly-Cheb.pdf  used on input line 3764.
 (pdftex.def)             Requested size: 209.1301pt x 158.5866pt.
 <imagenes/experiments/1d/least_squares/opt-torch_sign-Kmq_kernel_sarra-Equi.pdf, id=11408, 295.75653pt x 224.27563pt>
 File: imagenes/experiments/1d/least_squares/opt-torch_sign-Kmq_kernel_sarra-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-torch_sign-Kmq_kernel_sarra-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-torch_sign-Kmq_kernel_sarra-Equi.pdf  used on input line 3770.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-torch_sign-Kmq_kernel_sarra-Equi.pdf  used on input line 3773.
 (pdftex.def)             Requested size: 209.1301pt x 158.5866pt.
 <imagenes/experiments/1d/least_squares/opt-torch_sign-Kmq_kernel_sarra-Cheb.pdf, id=11409, 295.75653pt x 224.27563pt>
 File: imagenes/experiments/1d/least_squares/opt-torch_sign-Kmq_kernel_sarra-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-torch_sign-Kmq_kernel_sarra-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-torch_sign-Kmq_kernel_sarra-Cheb.pdf  used on input line 3771.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-torch_sign-Kmq_kernel_sarra-Cheb.pdf  used on input line 3774.
 (pdftex.def)             Requested size: 209.1301pt x 158.5866pt.
 <imagenes/experiments/1d/least_squares/opt-torch_sign-Kphs_kernel-Equi.pdf, id=11410, 295.75653pt x 224.27563pt>
 File: imagenes/experiments/1d/least_squares/opt-torch_sign-Kphs_kernel-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-torch_sign-Kphs_kernel-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-torch_sign-Kphs_kernel-Equi.pdf  used on input line 3779.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-torch_sign-Kphs_kernel-Equi.pdf  used on input line 3782.
 (pdftex.def)             Requested size: 209.1301pt x 158.5866pt.
 <imagenes/experiments/1d/least_squares/opt-torch_sign-Kphs_kernel-Cheb.pdf, id=11411, 295.75653pt x 224.27563pt>
 File: imagenes/experiments/1d/least_squares/opt-torch_sign-Kphs_kernel-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-torch_sign-Kphs_kernel-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-torch_sign-Kphs_kernel-Cheb.pdf  used on input line 3780.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-torch_sign-Kphs_kernel-Cheb.pdf  used on input line 3783.
 (pdftex.def)             Requested size: 209.1301pt x 158.5866pt.
 File: imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kgaussian_kernel-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kgaussian_kernel-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kgaussian_kernel-Equi.pdf  used on input line 3790.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kgaussian_kernel-Equi.pdf  used on input line 3793.
 (pdftex.def)             Requested size: 209.1301pt x 162.74794pt.
 <imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kgaussian_kernel-Cheb.pdf, id=11412, 288.19704pt x 224.27563pt>
 File: imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kgaussian_kernel-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kgaussian_kernel-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kgaussian_kernel-Cheb.pdf  used on input line 3791.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kgaussian_kernel-Cheb.pdf  used on input line 3794.
 (pdftex.def)             Requested size: 209.1301pt x 162.74794pt.
 <imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kgaussian_kernel-Poly-Equi.pdf, id=11413, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kgaussian_kernel-Poly-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kgaussian_kernel-Poly-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kgaussian_kernel-Poly-Equi.pdf  used on input line 3798.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kgaussian_kernel-Poly-Equi.pdf  used on input line 3801.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kgaussian_kernel-Poly-Cheb.pdf, id=11414, 288.19704pt x 224.27563pt>
 File: imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kgaussian_kernel-Poly-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kgaussian_kernel-Poly-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kgaussian_kernel-Poly-Cheb.pdf  used on input line 3799.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kgaussian_kernel-Poly-Cheb.pdf  used on input line 3802.
 (pdftex.def)             Requested size: 209.1301pt x 162.74794pt.
 File: imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kmq_kernel_sarra-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kmq_kernel_sarra-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kmq_kernel_sarra-Equi.pdf  used on input line 3807.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kmq_kernel_sarra-Equi.pdf  used on input line 3810.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kmq_kernel_sarra-Cheb.pdf, id=11415, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kmq_kernel_sarra-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kmq_kernel_sarra-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kmq_kernel_sarra-Cheb.pdf  used on input line 3808.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kmq_kernel_sarra-Cheb.pdf  used on input line 3811.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kphs_kernel-Equi.pdf, id=11416, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kphs_kernel-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kphs_kernel-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kphs_kernel-Equi.pdf  used on input line 3816.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kphs_kernel-Equi.pdf  used on input line 3819.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kphs_kernel-Cheb.pdf, id=11417, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kphs_kernel-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kphs_kernel-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kphs_kernel-Cheb.pdf  used on input line 3817.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kphs_kernel-Cheb.pdf  used on input line 3820.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 File: imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kgaussian_kernel-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kgaussian_kernel-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kgaussian_kernel-Equi.pdf  used on input line 3827.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kgaussian_kernel-Equi.pdf  used on input line 3830.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kgaussian_kernel-Cheb.pdf, id=11418, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kgaussian_kernel-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kgaussian_kernel-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kgaussian_kernel-Cheb.pdf  used on input line 3828.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kgaussian_kernel-Cheb.pdf  used on input line 3831.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kgaussian_kernel-Poly-Equi.pdf, id=11419, 288.19704pt x 224.27563pt>
 File: imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kgaussian_kernel-Poly-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kgaussian_kernel-Poly-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kgaussian_kernel-Poly-Equi.pdf  used on input line 3836.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kgaussian_kernel-Poly-Equi.pdf  used on input line 3839.
 (pdftex.def)             Requested size: 209.1301pt x 162.74794pt.
 File: imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kgaussian_kernel-Poly-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kgaussian_kernel-Poly-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kgaussian_kernel-Poly-Cheb.pdf  used on input line 3837.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kgaussian_kernel-Poly-Cheb.pdf  used on input line 3840.
 (pdftex.def)             Requested size: 209.1301pt x 162.74794pt.
 <imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kmq_kernel_sarra-Equi.pdf, id=11420, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kmq_kernel_sarra-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kmq_kernel_sarra-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kmq_kernel_sarra-Equi.pdf  used on input line 3846.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kmq_kernel_sarra-Equi.pdf  used on input line 3849.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kmq_kernel_sarra-Cheb.pdf, id=11421, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kmq_kernel_sarra-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kmq_kernel_sarra-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kmq_kernel_sarra-Cheb.pdf  used on input line 3847.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kmq_kernel_sarra-Cheb.pdf  used on input line 3850.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kphs_kernel-Equi.pdf, id=11422, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kphs_kernel-Equi.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kphs_kernel-Equi.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kphs_kernel-Equi.pdf  used on input line 3855.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kphs_kernel-Equi.pdf  used on input line 3858.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kphs_kernel-Cheb.pdf, id=11423, 297.77971pt x 224.27563pt>
 File: imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kphs_kernel-Cheb.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kphs_kernel-Cheb.pdf>
-Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kphs_kernel-Cheb.pdf  used on input line 3856.
+Package pdftex.def Info: imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kphs_kernel-Cheb.pdf  used on input line 3859.
 (pdftex.def)             Requested size: 209.1301pt x 157.51202pt.
 <new_results_05-04-24.pdf, id=11424, 597.51166pt x 845.0523pt>
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf>
-Package pdftex.def Info: new_results_05-04-24.pdf  used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf  used on input line 3865.
 (pdftex.def)             Requested size: 597.5102pt x 845.05025pt.
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf>
-Package pdftex.def Info: new_results_05-04-24.pdf  used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf  used on input line 3865.
 (pdftex.def)             Requested size: 597.5102pt x 845.05025pt.
 <new_results_05-04-24.pdf, id=11427, page=1, 597.51166pt x 845.0523pt>
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 1>
-Package pdftex.def Info: new_results_05-04-24.pdf , page1 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page1 used on input line 3865.
 (pdftex.def)             Requested size: 597.5102pt x 845.05025pt.
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 1>
-Package pdftex.def Info: new_results_05-04-24.pdf , page1 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page1 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3862 ...depdf[pages=-]{new_results_05-04-24.pdf}
+l.3865 ...depdf[pages=-]{new_results_05-04-24.pdf}
                                                    [32
 
  <./imagenes/experiments/1d/least_squares/opt-runge_function-Kgaussian_kernel-Cheb.pdf> <./imagenes/experiments/1d/least_squares/opt-runge_function-Kgaussian_kernel-Poly-Equi.pdf> <./imagenes/experiments/1d/least_squares/opt-runge_function-Kgaussian_kernel-Poly-Cheb.pdf>]
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 1>
-Package pdftex.def Info: new_results_05-04-24.pdf , page1 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page1 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 1>
-Package pdftex.def Info: new_results_05-04-24.pdf , page1 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page1 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3862 ...depdf[pages=-]{new_results_05-04-24.pdf}
+l.3865 ...depdf[pages=-]{new_results_05-04-24.pdf}
                                                   
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 1>
-Package pdftex.def Info: new_results_05-04-24.pdf , page1 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page1 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
  [33
 
@@ -2845,21 +2845,21 @@ Package pdftex.def Info: new_results_05-04-24.pdf , page1 used on input line 386
 <new_results_05-04-24.pdf, id=12210, page=2, 597.51166pt x 845.0523pt>
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 2>
-Package pdftex.def Info: new_results_05-04-24.pdf , page2 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page2 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 2>
-Package pdftex.def Info: new_results_05-04-24.pdf , page2 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page2 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3862 ...depdf[pages=-]{new_results_05-04-24.pdf}
+l.3865 ...depdf[pages=-]{new_results_05-04-24.pdf}
                                                   
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 2>
-Package pdftex.def Info: new_results_05-04-24.pdf , page2 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page2 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
  [34
 
@@ -2867,21 +2867,21 @@ Package pdftex.def Info: new_results_05-04-24.pdf , page2 used on input line 386
 <new_results_05-04-24.pdf, id=12988, page=3, 597.51166pt x 845.0523pt>
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 3>
-Package pdftex.def Info: new_results_05-04-24.pdf , page3 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page3 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 3>
-Package pdftex.def Info: new_results_05-04-24.pdf , page3 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page3 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3862 ...depdf[pages=-]{new_results_05-04-24.pdf}
+l.3865 ...depdf[pages=-]{new_results_05-04-24.pdf}
                                                   
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 3>
-Package pdftex.def Info: new_results_05-04-24.pdf , page3 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page3 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
  [35
 
@@ -2889,21 +2889,21 @@ Package pdftex.def Info: new_results_05-04-24.pdf , page3 used on input line 386
 <new_results_05-04-24.pdf, id=13753, page=4, 597.51166pt x 845.0523pt>
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 4>
-Package pdftex.def Info: new_results_05-04-24.pdf , page4 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page4 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 4>
-Package pdftex.def Info: new_results_05-04-24.pdf , page4 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page4 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3862 ...depdf[pages=-]{new_results_05-04-24.pdf}
+l.3865 ...depdf[pages=-]{new_results_05-04-24.pdf}
                                                   
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 4>
-Package pdftex.def Info: new_results_05-04-24.pdf , page4 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page4 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
  [36
 
@@ -2911,21 +2911,21 @@ Package pdftex.def Info: new_results_05-04-24.pdf , page4 used on input line 386
 <new_results_05-04-24.pdf, id=14517, page=5, 597.51166pt x 845.0523pt>
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 5>
-Package pdftex.def Info: new_results_05-04-24.pdf , page5 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page5 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 5>
-Package pdftex.def Info: new_results_05-04-24.pdf , page5 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page5 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3862 ...depdf[pages=-]{new_results_05-04-24.pdf}
+l.3865 ...depdf[pages=-]{new_results_05-04-24.pdf}
                                                   
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 5>
-Package pdftex.def Info: new_results_05-04-24.pdf , page5 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page5 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
  [37
 
@@ -2933,21 +2933,21 @@ Package pdftex.def Info: new_results_05-04-24.pdf , page5 used on input line 386
 <new_results_05-04-24.pdf, id=15097, page=6, 597.51166pt x 845.0523pt>
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 6>
-Package pdftex.def Info: new_results_05-04-24.pdf , page6 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page6 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 6>
-Package pdftex.def Info: new_results_05-04-24.pdf , page6 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page6 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3862 ...depdf[pages=-]{new_results_05-04-24.pdf}
+l.3865 ...depdf[pages=-]{new_results_05-04-24.pdf}
                                                   
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 6>
-Package pdftex.def Info: new_results_05-04-24.pdf , page6 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page6 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
  [38
 
@@ -2955,21 +2955,21 @@ Package pdftex.def Info: new_results_05-04-24.pdf , page6 used on input line 386
 <new_results_05-04-24.pdf, id=15671, page=7, 597.51166pt x 845.0523pt>
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 7>
-Package pdftex.def Info: new_results_05-04-24.pdf , page7 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page7 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 7>
-Package pdftex.def Info: new_results_05-04-24.pdf , page7 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page7 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3862 ...depdf[pages=-]{new_results_05-04-24.pdf}
+l.3865 ...depdf[pages=-]{new_results_05-04-24.pdf}
                                                   
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 7>
-Package pdftex.def Info: new_results_05-04-24.pdf , page7 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page7 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
  [39
 
@@ -2977,21 +2977,21 @@ Package pdftex.def Info: new_results_05-04-24.pdf , page7 used on input line 386
 <new_results_05-04-24.pdf, id=16449, page=8, 597.51166pt x 845.0523pt>
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 8>
-Package pdftex.def Info: new_results_05-04-24.pdf , page8 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page8 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 8>
-Package pdftex.def Info: new_results_05-04-24.pdf , page8 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page8 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3862 ...depdf[pages=-]{new_results_05-04-24.pdf}
+l.3865 ...depdf[pages=-]{new_results_05-04-24.pdf}
                                                   
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 8>
-Package pdftex.def Info: new_results_05-04-24.pdf , page8 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page8 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
  [40
 
@@ -2999,21 +2999,21 @@ Package pdftex.def Info: new_results_05-04-24.pdf , page8 used on input line 386
 <new_results_05-04-24.pdf, id=17221, page=9, 597.51166pt x 845.0523pt>
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 9>
-Package pdftex.def Info: new_results_05-04-24.pdf , page9 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page9 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 9>
-Package pdftex.def Info: new_results_05-04-24.pdf , page9 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page9 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3862 ...depdf[pages=-]{new_results_05-04-24.pdf}
+l.3865 ...depdf[pages=-]{new_results_05-04-24.pdf}
                                                   
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 9>
-Package pdftex.def Info: new_results_05-04-24.pdf , page9 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page9 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
  [41
 
@@ -3021,21 +3021,21 @@ Package pdftex.def Info: new_results_05-04-24.pdf , page9 used on input line 386
 <new_results_05-04-24.pdf, id=18001, page=10, 597.51166pt x 845.0523pt>
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 10>
-Package pdftex.def Info: new_results_05-04-24.pdf , page10 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page10 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 10>
-Package pdftex.def Info: new_results_05-04-24.pdf , page10 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page10 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3862 ...depdf[pages=-]{new_results_05-04-24.pdf}
+l.3865 ...depdf[pages=-]{new_results_05-04-24.pdf}
                                                   
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 10>
-Package pdftex.def Info: new_results_05-04-24.pdf , page10 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page10 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
  [42
 
@@ -3043,21 +3043,21 @@ Package pdftex.def Info: new_results_05-04-24.pdf , page10 used on input line 38
 <new_results_05-04-24.pdf, id=18599, page=11, 597.51166pt x 845.0523pt>
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 11>
-Package pdftex.def Info: new_results_05-04-24.pdf , page11 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page11 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 11>
-Package pdftex.def Info: new_results_05-04-24.pdf , page11 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page11 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3862 ...depdf[pages=-]{new_results_05-04-24.pdf}
+l.3865 ...depdf[pages=-]{new_results_05-04-24.pdf}
                                                   
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 11>
-Package pdftex.def Info: new_results_05-04-24.pdf , page11 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page11 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
  [43
 
@@ -3065,21 +3065,21 @@ Package pdftex.def Info: new_results_05-04-24.pdf , page11 used on input line 38
 <new_results_05-04-24.pdf, id=19447, page=12, 597.51166pt x 845.0523pt>
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 12>
-Package pdftex.def Info: new_results_05-04-24.pdf , page12 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page12 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 12>
-Package pdftex.def Info: new_results_05-04-24.pdf , page12 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page12 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3862 ...depdf[pages=-]{new_results_05-04-24.pdf}
+l.3865 ...depdf[pages=-]{new_results_05-04-24.pdf}
                                                   
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 12>
-Package pdftex.def Info: new_results_05-04-24.pdf , page12 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page12 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
  [44
 
@@ -3087,21 +3087,21 @@ Package pdftex.def Info: new_results_05-04-24.pdf , page12 used on input line 38
 <new_results_05-04-24.pdf, id=20287, page=13, 597.51166pt x 845.0523pt>
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 13>
-Package pdftex.def Info: new_results_05-04-24.pdf , page13 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page13 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 13>
-Package pdftex.def Info: new_results_05-04-24.pdf , page13 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page13 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3862 ...depdf[pages=-]{new_results_05-04-24.pdf}
+l.3865 ...depdf[pages=-]{new_results_05-04-24.pdf}
                                                   
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 13>
-Package pdftex.def Info: new_results_05-04-24.pdf , page13 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page13 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
  [45
 
@@ -3109,21 +3109,21 @@ Package pdftex.def Info: new_results_05-04-24.pdf , page13 used on input line 38
 <new_results_05-04-24.pdf, id=20925, page=14, 597.51166pt x 845.0523pt>
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 14>
-Package pdftex.def Info: new_results_05-04-24.pdf , page14 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page14 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 14>
-Package pdftex.def Info: new_results_05-04-24.pdf , page14 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page14 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3862 ...depdf[pages=-]{new_results_05-04-24.pdf}
+l.3865 ...depdf[pages=-]{new_results_05-04-24.pdf}
                                                   
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 14>
-Package pdftex.def Info: new_results_05-04-24.pdf , page14 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page14 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
  [46
 
@@ -3131,21 +3131,21 @@ Package pdftex.def Info: new_results_05-04-24.pdf , page14 used on input line 38
 <new_results_05-04-24.pdf, id=21567, page=15, 597.51166pt x 845.0523pt>
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 15>
-Package pdftex.def Info: new_results_05-04-24.pdf , page15 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page15 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 15>
-Package pdftex.def Info: new_results_05-04-24.pdf , page15 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page15 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3862 ...depdf[pages=-]{new_results_05-04-24.pdf}
+l.3865 ...depdf[pages=-]{new_results_05-04-24.pdf}
                                                   
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 15>
-Package pdftex.def Info: new_results_05-04-24.pdf , page15 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page15 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
  [47
 
@@ -3153,21 +3153,21 @@ Package pdftex.def Info: new_results_05-04-24.pdf , page15 used on input line 38
 <new_results_05-04-24.pdf, id=22364, page=16, 597.51166pt x 845.0523pt>
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 16>
-Package pdftex.def Info: new_results_05-04-24.pdf , page16 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page16 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 16>
-Package pdftex.def Info: new_results_05-04-24.pdf , page16 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page16 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3862 ...depdf[pages=-]{new_results_05-04-24.pdf}
+l.3865 ...depdf[pages=-]{new_results_05-04-24.pdf}
                                                   
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 16>
-Package pdftex.def Info: new_results_05-04-24.pdf , page16 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page16 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
  [48
 
@@ -3175,21 +3175,21 @@ Package pdftex.def Info: new_results_05-04-24.pdf , page16 used on input line 38
 <new_results_05-04-24.pdf, id=22960, page=17, 597.51166pt x 845.0523pt>
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 17>
-Package pdftex.def Info: new_results_05-04-24.pdf , page17 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page17 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 17>
-Package pdftex.def Info: new_results_05-04-24.pdf , page17 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page17 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3862 ...depdf[pages=-]{new_results_05-04-24.pdf}
+l.3865 ...depdf[pages=-]{new_results_05-04-24.pdf}
                                                   
 File: new_results_05-04-24.pdf Graphic file (type pdf)
 <use new_results_05-04-24.pdf, page 17>
-Package pdftex.def Info: new_results_05-04-24.pdf , page17 used on input line 3862.
+Package pdftex.def Info: new_results_05-04-24.pdf , page17 used on input line 3865.
 (pdftex.def)             Requested size: 597.53754pt x 845.08893pt.
  [49
 
@@ -3197,32 +3197,32 @@ Package pdftex.def Info: new_results_05-04-24.pdf , page17 used on input line 38
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3864 \end{document}
+l.3867 \end{document}
                       [50 <./imagenes/experiments/1d/least_squares/opt-runge_function-Kmq_kernel_sarra-Cheb.pdf> <./imagenes/experiments/1d/least_squares/opt-runge_function-Kphs_kernel-Cheb.pdf> <./imagenes/experiments/1d/least_squares/opt-gibbs_function-Kgaussian_kernel-Cheb.pdf>]
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3864 \end{document}
+l.3867 \end{document}
                       [51 <./imagenes/experiments/1d/least_squares/opt-gibbs_function-Kgaussian_kernel-Poly-Equi.pdf> <./imagenes/experiments/1d/least_squares/opt-gibbs_function-Kgaussian_kernel-Poly-Cheb.pdf> <./imagenes/experiments/1d/least_squares/opt-gibbs_function-Kmq_kernel_sarra-Equi.pdf> <./imagenes/experiments/1d/least_squares/opt-gibbs_function-Kmq_kernel_sarra-Cheb.pdf> <./imagenes/experiments/1d/least_squares/opt-gibbs_function-Kphs_kernel-Equi.pdf> <./imagenes/experiments/1d/least_squares/opt-gibbs_function-Kphs_kernel-Cheb.pdf>]
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3864 \end{document}
+l.3867 \end{document}
                       [52 <./imagenes/experiments/1d/least_squares/opt-torch_sign-Kgaussian_kernel-Cheb.pdf> <./imagenes/experiments/1d/least_squares/opt-torch_sign-Kgaussian_kernel-Poly-Equi.pdf> <./imagenes/experiments/1d/least_squares/opt-torch_sign-Kgaussian_kernel-Poly-Cheb.pdf> <./imagenes/experiments/1d/least_squares/opt-torch_sign-Kmq_kernel_sarra-Equi.pdf> <./imagenes/experiments/1d/least_squares/opt-torch_sign-Kmq_kernel_sarra-Cheb.pdf>]
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3864 \end{document}
+l.3867 \end{document}
                       [53 <./imagenes/experiments/1d/least_squares/opt-torch_sign-Kphs_kernel-Equi.pdf> <./imagenes/experiments/1d/least_squares/opt-torch_sign-Kphs_kernel-Cheb.pdf> <./imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kgaussian_kernel-Cheb.pdf> <./imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kgaussian_kernel-Poly-Equi.pdf> <./imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kgaussian_kernel-Poly-Cheb.pdf>]
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3864 \end{document}
+l.3867 \end{document}
                       [54 <./imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kmq_kernel_sarra-Cheb.pdf> <./imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kphs_kernel-Equi.pdf> <./imagenes/experiments/1d/least_squares/opt-sin_higher_oscillations-Kphs_kernel-Cheb.pdf> <./imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kgaussian_kernel-Cheb.pdf>]
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3864 \end{document}
+l.3867 \end{document}
                       [55 <./imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kgaussian_kernel-Poly-Equi.pdf> <./imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kmq_kernel_sarra-Equi.pdf> <./imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kmq_kernel_sarra-Cheb.pdf> <./imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kphs_kernel-Equi.pdf> <./imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kphs_kernel-Cheb.pdf>] (./memoria.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
@@ -3243,7 +3243,7 @@ Here is how much of TeX's memory you used:
  475 hyphenation exceptions out of 8191
  117i,20n,121p,1360b,3893s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf/fonts/type1/public/txfonts/rtcxr.pfb></usr/share/texmf/fonts/type1/public/txfonts/rtxb.pfb></usr/share/texmf/fonts/type1/public/txfonts/rtxbi.pfb></usr/share/texmf/fonts/type1/public/txfonts/rtxi.pfb></usr/share/texmf/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texmf/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texmf/fonts/type1/public/txfonts/rtxsc.pfb></usr/share/texmf/fonts/type1/public/txfonts/t1xbtt.pfb></usr/share/texmf/fonts/type1/public/txfonts/t1xtt.pfb></usr/share/texmf/fonts/type1/public/txfonts/txex.pfb></usr/share/texmf/fonts/type1/public/txfonts/txsy.pfb></usr/share/texmf/fonts/type1/public/txfonts/txsya.pfb></usr/share/texmf/fonts/type1/public/txfonts/txsyb.pfb></usr/share/texmf/fonts/type1/public/txfonts/txsyc.pfb></usr/share/texmf/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texmf/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmri8a.pfb>
-Output written on memoria.pdf (141 pages, 9302443 bytes).
+Output written on memoria.pdf (141 pages, 9302420 bytes).
 PDF statistics:
  25372 PDF objects out of 26593 (max. 8388607)
  414 named destinations out of 1000 (max. 500000)
