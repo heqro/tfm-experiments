@@ -213,6 +213,7 @@ hmargin=3cm
 \newcommand{\tmverbatim}[1]{\text{{\ttfamily{#1}}}}
 \providecommand{\xequal}[2][]{\mathop{=}\limits_{#1}^{#2}}
 \newcommand{\tmcolor}[2]{{\color{#1}{#2}}}
+\newcommand{\mathLaplace}{\Delta}
 % end TeXmacs macros
 \usepackage{pdfpages}
 
@@ -3116,8 +3117,33 @@ Further conclusions can be drawn from this image:
   domain of the problem.
 \end{itemize} 
 
+\subsection{2D PDE}
 
+We consider the 2D steady-state PDE in $[0, 1] \times [0, 1]$
+\begin{equation}
+  \left\{\begin{array}{l}
+    \mathLaplace u = - 2 \pi^2 \sin (\pi x) \sin (\pi y)\\
+    u (x, 0) = 0\\
+    u (x, 1) = 0\\
+    u (0, y) = 0\\
+    u (1, y) = 0
+  \end{array}\right. . \label{eqn-problem-pde-2d}
+\end{equation}
 
+It features the exact solution $u (x, y) = \sin (\pi x) \sin (\pi y)$. For any
+$(x, y)$, let $\mathcal{N}\mathcal{N} (x, y ; \theta)$ be the application to
+$(x, y)$ of our RBF model with parameters $\theta$. Consider $0 < x_1 < x_2 <
+\cdots < x_n < 1$ and $0 < y_1 < y_2 < \cdots < y_m < 1$ two sets of points in
+$\mathbb{R}$, say $X$ and $Y$. The domain of \eqref{eqn-problem-pde-2d} is
+then discretized as the cartesian product of those two sets. The associated (discretized) minimization problem is
+   \[ \min_{\theta} \frac{1}{n m} \sum_{x \in \tmmathbf{x}, y \in \tmmathbf{y}}
+   \left( \frac{\partial^2}{\partial x^2} \mathcal{N}\mathcal{N} (x, y ;
+   \theta) + \frac{\partial^2}{\partial y^2} \mathcal{N}\mathcal{N} (x, y ;
+   \theta) + 2 \pi^2 \sin (\pi x) \sin (\pi y) \right)^2 + \]
+\[ + \frac{1}{4} \left[ \sum_{x \in \tmmathbf{x}} \mathcal{N}\mathcal{N} (x, 0
+   ; \theta)^2 +\mathcal{N}\mathcal{N} (x, 1, \theta)^2 + \sum_{y \in
+   \tmmathbf{y}} \mathcal{N}\mathcal{N} (0, y ; \theta)^2
+   +\mathcal{N}\mathcal{N} (1, y ; \theta)^2 \right] . \]
 
 
 % Start writing here----------------------------------------------------
