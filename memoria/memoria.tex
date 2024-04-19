@@ -2843,7 +2843,7 @@ $L^{\infty} -$norm not to yield any negative values. We located figures
 \ref{fig:torch-sign-gaussian} and \ref{fig:opt-torch-sign-gaussian} in the
 Appendix for the sake of completion.
 
-\section{Interpolation of the Franke function}
+\section{Interpolation of 2D functions}
 \label{section:interpolation-of-franke}
 
 \subsection*{Description of the experiment}
@@ -2861,11 +2861,24 @@ training points. However, our methodology also featured outliers,
 whereby a very specific configuration of training points and centers would
 produce notably better or worse results than neighboring configurations.
 
-We now turn to the 2D case, where we experiment with the interpolation of the
-Franke function (depicted in Figure \ref{fig:franke-function-surface-contour})
-providing a dense enough grid of equispaced points as training data.
+We now turn to the 2D case, where we consider the following functions:
+\begin{itemize}
+  \item Franke's function (depicted in Figure \ref{fig:franke-function-surface-contour}).
+  \item $\sin(\pi((2x-1)^2+(2y-1)^2))$ in the $[0.07,0.93]\times[0.07,0.93]$ interval.
+  We will refer to this function in the following plots as \texttt{sin\_pi\_x\_y\_sq}
+  \footnote{The
+  reason for using such an apparently weird interval is to avoid the function from 
+  abruptly changing too close to the boundary of the domain, which would produce 
+  poor results unless we proportioned a larger grid. This would only artificially extend the  
+  time dedicated to this particular experiment, which is against the idea behind this 
+  experiment - that of launching several simultaneous training instances.}.
+\end{itemize}
+
+We interpolate these functions providing a dense enough grid of 
+equispaced points as training data.
 For each number of centers, we will repeat the interpolation experiment
-several times.
+several times to capture the effect on the number of centers we provide for 
+the experiment. 
 
 In particular, we consider a fine enough grid of training points consisting of
 the Cartesian product of 12 equispaced points in $[0,1]$. We interpolate this
@@ -2899,7 +2912,7 @@ we ask the following questions:
 \end{figure}
 
 
-\subsection*{Results}
+\subsection*{Results (Gaussian kernel)}
 
 \begin{figure}[H]
   % \frame
@@ -2960,26 +2973,95 @@ we ask the following questions:
   \label{fig:franke-tr12-c12}
 \end{figure}
 
+\subsection*{Results (multiquadric kernel)}
+
+\begin{figure}[H]
+  % \frame
+  {\includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c5_franke_mq.pdf}}
+  \caption{Results of the interpolation of the Runge function (5 centers).
+    Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: the best epoch to total epochs' ratio.
+    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
+  \label{fig:franke-tr12-c5-mq}
+\end{figure}
+
+\begin{figure}[H]
+  \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c6_franke_mq.pdf}
+  \caption{Results of the interpolation of the Runge function (6 centers).
+    Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: the best epoch to total epochs' ratio.
+    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
+  \label{fig:franke-tr12-c6-mq}
+\end{figure}
+\begin{figure}[H]
+  \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c7_franke_mq.pdf}
+  \caption{Results of the interpolation of the Runge function (7 centers).
+    Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: the best epoch to total epochs' ratio.
+    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
+  \label{fig:franke-tr12-c7-mq}
+\end{figure}
+\begin{figure}[H]
+  \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c8_franke_mq.pdf}
+  \caption{Results of the interpolation of the Runge function (8 centers).
+    Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: the best epoch to total epochs' ratio.
+    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
+  \label{fig:franke-tr12-c8-mq}
+\end{figure}
+\begin{figure}[H]
+  \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c9_franke_mq.pdf}
+  \caption{Results of the interpolation of the Runge function (9 centers).
+    Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: the best epoch to total epochs' ratio.
+    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
+  \label{fig:franke-tr12-c9-mq}
+\end{figure}
+\begin{figure}[H]
+  \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c10_franke_mq.pdf}
+  \caption{Results of the interpolation of the Runge function (10 centers).
+    Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: the best epoch to total epochs' ratio.
+    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
+  \label{fig:franke-tr12-c10-mq}
+\end{figure}
+\begin{figure}[H]
+  \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c11_franke_mq.pdf}
+  \caption{Results of the interpolation of the Runge function (11 centers).
+    Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: the best epoch to total epochs' ratio.
+    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
+  \label{fig:franke-tr12-c11-mq}
+\end{figure}
+\begin{figure}[H]
+  \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c12_franke_mq.pdf}
+  \caption{Results of the interpolation of the Runge function (12 centers).
+    Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: the best epoch to total epochs' ratio.
+    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
+  \label{fig:franke-tr12-c12-mq}
+\end{figure}
+
 \subsection*{Conclusions}
+
+In this section, we first discuss some observations for the Gaussian kernel and observe 
+if these same remarks hold for the multiquadric kernel.
 
 \begin{itemize}
   \item The epochs' ratio shifts towards $1.0$ as more centers are
         provided to train with. The median of the $\log_{10}L^\infty-$norm
         shifts towards progressively smaller values. This shift is most noticeable when
         moving from 5 centers to 6 centers (compare right-hand sides of Figures
-        \ref{fig:franke-tr12-c5} and \ref{fig:franke-tr12-c6}).
+        \ref{fig:franke-tr12-c5} and \ref{fig:franke-tr12-c6}). The same holds for 
+        the multiquadric kernel (Figures \ref{fig:franke-tr12-c5-mq} and \ref{fig:franke-tr12-c6-mq}).
   \item As more centers are provided, the ratio of epochs is distributed
         following a ``trumpet-like'' shape. This is change is most clear in the progression
         from 6, 7 and 8 centers (Figures \ref{fig:franke-tr12-c6}, \ref{fig:franke-tr12-c7},
-        \ref{fig:franke-tr12-c8}).
+        \ref{fig:franke-tr12-c8}). The same holds for the multiquadric kernel 
+        (Figures \ref{fig:franke-tr12-c8-mq}, \ref{fig:franke-tr12-c9-mq} and 
+        \ref{fig:franke-tr12-c10-mq}).
   \item The $\log_{10}L^\infty-$norm metric distribution features a tail on the top
         side of it. It is at its largest for 5 centers (Figure \ref{fig:franke-tr12-c5}),
         then notably diminishing for 6 centers (Figure \ref{fig:franke-tr12-c6})
         and dissipating for 10 centers onwards (Figures \ref{fig:franke-tr12-c10},
-        \ref{fig:franke-tr12-c11} and \ref{fig:franke-tr12-c12}).
+        \ref{fig:franke-tr12-c11} and \ref{fig:franke-tr12-c12}). For 6 centers onwards, this tail is compartmentalized from the rest of the
+        distribution of the data, which resembles a normal distribution. Then again, a 
+        similar observation can be made for the multiquadric kernel, where this tail disappears
+        for 9 centers onwards (Figure \ref{fig:franke-tr12-c9-mq}).
 
-        For 6 centers onwards, this tail is compartmentalized from the rest of the
-        distribution of the data, which resembles a normal distribution.
+        
 
   \item Independently of the number of centers provided, the three extrema of the
         interpolated function are always occupied with a center. After they have been
@@ -2994,13 +3076,74 @@ we ask the following questions:
         \ref{fig:franke-tr12-c10}, \ref{fig:franke-tr12-c11}, and
         \ref{fig:franke-tr12-c12}).
 
-  \item The repetition of experiments shows that $10$ centers are enough to guarantee
+        On the other hand, the multiquadric kernel exhibits a different distribution of 
+        centers at the end of the training process. Much like with the Gaussian kernel,
+        whatever this distribution may be it is preserved as more centers are provided 
+        to the interpolator.
+
+  \item For the Gaussian kernel, the repetition of experiments shows that
+         $10$ centers are enough to guarantee
         from a practical perspective at least two digits of accuracy at the end of the
         training process, with a median of three digits. Nevertheless, the data shows
         there exist configurations of our model involving 6 centers that are capable of
         providing this performance as well, but they are not found very often with our
         training methods and initial starting configuration.
+
+        Likewise, 9 centers would have sufficed for providing a digit of accuracy under 
+        the multiquadric kernel. However, and in consistency with what we observed in the 
+        1D case, this kernel seems not to perform as brilliantly as the Gaussian kernel.
 \end{itemize}
+
+\section{Interpolation of \texttt{sin\_pi\_x\_y\_sq}}
+
+\subsection*{Results (Gaussian kernel)}
+
+\begin{figure}[H]
+  % \frame
+  {\includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/tr12_c5_sin_pi_x_y_sq_gaussian_kernel.pdf}}
+  \caption{Results of the interpolation of \texttt{sin\_pi\_x\_y\_sq} (5 centers).
+    Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: the best epoch to total epochs' ratio.
+    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
+  \label{fig:sin-pi-x-y-sq-tr12-c5}
+\end{figure}
+
+\begin{figure}[H]
+  \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/tr12_c20_sin_pi_x_y_sq_gaussian_kernel.pdf}
+  \caption{Results of the interpolation of \texttt{sin\_pi\_x\_y\_sq} (20 centers).
+    Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: the best epoch to total epochs' ratio.
+    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
+  \label{fig:sin-pi-x-y-sq-tr12-c20}
+\end{figure}
+\begin{figure}[H]
+  \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/tr12_c25_sin_pi_x_y_sq_gaussian_kernel.pdf}
+  \caption{Results of the interpolation of \texttt{sin\_pi\_x\_y\_sq} (25 centers).
+    Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: the best epoch to total epochs' ratio.
+    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
+  \label{fig:sin-pi-x-y-sq-tr12-c25}
+\end{figure}
+\begin{figure}[H]
+  \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/tr12_c30_sin_pi_x_y_sq_gaussian_kernel.pdf}
+  \caption{Results of the interpolation of \texttt{sin\_pi\_x\_y\_sq} (30 centers).
+    Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: the best epoch to total epochs' ratio.
+    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
+  \label{fig:sin-pi-x-y-sq-tr12-c30}
+\end{figure}
+\begin{figure}[H]
+  \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/tr12_c35_sin_pi_x_y_sq_gaussian_kernel.pdf}
+  \caption{Results of the interpolation of \texttt{sin\_pi\_x\_y\_sq} (35 centers).
+    Left-hand side: distribution of centers with respect to the problem domain (green rectangle). Center: the best epoch to total epochs' ratio.
+    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
+  \label{fig:sin-pi-x-y-sq-tr12-c35}
+\end{figure}
+
+\subsection*{Conclusions}
+
+The conclusions are very similar to the ones we observed in the previous experiments: providing
+more centers is bound to decrease the number of \textit{outliers}, that is, the number of 
+experiments that underperform on our verification dataset. It also causes the 
+``trumpet'' shape on the epochs' ratio to appear again, shifting the second quartile towards 
+$1.0$. Moreover, the centers are arranged
+where one would expect them to: in the center of the surface and around its ring.
 
 \section{Solving differential equations}
 
