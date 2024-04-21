@@ -81,11 +81,11 @@
 \contentsline {figure}{\numberline {5.57}{\ignorespaces Wengert's trace of the Gaussian kernel.}}{70}{figure.caption.84}%
 \contentsline {figure}{\numberline {5.58}{\ignorespaces Left-hand side: absolute error of the model solution regarding the actual solution. Middle image: visual comparison of both solutions alongside the location of the model's centers. Right-hand side: learning curves (mean squared error and $L^\infty -$norm) of the model.}}{71}{figure.caption.85}%
 \contentsline {figure}{\numberline {5.59}{\ignorespaces Parameters of the network.}}{71}{figure.caption.86}%
-\contentsline {figure}{\numberline {5.60}{\ignorespaces Caption}}{}{figure.caption.89}%
-\contentsline {figure}{\numberline {5.61}{\ignorespaces Caption}}{}{figure.caption.90}%
-\contentsline {figure}{\numberline {5.62}{\ignorespaces Caption}}{}{figure.caption.91}%
-\contentsline {figure}{\numberline {5.63}{\ignorespaces Caption}}{}{figure.caption.92}%
-\contentsline {figure}{\numberline {5.64}{\ignorespaces Caption}}{}{figure.caption.93}%
+\contentsline {figure}{\numberline {5.60}{\ignorespaces Left-hand side: distribution of centers at the end of the training experiment without polynomial terms. Center image: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty -$norm regarding the verification dataset during the best epoch.}}{73}{figure.caption.87}%
+\contentsline {figure}{\numberline {5.61}{\ignorespaces Left-hand side: distribution of centers at the end of the training experiment with a bias term. Center image: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty -$norm regarding the verification dataset during the best epoch.}}{73}{figure.caption.88}%
+\contentsline {figure}{\numberline {5.62}{\ignorespaces Left-hand side: distribution of centers at the end of the training experiment with a linear polynomial. Center image: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty -$norm regarding the verification dataset during the best epoch.}}{74}{figure.caption.89}%
+\contentsline {figure}{\numberline {5.63}{\ignorespaces Left-hand side: distribution of centers at the end of the training experiment with a quadratic polynomial. Center image: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty -$norm regarding the verification dataset during the best epoch.}}{74}{figure.caption.90}%
+\contentsline {figure}{\numberline {5.64}{\ignorespaces Left-hand side: distribution of centers at the end of the training experiment with a cubic polynomial. Center image: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty -$norm regarding the verification dataset during the best epoch.}}{75}{figure.caption.91}%
 \contentsline {figure}{\numberline {5.65}{\ignorespaces Caption}}{}{figure.caption.94}%
 \contentsline {figure}{\numberline {5.66}{\ignorespaces Caption}}{}{figure.caption.95}%
 \contentsline {figure}{\numberline {5.67}{\ignorespaces Caption}}{}{figure.caption.96}%
@@ -165,12 +165,12 @@
 \contentsline {figure}{\numberline {5.141}{\ignorespaces Caption}}{}{figure.caption.170}%
 \contentsline {figure}{\numberline {5.142}{\ignorespaces Caption}}{}{figure.caption.171}%
 \contentsline {figure}{\numberline {5.143}{\ignorespaces Caption}}{}{figure.caption.172}%
-\contentsfinish 
 \contentsline {figure}{\numberline {5.144}{\ignorespaces Caption}}{}{figure.caption.173}%
 \contentsline {figure}{\numberline {5.145}{\ignorespaces Caption}}{}{figure.caption.174}%
 \contentsline {figure}{\numberline {5.146}{\ignorespaces Caption}}{}{figure.caption.175}%
 \contentsline {figure}{\numberline {5.147}{\ignorespaces Caption}}{}{figure.caption.176}%
 \contentsline {figure}{\numberline {5.148}{\ignorespaces Caption}}{}{figure.caption.177}%
+\contentsfinish 
 \contentsline {figure}{\numberline {5.149}{\ignorespaces Caption}}{}{figure.caption.178}%
 \contentsline {figure}{\numberline {5.150}{\ignorespaces Caption}}{}{figure.caption.179}%
 \contentsline {figure}{\numberline {5.151}{\ignorespaces Caption}}{}{figure.caption.180}%
@@ -184,3 +184,8 @@
 \contentsline {figure}{\numberline {5.159}{\ignorespaces Caption}}{}{figure.caption.188}%
 \contentsline {figure}{\numberline {5.160}{\ignorespaces Caption}}{}{figure.caption.189}%
 \contentsline {figure}{\numberline {5.161}{\ignorespaces Caption}}{}{figure.caption.190}%
+\contentsline {figure}{\numberline {5.162}{\ignorespaces Caption}}{}{figure.caption.191}%
+\contentsline {figure}{\numberline {5.163}{\ignorespaces Caption}}{}{figure.caption.192}%
+\contentsline {figure}{\numberline {5.164}{\ignorespaces Caption}}{}{figure.caption.193}%
+\contentsline {figure}{\numberline {5.165}{\ignorespaces Caption}}{}{figure.caption.194}%
+\contentsline {figure}{\numberline {5.166}{\ignorespaces Caption}}{}{figure.caption.195}%
