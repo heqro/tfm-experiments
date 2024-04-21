@@ -4305,4 +4305,49 @@ in the previous experiments, respectively.
   \label{fig:sin-pi-x-sq-statistic-tr29-c29}
 \end{figure}
 
+\section*{A short ablation test}
+
+We have heuristically seen that the consideration of 21 centers alongside 29 training points 
+yields acceptable results in both the epochs' ratio and in the $L^\infty-$norm, yielding 
+with a median of three digits of accuracy over all experiments carried out. However, 
+it is not entirely clear if we can neglect any of the parameters of the network for the sake 
+of further reducing its number of parameters. Besides the coefficients involved in the 
+weighted sum of our RBFs, the location of their centers as well as the shape parameter 
+are two parameters which one may think could potentially be saved up on.
+
+To this end, we now show the repetition of the
+experiments for this configuration of centers and training points
+under the following two models:
+\begin{itemize}
+  \item A model where the centers are equispaced and fixed (Figure 
+  \ref{fig:sin-pi-x-sq-statistic-tr29-c29-fixed-centers}).
+  \item A model where the shape parameter is fixed (for instance, to $\varepsilon=1$).
+  The corresponding results can be seen in Figure 
+  \ref{ig:sin-pi-x-sq-statistic-tr29-c29-fixed-shapes-1}.
+\end{itemize}
+
+As the results show, both the shape parameter and the location of the centers 
+being trainable are key for obtaining the previous results, and we can neglect
+none of them.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]
+    {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c21_sin_pi_x_sq_gaussian_kernel_fixed_centers.pdf}
+  \caption{Results for the training processes for fixed centers. Left-hand side: distribution of centers at the end of the training process for 
+  \texttt{sin\_pi\_x\_sq} (29 training points, 21 centers, Gaussian kernel). Center: the best epochs' ratio.
+  Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
+  \label{fig:sin-pi-x-sq-statistic-tr29-c29-fixed-centers}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]
+    {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c21_sin_pi_x_sq_gaussian_kernel_fixed_shapes_1.pdf}
+  \caption{Results for the training processes for a common shape parameter fixed to 1. Left-hand side: distribution of centers at the end of the training process for 
+  \texttt{sin\_pi\_x\_sq} (29 training points, 21 centers, Gaussian kernel). Center: the best epochs' ratio.
+  Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
+  \label{fig:sin-pi-x-sq-statistic-tr29-c29-fixed-shapes-1}
+\end{figure}
+
 \end{document}
