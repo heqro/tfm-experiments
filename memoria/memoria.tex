@@ -2843,7 +2843,7 @@ $L^{\infty} -$norm not to yield any negative values. We located figures
 \ref{fig:torch-sign-gaussian} and \ref{fig:opt-torch-sign-gaussian} in the
 Appendix for the sake of completion.
 
-\section*{``Statistical'' interpolation}
+% \section*{``Statistical'' interpolation}
 
 
 
@@ -2874,7 +2874,7 @@ We now turn to the 2D case, where we consider the following functions:
   reason for using such an apparently weird interval is to avoid the function from 
   abruptly changing too close to the boundary of the domain, which would produce 
   poor results unless we proportioned a larger grid. This would only artificially extend the  
-  time dedicated to this particular experiment, which is against the idea behind this 
+  time and memory dedicated to each particular experiment, which is against the idea behind this 
   experiment - that of launching several simultaneous training instances.}.
 \end{itemize}
 
@@ -2908,11 +2908,19 @@ we ask the following questions:
         or increasing the number of centers in the interpolation process?
 \end{itemize}
 
+
 \begin{figure}[ht]
-  \includegraphics[width=\textwidth]{/mnt/sdb1/Proyectos/tfm-experiments/memoria/imagenes/experiments/2d/franke_interpolation/Franke_Function_Surface_Contour.pdf}
-  \caption{Left-hand side: Franke function as a surface. Right-hand side:
-    its filled contour representation.}
+  \includegraphics[width=\textwidth]{imagenes/experiments/2d/franke_interpolation/Franke_Function_Surface_Contour.pdf}
+  \caption{Left-hand side: Franke's function as a surface. Right-hand side:
+  its filled contour representation.}
   \label{fig:franke-function-surface-contour}
+\end{figure}
+
+\begin{figure}[ht]
+  \includegraphics[width=\textwidth]{imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/Sin_pi_x_y_sq_Contour.pdf}
+  \caption{Left-hand side: \texttt{sin\_pi\_x\_y\_sq} as a surface. Right-hand side:
+    its filled contour representation.}
+  \label{fig:sin-pi-x-y-sq-function-surface-contour}
 \end{figure}
 
 
