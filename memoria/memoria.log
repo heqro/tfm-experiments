@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/TeX Live for SUSE Linux) (preloaded format=pdflatex 2024.4.8)  21 APR 2024 19:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/TeX Live for SUSE Linux) (preloaded format=pdflatex 2024.4.8)  21 APR 2024 19:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -3505,15 +3505,12 @@ l.4324   \item A
                  model where the shape parameter is fixed (for instance, to ... [56
 
 ]
-
-LaTeX Warning: Reference `ig:sin-pi-x-sq-statistic-tr29-c29-fixed-shapes-1' on page  undefined on input line 4326.
-
-<imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c21_sin_pi_x_sq_gaussian_kernel_fixed_centers.pdf, id=26570, 867.24pt x 289.08pt>
+<imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c21_sin_pi_x_sq_gaussian_kernel_fixed_centers.pdf, id=26571, 867.24pt x 289.08pt>
 File: imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c21_sin_pi_x_sq_gaussian_kernel_fixed_centers.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c21_sin_pi_x_sq_gaussian_kernel_fixed_centers.pdf>
 Package pdftex.def Info: imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c21_sin_pi_x_sq_gaussian_kernel_fixed_centers.pdf  used on input line 4336.
 (pdftex.def)             Requested size: 426.79135pt x 142.26357pt.
-<imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c21_sin_pi_x_sq_gaussian_kernel_fixed_shapes_1.pdf, id=26571, 867.24pt x 289.08pt>
+<imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c21_sin_pi_x_sq_gaussian_kernel_fixed_shapes_1.pdf, id=26572, 867.24pt x 289.08pt>
 File: imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c21_sin_pi_x_sq_gaussian_kernel_fixed_shapes_1.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c21_sin_pi_x_sq_gaussian_kernel_fixed_shapes_1.pdf>
 Package pdftex.def Info: imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c21_sin_pi_x_sq_gaussian_kernel_fixed_shapes_1.pdf  used on input line 4346.
@@ -3558,10 +3555,6 @@ l.4353 \end{document}
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `memoria.out' has not changed.
 (rerunfilecheck)             Checksum: 757FE996116B10C9A40E6257213F2537;1540.
 Package logreq Info: Writing requests to 'memoria.run.xml'.
@@ -3569,17 +3562,17 @@ Package logreq Info: Writing requests to 'memoria.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 42486 strings out of 475153
- 880534 string characters out of 5770015
+ 42485 strings out of 475153
+ 880484 string characters out of 5770015
  1982187 words of memory out of 5000000
- 63512 multiletter control sequences out of 15000+600000
+ 63511 multiletter control sequences out of 15000+600000
  681439 words of font info for 259 fonts, out of 8000000 for 9000
  475 hyphenation exceptions out of 8191
  117i,20n,121p,1360b,3893s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf/fonts/type1/public/txfonts/rtcxr.pfb></usr/share/texmf/fonts/type1/public/txfonts/rtxb.pfb></usr/share/texmf/fonts/type1/public/txfonts/rtxbi.pfb></usr/share/texmf/fonts/type1/public/txfonts/rtxi.pfb></usr/share/texmf/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texmf/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texmf/fonts/type1/public/txfonts/rtxsc.pfb></usr/share/texmf/fonts/type1/public/txfonts/t1xbtt.pfb></usr/share/texmf/fonts/type1/public/txfonts/t1xtt.pfb></usr/share/texmf/fonts/type1/public/txfonts/txex.pfb></usr/share/texmf/fonts/type1/public/txfonts/txsy.pfb></usr/share/texmf/fonts/type1/public/txfonts/txsya.pfb></usr/share/texmf/fonts/type1/public/txfonts/txsyb.pfb></usr/share/texmf/fonts/type1/public/txfonts/txsyc.pfb></usr/share/texmf/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texmf/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmri8a.pfb>
-Output written on memoria.pdf (163 pages, 13421893 bytes).
+Output written on memoria.pdf (163 pages, 13421514 bytes).
 PDF statistics:
- 27855 PDF objects out of 31911 (max. 8388607)
+ 27856 PDF objects out of 31911 (max. 8388607)
  469 named destinations out of 1000 (max. 500000)
  1802 words of extra memory for PDF output out of 10000 (max. 10000000)
 
