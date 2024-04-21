@@ -2843,6 +2843,10 @@ $L^{\infty} -$norm not to yield any negative values. We located figures
 \ref{fig:torch-sign-gaussian} and \ref{fig:opt-torch-sign-gaussian} in the
 Appendix for the sake of completion.
 
+\section*{``Statistical'' interpolation}
+
+
+
 \section{Interpolation of 2D functions}
 \label{section:interpolation-of-franke}
 
@@ -4089,5 +4093,208 @@ then discretized as the Cartesian product of those two sets. The associated (dis
 
 
 \includepdf[pages=-]{new_results_05-04-24.pdf}
+
+
+\chapter*{Repeated interpolation experiments}\label{appendix-1d-sin-pi-x-sq}
+
+\section*{Objective of the experiment}
+
+Same questions as in every other experiment: 
+\begin{itemize}
+  \item Distribution of points at the end of the training process.
+  \item How does the amount of training points and centers relate to the $L^\infty-$norm 
+  as well as the best epochs' ratio.
+\end{itemize}
+
+We provide 15 and 29 training points, which are the cases with least and most information 
+in the previous experiments, respectively.
+
+
+\section*{Conclusions}
+
+\begin{itemize}
+  \item Providing 15 training points may be too little for the function 
+  we wish to interpolate. In no experiment 
+  involving this number of training points have we observed the ``trumpet'' shape. 
+  Indeed, the first thousand iterations were the most effective, likely overfitting 
+  the input data later on.
+  \item On the other hand, 29 training points is enough for us to start distinguishing
+  the ``trumpet'' shape in the epochs' ratio 
+  (see Figure \ref{fig:sin-pi-x-sq-statistic-tr29-c17}
+  for the case with 17 centers), which indicates that our process is very likely
+  to find the best solutions in the $L^\infty-$norm towards the end of the training process.
+  Providing more centers is seen to improve accuracy on the verification dataset, 
+  albeit with diminishing returns past the 17 centers mark.
+\end{itemize}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]
+    {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr15_c5_sin_pi_x_sq_gaussian_kernel.pdf}
+  \caption{Left-hand side: distribution of centers at the end of the training process for 
+  \texttt{sin\_pi\_x\_sq} (15 training points, 5 centers, Gaussian kernel). Center: the best epochs' ratio.
+  Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
+  \label{fig:sin-pi-x-sq-statistic-tr15-c5}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]
+    {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr15_c7_sin_pi_x_sq_gaussian_kernel.pdf}
+  \caption{Left-hand side: distribution of centers at the end of the training process for 
+  \texttt{sin\_pi\_x\_sq} (15 training points, 7 centers, Gaussian kernel). Center: the best epochs' ratio.
+  Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
+  \label{fig:sin-pi-x-sq-statistic-tr15-c7}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]
+    {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr15_c9_sin_pi_x_sq_gaussian_kernel.pdf}
+  \caption{Left-hand side: distribution of centers at the end of the training process for 
+  \texttt{sin\_pi\_x\_sq} (15 training points, 9 centers, Gaussian kernel). Center: the best epochs' ratio.
+  Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
+  \label{fig:sin-pi-x-sq-statistic-tr15-c9}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]
+    {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr15_c11_sin_pi_x_sq_gaussian_kernel.pdf}
+  \caption{Left-hand side: distribution of centers at the end of the training process for 
+  \texttt{sin\_pi\_x\_sq} (15 training points, 11 centers, Gaussian kernel). Center: the best epochs' ratio.
+  Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
+  \label{fig:sin-pi-x-sq-statistic-tr15-c11}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]
+    {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr15_c13_sin_pi_x_sq_gaussian_kernel.pdf}
+  \caption{Left-hand side: distribution of centers at the end of the training process for 
+  \texttt{sin\_pi\_x\_sq} (15 training points, 13 centers, Gaussian kernel). Center: the best epochs' ratio.
+  Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
+  \label{fig:sin-pi-x-sq-statistic-tr15-c13}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]
+    {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr15_c15_sin_pi_x_sq_gaussian_kernel.pdf}
+  \caption{Left-hand side: distribution of centers at the end of the training process for 
+  \texttt{sin\_pi\_x\_sq} (15 training points, 15 centers, Gaussian kernel). Center: the best epochs' ratio.
+  Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
+  \label{fig:sin-pi-x-sq-statistic-tr15-c15}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]
+    {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c9_sin_pi_x_sq_gaussian_kernel.pdf}
+  \caption{Left-hand side: distribution of centers at the end of the training process for 
+  \texttt{sin\_pi\_x\_sq} (29 training points, 9 centers, Gaussian kernel). Center: the best epochs' ratio.
+  Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
+  \label{fig:sin-pi-x-sq-statistic-tr29-c9}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]
+    {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c11_sin_pi_x_sq_gaussian_kernel.pdf}
+  \caption{Left-hand side: distribution of centers at the end of the training process for 
+  \texttt{sin\_pi\_x\_sq} (29 training points, 11 centers, Gaussian kernel). Center: the best epochs' ratio.
+  Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
+  \label{fig:sin-pi-x-sq-statistic-tr29-c11}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]
+    {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c13_sin_pi_x_sq_gaussian_kernel.pdf}
+  \caption{Left-hand side: distribution of centers at the end of the training process for 
+  \texttt{sin\_pi\_x\_sq} (29 training points, 13 centers, Gaussian kernel). Center: the best epochs' ratio.
+  Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
+  \label{fig:sin-pi-x-sq-statistic-tr29-c13}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]
+    {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c15_sin_pi_x_sq_gaussian_kernel.pdf}
+  \caption{Left-hand side: distribution of centers at the end of the training process for 
+  \texttt{sin\_pi\_x\_sq} (29 training points, 15 centers, Gaussian kernel). Center: the best epochs' ratio.
+  Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
+  \label{fig:sin-pi-x-sq-statistic-tr29-c15}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]
+    {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c17_sin_pi_x_sq_gaussian_kernel.pdf}
+  \caption{Left-hand side: distribution of centers at the end of the training process for 
+  \texttt{sin\_pi\_x\_sq} (29 training points, 17 centers, Gaussian kernel). Center: the best epochs' ratio.
+  Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
+  \label{fig:sin-pi-x-sq-statistic-tr29-c17}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]
+    {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c19_sin_pi_x_sq_gaussian_kernel.pdf}
+  \caption{Left-hand side: distribution of centers at the end of the training process for 
+  \texttt{sin\_pi\_x\_sq} (29 training points, 19 centers, Gaussian kernel). Center: the best epochs' ratio.
+  Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
+  \label{fig:sin-pi-x-sq-statistic-tr29-c19}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]
+    {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c21_sin_pi_x_sq_gaussian_kernel.pdf}
+  \caption{Left-hand side: distribution of centers at the end of the training process for 
+  \texttt{sin\_pi\_x\_sq} (29 training points, 21 centers, Gaussian kernel). Center: the best epochs' ratio.
+  Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
+  \label{fig:sin-pi-x-sq-statistic-tr29-c21}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]
+    {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c23_sin_pi_x_sq_gaussian_kernel.pdf}
+  \caption{Left-hand side: distribution of centers at the end of the training process for 
+  \texttt{sin\_pi\_x\_sq} (29 training points, 23 centers, Gaussian kernel). Center: the best epochs' ratio.
+  Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
+  \label{fig:sin-pi-x-sq-statistic-tr29-c23}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]
+    {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c25_sin_pi_x_sq_gaussian_kernel.pdf}
+  \caption{Left-hand side: distribution of centers at the end of the training process for 
+  \texttt{sin\_pi\_x\_sq} (29 training points, 25 centers, Gaussian kernel). Center: the best epochs' ratio.
+  Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
+  \label{fig:sin-pi-x-sq-statistic-tr29-c25}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]
+    {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c27_sin_pi_x_sq_gaussian_kernel.pdf}
+  \caption{Left-hand side: distribution of centers at the end of the training process for 
+  \texttt{sin\_pi\_x\_sq} (29 training points, 27 centers, Gaussian kernel). Center: the best epochs' ratio.
+  Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
+  \label{fig:sin-pi-x-sq-statistic-tr29-c27}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]
+    {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c29_sin_pi_x_sq_gaussian_kernel.pdf}
+  \caption{Left-hand side: distribution of centers at the end of the training process for 
+  \texttt{sin\_pi\_x\_sq} (29 training points, 29 centers, Gaussian kernel). Center: the best epochs' ratio.
+  Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
+  \label{fig:sin-pi-x-sq-statistic-tr29-c29}
+\end{figure}
 
 \end{document}
