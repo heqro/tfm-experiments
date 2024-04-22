@@ -193,7 +193,7 @@ hmargin=3cm
 \captionsetup*[lstlisting]{font=small, labelsep=period}
  
 \lstset{style=estilo}
-\renewcommand{\lstlistingname}{\uppercase{Código}}
+\renewcommand{\lstlistingname}{\uppercase{Code}}
 
 
 % REFERENCES 
@@ -4348,6 +4348,39 @@ none of them.
   \texttt{sin\_pi\_x\_sq} (29 training points, 21 centers, Gaussian kernel). Center: the best epochs' ratio.
   Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
   \label{fig:sin-pi-x-sq-statistic-tr29-c29-fixed-shapes-1}
+\end{figure}
+
+\chapter*{Model metrics}
+
+\section*{Memory consumption}
+
+Model memory allocation measurements can be computed using the 
+\href{https://pytorch.org/docs/stable/generated/torch.cuda.max_memory_allocated.html}{\texttt{max\_memory\_allocated()}}
+method of the \texttt{torch.cuda} namespace. As per the documentation,
+this method returns the peak allocated memory (in bytes) since the beginning of the program, which implies that the 
+measurement is to be regarded as approximate. Listing \ref{code:python-memory-measure} shows a simple code to 
+provide readings on \textit{the memory consumed by the model}. 
+Figure \ref{fig:model-consumption-memory} depicts the memory consumption (in bytes) of the 
+model for different numbers of centers.
+
+\begin{lstlisting}[language=Python, caption=Simple memory consumption measurement., label=code:python-memory-measure]
+  import torch
+  from notable_kernels import gaussian_kernel
+  from nn_rbf import RBF_Free_All as RBF
+
+  def report_data(input_dim: int, num_centers: int):
+    before = torch.cuda.memory_allocated('cuda')
+    nn = RBF(input_dim, num_centers, 1, gaussian_kernel).to('cuda')
+    after = torch.cuda.memory_allocated('cuda')
+
+    print(f'Memory consumed by the model: {after-before}')
+  \end{lstlisting}
+
+\begin{figure}[ht]
+  \includegraphics[width=.7\textwidth]{imagenes/model_consumption/Memory_allocation_vs_number_of_centers.pdf}
+  \caption{Memory allocation of the model plotted against the number of centers, for 
+  a number of dimensions between 1 and 10.}
+  \label{fig:model-consumption-memory}
 \end{figure}
 
 \end{document}

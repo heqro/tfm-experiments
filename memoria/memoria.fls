@@ -2241,6 +2241,16 @@ INPUT ./imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c21_sin
 INPUT ./imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c21_sin_pi_x_sq_gaussian_kernel_fixed_shapes_1.pdf
 INPUT ./imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c21_sin_pi_x_sq_gaussian_kernel_fixed_shapes_1.pdf
 INPUT ./imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c21_sin_pi_x_sq_gaussian_kernel_fixed_shapes_1.pdf
+INPUT /usr/share/texmf/tex/latex/listings/lstlang1.sty
+INPUT /usr/share/texmf/tex/latex/listings/lstlang1.sty
+INPUT /usr/share/texmf/tex/latex/listings/lstlang1.sty
+INPUT /usr/share/texmf/fonts/tfm/public/txfonts/t1xbtt.tfm
+INPUT ./imagenes/model_consumption/Memory_allocation_vs_number_of_centers.pdf
+INPUT ./imagenes/model_consumption/Memory_allocation_vs_number_of_centers.pdf
+INPUT ./imagenes/model_consumption/Memory_allocation_vs_number_of_centers.pdf
+INPUT ./imagenes/model_consumption/Memory_allocation_vs_number_of_centers.pdf
+INPUT ./imagenes/model_consumption/Memory_allocation_vs_number_of_centers.pdf
+INPUT /usr/share/texmf/fonts/vf/public/txfonts/t1xr.vf
 INPUT memoria.aux
 INPUT ./memoria.out
 INPUT ./memoria.out
