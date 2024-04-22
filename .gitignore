@@ -98,3 +98,4 @@ interpolation_comparison/rbf/alternative_functional_GA/interpolation_5.ipynb
 interpolation_comparison/rbf/alternative_functional_GA/interpolation_20.ipynb
 interpolation_comparison/rbf/phs_nd/franke_comparison.ipynb
 interpolation_comparison/rbf/phs_nd/nd_interpolation.py
+modules/memory_report.csv
