@@ -1,14 +1,14 @@
 # Fdb version 4
-["biber memoria"] 1713254701.67713 "memoria.bcf" "memoria.bbl" "memoria" 1713783273.3599 0
-  "memoria.bcf" 1713783272.9615 108876 a643186d71f8cb3f3a475509206e62fa "pdflatex"
+["biber memoria"] 1713254701.67713 "memoria.bcf" "memoria.bbl" "memoria" 1714211302.0223 0
+  "memoria.bcf" 1714211301.56197 108876 a643186d71f8cb3f3a475509206e62fa "pdflatex"
   "referencias.bib" 1713187231.20906 6817 7cecbf8c1e609d8f7ed6785345fde32d ""
   (generated)
   "memoria.bbl"
   "memoria.blg"
   (rewritten before read)
-["pdflatex"] 1713783266.9955 "/mnt/sdb1/Proyectos/tfm-experiments/memoria/memoria.tex" "memoria.pdf" "memoria" 1713783273.36049 0
+["pdflatex"] 1714211295.8567 "/mnt/sdb1/Proyectos/tfm-experiments/memoria/memoria.tex" "memoria.pdf" "memoria" 1714211302.02309 0
   "/etc/texmf/web2c/texmf.cnf" 1710926362 42612 09b3c6dec2a078bd30d80981dc2f43a3 ""
-  "/mnt/sdb1/Proyectos/tfm-experiments/memoria/memoria.tex" 1713783259.61728 241764 c1a1ad85ccba9533815f44fca162f04c ""
+  "/mnt/sdb1/Proyectos/tfm-experiments/memoria/memoria.tex" 1714211288.85482 244021 c725869580ef716833e0dce1181fd8b9 ""
   "/usr/share/texmf/fonts/enc/dvips/base/8r.enc" 1710926362 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texmf/fonts/map/fontname/texfonts.map" 1710926362 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf/fonts/tfm/public/cm/cmr12.tfm" 1710926362 1288 655e228510b4c2a1abe905c368440826 ""
@@ -440,6 +440,10 @@
   "imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c27_sin_pi_x_sq_gaussian_kernel.pdf" 1713718491.76736 27400 c08733d8adec4b9b1b5e4c40b8c5e5cc ""
   "imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c29_sin_pi_x_sq_gaussian_kernel.pdf" 1713718491.76785 27536 cd6f63d52420c8be1fb8809916fb58cf ""
   "imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c9_sin_pi_x_sq_gaussian_kernel.pdf" 1713718491.76836 27205 1b8a0ec5c519ec66c3f5146163ba3a02 ""
+  "imagenes/experiments/1d/statistical_1d_full/medians_epochs_runge_function_gaussian_kernel.pdf" 1714207416 24519 a9024724b6ab8cb65b66c7925bf1fa91 ""
+  "imagenes/experiments/1d/statistical_1d_full/medians_epochs_sin_pi_x_sq_gaussian_kernel.pdf" 1714127530 24970 7f14899a5ef67d7d2c542dabce0987ab ""
+  "imagenes/experiments/1d/statistical_1d_full/medians_linf_runge_function_gaussian_kernel.pdf" 1714207416 25045 d230b83152a96691d822092281b7e4ed ""
+  "imagenes/experiments/1d/statistical_1d_full/medians_linf_sin_pi_x_sq_gaussian_kernel.pdf" 1714127530 25605 8e6f885de2b7b97eaa272da12e436560 ""
   "imagenes/experiments/1d/variational/gibbs_function-Kgaussian_kernel-Cheb.pdf" 1712598014.14893 23862 88d1e60f08daaa8391f0923c76c9c28a ""
   "imagenes/experiments/1d/variational/gibbs_function-Kgaussian_kernel-Equi.pdf" 1712598014.14933 23723 2ba3cefe97a6aa91e5ffca0accbbed6d ""
   "imagenes/experiments/1d/variational/gibbs_function-Kgaussian_kernel-Poly-Cheb.pdf" 1712598014.14976 24514 362ad1832c0164b66c1b89df64f56ec5 ""
@@ -579,16 +583,16 @@
   "imagenes/xor/xor5.0.pdf" 1712598014.19585 14534 cbf4675a0ae1e8f5283c90b14ef4bfd3 ""
   "imagenes/xor/xor_conditioning_graph.pdf" 1712598014.1963 29191 0b23103edc57b2e54725a728e81e5456 ""
   "imagenes/xor/xor_largest_coef_graph.pdf" 1712598014.1967 24087 3920fd8fc9286f889fcbcc87c8f92dea ""
-  "memoria.aux" 1713783272.9456 97285 bdcf3a96085505cba5a89424683595c0 "pdflatex"
+  "memoria.aux" 1714211301.54572 98129 499e316ec5c1a640afdc7ccfe4258b20 "pdflatex"
   "memoria.bbl" 1713254702.91752 26137 3218576de14a36cac2cfbb671f1b39dc "biber memoria"
-  "memoria.lof" 1713783272.96299 38523 f047fe06c8ef6a506b0033fc2410ca31 "pdflatex"
-  "memoria.lot" 1713783272.96304 953 0bed4e5755e13bd0b3450b6ba14bc3f8 "pdflatex"
-  "memoria.out" 1713783272.95631 1540 757fe996116b10c9a40e6257213f2537 "pdflatex"
-  "memoria.run.xml" 1713783272.96279 2424 94d23da05289d46c128a5c2dcaea6575 "pdflatex"
-  "memoria.tex" 1713783259.61728 241764 c1a1ad85ccba9533815f44fca162f04c ""
-  "memoria.toc" 1713783272.96293 2124 1300ad2ac706a244c7b8222b8f1aa05c "pdflatex"
+  "memoria.lof" 1714211301.5634 38779 00949981fb23dc8a795b1495caf06071 "pdflatex"
+  "memoria.lot" 1714211301.56345 953 0bed4e5755e13bd0b3450b6ba14bc3f8 "pdflatex"
+  "memoria.out" 1714211301.55686 1630 3d75adeb7aba67f6ed512699a887dc56 "pdflatex"
+  "memoria.run.xml" 1714211301.56316 2424 94d23da05289d46c128a5c2dcaea6575 "pdflatex"
+  "memoria.tex" 1714211288.85482 244021 c725869580ef716833e0dce1181fd8b9 ""
+  "memoria.toc" 1714211301.56334 2222 9e469a506773b2a47f24f193872d2b87 "pdflatex"
   "new_results_05-04-24.pdf" 1712598014.30434 3049699 cc3551aef0a072445012f44b7846cad0 ""
-  "pdfa.xmpi" 1713783267.53291 5042 6d60e58b5d5793bdbf3128b60d01d82a "pdflatex"
+  "pdfa.xmpi" 1714211296.29174 5042 5a4bdee9c9434171777140a45c512746 "pdflatex"
   (generated)
   "memoria.aux"
   "memoria.bcf"

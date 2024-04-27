@@ -2320,12 +2320,11 @@ kindly provided by my advisors.
     \hline
   \end{tabular}
   \caption{Description of the hardware used for experiments and development.}
+  \label{tb:hardware-machinery}
 \end{table}
 
-\section{experiments}
 
-
-\subsection*{problem statement}
+\section{Preliminary testing}
 
 The methodology for solving Problem \ref{interpolationproblemstatement} using an RBF interpolator can be expressed in terms of a two-step process: the first step is explicitly locating the RBF centers and (if applicable) setting the value of the shape parameter $\varepsilon$. The second step involves computing the values of $\lambda$ as in \eqref{eqn-p-is-a-linear-combination-of-rbfs}, which ultimately leads to solve \eqref{eqn-linear-system-equations-rbf}. We refer to this methodology in the following as classic.
 
@@ -2843,9 +2842,49 @@ $L^{\infty} -$norm not to yield any negative values. We located figures
 \ref{fig:torch-sign-gaussian} and \ref{fig:opt-torch-sign-gaussian} in the
 Appendix for the sake of completion.
 
-% \section*{``Statistical'' interpolation}
+\section{``Statistical'' interpolation}
 
+We have just observed that the ``classic'' methodology improves the accuracy
+more notably as more centers are provided,
+whereas the proposed one has seen to produce better results by supplying more
+training points. However, our methodology also featured outliers,
+(see e.g. Figure \ref{fig:sin-higher-oscillations-gaussian}),
+whereby a very specific configuration of training points and centers would
+produce notably better or worse results than neighboring configurations.
 
+Moreover, no remarkable finding has so far been made on the impact of the number of 
+centers on the interpolation results. Actually, their significance can be 
+observed from a statistical point of view. To show this, we focus our efforts on 
+the more promising kernels (namely, the Gaussian and multiquadric) and repeat several 
+times the interpolation experiments under different configurations of 
+training points and centers. 
+
+In particular, let $C \in \{7,9,11,13,15\}$ be the number of centers we consider for
+the interpolation of a given function $f$. We then interpolate $f$ for a number 
+$\left\lceil k \cdot C \right\rceil, k \in \{1,1.5,2,2.5,3,3.5,4\} $ of equispaced 
+training points. To account for the hardware capabilities as in Table 
+\ref{tb:hardware-machinery}, each experiment triple determined by function, $C$ and $k$ is 
+repeated $160$ times. These experiments are launched in $32$ separate
+processes, with 5 experiments each. 
+
+\begin{figure}[H]
+  % \frame
+  {\includegraphics[height=.45\textwidth]
+  {imagenes/experiments/1d/statistical_1d_full/medians_linf_runge_function_gaussian_kernel.pdf}}
+  {\includegraphics[height=.45\textwidth]
+  {imagenes/experiments/1d/statistical_1d_full/medians_linf_sin_pi_x_sq_gaussian_kernel.pdf}}
+  \caption{Medians of the $\log_{10}(L^\infty-\text{norm})$.}
+  \label{fig:medians-linf-statistic}
+\end{figure}
+
+\begin{figure}[H]
+  {\includegraphics[height=.45\textwidth]
+  {imagenes/experiments/1d/statistical_1d_full/medians_epochs_runge_function_gaussian_kernel.pdf}}
+  {\includegraphics[height=.45\textwidth]
+  {imagenes/experiments/1d/statistical_1d_full/medians_epochs_sin_pi_x_sq_gaussian_kernel.pdf}}
+  \caption{Medians of the best epochs' ratio.}
+  \label{fig:medians-epochs-statistic}
+\end{figure}
 
 \section{Interpolation of 2D functions}
 \label{section:interpolation-of-franke}
@@ -2857,13 +2896,13 @@ kernel RBF interpolator with freely adjustable centers and shape parameters) is
 capable of interpolating most of the functions we proposed with a low amount of
 centers.
 
-We also observed that the ``classic'' methodology improved the accuracy
-more notably as more centers were provided,
-whereas the proposed one was seen to produce better results by supplying more
-training points. However, our methodology also featured outliers,
-(see e.g. Figure \ref{fig:sin-higher-oscillations-gaussian}),
-whereby a very specific configuration of training points and centers would
-produce notably better or worse results than neighboring configurations.
+% We also observed that the ``classic'' methodology improved the accuracy
+% more notably as more centers were provided,
+% whereas the proposed one was seen to produce better results by supplying more
+% training points. However, our methodology also featured outliers,
+% (see e.g. Figure \ref{fig:sin-higher-oscillations-gaussian}),
+% whereby a very specific configuration of training points and centers would
+% produce notably better or worse results than neighboring configurations.
 
 We now turn to the 2D case, where we consider the following functions:
 \begin{itemize}
