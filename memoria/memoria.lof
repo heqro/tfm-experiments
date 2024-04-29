@@ -21,194 +21,203 @@
 \contentsline {figure}{\numberline {3.15}{\ignorespaces Left-hand side: results of the interpolation of the sign function with 20 equispaced points. Right-hand side: relative error in logarithmic scale.}}{33}{figure.caption.22}%
 \contentsline {figure}{\numberline {3.16}{\ignorespaces Left-hand side: relative error in the interpolation of the sign function. Right-hand side: condition number for the corresponding interpolation matrix.}}{33}{figure.caption.23}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Left-hand side: $\sin (x^2)$ for $x \in [0, 3]$. Right-hand side: $ \sin (\pi x^2)$ for $x \in [- 1, 1]$.}}{35}{figure.caption.25}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of the Runge function with a Gaussian kernel using equispaced nodes, comparing the performance our method using no polynomial term (left-hand side) as well as a linear polynomial term (right-hand side).}}{37}{figure.caption.27}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of the Runge function with the multiquadric kernel using equispaced nodes, comparing the performance of equispaced with Chebyshev nodes.}}{38}{figure.caption.28}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of the Runge function with a multiquadric kernel using equispaced nodes, comparing the performance our method using no polynomial term (left-hand side) as well as a linear polynomial term (right-hand side).}}{38}{figure.caption.32}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of the Runge function with a Gaussian kernel using equispaced nodes, comparing the performance our method using no polynomial term (left-hand side) as well as a linear polynomial term (right-hand side).}}{39}{figure.caption.29}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of the Runge function with a Gaussian kernel using equispaced nodes, comparing the performance our method using no polynomial term (left-hand side) as well as a linear polynomial term (right-hand side).}}{39}{figure.caption.33}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of the Runge function with a Gaussian kernel using equispaced nodes (left-hand side) and Chebyshev nodes (right-hand side).}}{40}{figure.caption.30}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of the Gibbs function with a Gaussian kernel using equispaced nodes (left-hand side) and Chebyshev nodes (right-hand side).}}{41}{figure.caption.31}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of the Runge function with a multiquadric kernel using equispaced nodes, comparing the performance our method (left-hand side) against the classic one (right-hand side).}}{42}{figure.caption.34}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of the Gibbs function with a Gaussian kernel using equispaced nodes, comparing the performance our method (left-hand side) against the classic one (right-hand side).}}{43}{figure.caption.35}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of \texttt {sin\_higher\_oscillations} with a Gaussian kernel using equispaced nodes, comparing the performance our method (left-hand side) against the classic one (right-hand side).}}{44}{figure.caption.36}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of \texttt {sin\_higher\_oscillations} with a multiquadric kernel using equispaced nodes, comparing the performance our method (left-hand side) against the classic one (right-hand side).}}{45}{figure.caption.37}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of \texttt {sin\_pi\_x\_sq} with a Gaussian kernel using equispaced nodes, comparing the performance our method (left-hand side) against the classic one (right-hand side).}}{46}{figure.caption.38}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of the Runge function with a PHS kernel using equispaced nodes, comparing the performance our method (left-hand side) against the classic one (right-hand side).}}{47}{figure.caption.39}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Ratio of the best epoch in the sense of the $L^\infty -$norm over the maximum number of epochs, for the interpolation of the Runge function with a multiquadric kernel and equispaced nodes.}}{47}{figure.caption.40}%
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Left-hand side: epochs ratio for the interpolation of the Runge function. Right-hand side: epochs ratio for the interpolation of the Gibbs function. In both images, interpolation has been carried out with the Gaussian kernel.}}{48}{figure.caption.41}%
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Left-hand side: epochs ratio for the interpolation of the Runge function with the PHS kernel. Right-hand side: distribution of centers with 15 (top) and 17 (bottom) training nodes.}}{48}{figure.caption.42}%
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Distribution of centers at the end of our iterative process for 15, 19, 23 and 29 training nodes, all of them trained with equispaced training points.}}{48}{figure.caption.43}%
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Medians of the $\log _{10}(L^\infty -\text {norm})$.}}{50}{figure.caption.44}%
+\contentsline {figure}{\numberline {4.20}{\ignorespaces Medians of the best epochs' ratio.}}{51}{figure.caption.45}%
+\contentsline {figure}{\numberline {4.21}{\ignorespaces Kernel density estimates (logarithmic scale) for the $\log _{10}(L^\infty -\text {norm})$ and epochs' ratio, for Runge's function interpolated with the Gaussian kernel.}}{52}{figure.caption.46}%
+\contentsline {figure}{\numberline {4.22}{\ignorespaces Kernel density estimates (logarithmic scale) for the $\log _{10}(L^\infty -\text {norm})$ and epochs' ratio, for \texttt {sin\_pi\_x\_sq} interpolated with the Gaussian kernel.}}{52}{figure.caption.47}%
+\contentsline {figure}{\numberline {4.23}{\ignorespaces Kernel density estimates (logarithmic scale) for the $\log _{10}(L^\infty -\text {norm})$ and epochs' ratio, for \texttt {gibbs\_function} interpolated with the Gaussian kernel.}}{53}{figure.caption.48}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Caption \href {https://github.com/heqro/tfm-experiments/blob/main/introductory_notebooks/rbf_interpolation/runge_phs.ipynb}{Runge function RBF interpolation}}}{35}{figure.caption.24}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Caption \href {https://github.com/heqro/tfm-experiments/blob/main/introductory_notebooks/rbf_interpolation/runge_phs.ipynb}{Runge function RBF interpolation}}}{36}{figure.caption.25}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Caption \href {https://github.com/heqro/tfm-experiments/blob/main/introductory_notebooks/rbf_interpolation/runge_phs.ipynb}{Runge function RBF interpolation}}}{36}{figure.caption.26}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Caption \href {https://github.com/heqro/tfm-experiments/blob/main/introductory_notebooks/rbf_interpolation/runge_phs.ipynb}{Runge function RBF interpolation}}}{37}{figure.caption.27}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Caption \href {https://github.com/heqro/tfm-experiments/blob/main/introductory_notebooks/rbf_interpolation/runge_phs.ipynb}{Runge function PHS interpolation}}}{37}{figure.caption.28}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Caption}}{38}{figure.caption.29}%
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Caption}}{38}{figure.caption.30}%
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Caption}}{39}{figure.caption.31}%
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Caption \href {https://github.com/heqro/tfm-experiments/blob/main/introductory_notebooks/rbf_interpolation/gibbs.ipynb}{Gibbs arctan PHS interpolation}}}{39}{figure.caption.32}%
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Caption}}{40}{figure.caption.33}%
-\contentsline {figure}{\numberline {5.11}{\ignorespaces Caption}}{40}{figure.caption.34}%
-\contentsline {figure}{\numberline {5.12}{\ignorespaces Caption}}{41}{figure.caption.35}%
-\contentsline {figure}{\numberline {5.13}{\ignorespaces Caption}}{41}{figure.caption.36}%
-\contentsline {figure}{\numberline {5.14}{\ignorespaces Caption}}{42}{figure.caption.37}%
-\contentsline {figure}{\numberline {5.15}{\ignorespaces Caption}}{42}{figure.caption.38}%
-\contentsline {figure}{\numberline {5.16}{\ignorespaces Caption}}{43}{figure.caption.39}%
-\contentsline {figure}{\numberline {5.17}{\ignorespaces Left-hand side: $\sin (x^2)$ for $x \in [0, 3]$. Right-hand side: $ \sin (\pi x^2)$ for $x \in [- 1, 1]$.}}{44}{figure.caption.41}%
-\contentsline {figure}{\numberline {5.18}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of the Runge function with a Gaussian kernel using equispaced nodes, comparing the performance our method using no polynomial term (left-hand side) as well as a linear polynomial term (right-hand side).}}{45}{figure.caption.43}%
-\contentsline {figure}{\numberline {5.19}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of the Runge function with a Gaussian kernel using equispaced nodes, comparing our method (left-hand side) with the classic method (right-hand side).}}{45}{figure.caption.44}%
-\contentsline {figure}{\numberline {5.20}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of the Runge function with the multiquadric kernel using equispaced nodes, comparing our method (left-hand side) with the classic method (right-hand side).}}{46}{figure.caption.45}%
-\contentsline {figure}{\numberline {5.21}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of the Gibbs function with a Gaussian kernel using equispaced nodes, comparing our method (left-hand side) with the classic method (right-hand side).}}{46}{figure.caption.46}%
-\contentsline {figure}{\numberline {5.22}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of \texttt {sin\_higher\_oscillations} with a Gaussian kernel using equispaced nodes, comparing our method (left-hand side) with the classic method (right-hand side).}}{47}{figure.caption.47}%
-\contentsline {figure}{\numberline {5.23}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of \texttt {sin\_higher\_oscillations} with a multiquadric kernel using equispaced nodes, comparing our method (left-hand side) with the classic method (right-hand side).}}{47}{figure.caption.48}%
-\contentsline {figure}{\numberline {5.24}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of \texttt {sin\_pi\_x\_sq} with a Gaussian kernel using equispaced nodes, comparing our method (left-hand side) with the classic method (right-hand side).}}{48}{figure.caption.49}%
-\contentsline {figure}{\numberline {5.25}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of \texttt {sin\_pi\_x\_sq} with a Gaussian kernel using equispaced nodes, comparing our method (left-hand side) with the classic method (right-hand side).}}{48}{figure.caption.50}%
-\contentsline {figure}{\numberline {5.26}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of \texttt {torch\_sign} with a Gaussian kernel using equispaced nodes, comparing our method (left-hand side) with the classic method (right-hand side).}}{49}{figure.caption.51}%
-\contentsline {figure}{\numberline {5.27}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of \texttt {runge\_function} with a PHS kernel using equispaced nodes, comparing our method (left-hand side) with the classic method (right-hand side).}}{49}{figure.caption.52}%
-\contentsline {figure}{\numberline {5.28}{\ignorespaces Ratio of the best epoch in the sense of the $L^\infty -$norm over the maximum number of epochs, for the interpolation of the Runge function with a multiquadric kernel and equispaced nodes.}}{50}{figure.caption.53}%
-\contentsline {figure}{\numberline {5.29}{\ignorespaces Left-hand side: epochs ratio for the interpolation of the Runge function. Right-hand side: epochs ratio for the interpolation of the Gibbs function. In both images, interpolation has been carried out with the Gaussian kernel.}}{51}{figure.caption.54}%
-\contentsline {figure}{\numberline {5.30}{\ignorespaces Last few iterations of the interpolation of \text {{\ttfamily {runge\_function}}} with 15 training points and 13 centers.}}{52}{figure.caption.57}%
-\contentsline {figure}{\numberline {5.31}{\ignorespaces Last few iterations of the interpolation of \text {{\ttfamily {gibbs\_function}}} with 29 training points and 7 centers.}}{53}{figure.caption.58}%
-\contentsline {figure}{\numberline {5.32}{\ignorespaces Distribution of centers at the end of the training process.}}{53}{figure.caption.59}%
-\contentsline {figure}{\numberline {5.33}{\ignorespaces Left-hand side: epochs ratio for the interpolation of the Runge function with the PHS kernel. Right-hand side: distribution of centers with 15 (top) and 17 (bottom) training nodes.}}{54}{figure.caption.60}%
-\contentsline {figure}{\numberline {5.34}{\ignorespaces Distribution of centers at the end of our iterative process for 15, 19, 23 and 29 training nodes, all of them trained with equispaced training points.}}{54}{figure.caption.61}%
-\contentsline {figure}{\numberline {5.35}{\ignorespaces Medians of the $\log _{10}(L^\infty -\text {norm})$.}}{57}{figure.caption.62}%
-\contentsline {figure}{\numberline {5.36}{\ignorespaces Medians of the best epochs' ratio.}}{58}{figure.caption.63}%
-\contentsline {figure}{\numberline {5.37}{\ignorespaces Left-hand side: Franke's function as a surface. Right-hand side: its filled contour representation.}}{62}{figure.caption.67}%
-\contentsline {figure}{\numberline {5.38}{\ignorespaces Left-hand side: \texttt {sin\_pi\_x\_y\_sq} as a surface. Right-hand side: its filled contour representation.}}{63}{figure.caption.68}%
-\contentsline {figure}{\numberline {5.39}{\ignorespaces Results of the interpolation of Franke's function (5 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{63}{figure.caption.69}%
-\contentsline {figure}{\numberline {5.40}{\ignorespaces Results of the interpolation of Franke's function (6 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{64}{figure.caption.70}%
-\contentsline {figure}{\numberline {5.41}{\ignorespaces Results of the interpolation of Franke's function (7 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{64}{figure.caption.71}%
-\contentsline {figure}{\numberline {5.42}{\ignorespaces Results of the interpolation of Franke's function (8 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{65}{figure.caption.72}%
-\contentsline {figure}{\numberline {5.43}{\ignorespaces Results of the interpolation of Franke's function (9 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{65}{figure.caption.73}%
-\contentsline {figure}{\numberline {5.44}{\ignorespaces Results of the interpolation of Franke's function (10 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{66}{figure.caption.74}%
-\contentsline {figure}{\numberline {5.45}{\ignorespaces Results of the interpolation of Franke's function (11 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{66}{figure.caption.75}%
-\contentsline {figure}{\numberline {5.46}{\ignorespaces Results of the interpolation of Franke's function (12 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{67}{figure.caption.76}%
-\contentsline {figure}{\numberline {5.47}{\ignorespaces Results of the interpolation of Franke's function (5 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{67}{figure.caption.77}%
-\contentsline {figure}{\numberline {5.48}{\ignorespaces Results of the interpolation of Franke's function (6 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{68}{figure.caption.78}%
-\contentsline {figure}{\numberline {5.49}{\ignorespaces Results of the interpolation of Franke's function (7 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{68}{figure.caption.79}%
-\contentsline {figure}{\numberline {5.50}{\ignorespaces Results of the interpolation of Franke's function (8 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{69}{figure.caption.80}%
-\contentsline {figure}{\numberline {5.51}{\ignorespaces Results of the interpolation of Franke's function (9 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{69}{figure.caption.81}%
-\contentsline {figure}{\numberline {5.52}{\ignorespaces Results of the interpolation of Franke's function (10 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{70}{figure.caption.82}%
-\contentsline {figure}{\numberline {5.53}{\ignorespaces Results of the interpolation of Franke's function (11 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{70}{figure.caption.83}%
-\contentsline {figure}{\numberline {5.54}{\ignorespaces Results of the interpolation of Franke's function (12 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{71}{figure.caption.84}%
-\contentsline {figure}{\numberline {5.55}{\ignorespaces Results of the interpolation of \texttt {sin\_pi\_x\_y\_sq} (5 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{72}{figure.caption.85}%
-\contentsline {figure}{\numberline {5.56}{\ignorespaces Results of the interpolation of \texttt {sin\_pi\_x\_y\_sq} (20 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{73}{figure.caption.86}%
-\contentsline {figure}{\numberline {5.57}{\ignorespaces Results of the interpolation of \texttt {sin\_pi\_x\_y\_sq} (25 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{73}{figure.caption.87}%
-\contentsline {figure}{\numberline {5.58}{\ignorespaces Results of the interpolation of \texttt {sin\_pi\_x\_y\_sq} (30 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{74}{figure.caption.88}%
-\contentsline {figure}{\numberline {5.59}{\ignorespaces Results of the interpolation of \texttt {sin\_pi\_x\_y\_sq} (35 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{74}{figure.caption.89}%
-\contentsline {figure}{\numberline {5.60}{\ignorespaces Wengert's trace of the Gaussian kernel.}}{75}{figure.caption.90}%
-\contentsline {figure}{\numberline {5.61}{\ignorespaces Left-hand side: absolute error of the model solution regarding the actual solution. Middle image: visual comparison of both solutions alongside the location of the model's centers. Right-hand side: learning curves (mean squared error and $L^\infty -$norm) of the model.}}{77}{figure.caption.91}%
-\contentsline {figure}{\numberline {5.62}{\ignorespaces Parameters of the network.}}{77}{figure.caption.92}%
-\contentsline {figure}{\numberline {5.63}{\ignorespaces Left-hand side: distribution of centers at the end of the training experiment without polynomial terms. Center image: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty -$norm regarding the verification dataset during the best epoch.}}{79}{figure.caption.93}%
-\contentsline {figure}{\numberline {5.64}{\ignorespaces Left-hand side: distribution of centers at the end of the training experiment with a bias term. Center image: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty -$norm regarding the verification dataset during the best epoch.}}{79}{figure.caption.94}%
-\contentsline {figure}{\numberline {5.65}{\ignorespaces Left-hand side: distribution of centers at the end of the training experiment with a linear polynomial. Center image: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty -$norm regarding the verification dataset during the best epoch.}}{80}{figure.caption.95}%
-\contentsline {figure}{\numberline {5.66}{\ignorespaces Left-hand side: distribution of centers at the end of the training experiment with a quadratic polynomial. Center image: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty -$norm regarding the verification dataset during the best epoch.}}{80}{figure.caption.96}%
-\contentsline {figure}{\numberline {5.67}{\ignorespaces Left-hand side: distribution of centers at the end of the training experiment with a cubic polynomial. Center image: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty -$norm regarding the verification dataset during the best epoch.}}{80}{figure.caption.97}%
-\contentsline {figure}{\numberline {5.68}{\ignorespaces Caption}}{}{figure.caption.100}%
-\contentsline {figure}{\numberline {5.69}{\ignorespaces Caption}}{}{figure.caption.101}%
-\contentsline {figure}{\numberline {5.70}{\ignorespaces Caption}}{}{figure.caption.102}%
-\contentsline {figure}{\numberline {5.71}{\ignorespaces Caption}}{}{figure.caption.103}%
-\contentsline {figure}{\numberline {5.72}{\ignorespaces Caption}}{}{figure.caption.104}%
-\contentsline {figure}{\numberline {5.73}{\ignorespaces Caption}}{}{figure.caption.105}%
-\contentsline {figure}{\numberline {5.74}{\ignorespaces Caption}}{}{figure.caption.106}%
-\contentsline {figure}{\numberline {5.75}{\ignorespaces Caption}}{}{figure.caption.107}%
-\contentsline {figure}{\numberline {5.76}{\ignorespaces Caption}}{}{figure.caption.108}%
-\contentsline {figure}{\numberline {5.77}{\ignorespaces Caption}}{}{figure.caption.109}%
-\contentsline {figure}{\numberline {5.78}{\ignorespaces Caption}}{}{figure.caption.110}%
-\contentsline {figure}{\numberline {5.79}{\ignorespaces Caption}}{}{figure.caption.111}%
-\contentsline {figure}{\numberline {5.80}{\ignorespaces Caption}}{}{figure.caption.112}%
-\contentsline {figure}{\numberline {5.81}{\ignorespaces Caption}}{}{figure.caption.113}%
-\contentsline {figure}{\numberline {5.82}{\ignorespaces Caption}}{}{figure.caption.114}%
-\contentsline {figure}{\numberline {5.83}{\ignorespaces Caption}}{}{figure.caption.115}%
-\contentsline {figure}{\numberline {5.84}{\ignorespaces Caption}}{}{figure.caption.116}%
-\contentsline {figure}{\numberline {5.85}{\ignorespaces Caption}}{}{figure.caption.117}%
-\contentsline {figure}{\numberline {5.86}{\ignorespaces Caption}}{}{figure.caption.118}%
-\contentsline {figure}{\numberline {5.87}{\ignorespaces Caption}}{}{figure.caption.119}%
-\contentsline {figure}{\numberline {5.88}{\ignorespaces Caption}}{}{figure.caption.120}%
-\contentsline {figure}{\numberline {5.89}{\ignorespaces Caption}}{}{figure.caption.121}%
-\contentsline {figure}{\numberline {5.90}{\ignorespaces Caption}}{}{figure.caption.122}%
-\contentsline {figure}{\numberline {5.91}{\ignorespaces Caption}}{}{figure.caption.123}%
-\contentsline {figure}{\numberline {5.92}{\ignorespaces Caption}}{}{figure.caption.124}%
-\contentsline {figure}{\numberline {5.93}{\ignorespaces Caption}}{}{figure.caption.125}%
-\contentsline {figure}{\numberline {5.94}{\ignorespaces Caption}}{}{figure.caption.126}%
-\contentsline {figure}{\numberline {5.95}{\ignorespaces Caption}}{}{figure.caption.127}%
-\contentsline {figure}{\numberline {5.96}{\ignorespaces Caption}}{}{figure.caption.128}%
-\contentsline {figure}{\numberline {5.97}{\ignorespaces Caption}}{}{figure.caption.129}%
-\contentsline {figure}{\numberline {5.98}{\ignorespaces Caption}}{}{figure.caption.130}%
-\contentsline {figure}{\numberline {5.99}{\ignorespaces Caption}}{}{figure.caption.131}%
-\contentsline {figure}{\numberline {5.100}{\ignorespaces Caption}}{}{figure.caption.132}%
-\contentsline {figure}{\numberline {5.101}{\ignorespaces Caption}}{}{figure.caption.133}%
-\contentsline {figure}{\numberline {5.102}{\ignorespaces Caption}}{}{figure.caption.134}%
-\contentsline {figure}{\numberline {5.103}{\ignorespaces Caption}}{}{figure.caption.135}%
-\contentsline {figure}{\numberline {5.104}{\ignorespaces Caption}}{}{figure.caption.136}%
-\contentsline {figure}{\numberline {5.105}{\ignorespaces Caption}}{}{figure.caption.137}%
-\contentsline {figure}{\numberline {5.106}{\ignorespaces Caption}}{}{figure.caption.138}%
-\contentsline {figure}{\numberline {5.107}{\ignorespaces Caption}}{}{figure.caption.139}%
-\contentsline {figure}{\numberline {5.108}{\ignorespaces Caption}}{}{figure.caption.140}%
-\contentsline {figure}{\numberline {5.109}{\ignorespaces Caption}}{}{figure.caption.141}%
-\contentsline {figure}{\numberline {5.110}{\ignorespaces Caption}}{}{figure.caption.142}%
-\contentsline {figure}{\numberline {5.111}{\ignorespaces Caption}}{}{figure.caption.143}%
-\contentsline {figure}{\numberline {5.112}{\ignorespaces Caption}}{}{figure.caption.144}%
-\contentsline {figure}{\numberline {5.113}{\ignorespaces Caption}}{}{figure.caption.145}%
-\contentsline {figure}{\numberline {5.114}{\ignorespaces Caption}}{}{figure.caption.146}%
-\contentsline {figure}{\numberline {5.115}{\ignorespaces Caption}}{}{figure.caption.147}%
-\contentsline {figure}{\numberline {5.116}{\ignorespaces Caption}}{}{figure.caption.148}%
-\contentsline {figure}{\numberline {5.117}{\ignorespaces Caption}}{}{figure.caption.149}%
-\contentsline {figure}{\numberline {5.118}{\ignorespaces Caption}}{}{figure.caption.150}%
-\contentsline {figure}{\numberline {5.119}{\ignorespaces Caption}}{}{figure.caption.151}%
-\contentsline {figure}{\numberline {5.120}{\ignorespaces Caption}}{}{figure.caption.152}%
-\contentsline {figure}{\numberline {5.121}{\ignorespaces Caption}}{}{figure.caption.153}%
-\contentsline {figure}{\numberline {5.122}{\ignorespaces Caption}}{}{figure.caption.154}%
-\contentsline {figure}{\numberline {5.123}{\ignorespaces Caption}}{}{figure.caption.155}%
-\contentsline {figure}{\numberline {5.124}{\ignorespaces Caption}}{}{figure.caption.156}%
-\contentsline {figure}{\numberline {5.125}{\ignorespaces Caption}}{}{figure.caption.157}%
-\contentsline {figure}{\numberline {5.126}{\ignorespaces Caption}}{}{figure.caption.158}%
-\contentsline {figure}{\numberline {5.127}{\ignorespaces Caption}}{}{figure.caption.159}%
-\contentsline {figure}{\numberline {5.128}{\ignorespaces Caption}}{}{figure.caption.160}%
-\contentsline {figure}{\numberline {5.129}{\ignorespaces Caption}}{}{figure.caption.161}%
-\contentsline {figure}{\numberline {5.130}{\ignorespaces Caption}}{}{figure.caption.162}%
-\contentsline {figure}{\numberline {5.131}{\ignorespaces Caption}}{}{figure.caption.163}%
-\contentsline {figure}{\numberline {5.132}{\ignorespaces Caption}}{}{figure.caption.164}%
-\contentsline {figure}{\numberline {5.133}{\ignorespaces Caption}}{}{figure.caption.165}%
-\contentsline {figure}{\numberline {5.134}{\ignorespaces Caption}}{}{figure.caption.166}%
-\contentsline {figure}{\numberline {5.135}{\ignorespaces Caption}}{}{figure.caption.167}%
-\contentsline {figure}{\numberline {5.136}{\ignorespaces Caption}}{}{figure.caption.168}%
-\contentsline {figure}{\numberline {5.137}{\ignorespaces Caption}}{}{figure.caption.169}%
-\contentsline {figure}{\numberline {5.138}{\ignorespaces Caption}}{}{figure.caption.170}%
-\contentsline {figure}{\numberline {5.139}{\ignorespaces Caption}}{}{figure.caption.171}%
-\contentsline {figure}{\numberline {5.140}{\ignorespaces Caption}}{}{figure.caption.172}%
-\contentsline {figure}{\numberline {5.141}{\ignorespaces Caption}}{}{figure.caption.173}%
-\contentsline {figure}{\numberline {5.142}{\ignorespaces Caption}}{}{figure.caption.174}%
-\contentsline {figure}{\numberline {5.143}{\ignorespaces Caption}}{}{figure.caption.175}%
-\contentsline {figure}{\numberline {5.144}{\ignorespaces Caption}}{}{figure.caption.176}%
-\contentsline {figure}{\numberline {5.145}{\ignorespaces Caption}}{}{figure.caption.177}%
-\contentsline {figure}{\numberline {5.146}{\ignorespaces Caption}}{}{figure.caption.178}%
-\contentsline {figure}{\numberline {5.147}{\ignorespaces Caption}}{}{figure.caption.179}%
-\contentsline {figure}{\numberline {5.148}{\ignorespaces Caption}}{}{figure.caption.180}%
-\contentsline {figure}{\numberline {5.149}{\ignorespaces Caption}}{}{figure.caption.181}%
-\contentsline {figure}{\numberline {5.150}{\ignorespaces Caption}}{}{figure.caption.182}%
-\contentsline {figure}{\numberline {5.151}{\ignorespaces Caption}}{}{figure.caption.183}%
-\contentsline {figure}{\numberline {5.152}{\ignorespaces Caption}}{}{figure.caption.184}%
-\contentsline {figure}{\numberline {5.153}{\ignorespaces Caption}}{}{figure.caption.185}%
-\contentsline {figure}{\numberline {5.154}{\ignorespaces Caption}}{}{figure.caption.186}%
-\contentsline {figure}{\numberline {5.155}{\ignorespaces Caption}}{}{figure.caption.187}%
-\contentsline {figure}{\numberline {5.156}{\ignorespaces Caption}}{}{figure.caption.188}%
-\contentsline {figure}{\numberline {5.157}{\ignorespaces Caption}}{}{figure.caption.189}%
-\contentsline {figure}{\numberline {5.158}{\ignorespaces Caption}}{}{figure.caption.190}%
-\contentsline {figure}{\numberline {5.159}{\ignorespaces Caption}}{}{figure.caption.191}%
-\contentsline {figure}{\numberline {5.160}{\ignorespaces Caption}}{}{figure.caption.192}%
-\contentsline {figure}{\numberline {5.161}{\ignorespaces Caption}}{}{figure.caption.193}%
-\contentsline {figure}{\numberline {5.162}{\ignorespaces Caption}}{}{figure.caption.194}%
-\contentsline {figure}{\numberline {5.163}{\ignorespaces Caption}}{}{figure.caption.195}%
-\contentsline {figure}{\numberline {5.164}{\ignorespaces Caption}}{}{figure.caption.196}%
-\contentsline {figure}{\numberline {5.165}{\ignorespaces Caption}}{}{figure.caption.197}%
-\contentsline {figure}{\numberline {5.166}{\ignorespaces Caption}}{}{figure.caption.198}%
-\contentsline {figure}{\numberline {5.167}{\ignorespaces Caption}}{}{figure.caption.199}%
-\contentsline {figure}{\numberline {5.168}{\ignorespaces Caption}}{}{figure.caption.200}%
-\contentsline {figure}{\numberline {5.169}{\ignorespaces Caption}}{}{figure.caption.201}%
-\contentsline {figure}{\numberline {5.170}{\ignorespaces Left-hand side: distribution of centers at the end of the training process for \texttt {sin\_pi\_x\_sq} (15 training points, 5 centers, Gaussian kernel). Center: the best epochs' ratio. Right-hand side: logarithm of the $L^\infty -$norm on the verification dataset.}}{}{figure.caption.203}%
-\contentsline {figure}{\numberline {5.171}{\ignorespaces Left-hand side: distribution of centers at the end of the training process for \texttt {sin\_pi\_x\_sq} (15 training points, 7 centers, Gaussian kernel). Center: the best epochs' ratio. Right-hand side: logarithm of the $L^\infty -$norm on the verification dataset.}}{}{figure.caption.204}%
-\contentsline {figure}{\numberline {5.172}{\ignorespaces Left-hand side: distribution of centers at the end of the training process for \texttt {sin\_pi\_x\_sq} (15 training points, 9 centers, Gaussian kernel). Center: the best epochs' ratio. Right-hand side: logarithm of the $L^\infty -$norm on the verification dataset.}}{}{figure.caption.205}%
-\contentsline {figure}{\numberline {5.173}{\ignorespaces Left-hand side: distribution of centers at the end of the training process for \texttt {sin\_pi\_x\_sq} (15 training points, 11 centers, Gaussian kernel). Center: the best epochs' ratio. Right-hand side: logarithm of the $L^\infty -$norm on the verification dataset.}}{}{figure.caption.206}%
-\contentsline {figure}{\numberline {5.174}{\ignorespaces Left-hand side: distribution of centers at the end of the training process for \texttt {sin\_pi\_x\_sq} (15 training points, 13 centers, Gaussian kernel). Center: the best epochs' ratio. Right-hand side: logarithm of the $L^\infty -$norm on the verification dataset.}}{}{figure.caption.207}%
-\contentsline {figure}{\numberline {5.175}{\ignorespaces Left-hand side: distribution of centers at the end of the training process for \texttt {sin\_pi\_x\_sq} (15 training points, 15 centers, Gaussian kernel). Center: the best epochs' ratio. Right-hand side: logarithm of the $L^\infty -$norm on the verification dataset.}}{}{figure.caption.208}%
-\contentsline {figure}{\numberline {5.176}{\ignorespaces Left-hand side: distribution of centers at the end of the training process for \texttt {sin\_pi\_x\_sq} (29 training points, 9 centers, Gaussian kernel). Center: the best epochs' ratio. Right-hand side: logarithm of the $L^\infty -$norm on the verification dataset.}}{}{figure.caption.209}%
-\contentsline {figure}{\numberline {5.177}{\ignorespaces Left-hand side: distribution of centers at the end of the training process for \texttt {sin\_pi\_x\_sq} (29 training points, 11 centers, Gaussian kernel). Center: the best epochs' ratio. Right-hand side: logarithm of the $L^\infty -$norm on the verification dataset.}}{}{figure.caption.210}%
-\contentsline {figure}{\numberline {5.178}{\ignorespaces Left-hand side: distribution of centers at the end of the training process for \texttt {sin\_pi\_x\_sq} (29 training points, 13 centers, Gaussian kernel). Center: the best epochs' ratio. Right-hand side: logarithm of the $L^\infty -$norm on the verification dataset.}}{}{figure.caption.211}%
-\contentsline {figure}{\numberline {5.179}{\ignorespaces Left-hand side: distribution of centers at the end of the training process for \texttt {sin\_pi\_x\_sq} (29 training points, 15 centers, Gaussian kernel). Center: the best epochs' ratio. Right-hand side: logarithm of the $L^\infty -$norm on the verification dataset.}}{}{figure.caption.212}%
-\contentsline {figure}{\numberline {5.180}{\ignorespaces Left-hand side: distribution of centers at the end of the training process for \texttt {sin\_pi\_x\_sq} (29 training points, 17 centers, Gaussian kernel). Center: the best epochs' ratio. Right-hand side: logarithm of the $L^\infty -$norm on the verification dataset.}}{}{figure.caption.213}%
-\contentsline {figure}{\numberline {5.181}{\ignorespaces Left-hand side: distribution of centers at the end of the training process for \texttt {sin\_pi\_x\_sq} (29 training points, 19 centers, Gaussian kernel). Center: the best epochs' ratio. Right-hand side: logarithm of the $L^\infty -$norm on the verification dataset.}}{}{figure.caption.214}%
-\contentsline {figure}{\numberline {5.182}{\ignorespaces Left-hand side: distribution of centers at the end of the training process for \texttt {sin\_pi\_x\_sq} (29 training points, 21 centers, Gaussian kernel). Center: the best epochs' ratio. Right-hand side: logarithm of the $L^\infty -$norm on the verification dataset.}}{}{figure.caption.215}%
-\contentsline {figure}{\numberline {5.183}{\ignorespaces Left-hand side: distribution of centers at the end of the training process for \texttt {sin\_pi\_x\_sq} (29 training points, 23 centers, Gaussian kernel). Center: the best epochs' ratio. Right-hand side: logarithm of the $L^\infty -$norm on the verification dataset.}}{}{figure.caption.216}%
-\contentsline {figure}{\numberline {5.184}{\ignorespaces Left-hand side: distribution of centers at the end of the training process for \texttt {sin\_pi\_x\_sq} (29 training points, 25 centers, Gaussian kernel). Center: the best epochs' ratio. Right-hand side: logarithm of the $L^\infty -$norm on the verification dataset.}}{}{figure.caption.217}%
-\contentsline {figure}{\numberline {5.185}{\ignorespaces Left-hand side: distribution of centers at the end of the training process for \texttt {sin\_pi\_x\_sq} (29 training points, 27 centers, Gaussian kernel). Center: the best epochs' ratio. Right-hand side: logarithm of the $L^\infty -$norm on the verification dataset.}}{}{figure.caption.218}%
-\contentsline {figure}{\numberline {5.186}{\ignorespaces Left-hand side: distribution of centers at the end of the training process for \texttt {sin\_pi\_x\_sq} (29 training points, 29 centers, Gaussian kernel). Center: the best epochs' ratio. Right-hand side: logarithm of the $L^\infty -$norm on the verification dataset.}}{}{figure.caption.219}%
-\contentsline {figure}{\numberline {5.187}{\ignorespaces Results for the training processes for fixed centers. Left-hand side: distribution of centers at the end of the training process for \texttt {sin\_pi\_x\_sq} (29 training points, 21 centers, Gaussian kernel). Center: the best epochs' ratio. Right-hand side: logarithm of the $L^\infty -$norm on the verification dataset.}}{}{figure.caption.220}%
-\contentsline {figure}{\numberline {5.188}{\ignorespaces Results for the training processes for a common shape parameter fixed to 1. Left-hand side: distribution of centers at the end of the training process for \texttt {sin\_pi\_x\_sq} (29 training points, 21 centers, Gaussian kernel). Center: the best epochs' ratio. Right-hand side: logarithm of the $L^\infty -$norm on the verification dataset.}}{}{figure.caption.221}%
-\contentsline {figure}{\numberline {5.189}{\ignorespaces Memory allocation of the model plotted against the number of centers, for a number of dimensions between 1 and 10.}}{}{figure.caption.223}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Caption \href {https://github.com/heqro/tfm-experiments/blob/main/introductory_notebooks/rbf_interpolation/runge_phs.ipynb}{Runge function RBF interpolation}}}{54}{figure.caption.49}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Caption \href {https://github.com/heqro/tfm-experiments/blob/main/introductory_notebooks/rbf_interpolation/runge_phs.ipynb}{Runge function RBF interpolation}}}{55}{figure.caption.50}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Caption \href {https://github.com/heqro/tfm-experiments/blob/main/introductory_notebooks/rbf_interpolation/runge_phs.ipynb}{Runge function RBF interpolation}}}{55}{figure.caption.51}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Caption \href {https://github.com/heqro/tfm-experiments/blob/main/introductory_notebooks/rbf_interpolation/runge_phs.ipynb}{Runge function RBF interpolation}}}{56}{figure.caption.52}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Caption \href {https://github.com/heqro/tfm-experiments/blob/main/introductory_notebooks/rbf_interpolation/runge_phs.ipynb}{Runge function PHS interpolation}}}{56}{figure.caption.53}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Caption}}{57}{figure.caption.54}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Caption}}{57}{figure.caption.55}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Caption}}{58}{figure.caption.56}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Caption \href {https://github.com/heqro/tfm-experiments/blob/main/introductory_notebooks/rbf_interpolation/gibbs.ipynb}{Gibbs arctan PHS interpolation}}}{58}{figure.caption.57}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Caption}}{59}{figure.caption.58}%
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Caption}}{59}{figure.caption.59}%
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Caption}}{60}{figure.caption.60}%
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Caption}}{60}{figure.caption.61}%
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Caption}}{61}{figure.caption.62}%
+\contentsline {figure}{\numberline {5.15}{\ignorespaces Caption}}{61}{figure.caption.63}%
+\contentsline {figure}{\numberline {5.22}{\ignorespaces Distribution of centers at the end of the training process.}}{61}{figure.caption.72}%
+\contentsline {figure}{\numberline {5.16}{\ignorespaces Caption}}{62}{figure.caption.64}%
+\contentsline {figure}{\numberline {5.17}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of \texttt {sin\_pi\_x\_sq} with a Gaussian kernel using equispaced nodes, comparing our method (left-hand side) with the classic method (right-hand side).}}{62}{figure.caption.65}%
+\contentsline {figure}{\numberline {5.18}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of \texttt {torch\_sign} with a Gaussian kernel using equispaced nodes, comparing our method (left-hand side) with the classic method (right-hand side).}}{63}{figure.caption.66}%
+\contentsline {figure}{\numberline {5.19}{\ignorespaces Logarithm of the $L^\infty -$norm of the approximation of \texttt {runge\_function} with a PHS kernel using equispaced nodes, comparing our method (left-hand side) with the classic method (right-hand side).}}{63}{figure.caption.67}%
+\contentsline {figure}{\numberline {5.20}{\ignorespaces Last few iterations of the interpolation of \text {{\ttfamily {runge\_function}}} with 15 training points and 13 centers.}}{64}{figure.caption.70}%
+\contentsline {figure}{\numberline {5.25}{\ignorespaces Results of the interpolation of Franke's function (5 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{64}{figure.caption.75}%
+\contentsline {figure}{\numberline {5.21}{\ignorespaces Last few iterations of the interpolation of \text {{\ttfamily {gibbs\_function}}} with 29 training points and 7 centers.}}{65}{figure.caption.71}%
+\contentsline {figure}{\numberline {5.26}{\ignorespaces Results of the interpolation of Franke's function (6 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{65}{figure.caption.76}%
+\contentsline {figure}{\numberline {5.23}{\ignorespaces Left-hand side: Franke's function as a surface. Right-hand side: its filled contour representation.}}{66}{figure.caption.73}%
+\contentsline {figure}{\numberline {5.24}{\ignorespaces Left-hand side: \texttt {sin\_pi\_x\_y\_sq} as a surface. Right-hand side: its filled contour representation.}}{66}{figure.caption.74}%
+\contentsline {figure}{\numberline {5.27}{\ignorespaces Results of the interpolation of Franke's function (7 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{66}{figure.caption.77}%
+\contentsline {figure}{\numberline {5.28}{\ignorespaces Results of the interpolation of Franke's function (8 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{67}{figure.caption.78}%
+\contentsline {figure}{\numberline {5.29}{\ignorespaces Results of the interpolation of Franke's function (9 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{67}{figure.caption.79}%
+\contentsline {figure}{\numberline {5.30}{\ignorespaces Results of the interpolation of Franke's function (10 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{68}{figure.caption.80}%
+\contentsline {figure}{\numberline {5.31}{\ignorespaces Results of the interpolation of Franke's function (11 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{68}{figure.caption.81}%
+\contentsline {figure}{\numberline {5.32}{\ignorespaces Results of the interpolation of Franke's function (12 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{69}{figure.caption.82}%
+\contentsline {figure}{\numberline {5.33}{\ignorespaces Results of the interpolation of Franke's function (5 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{69}{figure.caption.83}%
+\contentsline {figure}{\numberline {5.34}{\ignorespaces Results of the interpolation of Franke's function (6 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{70}{figure.caption.84}%
+\contentsline {figure}{\numberline {5.35}{\ignorespaces Results of the interpolation of Franke's function (7 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{70}{figure.caption.85}%
+\contentsline {figure}{\numberline {5.36}{\ignorespaces Results of the interpolation of Franke's function (8 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{71}{figure.caption.86}%
+\contentsline {figure}{\numberline {5.37}{\ignorespaces Results of the interpolation of Franke's function (9 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{71}{figure.caption.87}%
+\contentsline {figure}{\numberline {5.38}{\ignorespaces Results of the interpolation of Franke's function (10 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{72}{figure.caption.88}%
+\contentsline {figure}{\numberline {5.39}{\ignorespaces Results of the interpolation of Franke's function (11 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{72}{figure.caption.89}%
+\contentsline {figure}{\numberline {5.40}{\ignorespaces Results of the interpolation of Franke's function (12 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{73}{figure.caption.90}%
+\contentsline {figure}{\numberline {5.41}{\ignorespaces Results of the interpolation of \texttt {sin\_pi\_x\_y\_sq} (5 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{74}{figure.caption.91}%
+\contentsline {figure}{\numberline {5.42}{\ignorespaces Results of the interpolation of \texttt {sin\_pi\_x\_y\_sq} (20 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{75}{figure.caption.92}%
+\contentsline {figure}{\numberline {5.43}{\ignorespaces Results of the interpolation of \texttt {sin\_pi\_x\_y\_sq} (25 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{75}{figure.caption.93}%
+\contentsline {figure}{\numberline {5.44}{\ignorespaces Results of the interpolation of \texttt {sin\_pi\_x\_y\_sq} (30 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{76}{figure.caption.94}%
+\contentsline {figure}{\numberline {5.45}{\ignorespaces Results of the interpolation of \texttt {sin\_pi\_x\_y\_sq} (35 centers). Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio. Right-hand side: $\log _{10}(L^\infty -\text {norm})$.}}{76}{figure.caption.95}%
+\contentsline {figure}{\numberline {5.46}{\ignorespaces Wengert's trace of the Gaussian kernel.}}{77}{figure.caption.96}%
+\contentsline {figure}{\numberline {5.47}{\ignorespaces Left-hand side: absolute error of the model solution regarding the actual solution. Middle image: visual comparison of both solutions alongside the location of the model's centers. Right-hand side: learning curves (mean squared error and $L^\infty -$norm) of the model.}}{79}{figure.caption.97}%
+\contentsline {figure}{\numberline {5.48}{\ignorespaces Parameters of the network.}}{79}{figure.caption.98}%
+\contentsline {figure}{\numberline {5.49}{\ignorespaces Left-hand side: distribution of centers at the end of the training experiment without polynomial terms. Center image: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty -$norm regarding the verification dataset during the best epoch.}}{81}{figure.caption.99}%
+\contentsline {figure}{\numberline {5.50}{\ignorespaces Left-hand side: distribution of centers at the end of the training experiment with a bias term. Center image: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty -$norm regarding the verification dataset during the best epoch.}}{81}{figure.caption.100}%
+\contentsline {figure}{\numberline {5.51}{\ignorespaces Left-hand side: distribution of centers at the end of the training experiment with a linear polynomial. Center image: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty -$norm regarding the verification dataset during the best epoch.}}{82}{figure.caption.101}%
+\contentsline {figure}{\numberline {5.52}{\ignorespaces Left-hand side: distribution of centers at the end of the training experiment with a quadratic polynomial. Center image: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty -$norm regarding the verification dataset during the best epoch.}}{82}{figure.caption.102}%
+\contentsline {figure}{\numberline {5.53}{\ignorespaces Left-hand side: distribution of centers at the end of the training experiment with a cubic polynomial. Center image: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty -$norm regarding the verification dataset during the best epoch.}}{82}{figure.caption.103}%
+\contentsline {figure}{\numberline {5.54}{\ignorespaces Caption}}{}{figure.caption.106}%
+\contentsline {figure}{\numberline {5.55}{\ignorespaces Caption}}{}{figure.caption.107}%
+\contentsline {figure}{\numberline {5.56}{\ignorespaces Caption}}{}{figure.caption.108}%
+\contentsline {figure}{\numberline {5.57}{\ignorespaces Caption}}{}{figure.caption.109}%
+\contentsline {figure}{\numberline {5.58}{\ignorespaces Caption}}{}{figure.caption.110}%
+\contentsline {figure}{\numberline {5.59}{\ignorespaces Caption}}{}{figure.caption.111}%
+\contentsline {figure}{\numberline {5.60}{\ignorespaces Caption}}{}{figure.caption.112}%
+\contentsline {figure}{\numberline {5.61}{\ignorespaces Caption}}{}{figure.caption.113}%
+\contentsline {figure}{\numberline {5.62}{\ignorespaces Caption}}{}{figure.caption.114}%
+\contentsline {figure}{\numberline {5.63}{\ignorespaces Caption}}{}{figure.caption.115}%
+\contentsline {figure}{\numberline {5.64}{\ignorespaces Caption}}{}{figure.caption.116}%
+\contentsline {figure}{\numberline {5.65}{\ignorespaces Caption}}{}{figure.caption.117}%
+\contentsline {figure}{\numberline {5.66}{\ignorespaces Caption}}{}{figure.caption.118}%
+\contentsline {figure}{\numberline {5.67}{\ignorespaces Caption}}{}{figure.caption.119}%
+\contentsline {figure}{\numberline {5.68}{\ignorespaces Caption}}{}{figure.caption.120}%
+\contentsline {figure}{\numberline {5.69}{\ignorespaces Caption}}{}{figure.caption.121}%
+\contentsline {figure}{\numberline {5.70}{\ignorespaces Caption}}{}{figure.caption.122}%
+\contentsline {figure}{\numberline {5.71}{\ignorespaces Caption}}{}{figure.caption.123}%
+\contentsline {figure}{\numberline {5.72}{\ignorespaces Caption}}{}{figure.caption.124}%
+\contentsline {figure}{\numberline {5.73}{\ignorespaces Caption}}{}{figure.caption.125}%
+\contentsline {figure}{\numberline {5.74}{\ignorespaces Caption}}{}{figure.caption.126}%
+\contentsline {figure}{\numberline {5.75}{\ignorespaces Caption}}{}{figure.caption.127}%
+\contentsline {figure}{\numberline {5.76}{\ignorespaces Caption}}{}{figure.caption.128}%
+\contentsline {figure}{\numberline {5.77}{\ignorespaces Caption}}{}{figure.caption.129}%
+\contentsline {figure}{\numberline {5.78}{\ignorespaces Caption}}{}{figure.caption.130}%
+\contentsline {figure}{\numberline {5.79}{\ignorespaces Caption}}{}{figure.caption.131}%
+\contentsline {figure}{\numberline {5.80}{\ignorespaces Caption}}{}{figure.caption.132}%
+\contentsline {figure}{\numberline {5.81}{\ignorespaces Caption}}{}{figure.caption.133}%
+\contentsline {figure}{\numberline {5.82}{\ignorespaces Caption}}{}{figure.caption.134}%
+\contentsline {figure}{\numberline {5.83}{\ignorespaces Caption}}{}{figure.caption.135}%
+\contentsline {figure}{\numberline {5.84}{\ignorespaces Caption}}{}{figure.caption.136}%
+\contentsline {figure}{\numberline {5.85}{\ignorespaces Caption}}{}{figure.caption.137}%
+\contentsline {figure}{\numberline {5.86}{\ignorespaces Caption}}{}{figure.caption.138}%
+\contentsline {figure}{\numberline {5.87}{\ignorespaces Caption}}{}{figure.caption.139}%
+\contentsline {figure}{\numberline {5.88}{\ignorespaces Caption}}{}{figure.caption.140}%
+\contentsline {figure}{\numberline {5.89}{\ignorespaces Caption}}{}{figure.caption.141}%
+\contentsline {figure}{\numberline {5.90}{\ignorespaces Caption}}{}{figure.caption.142}%
+\contentsline {figure}{\numberline {5.91}{\ignorespaces Caption}}{}{figure.caption.143}%
+\contentsline {figure}{\numberline {5.92}{\ignorespaces Caption}}{}{figure.caption.144}%
+\contentsline {figure}{\numberline {5.93}{\ignorespaces Caption}}{}{figure.caption.145}%
+\contentsline {figure}{\numberline {5.94}{\ignorespaces Caption}}{}{figure.caption.146}%
+\contentsline {figure}{\numberline {5.95}{\ignorespaces Caption}}{}{figure.caption.147}%
+\contentsline {figure}{\numberline {5.96}{\ignorespaces Caption}}{}{figure.caption.148}%
+\contentsline {figure}{\numberline {5.97}{\ignorespaces Caption}}{}{figure.caption.149}%
+\contentsline {figure}{\numberline {5.98}{\ignorespaces Caption}}{}{figure.caption.150}%
+\contentsline {figure}{\numberline {5.99}{\ignorespaces Caption}}{}{figure.caption.151}%
+\contentsline {figure}{\numberline {5.100}{\ignorespaces Caption}}{}{figure.caption.152}%
+\contentsline {figure}{\numberline {5.101}{\ignorespaces Caption}}{}{figure.caption.153}%
+\contentsline {figure}{\numberline {5.102}{\ignorespaces Caption}}{}{figure.caption.154}%
+\contentsline {figure}{\numberline {5.103}{\ignorespaces Caption}}{}{figure.caption.155}%
+\contentsline {figure}{\numberline {5.104}{\ignorespaces Caption}}{}{figure.caption.156}%
+\contentsline {figure}{\numberline {5.105}{\ignorespaces Caption}}{}{figure.caption.157}%
+\contentsline {figure}{\numberline {5.106}{\ignorespaces Caption}}{}{figure.caption.158}%
+\contentsline {figure}{\numberline {5.107}{\ignorespaces Caption}}{}{figure.caption.159}%
+\contentsline {figure}{\numberline {5.108}{\ignorespaces Caption}}{}{figure.caption.160}%
+\contentsline {figure}{\numberline {5.109}{\ignorespaces Caption}}{}{figure.caption.161}%
+\contentsline {figure}{\numberline {5.110}{\ignorespaces Caption}}{}{figure.caption.162}%
+\contentsline {figure}{\numberline {5.111}{\ignorespaces Caption}}{}{figure.caption.163}%
+\contentsline {figure}{\numberline {5.112}{\ignorespaces Caption}}{}{figure.caption.164}%
+\contentsline {figure}{\numberline {5.113}{\ignorespaces Caption}}{}{figure.caption.165}%
+\contentsline {figure}{\numberline {5.114}{\ignorespaces Caption}}{}{figure.caption.166}%
+\contentsline {figure}{\numberline {5.115}{\ignorespaces Caption}}{}{figure.caption.167}%
+\contentsline {figure}{\numberline {5.116}{\ignorespaces Caption}}{}{figure.caption.168}%
+\contentsline {figure}{\numberline {5.117}{\ignorespaces Caption}}{}{figure.caption.169}%
+\contentsline {figure}{\numberline {5.118}{\ignorespaces Caption}}{}{figure.caption.170}%
+\contentsline {figure}{\numberline {5.119}{\ignorespaces Caption}}{}{figure.caption.171}%
+\contentsline {figure}{\numberline {5.120}{\ignorespaces Caption}}{}{figure.caption.172}%
+\contentsline {figure}{\numberline {5.121}{\ignorespaces Caption}}{}{figure.caption.173}%
+\contentsline {figure}{\numberline {5.122}{\ignorespaces Caption}}{}{figure.caption.174}%
+\contentsline {figure}{\numberline {5.123}{\ignorespaces Caption}}{}{figure.caption.175}%
+\contentsline {figure}{\numberline {5.124}{\ignorespaces Caption}}{}{figure.caption.176}%
+\contentsline {figure}{\numberline {5.125}{\ignorespaces Caption}}{}{figure.caption.177}%
+\contentsline {figure}{\numberline {5.126}{\ignorespaces Caption}}{}{figure.caption.178}%
+\contentsline {figure}{\numberline {5.127}{\ignorespaces Caption}}{}{figure.caption.179}%
+\contentsline {figure}{\numberline {5.128}{\ignorespaces Caption}}{}{figure.caption.180}%
+\contentsline {figure}{\numberline {5.129}{\ignorespaces Caption}}{}{figure.caption.181}%
+\contentsline {figure}{\numberline {5.130}{\ignorespaces Caption}}{}{figure.caption.182}%
+\contentsline {figure}{\numberline {5.131}{\ignorespaces Caption}}{}{figure.caption.183}%
+\contentsline {figure}{\numberline {5.132}{\ignorespaces Caption}}{}{figure.caption.184}%
+\contentsline {figure}{\numberline {5.133}{\ignorespaces Caption}}{}{figure.caption.185}%
+\contentsline {figure}{\numberline {5.134}{\ignorespaces Caption}}{}{figure.caption.186}%
+\contentsline {figure}{\numberline {5.135}{\ignorespaces Caption}}{}{figure.caption.187}%
+\contentsline {figure}{\numberline {5.136}{\ignorespaces Caption}}{}{figure.caption.188}%
+\contentsline {figure}{\numberline {5.137}{\ignorespaces Caption}}{}{figure.caption.189}%
+\contentsline {figure}{\numberline {5.138}{\ignorespaces Caption}}{}{figure.caption.190}%
+\contentsline {figure}{\numberline {5.139}{\ignorespaces Caption}}{}{figure.caption.191}%
+\contentsline {figure}{\numberline {5.140}{\ignorespaces Caption}}{}{figure.caption.192}%
+\contentsline {figure}{\numberline {5.141}{\ignorespaces Caption}}{}{figure.caption.193}%
+\contentsline {figure}{\numberline {5.142}{\ignorespaces Caption}}{}{figure.caption.194}%
+\contentsline {figure}{\numberline {5.143}{\ignorespaces Caption}}{}{figure.caption.195}%
+\contentsline {figure}{\numberline {5.144}{\ignorespaces Caption}}{}{figure.caption.196}%
+\contentsline {figure}{\numberline {5.145}{\ignorespaces Caption}}{}{figure.caption.197}%
+\contentsline {figure}{\numberline {5.146}{\ignorespaces Caption}}{}{figure.caption.198}%
+\contentsline {figure}{\numberline {5.147}{\ignorespaces Caption}}{}{figure.caption.199}%
+\contentsline {figure}{\numberline {5.148}{\ignorespaces Caption}}{}{figure.caption.200}%
+\contentsline {figure}{\numberline {5.149}{\ignorespaces Caption}}{}{figure.caption.201}%
+\contentsline {figure}{\numberline {5.150}{\ignorespaces Caption}}{}{figure.caption.202}%
+\contentsline {figure}{\numberline {5.151}{\ignorespaces Caption}}{}{figure.caption.203}%
+\contentsline {figure}{\numberline {5.152}{\ignorespaces Caption}}{}{figure.caption.204}%
+\contentsline {figure}{\numberline {5.153}{\ignorespaces Caption}}{}{figure.caption.205}%
+\contentsline {figure}{\numberline {5.154}{\ignorespaces Caption}}{}{figure.caption.206}%
+\contentsline {figure}{\numberline {5.155}{\ignorespaces Caption}}{}{figure.caption.207}%
+\contentsline {figure}{\numberline {5.156}{\ignorespaces Left-hand side: distribution of centers at the end of the training process for \texttt {sin\_pi\_x\_sq} (15 training points, 5 centers, Gaussian kernel). Center: the best epochs' ratio. Right-hand side: logarithm of the $L^\infty -$norm on the verification dataset.}}{}{figure.caption.209}%
+\contentsline {figure}{\numberline {5.157}{\ignorespaces Left-hand side: distribution of centers at the end of the training process for \texttt {sin\_pi\_x\_sq} (15 training points, 7 centers, Gaussian kernel). Center: the best epochs' ratio. Right-hand side: logarithm of the $L^\infty -$norm on the verification dataset.}}{}{figure.caption.210}%
+\contentsline {figure}{\numberline {5.158}{\ignorespaces Left-hand side: distribution of centers at the end of the training process for \texttt {sin\_pi\_x\_sq} (15 training points, 9 centers, Gaussian kernel). Center: the best epochs' ratio. Right-hand side: logarithm of the $L^\infty -$norm on the verification dataset.}}{}{figure.caption.211}%
+\contentsline {figure}{\numberline {5.159}{\ignorespaces Left-hand side: distribution of centers at the end of the training process for \texttt {sin\_pi\_x\_sq} (15 training points, 11 centers, Gaussian kernel). Center: the best epochs' ratio. Right-hand side: logarithm of the $L^\infty -$norm on the verification dataset.}}{}{figure.caption.212}%
+\contentsline {figure}{\numberline {5.160}{\ignorespaces Left-hand side: distribution of centers at the end of the training process for \texttt {sin\_pi\_x\_sq} (15 training points, 13 centers, Gaussian kernel). Center: the best epochs' ratio. Right-hand side: logarithm of the $L^\infty -$norm on the verification dataset.}}{}{figure.caption.213}%
+\contentsline {figure}{\numberline {5.161}{\ignorespaces Left-hand side: distribution of centers at the end of the training process for \texttt {sin\_pi\_x\_sq} (15 training points, 15 centers, Gaussian kernel). Center: the best epochs' ratio. Right-hand side: logarithm of the $L^\infty -$norm on the verification dataset.}}{}{figure.caption.214}%
+\contentsline {figure}{\numberline {5.162}{\ignorespaces Left-hand side: distribution of centers at the end of the training process for \texttt {sin\_pi\_x\_sq} (29 training points, 9 centers, Gaussian kernel). Center: the best epochs' ratio. Right-hand side: logarithm of the $L^\infty -$norm on the verification dataset.}}{}{figure.caption.215}%
+\contentsline {figure}{\numberline {5.163}{\ignorespaces Left-hand side: distribution of centers at the end of the training process for \texttt {sin\_pi\_x\_sq} (29 training points, 11 centers, Gaussian kernel). Center: the best epochs' ratio. Right-hand side: logarithm of the $L^\infty -$norm on the verification dataset.}}{}{figure.caption.216}%
+\contentsline {figure}{\numberline {5.164}{\ignorespaces Left-hand side: distribution of centers at the end of the training process for \texttt {sin\_pi\_x\_sq} (29 training points, 13 centers, Gaussian kernel). Center: the best epochs' ratio. Right-hand side: logarithm of the $L^\infty -$norm on the verification dataset.}}{}{figure.caption.217}%
+\contentsline {figure}{\numberline {5.165}{\ignorespaces Left-hand side: distribution of centers at the end of the training process for \texttt {sin\_pi\_x\_sq} (29 training points, 15 centers, Gaussian kernel). Center: the best epochs' ratio. Right-hand side: logarithm of the $L^\infty -$norm on the verification dataset.}}{}{figure.caption.218}%
+\contentsline {figure}{\numberline {5.166}{\ignorespaces Left-hand side: distribution of centers at the end of the training process for \texttt {sin\_pi\_x\_sq} (29 training points, 17 centers, Gaussian kernel). Center: the best epochs' ratio. Right-hand side: logarithm of the $L^\infty -$norm on the verification dataset.}}{}{figure.caption.219}%
+\contentsline {figure}{\numberline {5.167}{\ignorespaces Left-hand side: distribution of centers at the end of the training process for \texttt {sin\_pi\_x\_sq} (29 training points, 19 centers, Gaussian kernel). Center: the best epochs' ratio. Right-hand side: logarithm of the $L^\infty -$norm on the verification dataset.}}{}{figure.caption.220}%
+\contentsline {figure}{\numberline {5.168}{\ignorespaces Left-hand side: distribution of centers at the end of the training process for \texttt {sin\_pi\_x\_sq} (29 training points, 21 centers, Gaussian kernel). Center: the best epochs' ratio. Right-hand side: logarithm of the $L^\infty -$norm on the verification dataset.}}{}{figure.caption.221}%
+\contentsline {figure}{\numberline {5.169}{\ignorespaces Left-hand side: distribution of centers at the end of the training process for \texttt {sin\_pi\_x\_sq} (29 training points, 23 centers, Gaussian kernel). Center: the best epochs' ratio. Right-hand side: logarithm of the $L^\infty -$norm on the verification dataset.}}{}{figure.caption.222}%
+\contentsline {figure}{\numberline {5.170}{\ignorespaces Left-hand side: distribution of centers at the end of the training process for \texttt {sin\_pi\_x\_sq} (29 training points, 25 centers, Gaussian kernel). Center: the best epochs' ratio. Right-hand side: logarithm of the $L^\infty -$norm on the verification dataset.}}{}{figure.caption.223}%
+\contentsline {figure}{\numberline {5.171}{\ignorespaces Left-hand side: distribution of centers at the end of the training process for \texttt {sin\_pi\_x\_sq} (29 training points, 27 centers, Gaussian kernel). Center: the best epochs' ratio. Right-hand side: logarithm of the $L^\infty -$norm on the verification dataset.}}{}{figure.caption.224}%
+\contentsline {figure}{\numberline {5.172}{\ignorespaces Left-hand side: distribution of centers at the end of the training process for \texttt {sin\_pi\_x\_sq} (29 training points, 29 centers, Gaussian kernel). Center: the best epochs' ratio. Right-hand side: logarithm of the $L^\infty -$norm on the verification dataset.}}{}{figure.caption.225}%
+\contentsline {figure}{\numberline {5.173}{\ignorespaces Results for the training processes for fixed centers. Left-hand side: distribution of centers at the end of the training process for \texttt {sin\_pi\_x\_sq} (29 training points, 21 centers, Gaussian kernel). Center: the best epochs' ratio. Right-hand side: logarithm of the $L^\infty -$norm on the verification dataset.}}{}{figure.caption.226}%
+\contentsline {figure}{\numberline {5.174}{\ignorespaces Results for the training processes for a common shape parameter fixed to 1. Left-hand side: distribution of centers at the end of the training process for \texttt {sin\_pi\_x\_sq} (29 training points, 21 centers, Gaussian kernel). Center: the best epochs' ratio. Right-hand side: logarithm of the $L^\infty -$norm on the verification dataset.}}{}{figure.caption.227}%
+\contentsline {figure}{\numberline {5.175}{\ignorespaces Memory allocation of the model plotted against the number of centers, for a number of dimensions between 1 and 10.}}{}{figure.caption.229}%
 \contentsfinish 

@@ -19,78 +19,80 @@
 
 \refsection{0}
   \datalist[entry]{none/global//global/global}
-    \entry{lu2021deepxde}{article}{}
-      \name{author}{4}{}{%
-        {{hash=6f6f1357e5a7fb658e3e9c999886ce83}{%
-           family={Lu},
-           familyi={L\bibinitperiod},
-           given={Lu},
-           giveni={L\bibinitperiod}}}%
-        {{hash=1428f666f3f6f857d3ebcd69597b7b29}{%
-           family={Meng},
-           familyi={M\bibinitperiod},
-           given={Xuhui},
-           giveni={X\bibinitperiod}}}%
-        {{hash=4b932ac8e0209cf315dc740bb2a82a6e}{%
-           family={Mao},
-           familyi={M\bibinitperiod},
-           given={Zhiping},
-           giveni={Z\bibinitperiod}}}%
-        {{hash=bfaf154b1f300f885a75adce4c6b773e}{%
-           family={Karniadakis},
-           familyi={K\bibinitperiod},
-           given={George\bibnamedelima Em},
-           giveni={G\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+    \entry{oh2004gpu}{article}{}
+      \name{author}{2}{}{%
+        {{hash=373c63fc53e53e2fd46ee009fe5c289f}{%
+           family={Oh},
+           familyi={O\bibinitperiod},
+           given={Kyoung-Su},
+           giveni={K\bibinithyphendelim S\bibinitperiod}}}%
+        {{hash=cf09d12499bea15685c903d4cf20321c}{%
+           family={Jung},
+           familyi={J\bibinitperiod},
+           given={Keechul},
+           giveni={K\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
-        {SIAM}%
+        {Elsevier}%
       }
-      \strng{namehash}{8ca42de750d3c2b63898c690a5692520}
-      \strng{fullhash}{36662ab8224c904e894be0536b790b44}
-      \strng{bibnamehash}{36662ab8224c904e894be0536b790b44}
-      \strng{authorbibnamehash}{36662ab8224c904e894be0536b790b44}
-      \strng{authornamehash}{8ca42de750d3c2b63898c690a5692520}
-      \strng{authorfullhash}{36662ab8224c904e894be0536b790b44}
+      \strng{namehash}{dbfb7b42955ab52f35e429f534be21f0}
+      \strng{fullhash}{dbfb7b42955ab52f35e429f534be21f0}
+      \strng{bibnamehash}{dbfb7b42955ab52f35e429f534be21f0}
+      \strng{authorbibnamehash}{dbfb7b42955ab52f35e429f534be21f0}
+      \strng{authornamehash}{dbfb7b42955ab52f35e429f534be21f0}
+      \strng{authorfullhash}{dbfb7b42955ab52f35e429f534be21f0}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{SIAM review}
-      \field{number}{1}
-      \field{title}{{DeepXDE}: {A} deep learning library for solving differential equations}
-      \field{volume}{63}
-      \field{year}{2021}
-      \field{pages}{208\bibrangedash 228}
-      \range{pages}{21}
+      \field{journaltitle}{Pattern Recognition}
+      \field{number}{6}
+      \field{title}{GPU implementation of neural networks}
+      \field{volume}{37}
+      \field{year}{2004}
+      \field{pages}{1311\bibrangedash 1314}
+      \range{pages}{4}
     \endentry
-    \entry{cybenko1989approximation}{article}{}
-      \name{author}{1}{}{%
-        {{hash=5f82e084564c9fa2622446ae39f882ed}{%
-           family={Cybenko},
-           familyi={C\bibinitperiod},
-           given={George},
-           giveni={G\bibinitperiod}}}%
+    \entry{baydin2018automatic}{article}{}
+      \name{author}{4}{}{%
+        {{hash=74d5b5b1476ad2d13f3abe6e7598a37e}{%
+           family={Baydin},
+           familyi={B\bibinitperiod},
+           given={Atilim\bibnamedelima Gunes},
+           giveni={A\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=6724042a399c2e67a6f3a2ec5612519e}{%
+           family={Pearlmutter},
+           familyi={P\bibinitperiod},
+           given={Barak\bibnamedelima A},
+           giveni={B\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=63357a985ed2fb7d96cad546a373fe11}{%
+           family={Radul},
+           familyi={R\bibinitperiod},
+           given={Alexey\bibnamedelima Andreyevich},
+           giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=485565bc90eeede382cade10f06f69ec}{%
+           family={Siskind},
+           familyi={S\bibinitperiod},
+           given={Jeffrey\bibnamedelima Mark},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
       }
-      \list{publisher}{1}{%
-        {Springer}%
-      }
-      \strng{namehash}{5f82e084564c9fa2622446ae39f882ed}
-      \strng{fullhash}{5f82e084564c9fa2622446ae39f882ed}
-      \strng{bibnamehash}{5f82e084564c9fa2622446ae39f882ed}
-      \strng{authorbibnamehash}{5f82e084564c9fa2622446ae39f882ed}
-      \strng{authornamehash}{5f82e084564c9fa2622446ae39f882ed}
-      \strng{authorfullhash}{5f82e084564c9fa2622446ae39f882ed}
+      \strng{namehash}{8085cac004f0850383bbd60d08f9b44b}
+      \strng{fullhash}{31169ae8028444120af473ccfa722828}
+      \strng{bibnamehash}{31169ae8028444120af473ccfa722828}
+      \strng{authorbibnamehash}{31169ae8028444120af473ccfa722828}
+      \strng{authornamehash}{8085cac004f0850383bbd60d08f9b44b}
+      \strng{authorfullhash}{31169ae8028444120af473ccfa722828}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Mathematics of control, signals and systems}
-      \field{number}{4}
-      \field{title}{Approximation by superpositions of a sigmoidal function}
-      \field{volume}{2}
-      \field{year}{1989}
-      \field{pages}{303\bibrangedash 314}
-      \range{pages}{12}
+      \field{journaltitle}{Journal of machine learning research}
+      \field{number}{153}
+      \field{title}{Automatic differentiation in machine learning: a survey}
+      \field{volume}{18}
+      \field{year}{2018}
+      \field{pages}{1\bibrangedash 43}
+      \range{pages}{43}
     \endentry
     \entry{cuomo2022scientific}{article}{}
       \name{author}{6}{}{%
@@ -146,6 +148,79 @@
       \field{pages}{88}
       \range{pages}{1}
     \endentry
+    \entry{lu2021deepxde}{article}{}
+      \name{author}{4}{}{%
+        {{hash=6f6f1357e5a7fb658e3e9c999886ce83}{%
+           family={Lu},
+           familyi={L\bibinitperiod},
+           given={Lu},
+           giveni={L\bibinitperiod}}}%
+        {{hash=1428f666f3f6f857d3ebcd69597b7b29}{%
+           family={Meng},
+           familyi={M\bibinitperiod},
+           given={Xuhui},
+           giveni={X\bibinitperiod}}}%
+        {{hash=4b932ac8e0209cf315dc740bb2a82a6e}{%
+           family={Mao},
+           familyi={M\bibinitperiod},
+           given={Zhiping},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=bfaf154b1f300f885a75adce4c6b773e}{%
+           family={Karniadakis},
+           familyi={K\bibinitperiod},
+           given={George\bibnamedelima Em},
+           giveni={G\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {SIAM}%
+      }
+      \strng{namehash}{8ca42de750d3c2b63898c690a5692520}
+      \strng{fullhash}{36662ab8224c904e894be0536b790b44}
+      \strng{bibnamehash}{36662ab8224c904e894be0536b790b44}
+      \strng{authorbibnamehash}{36662ab8224c904e894be0536b790b44}
+      \strng{authornamehash}{8ca42de750d3c2b63898c690a5692520}
+      \strng{authorfullhash}{36662ab8224c904e894be0536b790b44}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{SIAM review}
+      \field{number}{1}
+      \field{title}{{DeepXDE}: {A} deep learning library for solving differential equations}
+      \field{volume}{63}
+      \field{year}{2021}
+      \field{pages}{208\bibrangedash 228}
+      \range{pages}{21}
+    \endentry
+    \entry{cybenko1989approximation}{article}{}
+      \name{author}{1}{}{%
+        {{hash=5f82e084564c9fa2622446ae39f882ed}{%
+           family={Cybenko},
+           familyi={C\bibinitperiod},
+           given={George},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{5f82e084564c9fa2622446ae39f882ed}
+      \strng{fullhash}{5f82e084564c9fa2622446ae39f882ed}
+      \strng{bibnamehash}{5f82e084564c9fa2622446ae39f882ed}
+      \strng{authorbibnamehash}{5f82e084564c9fa2622446ae39f882ed}
+      \strng{authornamehash}{5f82e084564c9fa2622446ae39f882ed}
+      \strng{authorfullhash}{5f82e084564c9fa2622446ae39f882ed}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Mathematics of control, signals and systems}
+      \field{number}{4}
+      \field{title}{Approximation by superpositions of a sigmoidal function}
+      \field{volume}{2}
+      \field{year}{1989}
+      \field{pages}{303\bibrangedash 314}
+      \range{pages}{12}
+    \endentry
     \entry{verma2000introduction}{article}{}
       \name{author}{1}{}{%
         {{hash=b135ed376a78fa4b818ac7c393a3a12b}{%
@@ -163,8 +238,8 @@
       \strng{authorbibnamehash}{b135ed376a78fa4b818ac7c393a3a12b}
       \strng{authornamehash}{b135ed376a78fa4b818ac7c393a3a12b}
       \strng{authorfullhash}{b135ed376a78fa4b818ac7c393a3a12b}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Current Science}
@@ -191,8 +266,8 @@
       \strng{authorbibnamehash}{5836fc1fa037e340c8b5591da3207608}
       \strng{authornamehash}{5836fc1fa037e340c8b5591da3207608}
       \strng{authorfullhash}{5836fc1fa037e340c8b5591da3207608}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Deep learning with Python}
@@ -215,8 +290,8 @@
       \strng{authorbibnamehash}{414b683970dee3789cb9d610581a3b23}
       \strng{authornamehash}{414b683970dee3789cb9d610581a3b23}
       \strng{authorfullhash}{414b683970dee3789cb9d610581a3b23}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Meshfree approximation methods with MATLAB}
@@ -237,8 +312,8 @@
       \strng{authorbibnamehash}{9913801f56e57d8945580f8a3eed9af1}
       \strng{authornamehash}{9913801f56e57d8945580f8a3eed9af1}
       \strng{authorfullhash}{9913801f56e57d8945580f8a3eed9af1}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Introduction to approximation theory}
@@ -261,8 +336,8 @@
       \strng{authorbibnamehash}{924c7d8b6dbf6888c855bf41b8c4dcd0}
       \strng{authornamehash}{924c7d8b6dbf6888c855bf41b8c4dcd0}
       \strng{authorfullhash}{924c7d8b6dbf6888c855bf41b8c4dcd0}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{The theory of functions}
@@ -459,8 +534,8 @@
       \strng{authorbibnamehash}{6d406ce58cf41a8da7ce136686833bf4}
       \strng{authornamehash}{6d406ce58cf41a8da7ce136686833bf4}
       \strng{authorfullhash}{6d406ce58cf41a8da7ce136686833bf4}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Advances in Computational Mechanics}
@@ -500,8 +575,8 @@
       \strng{authorbibnamehash}{d52602f695845ec5d24a337d31f87e77}
       \strng{authornamehash}{006339650163f78d055f6ba2a6107c2c}
       \strng{authorfullhash}{d52602f695845ec5d24a337d31f87e77}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{The main goal of the present paper is to extend the interpolation via the so-called mapped bases without resampling to any basis and dimension. So far indeed, we investigated the univariate case, its extension to rational polynomial interpolation and its natural application to numerical integration. The concept of mapped bases has been widely studied, but all the proposed methods show convergence provided that the function is resampled at the mapped nodes. In applications, this is often physically unfeasible. Thus, we propose an effective method for interpolating via mapped bases in the multivariate setting. We might refer to the method as Fake Nodes Approach (FNA). Our theoretical results are confirmed by various numerical experiments devoted to point out the robustness of the proposed scheme.}
