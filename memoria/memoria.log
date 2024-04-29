@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/TeX Live for SUSE Linux) (preloaded format=pdflatex 2024.4.8)  29 APR 2024 11:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/TeX Live for SUSE Linux) (preloaded format=pdflatex 2024.4.8)  29 APR 2024 11:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1811,7 +1811,7 @@ Package pdftex.def Info: imagenes/experiments/1d/statistical_1d_full/runge_funct
 File: imagenes/experiments/1d/statistical_1d_full/runge_function/linf_runge_function_C7_gaussian_kernel.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/statistical_1d_full/runge_function/linf_runge_function_C7_gaussian_kernel.pdf>
 Package pdftex.def Info: imagenes/experiments/1d/statistical_1d_full/runge_function/linf_runge_function_C7_gaussian_kernel.pdf  used on input line 2900.
-(pdftex.def)             Requested size: 290.21498pt x 34.9671pt.
+(pdftex.def)             Requested size: 290.21498pt x 36.34456pt.
 <imagenes/experiments/1d/statistical_1d_full/runge_function/epochs_runge_function_C7_gaussian_kernel.pdf, id=5170, 502.56633pt x 154.58379pt>
 File: imagenes/experiments/1d/statistical_1d_full/runge_function/epochs_runge_function_C7_gaussian_kernel.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/statistical_1d_full/runge_function/epochs_runge_function_C7_gaussian_kernel.pdf>
@@ -1821,7 +1821,7 @@ Package pdftex.def Info: imagenes/experiments/1d/statistical_1d_full/runge_funct
 File: imagenes/experiments/1d/statistical_1d_full/runge_function/linf_runge_function_C9_gaussian_kernel.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/statistical_1d_full/runge_function/linf_runge_function_C9_gaussian_kernel.pdf>
 Package pdftex.def Info: imagenes/experiments/1d/statistical_1d_full/runge_function/linf_runge_function_C9_gaussian_kernel.pdf  used on input line 2903.
-(pdftex.def)             Requested size: 290.21498pt x 34.9671pt.
+(pdftex.def)             Requested size: 290.21498pt x 36.34456pt.
 <imagenes/experiments/1d/statistical_1d_full/runge_function/epochs_runge_function_C9_gaussian_kernel.pdf, id=5174, 502.56633pt x 154.58379pt>
 File: imagenes/experiments/1d/statistical_1d_full/runge_function/epochs_runge_function_C9_gaussian_kernel.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/statistical_1d_full/runge_function/epochs_runge_function_C9_gaussian_kernel.pdf>
@@ -1831,7 +1831,7 @@ Package pdftex.def Info: imagenes/experiments/1d/statistical_1d_full/runge_funct
 File: imagenes/experiments/1d/statistical_1d_full/runge_function/linf_runge_function_C11_gaussian_kernel.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/statistical_1d_full/runge_function/linf_runge_function_C11_gaussian_kernel.pdf>
 Package pdftex.def Info: imagenes/experiments/1d/statistical_1d_full/runge_function/linf_runge_function_C11_gaussian_kernel.pdf  used on input line 2907.
-(pdftex.def)             Requested size: 290.21498pt x 34.9671pt.
+(pdftex.def)             Requested size: 290.21498pt x 36.34456pt.
 <imagenes/experiments/1d/statistical_1d_full/runge_function/epochs_runge_function_C11_gaussian_kernel.pdf, id=5178, 502.56633pt x 154.58379pt>
 File: imagenes/experiments/1d/statistical_1d_full/runge_function/epochs_runge_function_C11_gaussian_kernel.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/statistical_1d_full/runge_function/epochs_runge_function_C11_gaussian_kernel.pdf>
@@ -1841,7 +1841,7 @@ Package pdftex.def Info: imagenes/experiments/1d/statistical_1d_full/runge_funct
 File: imagenes/experiments/1d/statistical_1d_full/runge_function/linf_runge_function_C13_gaussian_kernel.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/statistical_1d_full/runge_function/linf_runge_function_C13_gaussian_kernel.pdf>
 Package pdftex.def Info: imagenes/experiments/1d/statistical_1d_full/runge_function/linf_runge_function_C13_gaussian_kernel.pdf  used on input line 2910.
-(pdftex.def)             Requested size: 290.21498pt x 34.9671pt.
+(pdftex.def)             Requested size: 290.21498pt x 36.34456pt.
 <imagenes/experiments/1d/statistical_1d_full/runge_function/epochs_runge_function_C13_gaussian_kernel.pdf, id=5182, 502.56633pt x 154.58379pt>
 File: imagenes/experiments/1d/statistical_1d_full/runge_function/epochs_runge_function_C13_gaussian_kernel.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/statistical_1d_full/runge_function/epochs_runge_function_C13_gaussian_kernel.pdf>
@@ -1851,7 +1851,7 @@ Package pdftex.def Info: imagenes/experiments/1d/statistical_1d_full/runge_funct
 File: imagenes/experiments/1d/statistical_1d_full/runge_function/linf_runge_function_C15_gaussian_kernel.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/statistical_1d_full/runge_function/linf_runge_function_C15_gaussian_kernel.pdf>
 Package pdftex.def Info: imagenes/experiments/1d/statistical_1d_full/runge_function/linf_runge_function_C15_gaussian_kernel.pdf  used on input line 2914.
-(pdftex.def)             Requested size: 290.21498pt x 54.88283pt.
+(pdftex.def)             Requested size: 290.21498pt x 57.04482pt.
 <imagenes/experiments/1d/statistical_1d_full/runge_function/epochs_runge_function_C15_gaussian_kernel.pdf, id=5186, 502.56633pt x 154.58379pt>
 File: imagenes/experiments/1d/statistical_1d_full/runge_function/epochs_runge_function_C15_gaussian_kernel.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/statistical_1d_full/runge_function/epochs_runge_function_C15_gaussian_kernel.pdf>
@@ -1872,11 +1872,11 @@ Overfull \hbox (74.64438pt too wide) in paragraph at lines 2895--2921
 File: imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/linf_sin_pi_x_sq_C7_gaussian_kernel.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/linf_sin_pi_x_sq_C7_gaussian_kernel.pdf>
 Package pdftex.def Info: imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/linf_sin_pi_x_sq_C7_gaussian_kernel.pdf  used on input line 2929.
-(pdftex.def)             Requested size: 298.75264pt x 22.84459pt.
+(pdftex.def)             Requested size: 298.75264pt x 21.86314pt.
 File: imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/linf_sin_pi_x_sq_C7_gaussian_kernel.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/linf_sin_pi_x_sq_C7_gaussian_kernel.pdf>
 Package pdftex.def Info: imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/linf_sin_pi_x_sq_C7_gaussian_kernel.pdf  used on input line 2931.
-(pdftex.def)             Requested size: 290.21498pt x 35.16159pt.
+(pdftex.def)             Requested size: 290.21498pt x 36.85167pt.
 <imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/epochs_sin_pi_x_sq_C7_gaussian_kernel.pdf, id=5392, 502.56633pt x 154.58379pt>
 File: imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/epochs_sin_pi_x_sq_C7_gaussian_kernel.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/epochs_sin_pi_x_sq_C7_gaussian_kernel.pdf>
@@ -1886,7 +1886,7 @@ Package pdftex.def Info: imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq
 File: imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/linf_sin_pi_x_sq_C9_gaussian_kernel.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/linf_sin_pi_x_sq_C9_gaussian_kernel.pdf>
 Package pdftex.def Info: imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/linf_sin_pi_x_sq_C9_gaussian_kernel.pdf  used on input line 2934.
-(pdftex.def)             Requested size: 290.21498pt x 35.16159pt.
+(pdftex.def)             Requested size: 290.21498pt x 36.55426pt.
 <imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/epochs_sin_pi_x_sq_C9_gaussian_kernel.pdf, id=5396, 502.56633pt x 154.58379pt>
 File: imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/epochs_sin_pi_x_sq_C9_gaussian_kernel.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/epochs_sin_pi_x_sq_C9_gaussian_kernel.pdf>
@@ -1896,7 +1896,7 @@ Package pdftex.def Info: imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq
 File: imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/linf_sin_pi_x_sq_C11_gaussian_kernel.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/linf_sin_pi_x_sq_C11_gaussian_kernel.pdf>
 Package pdftex.def Info: imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/linf_sin_pi_x_sq_C11_gaussian_kernel.pdf  used on input line 2938.
-(pdftex.def)             Requested size: 290.21498pt x 35.16159pt.
+(pdftex.def)             Requested size: 290.21498pt x 36.55426pt.
 <imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/epochs_sin_pi_x_sq_C11_gaussian_kernel.pdf, id=5400, 502.56633pt x 154.58379pt>
 File: imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/epochs_sin_pi_x_sq_C11_gaussian_kernel.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/epochs_sin_pi_x_sq_C11_gaussian_kernel.pdf>
@@ -1906,7 +1906,7 @@ Package pdftex.def Info: imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq
 File: imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/linf_sin_pi_x_sq_C13_gaussian_kernel.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/linf_sin_pi_x_sq_C13_gaussian_kernel.pdf>
 Package pdftex.def Info: imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/linf_sin_pi_x_sq_C13_gaussian_kernel.pdf  used on input line 2941.
-(pdftex.def)             Requested size: 290.21498pt x 35.16159pt.
+(pdftex.def)             Requested size: 290.21498pt x 36.55426pt.
 <imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/epochs_sin_pi_x_sq_C13_gaussian_kernel.pdf, id=5404, 502.56633pt x 154.58379pt>
 File: imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/epochs_sin_pi_x_sq_C13_gaussian_kernel.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/epochs_sin_pi_x_sq_C13_gaussian_kernel.pdf>
@@ -1916,7 +1916,7 @@ Package pdftex.def Info: imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq
 File: imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/linf_sin_pi_x_sq_C15_gaussian_kernel.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/linf_sin_pi_x_sq_C15_gaussian_kernel.pdf>
 Package pdftex.def Info: imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/linf_sin_pi_x_sq_C15_gaussian_kernel.pdf  used on input line 2945.
-(pdftex.def)             Requested size: 290.21498pt x 55.1881pt.
+(pdftex.def)             Requested size: 290.21498pt x 57.37396pt.
 <imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/epochs_sin_pi_x_sq_C15_gaussian_kernel.pdf, id=5408, 502.56633pt x 154.58379pt>
 File: imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/epochs_sin_pi_x_sq_C15_gaussian_kernel.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/epochs_sin_pi_x_sq_C15_gaussian_kernel.pdf>
@@ -1940,7 +1940,7 @@ Package pdftex.def Info: imagenes/experiments/1d/statistical_1d_full/gibbs_funct
 File: imagenes/experiments/1d/statistical_1d_full/gibbs_function/linf_gibbs_function_C7_gaussian_kernel.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/statistical_1d_full/gibbs_function/linf_gibbs_function_C7_gaussian_kernel.pdf>
 Package pdftex.def Info: imagenes/experiments/1d/statistical_1d_full/gibbs_function/linf_gibbs_function_C7_gaussian_kernel.pdf  used on input line 2961.
-(pdftex.def)             Requested size: 290.21498pt x 35.02713pt.
+(pdftex.def)             Requested size: 290.21498pt x 36.41019pt.
 <imagenes/experiments/1d/statistical_1d_full/gibbs_function/epochs_gibbs_function_C7_gaussian_kernel.pdf, id=5888, 502.56633pt x 154.58379pt>
 File: imagenes/experiments/1d/statistical_1d_full/gibbs_function/epochs_gibbs_function_C7_gaussian_kernel.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/statistical_1d_full/gibbs_function/epochs_gibbs_function_C7_gaussian_kernel.pdf>
@@ -1950,7 +1950,7 @@ Package pdftex.def Info: imagenes/experiments/1d/statistical_1d_full/gibbs_funct
 File: imagenes/experiments/1d/statistical_1d_full/gibbs_function/linf_gibbs_function_C9_gaussian_kernel.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/statistical_1d_full/gibbs_function/linf_gibbs_function_C9_gaussian_kernel.pdf>
 Package pdftex.def Info: imagenes/experiments/1d/statistical_1d_full/gibbs_function/linf_gibbs_function_C9_gaussian_kernel.pdf  used on input line 2964.
-(pdftex.def)             Requested size: 290.21498pt x 35.02713pt.
+(pdftex.def)             Requested size: 290.21498pt x 36.41019pt.
 <imagenes/experiments/1d/statistical_1d_full/gibbs_function/epochs_gibbs_function_C9_gaussian_kernel.pdf, id=5892, 502.56633pt x 154.58379pt>
 File: imagenes/experiments/1d/statistical_1d_full/gibbs_function/epochs_gibbs_function_C9_gaussian_kernel.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/statistical_1d_full/gibbs_function/epochs_gibbs_function_C9_gaussian_kernel.pdf>
@@ -1960,7 +1960,7 @@ Package pdftex.def Info: imagenes/experiments/1d/statistical_1d_full/gibbs_funct
 File: imagenes/experiments/1d/statistical_1d_full/gibbs_function/linf_gibbs_function_C11_gaussian_kernel.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/statistical_1d_full/gibbs_function/linf_gibbs_function_C11_gaussian_kernel.pdf>
 Package pdftex.def Info: imagenes/experiments/1d/statistical_1d_full/gibbs_function/linf_gibbs_function_C11_gaussian_kernel.pdf  used on input line 2968.
-(pdftex.def)             Requested size: 290.21498pt x 35.02713pt.
+(pdftex.def)             Requested size: 290.21498pt x 36.41019pt.
 <imagenes/experiments/1d/statistical_1d_full/gibbs_function/epochs_gibbs_function_C11_gaussian_kernel.pdf, id=5896, 502.56633pt x 154.58379pt>
 File: imagenes/experiments/1d/statistical_1d_full/gibbs_function/epochs_gibbs_function_C11_gaussian_kernel.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/statistical_1d_full/gibbs_function/epochs_gibbs_function_C11_gaussian_kernel.pdf>
@@ -1970,7 +1970,7 @@ Package pdftex.def Info: imagenes/experiments/1d/statistical_1d_full/gibbs_funct
 File: imagenes/experiments/1d/statistical_1d_full/gibbs_function/linf_gibbs_function_C13_gaussian_kernel.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/statistical_1d_full/gibbs_function/linf_gibbs_function_C13_gaussian_kernel.pdf>
 Package pdftex.def Info: imagenes/experiments/1d/statistical_1d_full/gibbs_function/linf_gibbs_function_C13_gaussian_kernel.pdf  used on input line 2971.
-(pdftex.def)             Requested size: 290.21498pt x 35.02713pt.
+(pdftex.def)             Requested size: 290.21498pt x 36.41019pt.
 <imagenes/experiments/1d/statistical_1d_full/gibbs_function/epochs_gibbs_function_C13_gaussian_kernel.pdf, id=5900, 502.56633pt x 154.58379pt>
 File: imagenes/experiments/1d/statistical_1d_full/gibbs_function/epochs_gibbs_function_C13_gaussian_kernel.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/statistical_1d_full/gibbs_function/epochs_gibbs_function_C13_gaussian_kernel.pdf>
@@ -1980,7 +1980,7 @@ Package pdftex.def Info: imagenes/experiments/1d/statistical_1d_full/gibbs_funct
 File: imagenes/experiments/1d/statistical_1d_full/gibbs_function/linf_gibbs_function_C15_gaussian_kernel.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/statistical_1d_full/gibbs_function/linf_gibbs_function_C15_gaussian_kernel.pdf>
 Package pdftex.def Info: imagenes/experiments/1d/statistical_1d_full/gibbs_function/linf_gibbs_function_C15_gaussian_kernel.pdf  used on input line 2975.
-(pdftex.def)             Requested size: 290.21498pt x 54.97704pt.
+(pdftex.def)             Requested size: 290.21498pt x 57.14783pt.
 <imagenes/experiments/1d/statistical_1d_full/gibbs_function/epochs_gibbs_function_C15_gaussian_kernel.pdf, id=5904, 502.56633pt x 154.58379pt>
 File: imagenes/experiments/1d/statistical_1d_full/gibbs_function/epochs_gibbs_function_C15_gaussian_kernel.pdf Graphic file (type pdf)
 <use imagenes/experiments/1d/statistical_1d_full/gibbs_function/epochs_gibbs_function_C15_gaussian_kernel.pdf>
@@ -3813,7 +3813,7 @@ Here is how much of TeX's memory you used:
  475 hyphenation exceptions out of 8191
  117i,20n,121p,1360b,3893s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf/fonts/type1/public/txfonts/rtcxr.pfb></usr/share/texmf/fonts/type1/public/txfonts/rtxb.pfb></usr/share/texmf/fonts/type1/public/txfonts/rtxbi.pfb></usr/share/texmf/fonts/type1/public/txfonts/rtxi.pfb></usr/share/texmf/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texmf/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texmf/fonts/type1/public/txfonts/rtxsc.pfb></usr/share/texmf/fonts/type1/public/txfonts/t1xbtt.pfb></usr/share/texmf/fonts/type1/public/txfonts/t1xtt.pfb></usr/share/texmf/fonts/type1/public/txfonts/txex.pfb></usr/share/texmf/fonts/type1/public/txfonts/txsy.pfb></usr/share/texmf/fonts/type1/public/txfonts/txsya.pfb></usr/share/texmf/fonts/type1/public/txfonts/txsyb.pfb></usr/share/texmf/fonts/type1/public/txfonts/txsyc.pfb></usr/share/texmf/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texmf/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmri8a.pfb>
-Output written on memoria.pdf (170 pages, 13092269 bytes).
+Output written on memoria.pdf (170 pages, 13092366 bytes).
 PDF statistics:
  29788 PDF objects out of 31911 (max. 8388607)
  494 named destinations out of 1000 (max. 500000)
