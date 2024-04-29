@@ -2611,12 +2611,22 @@ training points and centers.
 In particular, let $C \in \{7,9,11,13,15\}$ be the number of centers we consider for
 the interpolation of a given function $f$. We then interpolate $f$ for a number
 $\left\lceil k \cdot C \right\rceil, k \in \{1,1.5,2,2.5,3,3.5,4\} $ of equispaced
-training points. To account for the hardware capabilities as in Table
+training points. 
+
+In the following, we provide ballpark measurements in both execution times and memory usage. To account for the hardware capabilities as in Table
 \ref{tb:hardware-machinery}, each experiment triple determined by function, $C$ and $k$ is
-repeated $160$ times. These experiments are launched in $32$ separate
-processes, with 5 experiments each. Figures \ref{fig:medians-linf-statistic} and \ref{fig:medians-epochs-statistic} show the medians of the $L^\infty-$norm on our verification dataset as well as the best epochs' ratios for the Gaussian kernel.
+repeated $160$ times. To allow the coexistence of this experiment with other tasks involving the server, these $160$ instances are launched in $32$ separate
+processes, with 5 experiments each. The parameters of the optimization process (learning rate, optimizer, maximum of iterations) are left unchanged.
+
+Each experiment task is observed to always occupy the exact same memory (around $350$ MB) irrespectively of the number of training points and centers. This is coherent with the memory measurements depicted in Figure \ref{fig:model-consumption-memory}: our model as well as the training data are negligible in comparison with the size occupied by the CUDA context\footnote{Recall that the CUDA context manages the interaction between PyTorch tensors and CUDA-capable devices (usually GPUs). The CUDA context in PyTorch handles memory allocation, device synchronization, and execution of CUDA operations on tensors stored on GPU devices. For each separate process, a CUDA context is invoked, which may be a problem if several ML problems are to be solved simultaneously (refer for instance to \href{https://github.com/pytorch/pytorch/issues/20532}{previous GitHub discussions} in PyTorch's repository).}.
+
+For any function $f$, the execution time of the overall experiment is around 28 hours. We can estimate the number of experiments a single processor carries out: for each configuration of training points and centers, a processor undertakes 5 instances of this experiment. Because we have $5$ different numbers of centers and $7$ different values of $k$, a total of $175$ experiments is carried out by a processor, which results in $6.25$ experiments completed by a single processor each hour. 
+
+Evidently, the overall time can be reduced by considering a smaller number of experiments or a smaller number of iterations. Because it is in our best interest to evaluate the ``stationary'' regime of our method and show whether oscillations are expected to occur from a statistic point of view, reducing either of these parameters would go against the idea of these experiments.
 
 
+Figures \ref{fig:medians-linf-statistic} and \ref{fig:medians-epochs-statistic} show the medians of the $L^\infty-$norm on our verification dataset as well as the best epochs' ratios for the Gaussian kernel. 
+If one desires to examine the results in further detail, Figures \ref{fig:statistic-result-kde-runge-function-gaussian-kernel}, \ref{fig:statistic-result-kde-gibbs-function-gaussian-kernel} and \ref{fig:statistic-result-kde-sin-pi-x-sq-gaussian-kernel} show the distribution of these metrics.
 
 \begin{figure}[H]
   % \frame
