@@ -9,4 +9,7 @@
 \contentsline {table}{\numberline {5.2}{\ignorespaces Table with experiment keys.}}{44}{table.caption.42}%
 \contentsline {table}{\numberline {5.3}{\ignorespaces Experiments to gather more information on.}}{51}{table.caption.55}%
 \contentsline {table}{\numberline {5.4}{\ignorespaces Results of the proposed repetition of experiments.}}{52}{table.caption.56}%
+\contentsline {table}{\numberline {5.5}{\ignorespaces Kernel density estimates (logarithmic scale) for the $\log _{10}(L^\infty -\text {norm})$ and epochs' ratio, for Runge's function interpolated with the Gaussian kernel.}}{59}{table.caption.64}%
+\contentsline {table}{\numberline {5.6}{\ignorespaces Kernel density estimates (logarithmic scale) for the $\log _{10}(L^\infty -\text {norm})$ and epochs' ratio, for \texttt {sin\_pi\_x\_sq} interpolated with the Gaussian kernel.}}{60}{table.caption.65}%
+\contentsline {table}{\numberline {5.7}{\ignorespaces Kernel density estimates (logarithmic scale) for the $\log _{10}(L^\infty -\text {norm})$ and epochs' ratio, for \texttt {gibbs\_function} interpolated with the Gaussian kernel.}}{61}{table.caption.66}%
 \contentsfinish 

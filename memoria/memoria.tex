@@ -2852,107 +2852,135 @@ training points. However, our methodology also featured outliers,
 whereby a very specific configuration of training points and centers would
 produce notably better or worse results than neighboring configurations.
 
-Moreover, no remarkable finding has so far been made on the impact of the number of 
-centers on the interpolation results. Actually, their significance can be 
-observed from a statistical point of view. To show this, we focus our efforts on 
-the more promising kernels (namely, the Gaussian and multiquadric) and repeat several 
-times the interpolation experiments under different configurations of 
-training points and centers. 
+Moreover, no remarkable finding has so far been made on the impact of the number of
+centers on the interpolation results. Actually, their significance can be
+observed from a statistical point of view. To show this, we focus our efforts on
+the more promising kernels (namely, the Gaussian and multiquadric) and repeat several
+times the interpolation experiments under different configurations of
+training points and centers.
 
 In particular, let $C \in \{7,9,11,13,15\}$ be the number of centers we consider for
-the interpolation of a given function $f$. We then interpolate $f$ for a number 
-$\left\lceil k \cdot C \right\rceil, k \in \{1,1.5,2,2.5,3,3.5,4\} $ of equispaced 
-training points. To account for the hardware capabilities as in Table 
-\ref{tb:hardware-machinery}, each experiment triple determined by function, $C$ and $k$ is 
+the interpolation of a given function $f$. We then interpolate $f$ for a number
+$\left\lceil k \cdot C \right\rceil, k \in \{1,1.5,2,2.5,3,3.5,4\} $ of equispaced
+training points. To account for the hardware capabilities as in Table
+\ref{tb:hardware-machinery}, each experiment triple determined by function, $C$ and $k$ is
 repeated $160$ times. These experiments are launched in $32$ separate
-processes, with 5 experiments each. 
+processes, with 5 experiments each.
 
 \begin{figure}[H]
   % \frame
   {\includegraphics[height=.45\textwidth]
-  {imagenes/experiments/1d/statistical_1d_full/medians_linf_runge_function_gaussian_kernel.pdf}}
+    {imagenes/experiments/1d/statistical_1d_full/medians_linf_runge_function_gaussian_kernel.pdf}}
   {\includegraphics[height=.45\textwidth]
-  {imagenes/experiments/1d/statistical_1d_full/medians_linf_sin_pi_x_sq_gaussian_kernel.pdf}}
+    {imagenes/experiments/1d/statistical_1d_full/gibbs_function/medians_linf_gibbs_function_gaussian_kernel.pdf}}
+  {\includegraphics[height=.45\textwidth]
+    {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/medians_linf_sin_pi_x_sq_gaussian_kernel.pdf}}
   \caption{Medians of the $\log_{10}(L^\infty-\text{norm})$.}
   \label{fig:medians-linf-statistic}
 \end{figure}
 
 \begin{figure}[H]
   {\includegraphics[height=.45\textwidth]
-  {imagenes/experiments/1d/statistical_1d_full/medians_epochs_runge_function_gaussian_kernel.pdf}}
+    {imagenes/experiments/1d/statistical_1d_full/medians_epochs_runge_function_gaussian_kernel.pdf}}
   {\includegraphics[height=.45\textwidth]
-  {imagenes/experiments/1d/statistical_1d_full/medians_epochs_sin_pi_x_sq_gaussian_kernel.pdf}}
+    {imagenes/experiments/1d/statistical_1d_full/gibbs_function/medians_epochs_gibbs_function_gaussian_kernel.pdf}}
+  {\includegraphics[height=.45\textwidth]
+    {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/medians_epochs_sin_pi_x_sq_gaussian_kernel.pdf}}
   \caption{Medians of the best epochs' ratio.}
   \label{fig:medians-epochs-statistic}
 \end{figure}
 
-\texttt{surplus information - No cabría}
 
-\begin{figure}[H]
-  % \frame
-  {\includegraphics[width=.45\textwidth]
-  {imagenes/experiments/1d/statistical_1d_full/linf_violins_C7_runge_function_gaussian_kernel.pdf}}
-  {\includegraphics[width=.45\textwidth]
-  {imagenes/experiments/1d/statistical_1d_full/linf_violins_C9_runge_function_gaussian_kernel.pdf}}
-  {\includegraphics[width=.45\textwidth]
-  {imagenes/experiments/1d/statistical_1d_full/linf_violins_C11_runge_function_gaussian_kernel.pdf}}
-  {\includegraphics[width=.45\textwidth]
-  {imagenes/experiments/1d/statistical_1d_full/linf_violins_C13_runge_function_gaussian_kernel.pdf}}
-  {\includegraphics[width=.45\textwidth]
-  {imagenes/experiments/1d/statistical_1d_full/linf_violins_C15_runge_function_gaussian_kernel.pdf}}
-  \caption{$L^\infty-$norms for Runge's function.}
-  \label{fig:epochs-violins-runge}
-\end{figure}
-
-\begin{figure}[H]
-  % \frame
-  {\includegraphics[width=.45\textwidth]
-  {imagenes/experiments/1d/statistical_1d_full/epochs_violins_C7_runge_function_gaussian_kernel.pdf}}
-  {\includegraphics[width=.45\textwidth]
-  {imagenes/experiments/1d/statistical_1d_full/epochs_violins_C9_runge_function_gaussian_kernel.pdf}}
-  {\includegraphics[width=.45\textwidth]
-  {imagenes/experiments/1d/statistical_1d_full/epochs_violins_C11_runge_function_gaussian_kernel.pdf}}
-  {\includegraphics[width=.45\textwidth]
-  {imagenes/experiments/1d/statistical_1d_full/epochs_violins_C13_runge_function_gaussian_kernel.pdf}}
-  {\includegraphics[width=.45\textwidth]
-  {imagenes/experiments/1d/statistical_1d_full/epochs_violins_C15_runge_function_gaussian_kernel.pdf}}
-  \caption{Epochs' ratios for Runge's function.}
-  \label{fig:epochs-violins-runge}
-\end{figure}
+\begin{table}[H]
+  \hspace*{-2.8cm}
+  \begin{tabular}{rl}
+    \multicolumn{2}{c}{{\includegraphics[width=.7\textwidth, trim={0 3.1cm 0 0},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/runge_function/linf_runge_function_C7_gaussian_kernel.pdf}}}                                                                                       \\
+    {\includegraphics[width=.68\textwidth, trim={0 1.25cm 0 1.17cm},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/runge_function/linf_runge_function_C7_gaussian_kernel.pdf}}  & {\includegraphics[width=.62\textwidth, trim={1cm 2.4cm 2.88cm 1.17cm},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/runge_function/epochs_runge_function_C7_gaussian_kernel.pdf}}                                                                                      \\
+    {\includegraphics[width=.68\textwidth, trim={0 1.25cm 0 1.17cm},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/runge_function/linf_runge_function_C9_gaussian_kernel.pdf}}  & {\includegraphics[width=.62\textwidth, trim={1cm 2.4cm 2.88cm 1.17cm},clip=true]
+        {imagenes/experiments/1d/statistical_1d_full/runge_function/epochs_runge_function_C9_gaussian_kernel.pdf}}
+    \\
+    {\includegraphics[width=.68\textwidth, trim={0 1.25cm 0 1.17cm},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/runge_function/linf_runge_function_C11_gaussian_kernel.pdf}} & {\includegraphics[width=.62\textwidth, trim={1cm 2.4cm 2.88cm 1.17cm},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/runge_function/epochs_runge_function_C11_gaussian_kernel.pdf}}                                                                                     \\
+    {\includegraphics[width=.68\textwidth, trim={0 1.25cm 0 1.17cm},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/runge_function/linf_runge_function_C13_gaussian_kernel.pdf}} & {\includegraphics[width=.62\textwidth, trim={1cm 2.4cm 2.88cm 1.17cm},clip=true]
+        {imagenes/experiments/1d/statistical_1d_full/runge_function/epochs_runge_function_C13_gaussian_kernel.pdf}}
+    \\
+    {\includegraphics[width=.68\textwidth, trim={0 0.2cm 0 1.17cm},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/runge_function/linf_runge_function_C15_gaussian_kernel.pdf}}
+                                                                                                              & {\includegraphics[width=.62\textwidth, trim={1.05cm 1.4cm 2.88cm 1.17cm},clip=true]
+        {imagenes/experiments/1d/statistical_1d_full/runge_function/epochs_runge_function_C15_gaussian_kernel.pdf}}
+    \\
+    \multicolumn{2}{c}{{\includegraphics[width=.55\textwidth, trim={46cm 2.9cm 0 0},clip=true]
+          {imagenes/experiments/1d/statistical_1d_full/runge_function/runge_function_legend.pdf}}}
+  \end{tabular}
+  \caption{Kernel density estimates (logarithmic scale) for the $\log_{10}(L^\infty-\text{norm})$ and epochs' ratio, for Runge's function interpolated with the Gaussian kernel.}
+\end{table}
 
 
+\begin{table}[H]
+  \hspace*{-2.8cm}
+  \begin{tabular}{rl}
+    \multicolumn{2}{c}{{\includegraphics[width=.7\textwidth, trim={0 3.1cm 0 0},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/linf_sin_pi_x_sq_C7_gaussian_kernel.pdf}}}                                                                                       \\
+    {\includegraphics[width=.68\textwidth, trim={0 1.25cm 0 1.17cm},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/linf_sin_pi_x_sq_C7_gaussian_kernel.pdf}}  & {\includegraphics[width=.62\textwidth, trim={1cm 2.4cm 2.88cm 1.17cm},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/epochs_sin_pi_x_sq_C7_gaussian_kernel.pdf}}                                                                                      \\
+    {\includegraphics[width=.68\textwidth, trim={0 1.25cm 0 1.17cm},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/linf_sin_pi_x_sq_C9_gaussian_kernel.pdf}}  & {\includegraphics[width=.62\textwidth, trim={1cm 2.4cm 2.88cm 1.17cm},clip=true]
+        {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/epochs_sin_pi_x_sq_C9_gaussian_kernel.pdf}}
+    \\
+    {\includegraphics[width=.68\textwidth, trim={0 1.25cm 0 1.17cm},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/linf_sin_pi_x_sq_C11_gaussian_kernel.pdf}} & {\includegraphics[width=.62\textwidth, trim={1cm 2.4cm 2.88cm 1.17cm},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/epochs_sin_pi_x_sq_C11_gaussian_kernel.pdf}}                                                                                     \\
+    {\includegraphics[width=.68\textwidth, trim={0 1.25cm 0 1.17cm},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/linf_sin_pi_x_sq_C13_gaussian_kernel.pdf}} & {\includegraphics[width=.62\textwidth, trim={1cm 2.4cm 2.88cm 1.17cm},clip=true]
+        {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/epochs_sin_pi_x_sq_C13_gaussian_kernel.pdf}}
+    \\
+    {\includegraphics[width=.68\textwidth, trim={0 0.2cm 0 1.17cm},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/linf_sin_pi_x_sq_C15_gaussian_kernel.pdf}}
+                                                                                                              & {\includegraphics[width=.62\textwidth, trim={1.05cm 1.4cm 2.88cm 1.17cm},clip=true]
+        {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/epochs_sin_pi_x_sq_C15_gaussian_kernel.pdf}}
+    \\
+    \multicolumn{2}{c}{{\includegraphics[width=.55\textwidth, trim={46cm 2.9cm 0 0},clip=true]
+          {imagenes/experiments/1d/statistical_1d_full/runge_function/runge_function_legend.pdf}}}
+  \end{tabular}
+  \caption{Kernel density estimates (logarithmic scale) for the $\log_{10}(L^\infty-\text{norm})$ and epochs' ratio, for \texttt{sin\_pi\_x\_sq} interpolated with the Gaussian kernel.}
+\end{table}
 
-\begin{figure}[H]
-  % \frame
-  {\includegraphics[width=.45\textwidth]
-  {imagenes/experiments/1d/statistical_1d_full/linf_violins_C7_sin_pi_x_sq_gaussian_kernel.pdf}}
-  {\includegraphics[width=.45\textwidth]
-  {imagenes/experiments/1d/statistical_1d_full/linf_violins_C9_sin_pi_x_sq_gaussian_kernel.pdf}}
-  {\includegraphics[width=.45\textwidth]
-  {imagenes/experiments/1d/statistical_1d_full/linf_violins_C11_sin_pi_x_sq_gaussian_kernel.pdf}}
-  {\includegraphics[width=.45\textwidth]
-  {imagenes/experiments/1d/statistical_1d_full/linf_violins_C13_sin_pi_x_sq_gaussian_kernel.pdf}}
-  {\includegraphics[width=.45\textwidth]
-  {imagenes/experiments/1d/statistical_1d_full/linf_violins_C15_sin_pi_x_sq_gaussian_kernel.pdf}}
-  \caption{$L^\infty-$norms for \texttt{sin\_pi\_x\_sq}.}
-  \label{fig:epochs-violins-sin-pi-x-sq}
-\end{figure}
-
-\begin{figure}[H]
-  % \frame
-  {\includegraphics[width=.45\textwidth]
-  {imagenes/experiments/1d/statistical_1d_full/epochs_violins_C7_sin_pi_x_sq_gaussian_kernel.pdf}}
-  {\includegraphics[width=.45\textwidth]
-  {imagenes/experiments/1d/statistical_1d_full/epochs_violins_C9_sin_pi_x_sq_gaussian_kernel.pdf}}
-  {\includegraphics[width=.45\textwidth]
-  {imagenes/experiments/1d/statistical_1d_full/epochs_violins_C11_sin_pi_x_sq_gaussian_kernel.pdf}}
-  {\includegraphics[width=.45\textwidth]
-  {imagenes/experiments/1d/statistical_1d_full/epochs_violins_C13_sin_pi_x_sq_gaussian_kernel.pdf}}
-  {\includegraphics[width=.45\textwidth]
-  {imagenes/experiments/1d/statistical_1d_full/epochs_violins_C15_sin_pi_x_sq_gaussian_kernel.pdf}}
-  \caption{Epochs' ratios for \texttt{sin\_pi\_x\_sq}.}
-  \label{fig:epochs-violins-sin-pi-x-sq}
-\end{figure}
+\begin{table}[H]
+  \hspace*{-2.8cm}
+  \begin{tabular}{rl}
+    \multicolumn{2}{c}{{\includegraphics[width=.7\textwidth, trim={0 3.1cm 0 0},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/gibbs_function/linf_gibbs_function_C7_gaussian_kernel.pdf}}}                                                                                       \\
+    {\includegraphics[width=.68\textwidth, trim={0 1.25cm 0 1.17cm},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/gibbs_function/linf_gibbs_function_C7_gaussian_kernel.pdf}}  & {\includegraphics[width=.62\textwidth, trim={1cm 2.4cm 2.88cm 1.17cm},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/gibbs_function/epochs_gibbs_function_C7_gaussian_kernel.pdf}}                                                                                      \\
+    {\includegraphics[width=.68\textwidth, trim={0 1.25cm 0 1.17cm},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/gibbs_function/linf_gibbs_function_C9_gaussian_kernel.pdf}}  & {\includegraphics[width=.62\textwidth, trim={1cm 2.4cm 2.88cm 1.17cm},clip=true]
+        {imagenes/experiments/1d/statistical_1d_full/gibbs_function/epochs_gibbs_function_C9_gaussian_kernel.pdf}}
+    \\
+    {\includegraphics[width=.68\textwidth, trim={0 1.25cm 0 1.17cm},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/gibbs_function/linf_gibbs_function_C11_gaussian_kernel.pdf}} & {\includegraphics[width=.62\textwidth, trim={1cm 2.4cm 2.88cm 1.17cm},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/gibbs_function/epochs_gibbs_function_C11_gaussian_kernel.pdf}}                                                                                     \\
+    {\includegraphics[width=.68\textwidth, trim={0 1.25cm 0 1.17cm},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/gibbs_function/linf_gibbs_function_C13_gaussian_kernel.pdf}} & {\includegraphics[width=.62\textwidth, trim={1cm 2.4cm 2.88cm 1.17cm},clip=true]
+        {imagenes/experiments/1d/statistical_1d_full/gibbs_function/epochs_gibbs_function_C13_gaussian_kernel.pdf}}
+    \\
+    {\includegraphics[width=.68\textwidth, trim={0 0.2cm 0 1.17cm},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/gibbs_function/linf_gibbs_function_C15_gaussian_kernel.pdf}}
+                                                                                                              & {\includegraphics[width=.62\textwidth, trim={1.05cm 1.4cm 2.88cm 1.17cm},clip=true]
+        {imagenes/experiments/1d/statistical_1d_full/gibbs_function/epochs_gibbs_function_C15_gaussian_kernel.pdf}}
+    \\
+    \multicolumn{2}{c}{{\includegraphics[width=.55\textwidth, trim={46cm 2.9cm 0 0},clip=true]
+          {imagenes/experiments/1d/statistical_1d_full/runge_function/runge_function_legend.pdf}}}
+  \end{tabular}
+  \caption{Kernel density estimates (logarithmic scale) for the $\log_{10}(L^\infty-\text{norm})$ and epochs' ratio, for \texttt{gibbs\_function} interpolated with the Gaussian kernel.}
+\end{table}
 
 \section{Interpolation of 2D functions}
 \label{section:interpolation-of-franke}
@@ -2976,20 +3004,20 @@ We now turn to the 2D case, where we consider the following functions:
 \begin{itemize}
   \item Franke's function (depicted in Figure \ref{fig:franke-function-surface-contour}).
   \item $\sin(\pi((2x-1)^2+(2y-1)^2))$ in the $[0.07,0.93]\times[0.07,0.93]$ interval.
-  We will refer to this function in the following plots as \texttt{sin\_pi\_x\_y\_sq}
-  \footnote{The
-  reason for using such an apparently weird interval is to avoid the function from 
-  abruptly changing too close to the boundary of the domain, which would produce 
-  poor results unless we proportioned a larger grid. This would only artificially extend the  
-  time and memory dedicated to each particular experiment, which is against the idea behind this 
-  experiment - that of launching several simultaneous training instances.}.
+        We will refer to this function in the following plots as \texttt{sin\_pi\_x\_y\_sq}
+        \footnote{The
+          reason for using such an apparently weird interval is to avoid the function from
+          abruptly changing too close to the boundary of the domain, which would produce
+          poor results unless we proportioned a larger grid. This would only artificially extend the
+          time and memory dedicated to each particular experiment, which is against the idea behind this
+          experiment - that of launching several simultaneous training instances.}.
 \end{itemize}
 
-We interpolate these functions providing a dense enough grid of 
+We interpolate these functions providing a dense enough grid of
 equispaced points as training data.
 For each number of centers, we will repeat the interpolation experiment
-several times to capture the effect on the number of centers we provide for 
-the experiment. 
+several times to capture the effect on the number of centers we provide for
+the experiment.
 
 In particular, we consider a fine enough grid of training points consisting of
 the Cartesian product of 12 equispaced points in $[0,1]$. We interpolate this
@@ -3019,7 +3047,7 @@ we ask the following questions:
 \begin{figure}[ht]
   \includegraphics[width=\textwidth]{imagenes/experiments/2d/franke_interpolation/Franke_Function_Surface_Contour.pdf}
   \caption{Left-hand side: Franke's function as a surface. Right-hand side:
-  its filled contour representation.}
+    its filled contour representation.}
   \label{fig:franke-function-surface-contour}
 \end{figure}
 
@@ -3155,7 +3183,7 @@ we ask the following questions:
 
 \subsection*{Conclusions}
 
-In this section, we first discuss some observations for the Gaussian kernel and observe 
+In this section, we first discuss some observations for the Gaussian kernel and observe
 if these same remarks hold for the multiquadric kernel.
 
 \begin{itemize}
@@ -3163,24 +3191,24 @@ if these same remarks hold for the multiquadric kernel.
         provided to train with. The median of the $\log_{10}L^\infty-$norm
         shifts towards progressively smaller values. This shift is most noticeable when
         moving from 5 centers to 6 centers (compare right-hand sides of Figures
-        \ref{fig:franke-tr12-c5} and \ref{fig:franke-tr12-c6}). The same holds for 
+        \ref{fig:franke-tr12-c5} and \ref{fig:franke-tr12-c6}). The same holds for
         the multiquadric kernel (Figures \ref{fig:franke-tr12-c5-mq} and \ref{fig:franke-tr12-c6-mq}).
   \item As more centers are provided, the ratio of epochs is distributed
         following a ``trumpet-like'' shape. This is change is most clear in the progression
         from 6, 7 and 8 centers (Figures \ref{fig:franke-tr12-c6}, \ref{fig:franke-tr12-c7},
-        \ref{fig:franke-tr12-c8}). The same holds for the multiquadric kernel 
-        (Figures \ref{fig:franke-tr12-c8-mq}, \ref{fig:franke-tr12-c9-mq} and 
+        \ref{fig:franke-tr12-c8}). The same holds for the multiquadric kernel
+        (Figures \ref{fig:franke-tr12-c8-mq}, \ref{fig:franke-tr12-c9-mq} and
         \ref{fig:franke-tr12-c10-mq}).
   \item The $\log_{10}L^\infty-$norm metric distribution features a tail on the top
         side of it. It is at its largest for 5 centers (Figure \ref{fig:franke-tr12-c5}),
         then notably diminishing for 6 centers (Figure \ref{fig:franke-tr12-c6})
         and dissipating for 10 centers onwards (Figures \ref{fig:franke-tr12-c10},
         \ref{fig:franke-tr12-c11} and \ref{fig:franke-tr12-c12}). For 6 centers onwards, this tail is compartmentalized from the rest of the
-        distribution of the data, which resembles a normal distribution. Then again, a 
+        distribution of the data, which resembles a normal distribution. Then again, a
         similar observation can be made for the multiquadric kernel, where this tail disappears
         for 9 centers onwards (Figure \ref{fig:franke-tr12-c9-mq}).
 
-        
+
 
   \item Independently of the number of centers provided, the three extrema of the
         interpolated function are always occupied with a center. After they have been
@@ -3195,21 +3223,21 @@ if these same remarks hold for the multiquadric kernel.
         \ref{fig:franke-tr12-c10}, \ref{fig:franke-tr12-c11}, and
         \ref{fig:franke-tr12-c12}).
 
-        On the other hand, the multiquadric kernel exhibits a different distribution of 
+        On the other hand, the multiquadric kernel exhibits a different distribution of
         centers at the end of the training process. Much like with the Gaussian kernel,
-        whatever this distribution may be it is preserved as more centers are provided 
+        whatever this distribution may be it is preserved as more centers are provided
         to the interpolator.
 
   \item For the Gaussian kernel, the repetition of experiments shows that
-         $10$ centers are enough to guarantee
+        $10$ centers are enough to guarantee
         from a practical perspective at least two digits of accuracy at the end of the
         training process, with a median of three digits. Nevertheless, the data shows
         there exist configurations of our model involving 6 centers that are capable of
         providing this performance as well, but they are not found very often with our
         training methods and initial starting configuration.
 
-        Likewise, 9 centers would have sufficed for providing a digit of accuracy under 
-        the multiquadric kernel. However, and in consistency with what we observed in the 
+        Likewise, 9 centers would have sufficed for providing a digit of accuracy under
+        the multiquadric kernel. However, and in consistency with what we observed in the
         1D case, this kernel seems not to perform as brilliantly as the Gaussian kernel.
 \end{itemize}
 
@@ -3258,9 +3286,9 @@ if these same remarks hold for the multiquadric kernel.
 \subsection*{Conclusions}
 
 The conclusions are very similar to the ones we observed in the previous experiments: providing
-more centers is bound to decrease the number of \textit{outliers}, that is, the number of 
-experiments that underperform on our verification dataset. It also causes the 
-``trumpet'' shape on the epochs' ratio to appear again, shifting the second quartile towards 
+more centers is bound to decrease the number of \textit{outliers}, that is, the number of
+experiments that underperform on our verification dataset. It also causes the
+``trumpet'' shape on the epochs' ratio to appear again, shifting the second quartile towards
 $1.0$. Moreover, the centers are arranged
 where one would expect them to: in the center of the surface and around its ring.
 
@@ -3406,86 +3434,86 @@ Further conclusions can be drawn from this image:
 \end{itemize}
 
 This cursory analysis has, albeit informally, shown that this configuration of parameters
-is good enough for solving the proposed ODE. We now incorporate the 
-methodology developed during previous experiments, that is, we are going to repeat the experiment 
-several times considering 50000 iterations in each experiment, 
+is good enough for solving the proposed ODE. We now incorporate the
+methodology developed during previous experiments, that is, we are going to repeat the experiment
+several times considering 50000 iterations in each experiment,
 recording the distribution of the centers at the end of the training
 process, the best epochs' ratio over the total of epochs, and the logarithm of the $L^\infty-$norm
-on the verification dataset. Furthermore, 
+on the verification dataset. Furthermore,
 because the actual solution is a polynomial
 of degree 2, we are also going to evaluate the same model alongside polynomials of degree 0
- (a bias term), 1, 2 and 3.
+(a bias term), 1, 2 and 3.
 
- \subsubsection*{Conclusions}
+\subsubsection*{Conclusions}
 
 \begin{itemize}
-  \item The consideration of five RBFs (Figure \ref{fig:tr15-c5-gaussian-kernel-ode-1d}) 
-  already puts us into a familiar setting:
-  we observe the aforementioned mentioned ``trumpet'' shape epochs' ratio, which indicates that 
-  the best iterations happen towards the end of the training process. 
-  Furthermore, the distribution in the $L^\infty-$norm features a tail on the top of it, which 
-  recedes as polynomial terms are considered.
-  \item The explicit incorporation of a bias term (Figure \ref{fig:tr15-c5-gaussian-kernel-bias-ode-1d}) 
-  does not visibly improve the results. As we saw in the preliminary experimentation, 
-  (recall Figure \ref{fig-parameters-ode-1d}), it is the very model which makes some shape 
-  parameters approach zero, effectively turning those terms into biases.
+  \item The consideration of five RBFs (Figure \ref{fig:tr15-c5-gaussian-kernel-ode-1d})
+        already puts us into a familiar setting:
+        we observe the aforementioned mentioned ``trumpet'' shape epochs' ratio, which indicates that
+        the best iterations happen towards the end of the training process.
+        Furthermore, the distribution in the $L^\infty-$norm features a tail on the top of it, which
+        recedes as polynomial terms are considered.
+  \item The explicit incorporation of a bias term (Figure \ref{fig:tr15-c5-gaussian-kernel-bias-ode-1d})
+        does not visibly improve the results. As we saw in the preliminary experimentation,
+        (recall Figure \ref{fig-parameters-ode-1d}), it is the very model which makes some shape
+        parameters approach zero, effectively turning those terms into biases.
   \item The addition of a linear polynomial (Figure \ref{fig:tr15-c5-gaussian-kernel-linear-ode-1d})
-   reduces the tail on the top side of the distribution of the $\log L^\infty-$norm.
+        reduces the tail on the top side of the distribution of the $\log L^\infty-$norm.
   \item Incorporating a quadratic polynomial (Figure \ref{fig:tr15-c5-gaussian-kernel-quadratic-ode-1d})
-  allows the model to provide a minimum of five digits of accuracy, with six digits marking 
-  the second quartile. However, the ``trumpet'' shape is not as clearly drawn as in the previous 
-  experiments.
+        allows the model to provide a minimum of five digits of accuracy, with six digits marking
+        the second quartile. However, the ``trumpet'' shape is not as clearly drawn as in the previous
+        experiments.
   \item The incorporation of a cubic polynomial (Figure \ref{fig:tr15-c5-gaussian-kernel-cubic-ode-1d})
-  does not improve the results regarding the case of the quadratic polynomial.
-  \item About the distribution of centers: unlike the 2D cases (see experiments in 
-  \ref{section:interpolation-of-franke} and \ref{sec:interp2d-experiment2}), 
-  there is no such thing as a recurrent
-  location where centers are always going to be found. 
+        does not improve the results regarding the case of the quadratic polynomial.
+  \item About the distribution of centers: unlike the 2D cases (see experiments in
+        \ref{section:interpolation-of-franke} and \ref{sec:interp2d-experiment2}),
+        there is no such thing as a recurrent
+        location where centers are always going to be found.
 \end{itemize}
 
 \begin{figure}[ht]
   \includegraphics[width=\textwidth]{imagenes/experiments/1d/ode/tr15_c5_gaussian_kernel_deg-1.pdf}
   \caption{Left-hand side: distribution of centers at the end of the training experiment
-  without polynomial terms. Center
-  image: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty-$norm 
-  regarding the verification dataset during the best epoch.}
+    without polynomial terms. Center
+    image: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty-$norm
+    regarding the verification dataset during the best epoch.}
   \label{fig:tr15-c5-gaussian-kernel-ode-1d}
 \end{figure}
 
 \begin{figure}[ht]
   \includegraphics[width=\textwidth]{imagenes/experiments/1d/ode/tr15_c5_gaussian_kernel_deg0.pdf}
   \caption{Left-hand side: distribution of centers at the end of the training experiment
-  with a bias term. Center
-  image: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty-$norm regarding
-   the verification dataset during the best epoch.}
-   \label{fig:tr15-c5-gaussian-kernel-bias-ode-1d}
+    with a bias term. Center
+    image: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty-$norm regarding
+    the verification dataset during the best epoch.}
+  \label{fig:tr15-c5-gaussian-kernel-bias-ode-1d}
 \end{figure}
 
 \begin{figure}[ht]
   \includegraphics[width=\textwidth]{imagenes/experiments/1d/ode/tr15_c5_gaussian_kernel_deg1.pdf}
   \caption{Left-hand side: distribution of centers at the end of the training experiment
-  with a linear polynomial. Center
-  image: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty-$norm regarding
-   the verification dataset during the best epoch.}
-   \label{fig:tr15-c5-gaussian-kernel-linear-ode-1d}
+    with a linear polynomial. Center
+    image: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty-$norm regarding
+    the verification dataset during the best epoch.}
+  \label{fig:tr15-c5-gaussian-kernel-linear-ode-1d}
 \end{figure}
 
 \begin{figure}[ht]
   \includegraphics[width=\textwidth]{imagenes/experiments/1d/ode/tr15_c5_gaussian_kernel_deg2.pdf}
   \caption{Left-hand side: distribution of centers at the end of the training experiment
-  with a quadratic polynomial. Center
-  image: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty-$norm regarding
-   the verification dataset during the best epoch.}
-   \label{fig:tr15-c5-gaussian-kernel-quadratic-ode-1d}
+    with a quadratic polynomial. Center
+    image: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty-$norm regarding
+    the verification dataset during the best epoch.}
+  \label{fig:tr15-c5-gaussian-kernel-quadratic-ode-1d}
 \end{figure}
 
 \begin{figure}[ht]
   \includegraphics[width=\textwidth]{imagenes/experiments/1d/ode/tr15_c5_gaussian_kernel_deg3.pdf}
   \caption{Left-hand side: distribution of centers at the end of the training experiment
-  with a cubic polynomial. Center
-  image: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty-$norm regarding
-   the verification dataset during the best epoch.}
-   \label{fig:tr15-c5-gaussian-kernel-cubic-ode-1d}
+    with a cubic polynomial. Center
+    image: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty-$norm regarding
+    the verification dataset during the best epoch.}
+  \label{fig:tr15-c5-gaussian-kernel-cubic-ode-1d}
 \end{figure}
 
 \subsection{2D PDE}
@@ -4214,246 +4242,246 @@ then discretized as the Cartesian product of those two sets. The associated (dis
 
 \section*{Objective of the experiment}
 
-Same questions as in every other experiment: 
+Same questions as in every other experiment:
 \begin{itemize}
   \item Distribution of points at the end of the training process.
-  \item How does the amount of training points and centers relate to the $L^\infty-$norm 
-  as well as the best epochs' ratio.
+  \item How does the amount of training points and centers relate to the $L^\infty-$norm
+        as well as the best epochs' ratio.
 \end{itemize}
 
-We provide 15 and 29 training points, which are the cases with least and most information 
+We provide 15 and 29 training points, which are the cases with least and most information
 in the previous experiments, respectively.
 
 
 \section*{Conclusions}
 
 \begin{itemize}
-  \item Providing 15 training points may be too little for the function 
-  we wish to interpolate. In no experiment 
-  involving this number of training points have we observed the ``trumpet'' shape. 
-  Indeed, the first thousand iterations were the most effective, likely overfitting 
-  the input data later on.
+  \item Providing 15 training points may be too little for the function
+        we wish to interpolate. In no experiment
+        involving this number of training points have we observed the ``trumpet'' shape.
+        Indeed, the first thousand iterations were the most effective, likely overfitting
+        the input data later on.
   \item On the other hand, 29 training points is enough for us to start distinguishing
-  the ``trumpet'' shape in the epochs' ratio 
-  (see Figure \ref{fig:sin-pi-x-sq-statistic-tr29-c17}
-  for the case with 17 centers), which indicates that our process is very likely
-  to find the best solutions in the $L^\infty-$norm towards the end of the training process.
-  Providing more centers is seen to improve accuracy on the verification dataset, 
-  albeit with diminishing returns past the 17 centers mark.
+        the ``trumpet'' shape in the epochs' ratio
+        (see Figure \ref{fig:sin-pi-x-sq-statistic-tr29-c17}
+        for the case with 17 centers), which indicates that our process is very likely
+        to find the best solutions in the $L^\infty-$norm towards the end of the training process.
+        Providing more centers is seen to improve accuracy on the verification dataset,
+        albeit with diminishing returns past the 17 centers mark.
 \end{itemize}
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\textwidth]
-    {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr15_c5_sin_pi_x_sq_gaussian_kernel.pdf}
-  \caption{Left-hand side: distribution of centers at the end of the training process for 
-  \texttt{sin\_pi\_x\_sq} (15 training points, 5 centers, Gaussian kernel). Center: the best epochs' ratio.
-  Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
+  {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr15_c5_sin_pi_x_sq_gaussian_kernel.pdf}
+  \caption{Left-hand side: distribution of centers at the end of the training process for
+    \texttt{sin\_pi\_x\_sq} (15 training points, 5 centers, Gaussian kernel). Center: the best epochs' ratio.
+    Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
   \label{fig:sin-pi-x-sq-statistic-tr15-c5}
 \end{figure}
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\textwidth]
-    {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr15_c7_sin_pi_x_sq_gaussian_kernel.pdf}
-  \caption{Left-hand side: distribution of centers at the end of the training process for 
-  \texttt{sin\_pi\_x\_sq} (15 training points, 7 centers, Gaussian kernel). Center: the best epochs' ratio.
-  Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
+  {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr15_c7_sin_pi_x_sq_gaussian_kernel.pdf}
+  \caption{Left-hand side: distribution of centers at the end of the training process for
+    \texttt{sin\_pi\_x\_sq} (15 training points, 7 centers, Gaussian kernel). Center: the best epochs' ratio.
+    Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
   \label{fig:sin-pi-x-sq-statistic-tr15-c7}
 \end{figure}
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\textwidth]
-    {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr15_c9_sin_pi_x_sq_gaussian_kernel.pdf}
-  \caption{Left-hand side: distribution of centers at the end of the training process for 
-  \texttt{sin\_pi\_x\_sq} (15 training points, 9 centers, Gaussian kernel). Center: the best epochs' ratio.
-  Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
+  {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr15_c9_sin_pi_x_sq_gaussian_kernel.pdf}
+  \caption{Left-hand side: distribution of centers at the end of the training process for
+    \texttt{sin\_pi\_x\_sq} (15 training points, 9 centers, Gaussian kernel). Center: the best epochs' ratio.
+    Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
   \label{fig:sin-pi-x-sq-statistic-tr15-c9}
 \end{figure}
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\textwidth]
-    {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr15_c11_sin_pi_x_sq_gaussian_kernel.pdf}
-  \caption{Left-hand side: distribution of centers at the end of the training process for 
-  \texttt{sin\_pi\_x\_sq} (15 training points, 11 centers, Gaussian kernel). Center: the best epochs' ratio.
-  Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
+  {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr15_c11_sin_pi_x_sq_gaussian_kernel.pdf}
+  \caption{Left-hand side: distribution of centers at the end of the training process for
+    \texttt{sin\_pi\_x\_sq} (15 training points, 11 centers, Gaussian kernel). Center: the best epochs' ratio.
+    Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
   \label{fig:sin-pi-x-sq-statistic-tr15-c11}
 \end{figure}
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\textwidth]
-    {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr15_c13_sin_pi_x_sq_gaussian_kernel.pdf}
-  \caption{Left-hand side: distribution of centers at the end of the training process for 
-  \texttt{sin\_pi\_x\_sq} (15 training points, 13 centers, Gaussian kernel). Center: the best epochs' ratio.
-  Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
+  {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr15_c13_sin_pi_x_sq_gaussian_kernel.pdf}
+  \caption{Left-hand side: distribution of centers at the end of the training process for
+    \texttt{sin\_pi\_x\_sq} (15 training points, 13 centers, Gaussian kernel). Center: the best epochs' ratio.
+    Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
   \label{fig:sin-pi-x-sq-statistic-tr15-c13}
 \end{figure}
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\textwidth]
-    {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr15_c15_sin_pi_x_sq_gaussian_kernel.pdf}
-  \caption{Left-hand side: distribution of centers at the end of the training process for 
-  \texttt{sin\_pi\_x\_sq} (15 training points, 15 centers, Gaussian kernel). Center: the best epochs' ratio.
-  Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
+  {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr15_c15_sin_pi_x_sq_gaussian_kernel.pdf}
+  \caption{Left-hand side: distribution of centers at the end of the training process for
+    \texttt{sin\_pi\_x\_sq} (15 training points, 15 centers, Gaussian kernel). Center: the best epochs' ratio.
+    Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
   \label{fig:sin-pi-x-sq-statistic-tr15-c15}
 \end{figure}
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\textwidth]
-    {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c9_sin_pi_x_sq_gaussian_kernel.pdf}
-  \caption{Left-hand side: distribution of centers at the end of the training process for 
-  \texttt{sin\_pi\_x\_sq} (29 training points, 9 centers, Gaussian kernel). Center: the best epochs' ratio.
-  Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
+  {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c9_sin_pi_x_sq_gaussian_kernel.pdf}
+  \caption{Left-hand side: distribution of centers at the end of the training process for
+    \texttt{sin\_pi\_x\_sq} (29 training points, 9 centers, Gaussian kernel). Center: the best epochs' ratio.
+    Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
   \label{fig:sin-pi-x-sq-statistic-tr29-c9}
 \end{figure}
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\textwidth]
-    {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c11_sin_pi_x_sq_gaussian_kernel.pdf}
-  \caption{Left-hand side: distribution of centers at the end of the training process for 
-  \texttt{sin\_pi\_x\_sq} (29 training points, 11 centers, Gaussian kernel). Center: the best epochs' ratio.
-  Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
+  {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c11_sin_pi_x_sq_gaussian_kernel.pdf}
+  \caption{Left-hand side: distribution of centers at the end of the training process for
+    \texttt{sin\_pi\_x\_sq} (29 training points, 11 centers, Gaussian kernel). Center: the best epochs' ratio.
+    Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
   \label{fig:sin-pi-x-sq-statistic-tr29-c11}
 \end{figure}
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\textwidth]
-    {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c13_sin_pi_x_sq_gaussian_kernel.pdf}
-  \caption{Left-hand side: distribution of centers at the end of the training process for 
-  \texttt{sin\_pi\_x\_sq} (29 training points, 13 centers, Gaussian kernel). Center: the best epochs' ratio.
-  Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
+  {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c13_sin_pi_x_sq_gaussian_kernel.pdf}
+  \caption{Left-hand side: distribution of centers at the end of the training process for
+    \texttt{sin\_pi\_x\_sq} (29 training points, 13 centers, Gaussian kernel). Center: the best epochs' ratio.
+    Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
   \label{fig:sin-pi-x-sq-statistic-tr29-c13}
 \end{figure}
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\textwidth]
-    {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c15_sin_pi_x_sq_gaussian_kernel.pdf}
-  \caption{Left-hand side: distribution of centers at the end of the training process for 
-  \texttt{sin\_pi\_x\_sq} (29 training points, 15 centers, Gaussian kernel). Center: the best epochs' ratio.
-  Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
+  {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c15_sin_pi_x_sq_gaussian_kernel.pdf}
+  \caption{Left-hand side: distribution of centers at the end of the training process for
+    \texttt{sin\_pi\_x\_sq} (29 training points, 15 centers, Gaussian kernel). Center: the best epochs' ratio.
+    Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
   \label{fig:sin-pi-x-sq-statistic-tr29-c15}
 \end{figure}
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\textwidth]
-    {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c17_sin_pi_x_sq_gaussian_kernel.pdf}
-  \caption{Left-hand side: distribution of centers at the end of the training process for 
-  \texttt{sin\_pi\_x\_sq} (29 training points, 17 centers, Gaussian kernel). Center: the best epochs' ratio.
-  Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
+  {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c17_sin_pi_x_sq_gaussian_kernel.pdf}
+  \caption{Left-hand side: distribution of centers at the end of the training process for
+    \texttt{sin\_pi\_x\_sq} (29 training points, 17 centers, Gaussian kernel). Center: the best epochs' ratio.
+    Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
   \label{fig:sin-pi-x-sq-statistic-tr29-c17}
 \end{figure}
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\textwidth]
-    {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c19_sin_pi_x_sq_gaussian_kernel.pdf}
-  \caption{Left-hand side: distribution of centers at the end of the training process for 
-  \texttt{sin\_pi\_x\_sq} (29 training points, 19 centers, Gaussian kernel). Center: the best epochs' ratio.
-  Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
+  {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c19_sin_pi_x_sq_gaussian_kernel.pdf}
+  \caption{Left-hand side: distribution of centers at the end of the training process for
+    \texttt{sin\_pi\_x\_sq} (29 training points, 19 centers, Gaussian kernel). Center: the best epochs' ratio.
+    Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
   \label{fig:sin-pi-x-sq-statistic-tr29-c19}
 \end{figure}
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\textwidth]
-    {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c21_sin_pi_x_sq_gaussian_kernel.pdf}
-  \caption{Left-hand side: distribution of centers at the end of the training process for 
-  \texttt{sin\_pi\_x\_sq} (29 training points, 21 centers, Gaussian kernel). Center: the best epochs' ratio.
-  Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
+  {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c21_sin_pi_x_sq_gaussian_kernel.pdf}
+  \caption{Left-hand side: distribution of centers at the end of the training process for
+    \texttt{sin\_pi\_x\_sq} (29 training points, 21 centers, Gaussian kernel). Center: the best epochs' ratio.
+    Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
   \label{fig:sin-pi-x-sq-statistic-tr29-c21}
 \end{figure}
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\textwidth]
-    {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c23_sin_pi_x_sq_gaussian_kernel.pdf}
-  \caption{Left-hand side: distribution of centers at the end of the training process for 
-  \texttt{sin\_pi\_x\_sq} (29 training points, 23 centers, Gaussian kernel). Center: the best epochs' ratio.
-  Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
+  {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c23_sin_pi_x_sq_gaussian_kernel.pdf}
+  \caption{Left-hand side: distribution of centers at the end of the training process for
+    \texttt{sin\_pi\_x\_sq} (29 training points, 23 centers, Gaussian kernel). Center: the best epochs' ratio.
+    Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
   \label{fig:sin-pi-x-sq-statistic-tr29-c23}
 \end{figure}
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\textwidth]
-    {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c25_sin_pi_x_sq_gaussian_kernel.pdf}
-  \caption{Left-hand side: distribution of centers at the end of the training process for 
-  \texttt{sin\_pi\_x\_sq} (29 training points, 25 centers, Gaussian kernel). Center: the best epochs' ratio.
-  Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
+  {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c25_sin_pi_x_sq_gaussian_kernel.pdf}
+  \caption{Left-hand side: distribution of centers at the end of the training process for
+    \texttt{sin\_pi\_x\_sq} (29 training points, 25 centers, Gaussian kernel). Center: the best epochs' ratio.
+    Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
   \label{fig:sin-pi-x-sq-statistic-tr29-c25}
 \end{figure}
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\textwidth]
-    {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c27_sin_pi_x_sq_gaussian_kernel.pdf}
-  \caption{Left-hand side: distribution of centers at the end of the training process for 
-  \texttt{sin\_pi\_x\_sq} (29 training points, 27 centers, Gaussian kernel). Center: the best epochs' ratio.
-  Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
+  {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c27_sin_pi_x_sq_gaussian_kernel.pdf}
+  \caption{Left-hand side: distribution of centers at the end of the training process for
+    \texttt{sin\_pi\_x\_sq} (29 training points, 27 centers, Gaussian kernel). Center: the best epochs' ratio.
+    Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
   \label{fig:sin-pi-x-sq-statistic-tr29-c27}
 \end{figure}
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\textwidth]
-    {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c29_sin_pi_x_sq_gaussian_kernel.pdf}
-  \caption{Left-hand side: distribution of centers at the end of the training process for 
-  \texttt{sin\_pi\_x\_sq} (29 training points, 29 centers, Gaussian kernel). Center: the best epochs' ratio.
-  Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
+  {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c29_sin_pi_x_sq_gaussian_kernel.pdf}
+  \caption{Left-hand side: distribution of centers at the end of the training process for
+    \texttt{sin\_pi\_x\_sq} (29 training points, 29 centers, Gaussian kernel). Center: the best epochs' ratio.
+    Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
   \label{fig:sin-pi-x-sq-statistic-tr29-c29}
 \end{figure}
 
 \section*{A short ablation test}
 
-We have heuristically seen that the consideration of 21 centers alongside 29 training points 
-yields acceptable results in both the epochs' ratio and in the $L^\infty-$norm, yielding 
-with a median of three digits of accuracy over all experiments carried out. However, 
-it is not entirely clear if we can neglect any of the parameters of the network for the sake 
-of further reducing its number of parameters. Besides the coefficients involved in the 
-weighted sum of our RBFs, the location of their centers as well as the shape parameter 
+We have heuristically seen that the consideration of 21 centers alongside 29 training points
+yields acceptable results in both the epochs' ratio and in the $L^\infty-$norm, yielding
+with a median of three digits of accuracy over all experiments carried out. However,
+it is not entirely clear if we can neglect any of the parameters of the network for the sake
+of further reducing its number of parameters. Besides the coefficients involved in the
+weighted sum of our RBFs, the location of their centers as well as the shape parameter
 are two parameters which one may think could potentially be saved up on.
 
 To this end, we now show the repetition of the
 experiments for this configuration of centers and training points
 under the following two models:
 \begin{itemize}
-  \item A model where the centers are equispaced and fixed (Figure 
-  \ref{fig:sin-pi-x-sq-statistic-tr29-c29-fixed-centers}).
+  \item A model where the centers are equispaced and fixed (Figure
+        \ref{fig:sin-pi-x-sq-statistic-tr29-c29-fixed-centers}).
   \item A model where the shape parameter is fixed (for instance, to $\varepsilon=1$).
-  The corresponding results can be seen in Figure 
-  \ref{fig:sin-pi-x-sq-statistic-tr29-c29-fixed-shapes-1}.
+        The corresponding results can be seen in Figure
+        \ref{fig:sin-pi-x-sq-statistic-tr29-c29-fixed-shapes-1}.
 \end{itemize}
 
-As the results show, both the shape parameter and the location of the centers 
+As the results show, both the shape parameter and the location of the centers
 being trainable are key for obtaining the previous results, and we can neglect
 none of them.
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\textwidth]
-    {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c21_sin_pi_x_sq_gaussian_kernel_fixed_centers.pdf}
-  \caption{Results for the training processes for fixed centers. Left-hand side: distribution of centers at the end of the training process for 
-  \texttt{sin\_pi\_x\_sq} (29 training points, 21 centers, Gaussian kernel). Center: the best epochs' ratio.
-  Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
+  {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c21_sin_pi_x_sq_gaussian_kernel_fixed_centers.pdf}
+  \caption{Results for the training processes for fixed centers. Left-hand side: distribution of centers at the end of the training process for
+    \texttt{sin\_pi\_x\_sq} (29 training points, 21 centers, Gaussian kernel). Center: the best epochs' ratio.
+    Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
   \label{fig:sin-pi-x-sq-statistic-tr29-c29-fixed-centers}
 \end{figure}
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\textwidth]
-    {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c21_sin_pi_x_sq_gaussian_kernel_fixed_shapes_1.pdf}
-  \caption{Results for the training processes for a common shape parameter fixed to 1. Left-hand side: distribution of centers at the end of the training process for 
-  \texttt{sin\_pi\_x\_sq} (29 training points, 21 centers, Gaussian kernel). Center: the best epochs' ratio.
-  Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
+  {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c21_sin_pi_x_sq_gaussian_kernel_fixed_shapes_1.pdf}
+  \caption{Results for the training processes for a common shape parameter fixed to 1. Left-hand side: distribution of centers at the end of the training process for
+    \texttt{sin\_pi\_x\_sq} (29 training points, 21 centers, Gaussian kernel). Center: the best epochs' ratio.
+    Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
   \label{fig:sin-pi-x-sq-statistic-tr29-c29-fixed-shapes-1}
 \end{figure}
 
@@ -4461,13 +4489,13 @@ none of them.
 
 \section*{Memory consumption}
 
-Model memory allocation measurements can be computed using the 
+Model memory allocation measurements can be computed using the
 \href{https://pytorch.org/docs/stable/generated/torch.cuda.max_memory_allocated.html}{\texttt{max\_memory\_allocated()}}
 method of the \texttt{torch.cuda} namespace. As per the documentation,
-this method returns the peak allocated memory (in bytes) since the beginning of the program, which implies that the 
-measurement is to be regarded as approximate. Listing \ref{code:python-memory-measure} shows a simple code to 
-provide readings on \textit{the memory consumed by the model}. 
-Figure \ref{fig:model-consumption-memory} depicts the memory consumption (in bytes) of the 
+this method returns the peak allocated memory (in bytes) since the beginning of the program, which implies that the
+measurement is to be regarded as approximate. Listing \ref{code:python-memory-measure} shows a simple code to
+provide readings on \textit{the memory consumed by the model}.
+Figure \ref{fig:model-consumption-memory} depicts the memory consumption (in bytes) of the
 model for different numbers of centers.
 
 \begin{lstlisting}[language=Python, caption=Simple memory consumption measurement., label=code:python-memory-measure]
@@ -4485,8 +4513,8 @@ model for different numbers of centers.
 
 \begin{figure}[ht]
   \includegraphics[width=.7\textwidth]{imagenes/model_consumption/Memory_allocation_vs_number_of_centers.pdf}
-  \caption{Memory allocation of the model plotted against the number of centers, for 
-  a number of dimensions between 1 and 10.}
+  \caption{Memory allocation of the model plotted against the number of centers, for
+    a number of dimensions between 1 and 10.}
   \label{fig:model-consumption-memory}
 \end{figure}
 
