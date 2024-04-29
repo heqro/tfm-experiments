@@ -1607,6 +1607,10 @@ INPUT ./imagenes/experiments/1d/ode/tr15_c5_gaussian_kernel_deg3.pdf
 INPUT ./imagenes/experiments/1d/ode/tr15_c5_gaussian_kernel_deg3.pdf
 INPUT ./imagenes/experiments/1d/ode/tr15_c5_gaussian_kernel_deg3.pdf
 INPUT ./imagenes/experiments/1d/ode/tr15_c5_gaussian_kernel_deg3.pdf
+INPUT ./imagenes/experiments/1d/ode/approximation_of_actual_solution.pdf
+INPUT ./imagenes/experiments/1d/ode/approximation_of_actual_solution.pdf
+INPUT ./imagenes/experiments/1d/ode/approximation_of_actual_solution.pdf
+INPUT ./imagenes/experiments/1d/ode/approximation_of_actual_solution.pdf
 INPUT /usr/share/texmf/fonts/tfm/public/txfonts/t1xsc.tfm
 INPUT /usr/share/texmf/fonts/vf/public/txfonts/t1xsc.vf
 INPUT /usr/share/texmf/fonts/tfm/public/txfonts/rtxsc.tfm

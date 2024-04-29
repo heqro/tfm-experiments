@@ -3417,6 +3417,7 @@ experiments that underperform on our verification dataset. It also causes the
 $1.0$. Moreover, the centers are arranged
 where one would expect them to: in the center of the surface and around its ring.
 
+\clearpage
 \section{Solving differential equations}
 
 \subsection{An observation on the computation of derivatives}
@@ -3594,6 +3595,7 @@ of degree 2, we are also going to evaluate the same model alongside polynomials 
         \ref{section:interpolation-of-franke} and \ref{sec:interp2d-experiment2}),
         there is no such thing as a recurrent
         location where centers are always going to be found.
+  \item The explicit incorporation of a quadratic polynomial shows that the coefficients accompanying $x^2$ and $x$ are expected to be found closer to the values of the actual solution, namely $1$ and $-1$ respectively (see Figure \ref{fig:tr15-c5-quadratic-ode-1d-coefs}). The same cannot be said about the bias term, whose median is about $4/5$ when the bias of the actual solution is $1/4$.
 \end{itemize}
 
 \begin{figure}[ht]
@@ -3641,6 +3643,13 @@ of degree 2, we are also going to evaluate the same model alongside polynomials 
   \label{fig:tr15-c5-gaussian-kernel-cubic-ode-1d}
 \end{figure}
 
+\begin{figure}[h]
+  \includegraphics[width=.85\textwidth]{imagenes/experiments/1d/ode/approximation_of_actual_solution}
+  \caption{Distribution of the interpolators' coefficients at the end of the training processes.}
+  \label{fig:tr15-c5-quadratic-ode-1d-coefs}
+\end{figure}
+
+\clearpage
 \subsection{2D PDE}
 
 We consider the 2D steady-state PDE in $[0, 1] \times [0, 1]$
