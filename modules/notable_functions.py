@@ -2,6 +2,8 @@ import torch
 from torch import exp
 
 # 2-d functions
+
+
 def franke_function(grid: torch.Tensor):
     x = grid[:, 0]
     y = grid[:, 1]
@@ -10,9 +12,11 @@ def franke_function(grid: torch.Tensor):
         + 0.5 * exp(-(9 * x - 7) ** 2 / 4 - (9 * y - 3) ** 2 / 4) \
         - 0.2 * exp(-(9 * x - 4) ** 2 - (9 * y - 7) ** 2)
 
+
 def sin_pi_x_y_sq(grid: torch.Tensor):
     x, y = grid[:, 0], grid[:, 1]
     return torch.sin(torch.pi * ((2*x-1) ** 2 + (2*y-1) ** 2))
+
 
 def norm_cos(grid: torch.Tensor):
     return torch.cos(grid.norm(p=2., dim=1)**2)
@@ -54,3 +58,11 @@ def sin_pi_x_sq(x: torch.Tensor):  # sin(pi * x**2)
 
 def sin_higher_oscillations(x: torch.Tensor):  # sin(2.5*(x+1)**2)
     return torch.sin(2.5 * (x+1) ** 2)
+
+
+def u2(x: torch.Tensor):
+    return (x-.5) ** 2
+
+
+def u3(x: torch.Tensor):
+    return (x-.5) ** 3
