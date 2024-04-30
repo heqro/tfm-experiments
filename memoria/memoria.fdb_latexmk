@@ -1,14 +1,14 @@
 # Fdb version 4
-["biber memoria"] 1714409500.55043 "memoria.bcf" "memoria.bbl" "memoria" 1714410745.96551 0
-  "memoria.bcf" 1714410745.51746 108876 a643186d71f8cb3f3a475509206e62fa "pdflatex"
+["biber memoria"] 1714409500.55043 "memoria.bcf" "memoria.bbl" "memoria" 1714462451.38908 0
+  "memoria.bcf" 1714462450.90476 108876 a643186d71f8cb3f3a475509206e62fa "pdflatex"
   "referencias.bib" 1713187231.20906 6817 7cecbf8c1e609d8f7ed6785345fde32d ""
   (generated)
   "memoria.bbl"
   "memoria.blg"
   (rewritten before read)
-["pdflatex"] 1714410738.92951 "/mnt/sdb1/Proyectos/tfm-experiments/memoria/memoria.tex" "memoria.pdf" "memoria" 1714410745.96632 0
+["pdflatex"] 1714462444.18832 "/mnt/sdb1/Proyectos/tfm-experiments/memoria/memoria.tex" "memoria.pdf" "memoria" 1714462451.38963 0
   "/etc/texmf/web2c/texmf.cnf" 1710926362 42612 09b3c6dec2a078bd30d80981dc2f43a3 ""
-  "/mnt/sdb1/Proyectos/tfm-experiments/memoria/memoria.tex" 1714410738.60487 266125 19ffb24d9ba59f97109b77b6466ad38d ""
+  "/mnt/sdb1/Proyectos/tfm-experiments/memoria/memoria.tex" 1714462443.71649 266505 ce85c7c77f550d4011208efbfcf9f438 ""
   "/usr/share/texmf/fonts/enc/dvips/base/8r.enc" 1710926362 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texmf/fonts/map/fontname/texfonts.map" 1710926362 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf/fonts/tfm/public/cm/cmr12.tfm" 1710926362 1288 655e228510b4c2a1abe905c368440826 ""
@@ -466,6 +466,8 @@
   "imagenes/experiments/1d/statistical_1d_full/runge_function/linf_runge_function_C7_gaussian_kernel.pdf" 1714337491.20202 20487 324ec4930ff7ad50d891d46c5da00b79 ""
   "imagenes/experiments/1d/statistical_1d_full/runge_function/linf_runge_function_C9_gaussian_kernel.pdf" 1714337492.30736 20231 1d98c5a4880090fab29c91cdb628a03e ""
   "imagenes/experiments/1d/statistical_1d_full/runge_function/runge_function_legend.pdf" 1714337700.7495 16417 57b5c49cf6cae4ec560337f1a93b0270 ""
+  "imagenes/experiments/1d/statistical_1d_full/sin_higher_oscillations/medians_epochs_sin_higher_oscillations_gaussian_kernel.pdf" 1714462095.00406 24401 b1d388a5b7984fe6608c689622b6dbde ""
+  "imagenes/experiments/1d/statistical_1d_full/sin_higher_oscillations/medians_linf_sin_higher_oscillations_gaussian_kernel.pdf" 1714462093.65449 25026 1e66f419c95f753723021d9eb729e995 ""
   "imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/epochs_sin_pi_x_sq_C11_gaussian_kernel.pdf" 1714380964.44112 16673 28c0175ef1512e085a33ba349c29d89a ""
   "imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/epochs_sin_pi_x_sq_C13_gaussian_kernel.pdf" 1714380965.68559 16382 081f1153ff0b44b51bbc84c8642609f0 ""
   "imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/epochs_sin_pi_x_sq_C15_gaussian_kernel.pdf" 1714380967.09148 16746 0326a7af3328d3da5193bf66e7ee9fcb ""
@@ -645,16 +647,16 @@
   "imagenes/xor/xor5.0.pdf" 1712598014.19585 14534 cbf4675a0ae1e8f5283c90b14ef4bfd3 ""
   "imagenes/xor/xor_conditioning_graph.pdf" 1712598014.1963 29191 0b23103edc57b2e54725a728e81e5456 ""
   "imagenes/xor/xor_largest_coef_graph.pdf" 1712598014.1967 24087 3920fd8fc9286f889fcbcc87c8f92dea ""
-  "memoria.aux" 1714410745.49934 104530 7eeab3d25602f46e6ae4a4a36dfb87b5 "pdflatex"
+  "memoria.aux" 1714462450.88902 104530 7eeab3d25602f46e6ae4a4a36dfb87b5 "pdflatex"
   "memoria.bbl" 1714409501.90141 26137 3218576de14a36cac2cfbb671f1b39dc "biber memoria"
-  "memoria.lof" 1714410745.519 41596 b477e24cddcc11e8db30a27f39e26fc2 "pdflatex"
-  "memoria.lot" 1714410745.5191 953 f40d83cd0de8972d02893e36c8263a81 "pdflatex"
-  "memoria.out" 1714410745.51213 1737 ba69388647c7dbf29a21af833ff14774 "pdflatex"
-  "memoria.run.xml" 1714410745.51874 2424 94d23da05289d46c128a5c2dcaea6575 "pdflatex"
-  "memoria.tex" 1714410738.60487 266125 19ffb24d9ba59f97109b77b6466ad38d ""
-  "memoria.toc" 1714410745.51893 2323 86a31daf39070260b13889691f0cc272 "pdflatex"
+  "memoria.lof" 1714462450.9062 41596 b477e24cddcc11e8db30a27f39e26fc2 "pdflatex"
+  "memoria.lot" 1714462450.90627 953 f40d83cd0de8972d02893e36c8263a81 "pdflatex"
+  "memoria.out" 1714462450.90031 1737 ba69388647c7dbf29a21af833ff14774 "pdflatex"
+  "memoria.run.xml" 1714462450.90597 2424 94d23da05289d46c128a5c2dcaea6575 "pdflatex"
+  "memoria.tex" 1714462443.71649 266505 ce85c7c77f550d4011208efbfcf9f438 ""
+  "memoria.toc" 1714462450.90614 2323 86a31daf39070260b13889691f0cc272 "pdflatex"
   "new_results_05-04-24.pdf" 1712598014.30434 3049699 cc3551aef0a072445012f44b7846cad0 ""
-  "pdfa.xmpi" 1714410739.60838 5042 17b3d6d2318ad9bbdeb1782c1ad06fcd "pdflatex"
+  "pdfa.xmpi" 1714462444.88519 5042 a41593d46836228fb7463e9fe1b635d4 "pdflatex"
   (generated)
   "memoria.aux"
   "memoria.bcf"
