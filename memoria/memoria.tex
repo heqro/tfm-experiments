@@ -2591,7 +2591,7 @@ drawn:
 % Appendix for the sake of completion.
 
 \clearpage
-\section{``Statistical'' interpolation}
+\subsection{``Statistical'' interpolation}
 
 We have just observed that the ``classic'' methodology improves the accuracy
 more notably as more centers are provided,
@@ -2626,12 +2626,12 @@ Evidently, the overall time can be reduced by considering a smaller number of ex
 
 
 Figures \ref{fig:medians-linf-statistic} and \ref{fig:medians-epochs-statistic} show the medians of the $L^\infty-$norm on our verification dataset as well as the best epochs' ratios for the Gaussian kernel. 
-If one desires to examine the results in further detail, Figures \ref{fig:statistic-result-kde-runge-function-gaussian-kernel}, \ref{fig:statistic-result-kde-gibbs-function-gaussian-kernel} and \ref{fig:statistic-result-kde-sin-pi-x-sq-gaussian-kernel} show the distribution of these metrics.
+If one desires to examine the results in further detail, Figures \ref{fig:statistic-result-runge-function-gaussian-kernel}-\ref{fig:statistic-result-sin-higher-oscillations-gaussian-kernel} show the distribution of these metrics.
 
 \begin{figure}[H]
   % \frame
   {\includegraphics[height=.45\textwidth]
-    {imagenes/experiments/1d/statistical_1d_full/medians_linf_runge_function_gaussian_kernel.pdf}}
+    {imagenes/experiments/1d/statistical_1d_full/runge_function/medians_linf_runge_function_gaussian_kernel.pdf}}
   {\includegraphics[height=.45\textwidth]
     {imagenes/experiments/1d/statistical_1d_full/gibbs_function/medians_linf_gibbs_function_gaussian_kernel.pdf}}
   {\includegraphics[height=.45\textwidth]
@@ -2643,15 +2643,15 @@ If one desires to examine the results in further detail, Figures \ref{fig:statis
 \end{figure}
 
 \begin{figure}[H]
-  \hspace*{-2cm}
-  {\includegraphics[height=.43\textwidth]
-  {imagenes/experiments/1d/statistical_1d_full/medians_epochs_runge_function_gaussian_kernel.pdf}}
-  {\includegraphics[height=.43\textwidth]
+  % \hspace*{-2cm}
+  {\includegraphics[height=.45\textwidth]
+  {imagenes/experiments/1d/statistical_1d_full/runge_function/medians_epochs_runge_function_gaussian_kernel.pdf}}
+  {\includegraphics[height=.45\textwidth]
   {imagenes/experiments/1d/statistical_1d_full/gibbs_function/medians_epochs_gibbs_function_gaussian_kernel.pdf}}
-  \hspace*{-2cm}
-  {\includegraphics[height=.43\textwidth]
+  % \hspace*{-2cm}
+  {\includegraphics[height=.45\textwidth]
     {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/medians_epochs_sin_pi_x_sq_gaussian_kernel.pdf}}
-  {\includegraphics[height=.43\textwidth]
+  {\includegraphics[height=.45\textwidth]
     {imagenes/experiments/1d/statistical_1d_full/sin_higher_oscillations/medians_epochs_sin_higher_oscillations_gaussian_kernel.pdf}}
   \caption{Medians of the best epochs' ratio.}
   \label{fig:medians-epochs-statistic}
@@ -2659,97 +2659,133 @@ If one desires to examine the results in further detail, Figures \ref{fig:statis
 
 
 \begin{figure}[H]
-  \hspace*{-2.8cm}
   \begin{tabular}{rl}
-    \multicolumn{2}{c}{{\includegraphics[width=.7\textwidth, trim={0 3.1cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/runge_function/linf_runge_function_C7_gaussian_kernel.pdf}}}                                                                                       \\
-    {\includegraphics[width=.68\textwidth, trim={.58cm 1.25cm 0 1.17cm},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/runge_function/linf_runge_function_C7_gaussian_kernel.pdf}}  & {\includegraphics[width=.62\textwidth, trim={1cm 2.4cm 2.88cm 1.17cm},clip=true]
+    \multicolumn{2}{c}{{\includegraphics[width=.7\textwidth, trim={0.5cm 4cm .5cm 3.8cm},clip=true]
+          {imagenes/experiments/1d/statistical_1d_full/runge_function/runge_function_legend.pdf}}} \\ 
+    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/runge_function/linf_runge_function_C7_gaussian_kernel.pdf}}  & 
+    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
     {imagenes/experiments/1d/statistical_1d_full/runge_function/epochs_runge_function_C7_gaussian_kernel.pdf}}                                                                                      \\
-    {\includegraphics[width=.68\textwidth, trim={.58cm 1.25cm 0 1.17cm},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/runge_function/linf_runge_function_C9_gaussian_kernel.pdf}}  & {\includegraphics[width=.62\textwidth, trim={1cm 2.4cm 2.88cm 1.17cm},clip=true]
+    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/runge_function/linf_runge_function_C9_gaussian_kernel.pdf}}  & 
+    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
         {imagenes/experiments/1d/statistical_1d_full/runge_function/epochs_runge_function_C9_gaussian_kernel.pdf}}
     \\
-    {\includegraphics[width=.68\textwidth, trim={.58cm 1.25cm 0 1.17cm},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/runge_function/linf_runge_function_C11_gaussian_kernel.pdf}} & {\includegraphics[width=.62\textwidth, trim={1cm 2.4cm 2.88cm 1.17cm},clip=true]
+    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/runge_function/linf_runge_function_C11_gaussian_kernel.pdf}} & 
+    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
     {imagenes/experiments/1d/statistical_1d_full/runge_function/epochs_runge_function_C11_gaussian_kernel.pdf}}                                                                                     \\
-    {\includegraphics[width=.68\textwidth, trim={.58cm 1.25cm 0 1.17cm},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/runge_function/linf_runge_function_C13_gaussian_kernel.pdf}} & {\includegraphics[width=.62\textwidth, trim={1cm 2.4cm 2.88cm 1.17cm},clip=true]
+    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/runge_function/linf_runge_function_C13_gaussian_kernel.pdf}} & 
+    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
         {imagenes/experiments/1d/statistical_1d_full/runge_function/epochs_runge_function_C13_gaussian_kernel.pdf}}
     \\
-    {\includegraphics[width=.68\textwidth, trim={.58cm 0.2cm 0 1.17cm},clip=true]
+    {\includegraphics[width=.5\textwidth, trim={0 0.2cm 0 0},clip=true]
     {imagenes/experiments/1d/statistical_1d_full/runge_function/linf_runge_function_C15_gaussian_kernel.pdf}}
-                                                                                                              & {\includegraphics[width=.62\textwidth, trim={1.05cm 1.4cm 2.88cm 1.17cm},clip=true]
+                                                                                                              & 
+  {\includegraphics[width=.44\textwidth, trim={.7cm 0.2cm 0 0},clip=true]
         {imagenes/experiments/1d/statistical_1d_full/runge_function/epochs_runge_function_C15_gaussian_kernel.pdf}}
-    \\
-    \multicolumn{2}{c}{{\includegraphics[width=.55\textwidth, trim={46cm 2.9cm 0 0},clip=true]
-          {imagenes/experiments/1d/statistical_1d_full/runge_function/runge_function_legend.pdf}}}
   \end{tabular}
-  \caption{Kernel density estimates (logarithmic scale) for the $\log_{10}(L^\infty-\text{norm})$ and epochs' ratio, for Runge's function interpolated with the Gaussian kernel.}
-  \label{fig:statistic-result-kde-runge-function-gaussian-kernel}
+  \caption{$\log_{10}(L^\infty-\text{norm})$ and epochs' ratio violin plots, for Runge's function interpolated with the Gaussian kernel.}
+  \label{fig:statistic-result-runge-function-gaussian-kernel}
 \end{figure}
 
 
 \begin{figure}[H]
-  \hspace*{-2.8cm}
   \begin{tabular}{rl}
-    \multicolumn{2}{c}{{\includegraphics[width=.7\textwidth, trim={0 3.15cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/linf_sin_pi_x_sq_C7_gaussian_kernel.pdf}}}                                                                                       \\
-    {\includegraphics[width=.68\textwidth, trim={.58cm 1.25cm 0 1.155cm},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/linf_sin_pi_x_sq_C7_gaussian_kernel.pdf}}  & {\includegraphics[width=.62\textwidth, trim={1cm 2.4cm 2.88cm 1.17cm},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/epochs_sin_pi_x_sq_C7_gaussian_kernel.pdf}}                                                                                      \\
-    {\includegraphics[width=.68\textwidth, trim={.58cm 1.25cm 0 1.17cm},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/linf_sin_pi_x_sq_C9_gaussian_kernel.pdf}}  & {\includegraphics[width=.62\textwidth, trim={1cm 2.4cm 2.88cm 1.17cm},clip=true]
-        {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/epochs_sin_pi_x_sq_C9_gaussian_kernel.pdf}}
-    \\
-    {\includegraphics[width=.68\textwidth, trim={.58cm 1.25cm 0 1.17cm},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/linf_sin_pi_x_sq_C11_gaussian_kernel.pdf}} & {\includegraphics[width=.62\textwidth, trim={1cm 2.4cm 2.88cm 1.17cm},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/epochs_sin_pi_x_sq_C11_gaussian_kernel.pdf}}                                                                                     \\
-    {\includegraphics[width=.68\textwidth, trim={.58cm 1.25cm 0 1.17cm},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/linf_sin_pi_x_sq_C13_gaussian_kernel.pdf}} & {\includegraphics[width=.62\textwidth, trim={1cm 2.4cm 2.88cm 1.17cm},clip=true]
-        {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/epochs_sin_pi_x_sq_C13_gaussian_kernel.pdf}}
-    \\
-    {\includegraphics[width=.68\textwidth, trim={.58cm 0.2cm 0 1.17cm},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/linf_sin_pi_x_sq_C15_gaussian_kernel.pdf}}
-                                                                                                              & {\includegraphics[width=.62\textwidth, trim={1.05cm 1.4cm 2.88cm 1.17cm},clip=true]
-        {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/epochs_sin_pi_x_sq_C15_gaussian_kernel.pdf}}
-    \\
-    \multicolumn{2}{c}{{\includegraphics[width=.55\textwidth, trim={46cm 2.9cm 0 0},clip=true]
-          {imagenes/experiments/1d/statistical_1d_full/runge_function/runge_function_legend.pdf}}}
-  \end{tabular}
-  \caption{Kernel density estimates (logarithmic scale) for the $\log_{10}(L^\infty-\text{norm})$ and epochs' ratio, for \texttt{sin\_pi\_x\_sq} interpolated with the Gaussian kernel.}
-  \label{fig:statistic-result-kde-sin-pi-x-sq-gaussian-kernel}
-\end{figure}
-
-\begin{figure}[H]
-  \hspace*{-2.8cm}
-  \begin{tabular}{rl}
-    \multicolumn{2}{c}{{\includegraphics[width=.7\textwidth, trim={0 3.1cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/gibbs_function/linf_gibbs_function_C7_gaussian_kernel.pdf}}}                                                                                       \\
-    {\includegraphics[width=.68\textwidth, trim={.58cm 1.25cm 0 1.17cm},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/gibbs_function/linf_gibbs_function_C7_gaussian_kernel.pdf}}  & {\includegraphics[width=.62\textwidth, trim={1cm 2.4cm 2.88cm 1.17cm},clip=true]
+    \multicolumn{2}{c}{{\includegraphics[width=.7\textwidth, trim={0.5cm 4cm .5cm 3.8cm},clip=true]
+          {imagenes/experiments/1d/statistical_1d_full/runge_function/runge_function_legend.pdf}}} \\ 
+    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/gibbs_function/linf_gibbs_function_C7_gaussian_kernel.pdf}}  & 
+    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
     {imagenes/experiments/1d/statistical_1d_full/gibbs_function/epochs_gibbs_function_C7_gaussian_kernel.pdf}}                                                                                      \\
-    {\includegraphics[width=.68\textwidth, trim={.58cm 1.25cm 0 1.17cm},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/gibbs_function/linf_gibbs_function_C9_gaussian_kernel.pdf}}  & {\includegraphics[width=.62\textwidth, trim={1cm 2.4cm 2.88cm 1.17cm},clip=true]
+    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/gibbs_function/linf_gibbs_function_C9_gaussian_kernel.pdf}}  & 
+    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
         {imagenes/experiments/1d/statistical_1d_full/gibbs_function/epochs_gibbs_function_C9_gaussian_kernel.pdf}}
     \\
-    {\includegraphics[width=.68\textwidth, trim={.58cm 1.25cm 0 1.17cm},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/gibbs_function/linf_gibbs_function_C11_gaussian_kernel.pdf}} & {\includegraphics[width=.62\textwidth, trim={1cm 2.4cm 2.88cm 1.17cm},clip=true]
+    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/gibbs_function/linf_gibbs_function_C11_gaussian_kernel.pdf}} & 
+    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
     {imagenes/experiments/1d/statistical_1d_full/gibbs_function/epochs_gibbs_function_C11_gaussian_kernel.pdf}}                                                                                     \\
-    {\includegraphics[width=.68\textwidth, trim={.58cm 1.25cm 0 1.17cm},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/gibbs_function/linf_gibbs_function_C13_gaussian_kernel.pdf}} & {\includegraphics[width=.62\textwidth, trim={1cm 2.4cm 2.88cm 1.17cm},clip=true]
+    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/gibbs_function/linf_gibbs_function_C13_gaussian_kernel.pdf}} & 
+    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
         {imagenes/experiments/1d/statistical_1d_full/gibbs_function/epochs_gibbs_function_C13_gaussian_kernel.pdf}}
     \\
-    {\includegraphics[width=.68\textwidth, trim={.58cm 0.2cm 0 1.17cm},clip=true]
+    {\includegraphics[width=.5\textwidth, trim={0 0.2cm 0 0},clip=true]
     {imagenes/experiments/1d/statistical_1d_full/gibbs_function/linf_gibbs_function_C15_gaussian_kernel.pdf}}
-                                                                                                              & {\includegraphics[width=.62\textwidth, trim={1.05cm 1.4cm 2.88cm 1.17cm},clip=true]
+                                                                                                              & 
+  {\includegraphics[width=.44\textwidth, trim={.7cm 0.2cm 0 0.2cm},clip=true]
         {imagenes/experiments/1d/statistical_1d_full/gibbs_function/epochs_gibbs_function_C15_gaussian_kernel.pdf}}
-    \\
-    \multicolumn{2}{c}{{\includegraphics[width=.55\textwidth, trim={46cm 2.9cm 0 0},clip=true]
-          {imagenes/experiments/1d/statistical_1d_full/runge_function/runge_function_legend.pdf}}}
   \end{tabular}
-  \caption{Kernel density estimates (logarithmic scale) for the $\log_{10}(L^\infty-\text{norm})$ and epochs' ratio, for \texttt{gibbs\_function} interpolated with the Gaussian kernel.}
-  \label{fig:statistic-result-kde-gibbs-function-gaussian-kernel}
+  \caption{$\log_{10}(L^\infty-\text{norm})$ and epochs' ratio violin plots, for Gibbs' function interpolated with the Gaussian kernel.}
+  \label{fig:statistic-result-gibbs-function-gaussian-kernel}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{tabular}{rl}
+    \multicolumn{2}{c}{{\includegraphics[width=.7\textwidth, trim={0.5cm 4cm .5cm 3.8cm},clip=true]
+          {imagenes/experiments/1d/statistical_1d_full/runge_function/runge_function_legend.pdf}}} \\ 
+    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/linf_sin_pi_x_sq_C7_gaussian_kernel.pdf}}  & 
+    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/epochs_sin_pi_x_sq_C7_gaussian_kernel.pdf}}                                                                                      \\
+    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/linf_sin_pi_x_sq_C9_gaussian_kernel.pdf}}  & 
+    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
+        {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/epochs_sin_pi_x_sq_C9_gaussian_kernel.pdf}}
+    \\
+    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/linf_sin_pi_x_sq_C11_gaussian_kernel.pdf}} & 
+    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/epochs_sin_pi_x_sq_C11_gaussian_kernel.pdf}}                                                                                     \\
+    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/linf_sin_pi_x_sq_C13_gaussian_kernel.pdf}} & 
+    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
+        {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/epochs_sin_pi_x_sq_C13_gaussian_kernel.pdf}}
+    \\
+    {\includegraphics[width=.5\textwidth, trim={0 0.2cm 0 0},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/linf_sin_pi_x_sq_C15_gaussian_kernel.pdf}}
+                                                                                                              & 
+  {\includegraphics[width=.44\textwidth, trim={.7cm 0.2cm 0 0},clip=true]
+        {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/epochs_sin_pi_x_sq_C15_gaussian_kernel.pdf}}
+  \end{tabular}
+  \caption{$\log_{10}(L^\infty-\text{norm})$ and epochs' ratio violin plots, for \texttt{sin\_pi\_x\_sq} interpolated with the Gaussian kernel.}
+  \label{fig:statistic-result-sin-pi-x-sq-gaussian-kernel}
+\end{figure}
+
+
+\begin{figure}[H]
+  \begin{tabular}{rl}
+    \multicolumn{2}{c}{{\includegraphics[width=.7\textwidth, trim={0.5cm 4cm .5cm 3.8cm},clip=true]
+          {imagenes/experiments/1d/statistical_1d_full/runge_function/runge_function_legend.pdf}}} \\ 
+    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/sin_higher_oscillations/linf_sin_higher_oscillations_C7_gaussian_kernel.pdf}}  & 
+    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/sin_higher_oscillations/epochs_sin_higher_oscillations_C7_gaussian_kernel.pdf}}                                                                                      \\
+    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/sin_higher_oscillations/linf_sin_higher_oscillations_C9_gaussian_kernel.pdf}}  & 
+    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
+        {imagenes/experiments/1d/statistical_1d_full/sin_higher_oscillations/epochs_sin_higher_oscillations_C9_gaussian_kernel.pdf}}
+    \\
+    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/sin_higher_oscillations/linf_sin_higher_oscillations_C11_gaussian_kernel.pdf}} & 
+    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/sin_higher_oscillations/epochs_sin_higher_oscillations_C11_gaussian_kernel.pdf}}                                                                                     \\
+    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/sin_higher_oscillations/linf_sin_higher_oscillations_C13_gaussian_kernel.pdf}} & 
+    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
+        {imagenes/experiments/1d/statistical_1d_full/sin_higher_oscillations/epochs_sin_higher_oscillations_C13_gaussian_kernel.pdf}}
+    \\
+    {\includegraphics[width=.5\textwidth, trim={0 0.2cm 0 0},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/sin_higher_oscillations/linf_sin_higher_oscillations_C15_gaussian_kernel.pdf}}
+                                                                                                              & 
+  {\includegraphics[width=.44\textwidth, trim={.7cm 0.2cm 0 0},clip=true]
+        {imagenes/experiments/1d/statistical_1d_full/sin_higher_oscillations/epochs_sin_higher_oscillations_C15_gaussian_kernel.pdf}}
+  \end{tabular}
+  \caption{$\log_{10}(L^\infty-\text{norm})$ and epochs' ratio violin plots, for \texttt{sin\_higher\_oscillations} interpolated with the Gaussian kernel.}
+  \label{fig:statistic-result-sin-higher-oscillations-gaussian-kernel}
 \end{figure}
 
 \chapter{random info to organize}
