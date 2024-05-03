@@ -2788,6 +2788,36 @@ If one desires to examine the results in further detail, Figures \ref{fig:statis
   \label{fig:statistic-result-sin-higher-oscillations-gaussian-kernel}
 \end{figure}
 
+\subsubsection*{Incorporating a polynomial term}
+
+Prior to the experimentation, the incorporation of polynomial addends has previously been seen to have a positive impact regarding the precision of the interpolation methods. However, the preliminary experimentation failed to decisively show the advantages of incorporating them. 
+
+During this brief section of the discussion, we work with the functions $x \mapsto u_2(x)=(x-1/2)^2$ and $x \mapsto u_3(x)=(x-1/2)^3$ which we interpolate in the interval $[-1,1]$ under the same configurations of centers and training points as in the last set of experiments. Furthermore, we equip the RBF interpolators with polynomial terms of order $2$ and $3$, respectively. 
+
+Figure \ref{fig:medians-linf-statistic-u2-u3} shows that this interpolator provides, during the best iteration in the $L^\infty-$norm on the verification dataset, a median of three digits of accuracy. This metric does not notably improve for increasing values of $k$. Furthermore, Figure \ref{fig:medians-epochs-statistic-u2-u3} shows that the median of the best epochs' ratio is fixed about $0.8$ in the case of $u_2$ and around $0.9$ in the case of $u_3$. 
+
+Whereas this finding might be positive in absolute terms, the results do not approach $1.0$ for increasing values of $k$. Therefore, the incorporation of a polynomial addend breaks the pattern we observed when working exclusively with RBF interpolators. The implication of this simple experimentation is that one cannot expect to converge to an optimum solution in the $L^\infty-$norm on the verification dataset.
+
+
+\begin{figure}[H]
+  
+  {\includegraphics[height=.45\textwidth]
+    {imagenes/experiments/1d/statistical_1d_full/u2/medians_linf_u2_gaussian_kernel.pdf}}
+  {\includegraphics[height=.45\textwidth]
+    {imagenes/experiments/1d/statistical_1d_full/u3/medians_linf_u3_gaussian_kernel.pdf}}
+  \caption{Medians of the $\log_{10}(L^\infty-\text{norm})$.}
+  \label{fig:medians-linf-statistic-u2-u3}
+\end{figure}
+
+\begin{figure}[H]
+  {\includegraphics[height=.45\textwidth]
+  {imagenes/experiments/1d/statistical_1d_full/u2/medians_epochs_u2_gaussian_kernel.pdf}}
+  {\includegraphics[height=.45\textwidth]
+  {imagenes/experiments/1d/statistical_1d_full/u3/medians_epochs_u3_gaussian_kernel.pdf}}
+  \caption{Medians of the best epochs' ratio.}
+  \label{fig:medians-epochs-statistic-u2-u3}
+\end{figure}
+
 \chapter{random info to organize}
 \section{Quality metrics}
 
