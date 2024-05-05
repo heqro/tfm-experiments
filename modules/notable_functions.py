@@ -15,7 +15,7 @@ def franke_function(grid: torch.Tensor):
 
 def sin_pi_x_y_sq(grid: torch.Tensor):
     x, y = grid[:, 0], grid[:, 1]
-    return torch.sin(torch.pi * ((2*x-1) ** 2 + (2*y-1) ** 2))
+    return torch.sin(torch.pi * (x ** 2 + y ** 2))
 
 
 def norm_cos(grid: torch.Tensor):

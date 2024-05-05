@@ -175,7 +175,7 @@ def print_approximation(approx_points, target_points, xmax, xmin, res, centers, 
 
     # Add heatmap
     plt.imshow(X=torch.abs(approx_points - target_points),
-               extent=(xmin, xmax, xmin, xmax), cmap="hot_r", norm='log')
+               extent=(xmin, xmax, xmin, xmax), cmap="cool", norm='log')
     plt.colorbar(location='left', pad=.16)
 
     plt.xlim(xmin, xmax)
@@ -184,9 +184,12 @@ def print_approximation(approx_points, target_points, xmax, xmin, res, centers, 
     plt.scatter(centers[:, 0], centers[:, 1],
                 label='Centers', color='#2cc914', s=16)
     # Add contour plot with ground-truth function
-    ax = torch.linspace(xmin, xmax, res)
-    plt.contour(ax, ax,
-                target_points, cmap='cool', levels=14)
+    # Generate X and Y coordinates
+    x_vals = np.linspace(xmin, xmax, res)
+    y_vals = np.linspace(xmin, xmax, res)
+    X, Y = np.meshgrid(x_vals, y_vals)
+    plt.contour(X, Y,
+                target_points, cmap='bone', linewidths=1., alpha=.7)
     plt.title('Absolute error (verification)', fontsize=10)
     if show_legend:
         plt.legend(loc='lower left', bbox_to_anchor=(-1, 1))
