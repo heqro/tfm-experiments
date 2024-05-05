@@ -2591,7 +2591,7 @@ drawn:
 % Appendix for the sake of completion.
 
 \clearpage
-\subsection{``Statistical'' interpolation}
+\section*{``Statistical'' interpolation}
 
 We have just observed that the ``classic'' methodology improves the accuracy
 more notably as more centers are provided,
@@ -2796,7 +2796,7 @@ During this brief section of the discussion, we work with the functions $x \maps
 
 Figure \ref{fig:medians-linf-statistic-u2-u3} shows that this interpolator provides, during the best iteration in the $L^\infty-$norm on the verification dataset, a median of three digits of accuracy. This metric does not notably improve for increasing values of $k$. Furthermore, Figure \ref{fig:medians-epochs-statistic-u2-u3} shows that the median of the best epochs' ratio is fixed about $0.8$ in the case of $u_2$ and around $0.9$ in the case of $u_3$. 
 
-Whereas this finding might be positive in absolute terms, the results do not approach $1.0$ for increasing values of $k$. Therefore, the incorporation of a polynomial addend breaks the pattern we observed when working exclusively with RBF interpolators. The implication of this simple experimentation is that one cannot expect to converge to an optimum solution in the $L^\infty-$norm on the verification dataset.
+Whereas this finding might be positive in absolute terms, the results do not approach $1.0$ for increasing values of $k$. Therefore, the incorporation of a polynomial addend breaks the pattern we observed when working exclusively with RBF interpolators. The implication of this simple experimentation is that one cannot reliably expect to converge to an optimum solution in the $L^\infty-$norm on the verification dataset--unless we study the model's learning curves on an experiment by experiment basis, that may or may not happen.
 
 
 \begin{figure}[H]
@@ -2816,6 +2816,51 @@ Whereas this finding might be positive in absolute terms, the results do not app
   {imagenes/experiments/1d/statistical_1d_full/u3/medians_epochs_u3_gaussian_kernel.pdf}}
   \caption{Medians of the best epochs' ratio.}
   \label{fig:medians-epochs-statistic-u2-u3}
+\end{figure}
+
+\clearpage
+
+\subsubsection*{Interpolation in 2D}
+
+\begin{figure}[H]
+  {\includegraphics[height=.45\textwidth]
+  {imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/medians_linf_sin_pi_x_y_sq_gaussian_kernel.pdf}}
+  {\includegraphics[height=.45\textwidth]
+  {imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/medians_epochs_sin_pi_x_y_sq_gaussian_kernel.pdf}}
+  \caption{Medians of the $L^\infty-$norm (left) and of the best epochs' ratio (right).}
+  \label{fig:medians-epochs-statistic-sin-pi-x-y-sq}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{tabular}{rl}
+    \multicolumn{2}{c}{{\includegraphics[width=.7\textwidth, trim={0.5cm 4cm .5cm 3.8cm},clip=true]
+          {imagenes/experiments/1d/statistical_1d_full/runge_function/runge_function_legend.pdf}}} \\ 
+    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
+    {imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/linf_sin_pi_x_y_sq_C7_gaussian_kernel.pdf}}  & 
+    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
+    {imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/epochs_sin_pi_x_y_sq_C7_gaussian_kernel.pdf}}                                                                                      \\
+    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
+    {imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/linf_sin_pi_x_y_sq_C9_gaussian_kernel.pdf}}  & 
+    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
+        {imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/epochs_sin_pi_x_y_sq_C9_gaussian_kernel.pdf}}
+    \\
+    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
+    {imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/linf_sin_pi_x_y_sq_C11_gaussian_kernel.pdf}} & 
+    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
+    {imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/epochs_sin_pi_x_y_sq_C11_gaussian_kernel.pdf}}                                                                                     \\
+    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
+    {imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/linf_sin_pi_x_y_sq_C13_gaussian_kernel.pdf}} & 
+    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
+        {imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/epochs_sin_pi_x_y_sq_C13_gaussian_kernel.pdf}}
+    \\
+    {\includegraphics[width=.5\textwidth, trim={0 0.2cm 0 0},clip=true]
+    {imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/linf_sin_pi_x_y_sq_C15_gaussian_kernel.pdf}}
+                                                                                                              & 
+  {\includegraphics[width=.44\textwidth, trim={.7cm 0.2cm 0 0},clip=true]
+        {imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/epochs_sin_pi_x_y_sq_C15_gaussian_kernel.pdf}}
+  \end{tabular}
+  \caption{$\log_{10}(L^\infty-\text{norm})$ and epochs' ratio violin plots, for \texttt{sin\_pi\_x\_y\_sq} interpolated with the Gaussian kernel.}
+  \label{fig:statistic-result-sin-pi-x-y-sq-gaussian-kernel}
 \end{figure}
 
 \chapter{random info to organize}
@@ -3452,43 +3497,43 @@ if these same remarks hold for the multiquadric kernel.
 
 \subsection*{Results (Gaussian kernel)}
 
-\begin{figure}[H]
-  % \frame
-  {\includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/tr12_c5_sin_pi_x_y_sq_gaussian_kernel.pdf}}
-  \caption{Results of the interpolation of \texttt{sin\_pi\_x\_y\_sq} (5 centers).
-    Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio.
-    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
-  \label{fig:sin-pi-x-y-sq-tr12-c5}
-\end{figure}
+% \begin{figure}[H]
+%   % \frame
+%   {\includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/tr12_c5_sin_pi_x_y_sq_gaussian_kernel.pdf}}
+%   \caption{Results of the interpolation of \texttt{sin\_pi\_x\_y\_sq} (5 centers).
+%     Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio.
+%     Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
+%   \label{fig:sin-pi-x-y-sq-tr12-c5}
+% \end{figure}
 
-\begin{figure}[H]
-  \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/tr12_c20_sin_pi_x_y_sq_gaussian_kernel.pdf}
-  \caption{Results of the interpolation of \texttt{sin\_pi\_x\_y\_sq} (20 centers).
-    Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio.
-    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
-  \label{fig:sin-pi-x-y-sq-tr12-c20}
-\end{figure}
-\begin{figure}[H]
-  \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/tr12_c25_sin_pi_x_y_sq_gaussian_kernel.pdf}
-  \caption{Results of the interpolation of \texttt{sin\_pi\_x\_y\_sq} (25 centers).
-    Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio.
-    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
-  \label{fig:sin-pi-x-y-sq-tr12-c25}
-\end{figure}
-\begin{figure}[H]
-  \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/tr12_c30_sin_pi_x_y_sq_gaussian_kernel.pdf}
-  \caption{Results of the interpolation of \texttt{sin\_pi\_x\_y\_sq} (30 centers).
-    Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio.
-    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
-  \label{fig:sin-pi-x-y-sq-tr12-c30}
-\end{figure}
-\begin{figure}[H]
-  \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/tr12_c35_sin_pi_x_y_sq_gaussian_kernel.pdf}
-  \caption{Results of the interpolation of \texttt{sin\_pi\_x\_y\_sq} (35 centers).
-    Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio.
-    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
-  \label{fig:sin-pi-x-y-sq-tr12-c35}
-\end{figure}
+% \begin{figure}[H]
+%   \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/tr12_c20_sin_pi_x_y_sq_gaussian_kernel.pdf}
+%   \caption{Results of the interpolation of \texttt{sin\_pi\_x\_y\_sq} (20 centers).
+%     Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio.
+%     Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
+%   \label{fig:sin-pi-x-y-sq-tr12-c20}
+% \end{figure}
+% \begin{figure}[H]
+%   \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/tr12_c25_sin_pi_x_y_sq_gaussian_kernel.pdf}
+%   \caption{Results of the interpolation of \texttt{sin\_pi\_x\_y\_sq} (25 centers).
+%     Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio.
+%     Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
+%   \label{fig:sin-pi-x-y-sq-tr12-c25}
+% \end{figure}
+% \begin{figure}[H]
+%   \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/tr12_c30_sin_pi_x_y_sq_gaussian_kernel.pdf}
+%   \caption{Results of the interpolation of \texttt{sin\_pi\_x\_y\_sq} (30 centers).
+%     Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio.
+%     Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
+%   \label{fig:sin-pi-x-y-sq-tr12-c30}
+% \end{figure}
+% \begin{figure}[H]
+%   \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/tr12_c35_sin_pi_x_y_sq_gaussian_kernel.pdf}
+%   \caption{Results of the interpolation of \texttt{sin\_pi\_x\_y\_sq} (35 centers).
+%     Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio.
+%     Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
+%   \label{fig:sin-pi-x-y-sq-tr12-c35}
+% \end{figure}
 
 \subsection*{Conclusions}
 
@@ -3760,6 +3805,16 @@ then discretized as the Cartesian product of those two sets. The associated (dis
       \tmmathbf{y}} \mathcal{N}\mathcal{N} (0, y ; \theta)^2
     +\mathcal{N}\mathcal{N} (1, y ; \theta)^2 \right] . \]
 
+
+\subsection*{Intento de ver la solución}
+
+$$f(x,y)=\left(- 2 \pi \left(2 x - 0.5\right) \cos{\left(\pi x \right)} + 2 \cdot \left
+(2 \left(x - 0.25\right)^{2} - 1\right) \sin{\left(\pi x \right)} - \pi^{2} \sin
+{\left(\pi x \right)}\right) e^{- \left(x - 0.25\right)^{2} - \left(y - 0.5\right
+)^{2}} \cos{\left(2 \pi y \right)} + 2 \cdot \left(2 \pi \left(2 y - 1.0\right) 
+\sin{\left(2 \pi y \right)} + \left(2 \left(y - 0.5\right)^{2} - 1\right) \cos{\
+\left(2 \pi y \right)} - 2 \pi^{2} \cos{\left(2 \pi y \right)}\right) e^{- \left
+(x - 0.25\right)^{2} - \left(y - 0.5\right)^{2}} \sin{\left(\pi x \right)}$$
 
 % Start writing here----------------------------------------------------
 
