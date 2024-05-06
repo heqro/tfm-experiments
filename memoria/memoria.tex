@@ -3046,7 +3046,8 @@ because the actual solution is a polynomial
 of degree 2, we are also going to evaluate the same model alongside polynomials of degree 0
 (effectively a bias term), 1, 2 and 3. 
 
-Figure \ref{fig:ode-1d-violins} shows the summed-up form of the results of this experiment, both in epochs' ratio and regarding the $L^\infty-$norm on the verification dataset. It shows that the incorporation of a polynomial term does not have an effect up until a quadratic term is added in. In such case, the $L^\infty-$norm is the machine precision\footnote{Recall that PyTorch operates, by default, under \texttt{float32} precision.}. However, it causes the median of the epochs' ratio to decrease. The further incorporation of a cubic term causes the precision on the verification dataset to slightly dwindle.
+Figure \ref{fig:ode-1d-violins} shows the summed-up form of the results of this experiment, both in epochs' ratio and regarding the $L^\infty-$norm on the verification dataset. To know how ``close'' the solution with a quadratic term is to the actual solution, Figure \ref{fig:tr15-c5-quadratic-ode-1d-coefs} shows the distribution of the coefficients of the 2D interpolator at the end of the training process.
+
 
 \begin{figure}[ht]
   \includegraphics[width=.75\textwidth]{imagenes/experiments/1d/ode/violins.pdf}
@@ -3054,6 +3055,41 @@ Figure \ref{fig:ode-1d-violins} shows the summed-up form of the results of this 
     regarding the verification dataset during the best epoch.}
   \label{fig:ode-1d-violins}
 \end{figure}
+
+\begin{figure}[h]
+  \includegraphics[width=.85\textwidth]{imagenes/experiments/1d/ode/approximation_of_actual_solution}
+  \caption{Distribution of the interpolators' coefficients at the end of the training processes with a quadratic polynomial term.}
+  \label{fig:tr15-c5-quadratic-ode-1d-coefs}
+\end{figure}
+
+
+Some immediate conclusions are the following:
+
+
+\begin{itemize}
+  \item The consideration of five RBFs is enough to
+        set us into a familiar setting:
+        we observe the aforementioned mentioned ``trumpet'' shape epochs' ratio, which indicates that
+        the best iterations happen towards the end of the training process.
+        Furthermore, the distribution in the $L^\infty-$norm features a tail on the top of it, which
+        recedes as polynomial terms are considered.
+  \item The explicit incorporation of a bias term
+        does not visibly improve the results. As we saw in the preliminary experimentation,
+        (recall Figure \ref{fig-parameters-ode-1d}), it is the very model which makes some shape
+        parameters approach zero, effectively turning those terms into biases.
+  \item The addition of a linear polynomial
+        reduces the tail on the top side of the distribution of the $\log L^\infty-$norm.
+  \item Incorporating a quadratic polynomial
+        allows the model to provide a minimum of five digits of accuracy, with six digits marking
+        the second quartile. However, the ``trumpet'' shape is not as clearly drawn as in the previous
+        experiments. Nevertheless, the error on the verification dataset is the machine precision\footnote{Recall that PyTorch operates, by default, under \texttt{float32} precision.}.
+  \item The incorporation of a cubic polynomial
+        does not improve the results regarding the case of the quadratic polynomial.
+  \item About the distribution of centers: unlike the 2D cases,
+        there ``intuitively logic'' location where centers are always going to be found. One may refer to the corresponding \href{https://github.com/heqro/tfm-experiments/blob/main/memoria/experiments_results/ode_1d_u_xx-2.csv}{\texttt{.csv} document} for further inspection.
+  \item The explicit incorporation of a quadratic polynomial shows that the coefficients accompanying $x^2$ and $x$ are expected to be found closer to the values of the actual solution, namely $1$ and $-1$ respectively (see Figure \ref{fig:tr15-c5-quadratic-ode-1d-coefs}). The same cannot be said about the bias term, whose median is about $4/5$ when the bias of the actual solution is $1/4$.
+\end{itemize}
+
 
 
 \chapter{random info to organize}
@@ -3744,84 +3780,56 @@ where one would expect them to: in the center of the surface and around its ring
 \subsection*{1D ODE}
 
 
-\subsubsection*{Conclusions}
+% \subsubsection*{Conclusions}
 
-\begin{itemize}
-  \item The consideration of five RBFs (Figure \ref{fig:tr15-c5-gaussian-kernel-ode-1d})
-        already puts us into a familiar setting:
-        we observe the aforementioned mentioned ``trumpet'' shape epochs' ratio, which indicates that
-        the best iterations happen towards the end of the training process.
-        Furthermore, the distribution in the $L^\infty-$norm features a tail on the top of it, which
-        recedes as polynomial terms are considered.
-  \item The explicit incorporation of a bias term (Figure \ref{fig:tr15-c5-gaussian-kernel-bias-ode-1d})
-        does not visibly improve the results. As we saw in the preliminary experimentation,
-        (recall Figure \ref{fig-parameters-ode-1d}), it is the very model which makes some shape
-        parameters approach zero, effectively turning those terms into biases.
-  \item The addition of a linear polynomial (Figure \ref{fig:tr15-c5-gaussian-kernel-linear-ode-1d})
-        reduces the tail on the top side of the distribution of the $\log L^\infty-$norm.
-  \item Incorporating a quadratic polynomial (Figure \ref{fig:tr15-c5-gaussian-kernel-quadratic-ode-1d})
-        allows the model to provide a minimum of five digits of accuracy, with six digits marking
-        the second quartile. However, the ``trumpet'' shape is not as clearly drawn as in the previous
-        experiments.
-  \item The incorporation of a cubic polynomial (Figure \ref{fig:tr15-c5-gaussian-kernel-cubic-ode-1d})
-        does not improve the results regarding the case of the quadratic polynomial.
-  \item About the distribution of centers: unlike the 2D cases (see experiments in
-        \ref{section:interpolation-of-franke} and \ref{sec:interp2d-experiment2}),
-        there is no such thing as a recurrent
-        location where centers are always going to be found.
-  \item The explicit incorporation of a quadratic polynomial shows that the coefficients accompanying $x^2$ and $x$ are expected to be found closer to the values of the actual solution, namely $1$ and $-1$ respectively (see Figure \ref{fig:tr15-c5-quadratic-ode-1d-coefs}). The same cannot be said about the bias term, whose median is about $4/5$ when the bias of the actual solution is $1/4$.
-\end{itemize}
 
-\begin{figure}[ht]
-  \includegraphics[width=\textwidth]{imagenes/experiments/1d/ode/tr15_c5_gaussian_kernel_deg-1.pdf}
-  \caption{Left-hand side: distribution of centers at the end of the training experiment
-    without polynomial terms. Center
-    image: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty-$norm
-    regarding the verification dataset during the best epoch.}
-  \label{fig:tr15-c5-gaussian-kernel-ode-1d}
-\end{figure}
 
-\begin{figure}[ht]
-  \includegraphics[width=\textwidth]{imagenes/experiments/1d/ode/tr15_c5_gaussian_kernel_deg0.pdf}
-  \caption{Left-hand side: distribution of centers at the end of the training experiment
-    with a bias term. Center
-    image: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty-$norm regarding
-    the verification dataset during the best epoch.}
-  \label{fig:tr15-c5-gaussian-kernel-bias-ode-1d}
-\end{figure}
+% \begin{figure}[ht]
+%   \includegraphics[width=\textwidth]{imagenes/experiments/1d/ode/tr15_c5_gaussian_kernel_deg-1.pdf}
+%   \caption{Left-hand side: distribution of centers at the end of the training experiment
+%     without polynomial terms. Center
+%     image: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty-$norm
+%     regarding the verification dataset during the best epoch.}
+%   \label{fig:tr15-c5-gaussian-kernel-ode-1d}
+% \end{figure}
 
-\begin{figure}[ht]
-  \includegraphics[width=\textwidth]{imagenes/experiments/1d/ode/tr15_c5_gaussian_kernel_deg1.pdf}
-  \caption{Left-hand side: distribution of centers at the end of the training experiment
-    with a linear polynomial. Center
-    image: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty-$norm regarding
-    the verification dataset during the best epoch.}
-  \label{fig:tr15-c5-gaussian-kernel-linear-ode-1d}
-\end{figure}
+% \begin{figure}[ht]
+%   \includegraphics[width=\textwidth]{imagenes/experiments/1d/ode/tr15_c5_gaussian_kernel_deg0.pdf}
+%   \caption{Left-hand side: distribution of centers at the end of the training experiment
+%     with a bias term. Center
+%     image: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty-$norm regarding
+%     the verification dataset during the best epoch.}
+%   \label{fig:tr15-c5-gaussian-kernel-bias-ode-1d}
+% \end{figure}
 
-\begin{figure}[ht]
-  \includegraphics[width=\textwidth]{imagenes/experiments/1d/ode/tr15_c5_gaussian_kernel_deg2.pdf}
-  \caption{Left-hand side: distribution of centers at the end of the training experiment
-    with a quadratic polynomial. Center
-    image: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty-$norm regarding
-    the verification dataset during the best epoch.}
-  \label{fig:tr15-c5-gaussian-kernel-quadratic-ode-1d}
-\end{figure}
+% \begin{figure}[ht]
+%   \includegraphics[width=\textwidth]{imagenes/experiments/1d/ode/tr15_c5_gaussian_kernel_deg1.pdf}
+%   \caption{Left-hand side: distribution of centers at the end of the training experiment
+%     with a linear polynomial. Center
+%     image: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty-$norm regarding
+%     the verification dataset during the best epoch.}
+%   \label{fig:tr15-c5-gaussian-kernel-linear-ode-1d}
+% \end{figure}
 
-\begin{figure}[ht]
-  \includegraphics[width=\textwidth]{imagenes/experiments/1d/ode/tr15_c5_gaussian_kernel_deg3.pdf}
-  \caption{Left-hand side: distribution of centers at the end of the training experiment
-    with a cubic polynomial. Center
-    image: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty-$norm regarding
-    the verification dataset during the best epoch.}
-  \label{fig:tr15-c5-gaussian-kernel-cubic-ode-1d}
-\end{figure}
+% \begin{figure}[ht]
+%   \includegraphics[width=\textwidth]{imagenes/experiments/1d/ode/tr15_c5_gaussian_kernel_deg2.pdf}
+%   \caption{Left-hand side: distribution of centers at the end of the training experiment
+%     with a quadratic polynomial. Center
+%     image: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty-$norm regarding
+%     the verification dataset during the best epoch.}
+%   \label{fig:tr15-c5-gaussian-kernel-quadratic-ode-1d}
+% \end{figure}
 
-\begin{figure}[h]
-  \includegraphics[width=.85\textwidth]{imagenes/experiments/1d/ode/approximation_of_actual_solution}
-  \caption{Distribution of the interpolators' coefficients at the end of the training processes.}
-  \label{fig:tr15-c5-quadratic-ode-1d-coefs}
-\end{figure}
+% \begin{figure}[ht]
+%   \includegraphics[width=\textwidth]{imagenes/experiments/1d/ode/tr15_c5_gaussian_kernel_deg3.pdf}
+%   \caption{Left-hand side: distribution of centers at the end of the training experiment
+%     with a cubic polynomial. Center
+%     image: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty-$norm regarding
+%     the verification dataset during the best epoch.}
+%   \label{fig:tr15-c5-gaussian-kernel-cubic-ode-1d}
+% \end{figure}
+
+
 
 \clearpage
 \subsection{2D PDE}
