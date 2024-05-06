@@ -2944,6 +2944,118 @@ as the way one can compute its derivatives in PyTorch can be found in
 \href{https://github.com/heqro/tfm-experiments/blob/main/introductory_notebooks/differentials_computation/differentials_rbf_NANs_fixed.ipynb}
 {this other notebook}.
 
+\subsection*{An 1D boundary value problem}
+
+Consider the following boundary value problem:
+\[ \left\{\begin{array}{l}
+    y'' (x) = 2 \\
+    y (0) = y (1) = 1 / 4
+  \end{array}\right. . \]
+
+This is an ODE in $x$ which features the explicit solution $(x - 1 / 2)^2$.
+Because it marks the first instance of our discussion of differential equations
+with our model, we will provide more detail than in the following examples.
+
+Let $\mathcal{N}\mathcal{N} (z ; \theta)$ denote the application of our RBF
+model equipped with a set of parameters $\theta$ to a given input $z \in
+  \mathbb{R}$. Equation \eqref{loss-fun-pinn}, which prescribes the loss function
+of a PINN as the weighted sum of the mean-squared errors inside the domain and at
+the boundary, sets us out to solve
+\begin{equation}
+  \min_{\theta}  \int_0^1 \left( \frac{d^2}{d z^2} \mathcal{N}\mathcal{N} (z ;
+    \theta) - 2 \right)^2 d z + \int_{\{ 0, 1 \}} (\mathcal{N}\mathcal{N} (z ;
+  \theta) - 1 / 4)^2 d z, \label{eqn-lebesgue-ode-1}
+\end{equation}
+whereupon Lebesgue integration theory indicates that the second addend is zero.
+This effectively removes the boundary condition in the 1D case. We may
+recover it in the following manner:
+
+Let $\tmmathbf{z}= \{ z_i \}_{i = 1}^n$ be an arbitrary subset of $(0, 1)$,
+and let $\mathcal{N}\mathcal{N} (\tmmathbf{z}; \theta)$ denote the
+element-wise application of $\mathcal{N}\mathcal{N}$ to each $z_i$. A
+formulation of \eqref{eqn-lebesgue-ode-1} that our PINN can solve for is
+\[ \min_{\theta}  \frac{1}{n} \left\| \frac{d^2}{d z^2} \mathcal{N}\mathcal{N}
+  (\tmmathbf{z}; \theta) - 2 \right\|_2^2 + \frac{1}{2} \left( \left\|
+  \mathcal{N}\mathcal{N} (0, \theta) - \frac{1}{4} \right\|_2^2 + \left\|
+  \mathcal{N}\mathcal{N} (1, \theta) - \frac{1}{4} \right\|_2^2 \right), \]
+which features the boundary conditions in $0$ and $1$ back again. We now solve the
+differential equation minimizing this formulation, considering a grid of
+five RBFs as prescribed in our model: with learnable shape parameters and centers.
+We provide an equispaced grid of 15 training points, which we shall train our
+PINN against.
+The detailed implementation in code of the example is available in the
+\href{https://github.com/heqro/tfm-experiments/blob/main/introductory_notebooks/solving_diff_eqs/1d/ode_example_1.ipynb}{corresponding Jupyter notebook}
+in the repository.
+We turn to Figure \ref{fig:solution-ode-1d} for a report on the performance of our
+model solving this equation.
+
+\begin{figure}[ht]
+  % \frame
+  \hspace*{-2cm}
+  {\includegraphics[width=1.25\textwidth, trim={2cm 0 2.5cm 0}, clip=true]
+    {imagenes/experiments/1d/ode/ode_report.pdf}}
+  \caption{Left-hand side: absolute error of the model solution regarding the actual
+    solution. Middle image: visual comparison of both solutions alongside the location of the
+    model's centers.
+    Right-hand side: learning curves (mean squared error and $L^\infty-$norm) of the model.}
+  \label{fig:solution-ode-1d}
+\end{figure}
+
+\begin{wrapfigure}{R}{.5\textwidth}
+  \caption{Parameters of the network.\label{fig-parameters-ode-1d}}
+  {\includegraphics[width=\textwidth]{imagenes/experiments/1d/ode/parameters_of_rbf_interpolator.pdf}}
+\end{wrapfigure}
+
+Some conclusions are in order:
+\begin{itemize}
+  \item The absolute error (left-hand side image) shows that we can provide up to three digits
+        of precision.
+  \item The visual comparison of both solutions (middle image) shows that
+        some centers leave the problem domain.
+  \item The learning curves indicate that the $L^\infty-$norm as well as the MSE decrease.
+        The action of the Adam optimizer explains the ``spikes'' showing up every few iterations
+        on both curves.
+\end{itemize}
+
+A deeper inspection on the parameters of the network is shown in Figure \ref{fig-parameters-ode-1d}.
+It shows the coefficients of each addend in the RBF model, the numeric location of
+their centers and the base-10 logarithms of the shape parameters.
+
+This complementary report shows that two of the five shape parameters are very close to zero,
+their contribution being comparable to that of a bias addend in a usual linear network layer.
+Further conclusions can be drawn from this image:
+\begin{itemize}
+  \item From a practical perspective, considering three
+        RBFs alongside a bias term could have sufficed to solve this differential equation
+        \footnote{However, we know from the conclusions devolved in the experiment in Section
+          \ref{section:interpolation-of-franke} that smaller models are less likely to find
+          satisfactory solutions.}.
+  \item Those RBFs whose shape parameter is large enough still feature $\varepsilon<1$, which is
+        known to provide better accuracy. Two of these RBFs are located outside the
+        domain of the problem.
+\end{itemize}
+
+This cursory analysis has, albeit informally, shown that this configuration of parameters
+is good enough for solving the proposed ODE. We now incorporate the
+methodology developed during previous experiments, that is, we are going to repeat the experiment
+several times considering 50000 iterations in each experiment,
+recording the distribution of the centers at the end of the training
+process, the best epochs' ratio over the total of epochs, and the logarithm of the $L^\infty-$norm
+on the verification dataset. Furthermore,
+because the actual solution is a polynomial
+of degree 2, we are also going to evaluate the same model alongside polynomials of degree 0
+(effectively a bias term), 1, 2 and 3. 
+
+Figure \ref{fig:ode-1d-violins} shows the summed-up form of the results of this experiment, both in epochs' ratio and regarding the $L^\infty-$norm on the verification dataset. It shows that the incorporation of a polynomial term does not have an effect up until a quadratic term is added in. In such case, the $L^\infty-$norm is the machine precision\footnote{Recall that PyTorch operates, by default, under \texttt{float32} precision.}. However, it causes the median of the epochs' ratio to decrease. The further incorporation of a cubic term causes the precision on the verification dataset to slightly dwindle.
+
+\begin{figure}[ht]
+  \includegraphics[width=.75\textwidth]{imagenes/experiments/1d/ode/violins.pdf}
+  \caption{Left-hand side: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty-$norm
+    regarding the verification dataset during the best epoch.}
+  \label{fig:ode-1d-violins}
+\end{figure}
+
+
 \chapter{random info to organize}
 \section{Quality metrics}
 
@@ -3631,105 +3743,6 @@ where one would expect them to: in the center of the surface and around its ring
 
 \subsection*{1D ODE}
 
-Consider the following boundary value problem:
-\[ \left\{\begin{array}{l}
-    y'' (x) = 2 \\
-    y (0) = y (1) = 1 / 4
-  \end{array}\right. . \]
-
-This is an ODE in $x$ which features the explicit solution $(x - 1 / 2)^2$.
-Because it marks the first instance of our discussion of differential equations
-with our model, we will provide more detail than in the following examples.
-
-Let $\mathcal{N}\mathcal{N} (z ; \theta)$ denote the application of our RBF
-model equipped with a set of parameters $\theta$ to a given input $z \in
-  \mathbb{R}$. Equation \eqref{loss-fun-pinn}, which prescribes the loss function
-of a PINN as the weighted sum of the mean-squared errors inside the domain and at
-the boundary, sets us out to solve
-\begin{equation}
-  \min_{\theta}  \int_0^1 \left( \frac{d^2}{d z^2} \mathcal{N}\mathcal{N} (z ;
-    \theta) - 2 \right)^2 d z + \int_{\{ 0, 1 \}} (\mathcal{N}\mathcal{N} (z ;
-  \theta) - 1 / 4)^2 d z, \label{eqn-lebesgue-ode-1}
-\end{equation}
-whereupon Lebesgue integration theory indicates that the second addend is zero.
-This effectively removes the boundary condition in the 1D case. We may
-recover it in the following manner:
-
-Let $\tmmathbf{z}= \{ z_i \}_{i = 1}^n$ be an arbitrary subset of $(0, 1)$,
-and let $\mathcal{N}\mathcal{N} (\tmmathbf{z}; \theta)$ denote the
-element-wise application of $\mathcal{N}\mathcal{N}$ to each $z_i$. A
-formulation of \eqref{eqn-lebesgue-ode-1} that our PINN can solve for is
-\[ \min_{\theta}  \frac{1}{n} \left\| \frac{d^2}{d z^2} \mathcal{N}\mathcal{N}
-  (\tmmathbf{z}; \theta) - 2 \right\|_2^2 + \frac{1}{2} \left( \left\|
-  \mathcal{N}\mathcal{N} (0, \theta) - \frac{1}{4} \right\|_2^2 + \left\|
-  \mathcal{N}\mathcal{N} (1, \theta) - \frac{1}{4} \right\|_2^2 \right), \]
-which features the boundary conditions in $0$ and $1$ back again. We now solve the
-differential equation minimizing this formulation, considering a grid of
-five RBFs as prescribed in our model: with learnable shape parameters and centers.
-We provide an equispaced grid of 15 training points, which we shall train our
-PINN against.
-The detailed implementation in code of the example is available in the
-\href{https://github.com/heqro/tfm-experiments/blob/main/introductory_notebooks/solving_diff_eqs/1d/ode_example_1.ipynb}{corresponding Jupyter notebook}
-in the repository.
-We turn to Figure \ref{fig:solution-ode-1d} for a report on the performance of our
-model solving this equation.
-
-\begin{figure}[ht]
-  % \frame
-  \hspace*{-2cm}
-  {\includegraphics[width=1.25\textwidth, trim={2cm 0 2.5cm 0}, clip=true]
-    {imagenes/experiments/1d/ode/ode_report.pdf}}
-  \caption{Left-hand side: absolute error of the model solution regarding the actual
-    solution. Middle image: visual comparison of both solutions alongside the location of the
-    model's centers.
-    Right-hand side: learning curves (mean squared error and $L^\infty-$norm) of the model.}
-  \label{fig:solution-ode-1d}
-\end{figure}
-
-\begin{wrapfigure}{R}{.5\textwidth}
-  \caption{Parameters of the network.\label{fig-parameters-ode-1d}}
-  {\includegraphics[width=\textwidth]{imagenes/experiments/1d/ode/parameters_of_rbf_interpolator.pdf}}
-\end{wrapfigure}
-
-Some conclusions are in order:
-\begin{itemize}
-  \item The absolute error (left-hand side image) shows that we can provide up to three digits
-        of precision.
-  \item The visual comparison of both solutions (middle image) shows that
-        some centers leave the problem domain.
-  \item The learning curves indicate that the $L^\infty-$norm as well as the MSE decrease.
-        The action of the Adam optimizer explains the ``spikes'' showing up every few iterations
-        on both curves.
-\end{itemize}
-
-A deeper inspection on the parameters of the network is shown in Figure \ref{fig-parameters-ode-1d}.
-It shows the coefficients of each addend in the RBF model, the numeric location of
-their centers and the base-10 logarithms of the shape parameters.
-
-This complementary report shows that two of the five shape parameters are very close to zero,
-their contribution being comparable to that of a bias addend in a usual linear network layer.
-Further conclusions can be drawn from this image:
-\begin{itemize}
-  \item From a practical perspective, considering three
-        RBFs alongside a bias term could have sufficed to solve this differential equation
-        \footnote{However, we know from the conclusions devolved in the experiment in Section
-          \ref{section:interpolation-of-franke} that smaller models are less likely to find
-          satisfactory solutions.}.
-  \item Those RBFs whose shape parameter is large enough still feature $\varepsilon<1$, which is
-        known to provide better accuracy. Two of these RBFs are located outside the
-        domain of the problem.
-\end{itemize}
-
-This cursory analysis has, albeit informally, shown that this configuration of parameters
-is good enough for solving the proposed ODE. We now incorporate the
-methodology developed during previous experiments, that is, we are going to repeat the experiment
-several times considering 50000 iterations in each experiment,
-recording the distribution of the centers at the end of the training
-process, the best epochs' ratio over the total of epochs, and the logarithm of the $L^\infty-$norm
-on the verification dataset. Furthermore,
-because the actual solution is a polynomial
-of degree 2, we are also going to evaluate the same model alongside polynomials of degree 0
-(a bias term), 1, 2 and 3.
 
 \subsubsection*{Conclusions}
 
