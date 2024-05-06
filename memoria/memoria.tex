@@ -2822,7 +2822,37 @@ Whereas this finding might be positive in absolute terms, the results do not app
 
 \subsubsection*{Interpolation in 2D}
 
-\begin{figure}[H]
+The 1D experiment showed that the proposed methodology (employing the Gaussian
+kernel RBF interpolator with freely adjustable centers and shape parameters) is
+capable of interpolating most of the functions we proposed with a low amount of
+centers. We now turn to the 2D case.
+
+In a preliminary experimentation phase, we considered Franke's function (depicted in Figure \ref{fig:franke-function-surface-contour} and referred to as \texttt{franke\_function}) for evaluating the performance of our model. Because this function exhibits three hotspots of (almost) radial symmetries, which can be reliably reproduced by the Gaussian kernel alongside suitable shape parameters and centers, our method performed according to expectations, requiring a total of $10$ centers for guaranteeing a median of $3$ digits of precision with $12^2$ equispaced training points (see Figure \ref{fig:franke-tr12-c10}). As predicted, three centers would always be found in those three hotspots, whereas the rest of them would be found outside the domain, most surprisingly along the maximum ascent direction of the function.
+
+\begin{figure}[ht]
+  \includegraphics[width=.8\textwidth]{imagenes/experiments/2d/franke_interpolation/Franke_Function_Surface_Contour.pdf}
+  \caption{Left-hand side: Franke's function as a surface. Right-hand side:
+    its filled contour representation.}
+  \label{fig:franke-function-surface-contour}
+\end{figure}
+
+
+\begin{figure}[h]
+  \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c10_franke_function_gaussian_kernel.pdf}
+  \caption{Results of the interpolation of Franke's function (10 centers).
+    Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio.
+    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
+  \label{fig:franke-tr12-c10}
+\end{figure}
+
+For this reason, we instead consider a ``harder'' test function. Letting $C\in\{7^2,9^2,11^2,13^2,15^2\}$ be the number of centers, and for a number of equispaced training points $ \lceil \sqrt{C \cdot k} \rceil, k \in \{1,1.5,2,2.5,3,3.5,4\}$, we interpolate $(x,y)\mapsto \sin(\pi(x^2+y^2)),$ which we name \texttt{sin\_pi\_x\_y\_sq} in the following. Figure \ref{fig:medians-epochs-statistic-sin-pi-x-y-sq} shows the medians for the $L^\infty-$norm and for the best epochs' ratio
+, whereas Figure \ref{fig:statistic-result-sin-pi-x-y-sq-gaussian-kernel} shows the corresponding violin plots for further detail. 
+
+As depicted by the medians and in coherence with the 2D experiments, there is a clear ``saturation'' of the model toward $-1.8$ in the $L^\infty-$norm for $11$ centers onwards, whereby the addition of further data does not translate into better results irrespectively of $k$ or the number of centers. 
+
+\todo[inline]{medir la RAM, el tiempo de ejecución y si hay overfitting o no}
+
+\begin{figure}[h]
   {\includegraphics[height=.45\textwidth]
   {imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/medians_linf_sin_pi_x_y_sq_gaussian_kernel.pdf}}
   {\includegraphics[height=.45\textwidth]
@@ -2831,7 +2861,7 @@ Whereas this finding might be positive in absolute terms, the results do not app
   \label{fig:medians-epochs-statistic-sin-pi-x-y-sq}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[h]
   \begin{tabular}{rl}
     \multicolumn{2}{c}{{\includegraphics[width=.7\textwidth, trim={0.5cm 4cm .5cm 3.8cm},clip=true]
           {imagenes/experiments/1d/statistical_1d_full/runge_function/runge_function_legend.pdf}}} \\ 
@@ -2862,6 +2892,57 @@ Whereas this finding might be positive in absolute terms, the results do not app
   \caption{$\log_{10}(L^\infty-\text{norm})$ and epochs' ratio violin plots, for \texttt{sin\_pi\_x\_y\_sq} interpolated with the Gaussian kernel.}
   \label{fig:statistic-result-sin-pi-x-y-sq-gaussian-kernel}
 \end{figure}
+
+\clearpage
+\section*{Solving differential equations}
+
+\subsection*{An observation on the computation of derivatives}
+
+As anticipated in Section \ref{section:pinns}, automatic differentiation allows the
+practitioner to evaluate the derivatives of a given function to machine precision.
+However, some considerations need to be taken when carrying out this technique.
+As mentioned in the PyTorch documentation website, concretely the
+``\href{https://pytorch.org/tutorials/beginner/blitz/autograd_tutorial.html}{A gentle
+  introduction to \texttt{torch.autograd}}'' tutorial, PyTorch's automatic differentiation
+module records the tensors we consider for our computations alongside the operations
+they are involved in by means of a directed acyclic graph. This is coherent with
+Figure \ref{fig:wengert-trace} proposed in the context of our example of reverse
+mode automatic differentiation.
+
+An immediate conclusion is the following: memory-efficient code will benefit from us
+``massaging'' the expression of our problem into more manageable forms, i.e., applying
+simplifications or identities to reduce the number of nodes on our graph.
+Even if memory is not a concern to us, the construction of the expression graph is
+in the context of RBF. Indeed, Figure \ref{fig:wenger-trace-gaussian}
+depicts the Wengert trace of an RBF equipped with the Gaussian kernel, operating in the 2D
+case.
+
+A cursory evaluation of the trace reveals that the Gaussian kernel defaults to one in
+the case the input coincides with the RBF center. Moreover, it is direct to see that
+$r=0$ is the sole maximum of the Gaussian kernel, with $\varphi'(r)=-2 \varepsilon^2 r
+  e^{-\varepsilon^2 r^2}$, whereupon $\varphi'(0)=0$ iff $r=0$. Wengert's trace as in Figure \ref{fig:wenger-trace-gaussian}
+indeed corresponds to $\varphi(r)$, but will yield \texttt{NaN} when trying to compute
+$\varphi'(0)$.
+
+\begin{figure}[ht]
+  % \frame
+  {\includegraphics[width=.85\textwidth, trim={2cm 22cm 7cm 3cm}, clip=true]{imagenes/rbf_discussion/diagrama-gaussian-wengert.pdf}}
+  \caption{Wengert's trace of the Gaussian kernel.}
+  \label{fig:wenger-trace-gaussian}
+\end{figure}
+
+The reason for this is hidden behind the computation of the square root during the reverse
+mode differentiation process. Its derivative at zero, precisely the case we
+are discussing, does not exist.
+However, we know the bigger picture of this computation: this square root is not
+necessary because we will square it out right after. For the sake of reproducibility
+and inspection in higher detail of this numerical issue, check the
+\href{https://github.com/heqro/tfm-experiments/blob/main/introductory_notebooks/differentials_computation/differentials_rbf_NANs.ipynb}{linked
+  Jupyter notebook}. For an implementation of a Gaussian kernel that solves this issue
+using the observation on the square root, as well
+as the way one can compute its derivatives in PyTorch can be found in
+\href{https://github.com/heqro/tfm-experiments/blob/main/introductory_notebooks/differentials_computation/differentials_rbf_NANs_fixed.ipynb}
+{this other notebook}.
 
 \chapter{random info to organize}
 \section{Quality metrics}
@@ -3296,12 +3377,12 @@ we ask the following questions:
 \end{itemize}
 
 
-\begin{figure}[ht]
-  \includegraphics[width=\textwidth]{imagenes/experiments/2d/franke_interpolation/Franke_Function_Surface_Contour.pdf}
-  \caption{Left-hand side: Franke's function as a surface. Right-hand side:
-    its filled contour representation.}
-  \label{fig:franke-function-surface-contour}
-\end{figure}
+% \begin{figure}[ht]
+%   \includegraphics[width=\textwidth]{imagenes/experiments/2d/franke_interpolation/Franke_Function_Surface_Contour.pdf}
+%   \caption{Left-hand side: Franke's function as a surface. Right-hand side:
+%     its filled contour representation.}
+%   \label{fig:franke-function-surface-contour}
+% \end{figure}
 
 \begin{figure}[ht]
   {\includegraphics[width=\textwidth, trim={3cm 0 1cm 0}, clip=true]{imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/Sin_pi_x_y_sq_Contour.pdf}}
@@ -3355,7 +3436,7 @@ we ask the following questions:
   \caption{Results of the interpolation of Franke's function (10 centers).
     Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio.
     Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
-  \label{fig:franke-tr12-c10}
+  \label{fig:franke-tr12-c10-old}
 \end{figure}
 \begin{figure}[H]
   \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c11_franke_function_gaussian_kernel.pdf}
@@ -3544,58 +3625,11 @@ experiments that underperform on our verification dataset. It also causes the
 $1.0$. Moreover, the centers are arranged
 where one would expect them to: in the center of the surface and around its ring.
 
-\clearpage
-\section{Solving differential equations}
 
-\subsection{An observation on the computation of derivatives}
 
-As anticipated in Section \ref{section:pinns}, automatic differentiation allows the
-practitioner to evaluate the derivatives of a given function to machine precision.
-However, some considerations need to be taken when carrying out this technique.
-As mentioned in the PyTorch documentation website, concretely the
-``\href{https://pytorch.org/tutorials/beginner/blitz/autograd_tutorial.html}{A gentle
-  introduction to \texttt{torch.autograd}}'' tutorial, PyTorch's automatic differentiation
-module records the tensors we consider for our computations alongside the operations
-they are involved in by means of a directed acyclic graph. This is coherent with
-Figure \ref{fig:wengert-trace} proposed in the context of our example of reverse
-mode automatic differentiation.
 
-An immediate conclusion is the following: memory-efficient code will benefit from us
-``massaging'' the expression of our problem into more manageable forms, i.e., applying
-simplifications or identities to reduce the number of nodes on our graph.
-Even if memory is not a concern to us, the construction of the expression graph is
-in the context of RBF. Indeed, Figure \ref{fig:wenger-trace-gaussian}
-depicts the Wengert trace of an RBF equipped with the Gaussian kernel, operating in the 2D
-case.
 
-A cursory evaluation of the trace reveals that the Gaussian kernel defaults to one in
-the case the input coincides with the RBF center. Moreover, it is direct to see that
-$r=0$ is the sole maximum of the Gaussian kernel, with $\varphi'(r)=-2 \varepsilon^2 r
-  e^{-\varepsilon^2 r^2}$, whereupon $\varphi'(0)=0$ iff $r=0$. Wengert's trace as in Figure \ref{fig:wenger-trace-gaussian}
-indeed corresponds to $\varphi(r)$, but will yield \texttt{NaN} when trying to compute
-$\varphi'(0)$.
-
-\begin{figure}[ht]
-  % \frame
-  {\includegraphics[width=.85\textwidth, trim={2cm 22cm 7cm 3cm}, clip=true]{imagenes/rbf_discussion/diagrama-gaussian-wengert.pdf}}
-  \caption{Wengert's trace of the Gaussian kernel.}
-  \label{fig:wenger-trace-gaussian}
-\end{figure}
-
-The reason for this is hidden behind the computation of the square root during the reverse
-mode differentiation process. Its derivative at zero, precisely the case we
-are discussing, does not exist.
-However, we know the bigger picture of this computation: this square root is not
-necessary because we will square it out right after. For the sake of reproducibility
-and inspection in higher detail of this numerical issue, check the
-\href{https://github.com/heqro/tfm-experiments/blob/main/introductory_notebooks/differentials_computation/differentials_rbf_NANs.ipynb}{linked
-  Jupyter notebook}. For an implementation of a Gaussian kernel that solves this issue
-using the observation on the square root, as well
-as the way one can compute its derivatives in PyTorch can be found in
-\href{https://github.com/heqro/tfm-experiments/blob/main/introductory_notebooks/differentials_computation/differentials_rbf_NANs_fixed.ipynb}
-{this other notebook}.
-
-\subsection{1D ODE}
+\subsection*{1D ODE}
 
 Consider the following boundary value problem:
 \[ \left\{\begin{array}{l}
