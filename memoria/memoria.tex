@@ -2845,7 +2845,7 @@ In a preliminary experimentation phase, we considered Franke's function (depicte
   \label{fig:franke-tr12-c10}
 \end{figure}
 
-For this reason, we instead consider a ``harder'' test function. Letting $C\in\{7^2,9^2,11^2,13^2,15^2\}$ be the number of centers, and for a number of equispaced training points $ \lceil \sqrt{C \cdot k} \rceil, k \in \{1,1.5,2,2.5,3,3.5,4\}$, we interpolate $(x,y)\mapsto \sin(\pi(x^2+y^2)),$ which we name \texttt{sin\_pi\_x\_y\_sq} in the following. Figure \ref{fig:medians-epochs-statistic-sin-pi-x-y-sq} shows the medians for the $L^\infty-$norm and for the best epochs' ratio
+For this reason, we instead consider a ``harder'' test function. Letting $C\in\{7^2,9^2,11^2,13^2,15^2\}$ be the number of centers, and for a number of equispaced training points $ \lceil \sqrt{C \cdot k} \rceil^2, k \in \{1,1.5,2,2.5,3,3.5,4\}$, we interpolate $(x,y)\mapsto \sin(\pi(x^2+y^2)),$ which we name \texttt{sin\_pi\_x\_y\_sq} in the following. Figure \ref{fig:medians-epochs-statistic-sin-pi-x-y-sq} shows the medians for the $L^\infty-$norm and for the best epochs' ratio
 , whereas Figure \ref{fig:statistic-result-sin-pi-x-y-sq-gaussian-kernel} shows the corresponding violin plots for further detail. 
 
 As depicted by the medians and in coherence with the 2D experiments, there is a clear ``saturation'' of the model toward $-1.8$ in the $L^\infty-$norm for $11$ centers onwards, whereby the addition of further data does not translate into better results irrespectively of $k$ or the number of centers. 
