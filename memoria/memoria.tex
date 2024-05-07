@@ -3090,7 +3090,122 @@ Some immediate conclusions are the following:
   \item The explicit incorporation of a quadratic polynomial shows that the coefficients accompanying $x^2$ and $x$ are expected to be found closer to the values of the actual solution, namely $1$ and $-1$ respectively (see Figure \ref{fig:tr15-c5-quadratic-ode-1d-coefs}). The same cannot be said about the bias term, whose median is about $4/5$ when the bias of the actual solution is $1/4$.
 \end{itemize}
 
+\subsection*{A 2D boundary value problem}
 
+We consider the Laplace problem in $\Omega = (0, 1) \times (0, 1)$
+\[ \left\{\begin{array}{ll}
+     \Delta u = f (x, y), & (x, y) \in \Omega\\
+     u = u (x, y), & (x, y) \in \partial \Omega
+   \end{array}\right., \]
+whose solution we prescribe to be
+\[ u = \exp \left\{ - \left( x - \frac{1}{4} \right)^2 - \left( y -
+   \frac{1}{2} \right)^2 \right\} \cdot \cos (2 \pi y) \cdot \sin (\pi x) . \]
+This implies that the Dirichlet boundary conditions are $u (0, y) = u (1, y) =
+0$ and
+\[ u (x, 0) = u (x, 1) = \exp \left\{ - \frac{1}{4} \right\} \cdot \exp
+   \left\{ - \left( x - \frac{1}{4} \right)^2 \right\} \cdot \sin (\pi x) . \]
+
+Furthermore, in the interior it holds that
+\begin{align*}
+  f(x,y) &= \left(- 2 \pi \left(2 x - 0.5\right) \cos{\left(\pi x \right)} + 2 \cdot \left
+  (2 \left(x - 0.25\right)^{2} - 1\right) \sin{\left(\pi x \right)} - \pi^{2} \sin
+  {\left(\pi x \right)}\right) \\ 
+  &\cdot \exp\{- \left(x - 0.25\right)^{2} - \left(y - 0.5\right
+  )^{2}\} \cos{\left(2 \pi y \right)} \\ &+  2 \cdot \left(2 \pi \left(2 y - 1.0\right) 
+  \sin{\left(2 \pi y \right)} + \left(2 \left(y - 0.5\right)^{2} - 1\right) \cos{\
+  \left(2 \pi y \right)} - 2 \pi^{2} \cos{\left(2 \pi y \right)}\right) \\
+  &\cdot \exp\{- \left
+  (x - 0.25\right)^{2} - \left(y - 0.5\right)^{2}\} \sin{\left(\pi x \right)}.
+\end{align*}
+
+The PDE can be discretized into a variational formulation in the following
+manner: let $\tmmathbf{z}_I = \{ z_i \}_{i = 1}^n$ be an arbitrary subset of
+$(0, 1)^2$. As for the boundaries of the domain, consider some sets
+\[ \tmmathbf{z}_L \subset \{ 0 \} \times [0, 1], \tmmathbf{z}_R \subset \{ 1
+   \} \times [0, 1], \tmmathbf{z}_B \subset [0, 1] \times \{ 0 \},
+   \tmmathbf{z}_T \subset [0, 1] \times \{ 1 \}, \]
+and assume their cardinality to be $n_L, n_R, n_B, n_T$. We denote by
+$\mathcal{N}\mathcal{N} (\tmmathbf{z}; \theta)$ the application of our PINN to
+each $z \in \tmmathbf{z}$ under a set of parameters $\theta$. A possible variational
+formulation of the problem for $\mathcal{N}\mathcal{N}$ is then
+\begin{align*}
+    & \min_{\theta} \frac{1}{n} \left\| \frac{\partial^2}{\partial x^2} \mathcal{N}\mathcal{N} (\tmmathbf{z}; \theta) + \frac{\partial^2}{\partial y^2} \mathcal{N}\mathcal{N} (\tmmathbf{z}; \theta) - f(\tmmathbf{z}) \right\|_2^2 \\ 
+    & + \frac{1}{4} \left( \frac{1}{n_L} \| \mathcal{N}\mathcal{N} (\tmmathbf{z}_L ; \theta) \|^2_2 + \frac{1}{n_R} \| \mathcal{N}\mathcal{N} (\tmmathbf{z}_R ; \theta) \|^2_2 \right.\\
+    & + \frac{1}{n_B} \left\| \mathcal{N}\mathcal{N} (\tmmathbf{z}_B ; \theta) - \exp \left\{ - \frac{1}{4} \cdot \left( - \left( \tmmathbf{z}_B - \frac{1}{4} \right) \right)^2 \right\} \cdot \sin (\pi \tmmathbf{z}_B) \right\|_2^2\\
+    & + \left. \frac{1}{n_T} \left\| \mathcal{N}\mathcal{N} (\tmmathbf{z}_T ; \theta) - \exp \left\{ - \frac{1}{4} \cdot \left( - \left( \tmmathbf{z}_T - \frac{1}{4} \right) \right)^2 \right\} \cdot \sin (\pi \tmmathbf{z}_T) \right\|_2^2 \right) .
+\end{align*}
+
+
+We solve this PDE under the same pairs of centers and training points as in the 2D interpolation problem, solving the PDE for such pairs of points 20 times\footnote{This number has been decided, again, to make the most of the hardware we are given.}. It has been heuristically seen that a learning rate of $10^{-2}$ tends to work better for this problem. We consider 10000 iterations to allow for reasonable times of expermientation. Even so, Figure \ref{fig:medians-times-storage-2d-pde} shows that the total amount of time invested in the overall experiment is about $26$ hours. The Figure also shows the CUDA context storage required to carry out the experiments, indicating that the scaling factor plays an important role in the memory consumed by the experiment when considering a large enough number of centers.
+
+
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=.45\textwidth]{imagenes/experiments/2d/pde_fornberg_wright/medians_elapsed_times_pde_gaussian_kernel.pdf}
+  \includegraphics[width=.45\textwidth]{imagenes/experiments/2d/pde_fornberg_wright/memory_usage_pde_gaussian_kernel.pdf}
+  \caption{Left-hand side: medians of the time elapsed for each configuration of training points and centers. Right-hand side: memory required by the CUDA context per individual experiment.}
+  \label{fig:medians-times-storage-2d-pde}
+\end{figure}
+
+
+Figure \ref{fig:medians-epochs-statistic-2d-pde} shows the usual medians plot, on the epochs' ratio and the $L^\infty-$norm. It shows that almost every experiment is capable of providing a digit of accuracy on the verification dataset. As expected, considering more centers and further increasing the scaling factor $k$ provides better results. 
+
+
+\begin{figure}[h]
+  {\includegraphics[height=.45\textwidth]
+  {imagenes/experiments/2d/pde_fornberg_wright/medians_linf_pde_gaussian_kernel.pdf}}
+  {\includegraphics[height=.45\textwidth]
+  {imagenes/experiments/2d/pde_fornberg_wright/medians_epochs_pde_gaussian_kernel.pdf}}
+  \caption{Medians of the $L^\infty-$norm (left) and of the best epochs' ratio (right).}
+  \label{fig:medians-epochs-statistic-2d-pde}
+\end{figure}
+
+The results in the epochs' ratio are less revealing, apparently showing that the best iterations for 121 centers are found around the six thousandths. 
+As previously mentioned, this does not necessarily imply that the rest of iterations lead us into a high-oscillating solution. 
+After reviewing the experiments' results more in detail for this amount of centers, Figure \ref{fig:example-analysis-TR22-C121-2d-pde} is a good representative of the situations we can observe: despite the $L^\infty-$norm having found its minimum long before the last iterations, its posterior increment plateaued shortly after.
+For further reference, \ref{fig:statistic-result-pde-gaussian-kernel} depicts the usual violin plots of the epochs' ratio as well as the base-10 logarithm of the $L^\infty-$norm.
+
+\begin{figure}[h]
+  {\includegraphics[width=\textwidth]
+  {imagenes/experiments/2d/pde_fornberg_wright/TR22-C121-Tag5.pdf}}
+  \caption{Left-hand side: distribution of centers at the end of the training process, alongside the contour lines of the target solution and the color map of the absolute error on the verification dataset. Right-hand side: curves of the PDE loss function (labelled as MSE, colored in blue) and the $L^\infty-$norm on the verification dataset (colored in orange).}
+  \label{fig:example-analysis-TR22-C121-2d-pde}
+\end{figure}
+
+
+
+\begin{figure}[h]
+  \begin{tabular}{rl}
+    \multicolumn{2}{c}{{\includegraphics[width=.7\textwidth, trim={0.5cm 4cm .5cm 3.8cm},clip=true]
+          {imagenes/experiments/1d/statistical_1d_full/runge_function/runge_function_legend.pdf}}} \\ 
+    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
+    {imagenes/experiments/2d/pde_fornberg_wright/linf_pde_C7_gaussian_kernel.pdf}}  & 
+    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
+    {imagenes/experiments/2d/pde_fornberg_wright/epochs_pde_C7_gaussian_kernel.pdf}}                                                                                      \\
+    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
+    {imagenes/experiments/2d/pde_fornberg_wright/linf_pde_C9_gaussian_kernel.pdf}}  & 
+    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
+        {imagenes/experiments/2d/pde_fornberg_wright/epochs_pde_C9_gaussian_kernel.pdf}}
+    \\
+    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
+    {imagenes/experiments/2d/pde_fornberg_wright/linf_pde_C11_gaussian_kernel.pdf}} & 
+    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
+    {imagenes/experiments/2d/pde_fornberg_wright/epochs_pde_C11_gaussian_kernel.pdf}}                                                                                     \\
+    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
+    {imagenes/experiments/2d/pde_fornberg_wright/linf_pde_C13_gaussian_kernel.pdf}} & 
+    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
+        {imagenes/experiments/2d/pde_fornberg_wright/epochs_pde_C13_gaussian_kernel.pdf}}
+    \\
+    {\includegraphics[width=.5\textwidth, trim={0 0.2cm 0 0},clip=true]
+    {imagenes/experiments/2d/pde_fornberg_wright/linf_pde_C15_gaussian_kernel.pdf}}
+                                                                                                              & 
+  {\includegraphics[width=.44\textwidth, trim={.7cm 0.2cm 0 0},clip=true]
+        {imagenes/experiments/2d/pde_fornberg_wright/epochs_pde_C15_gaussian_kernel.pdf}}
+  \end{tabular}
+  \caption{$\log_{10}(L^\infty-\text{norm})$ and epochs' ratio violin plots, for the 2D PDE solved with the Gaussian kernel.}
+  \label{fig:statistic-result-pde-gaussian-kernel}
+\end{figure}
 
 \chapter{random info to organize}
 \section{Quality metrics}
@@ -3863,31 +3978,6 @@ then discretized as the Cartesian product of those two sets. The associated (dis
 
 \subsection*{Intento de ver la solución}
 
-We consider the Laplace problem in $\Omega = (0, 1) \times (0, 1)$
-\[ \left\{\begin{array}{ll}
-     \Delta u = f (x, y), & (x, y) \in \Omega\\
-     u = u (x, y), & (x, y) \in \partial \Omega
-   \end{array}\right., \]
-whose solution we prescribe to be
-\[ u = \exp \left\{ - \left( x - \frac{1}{4} \right)^2 - \left( y -
-   \frac{1}{2} \right)^2 \right\} \cdot \cos (2 \pi y) \cdot \sin (\pi x) . \]
-This implies that the Dirichlet boundary conditions are $u (0, y) = u (1, y) =
-0$ and
-\[ u (x, 0) = u (x, 1) = \exp \left\{ - \frac{1}{4} \right\} \cdot \exp
-   \left\{ - \left( x - \frac{1}{4} \right)^2 \right\} \cdot \sin (\pi x) . \]
-
-Furthermore, in the interior it holds that
-\begin{align*}
-  f(x,y) &= \left(- 2 \pi \left(2 x - 0.5\right) \cos{\left(\pi x \right)} + 2 \cdot \left
-  (2 \left(x - 0.25\right)^{2} - 1\right) \sin{\left(\pi x \right)} - \pi^{2} \sin
-  {\left(\pi x \right)}\right) \\ 
-  &\cdot \exp\{- \left(x - 0.25\right)^{2} - \left(y - 0.5\right
-  )^{2}\} \cos{\left(2 \pi y \right)} \\ &+  2 \cdot \left(2 \pi \left(2 y - 1.0\right) 
-  \sin{\left(2 \pi y \right)} + \left(2 \left(y - 0.5\right)^{2} - 1\right) \cos{\
-  \left(2 \pi y \right)} - 2 \pi^{2} \cos{\left(2 \pi y \right)}\right) \\
-  &\cdot \exp\{- \left
-  (x - 0.25\right)^{2} - \left(y - 0.5\right)^{2}\} \sin{\left(\pi x \right)}.
-\end{align*}
 
 
 % Start writing here----------------------------------------------------
