@@ -50,13 +50,12 @@ def show_interpolation(x, target_points, approx_points, centers, show_centers, x
 
 
 def show_linf_norm(lines, labels, target_points, approx_points, nodes, x):
-    rel_error = (target_points - approx_points).abs() / \
-        (1e-10 + target_points).abs()
-    plt.semilogy(x, rel_error)
-    plt.title('Log-10 relative error and interpolation nodes')
+    absolute_error = (target_points - approx_points).abs()
+    plt.semilogy(x, absolute_error)
+    plt.title('Log-10 absolute error and interpolation nodes')
 
     # if show_nodes:  # show interpolation nodes
-    nodes_vline = plt.vlines(nodes.cpu(), ymin=min(rel_error), ymax=max(rel_error),
+    nodes_vline = plt.vlines(nodes.cpu(), ymin=min(absolute_error), ymax=max(absolute_error),
                              linestyles='dashed', colors='green')
     lines.append(nodes_vline)
     labels.append('Nodes')
@@ -78,16 +77,17 @@ def show_shape_values(shapes_list):
         plt.title('Values of shape parameter')
 
 
-def show_loss_curves(loss: list[float], linf_norm: list[float], show_legend=True):
+def show_loss_curves(loss: list[float], linf_norm: list[float], l2: list[float], show_legend=True):
     with torch.no_grad():
-        plt.semilogy(loss, label='MSE', color='blue')
+        plt.semilogy(loss, label='Loss\n(train) ', color='blue')
         plt.semilogy(linf_norm, label=r'$L^\infty$', color='orange')
-        plt.title(r'Loss curves (verification)', fontsize=10)
+        plt.semilogy(l2, label=r'$L^2$', color='red')
+        plt.title(r'Model curves', fontsize=10)
         if show_legend:
             plt.legend(loc='upper left', bbox_to_anchor=(1, 1))
 
 
-def plot_figure_free_shape(centers, nodes, fn, nn: RBF_Free_All | RBF_Poly_Free_All | RBFInterpolantFreeCenters, dim: int, loss, linf, epoch: int = -1, path: str | None = None, dev='cuda', extension='png',
+def plot_figure_free_shape(centers, nodes, fn, nn: RBF_Free_All | RBF_Poly_Free_All | RBFInterpolantFreeCenters, dim: int, loss, linf, l2, epoch: int = -1, path: str | None = None, dev='cuda', extension='png',
                            show_nodes=False, show_centers=True, resolution=300, xmin=-1, xmax=1, shape: float | torch.Tensor = -1):
 
     with torch.no_grad():
@@ -116,7 +116,7 @@ def plot_figure_free_shape(centers, nodes, fn, nn: RBF_Free_All | RBF_Poly_Free_
 
         # L^inf and loss curves
         plt.subplot(2, 2, 4)
-        show_loss_curves(loss, linf)
+        show_loss_curves(loss, linf, l2)
 
         if path is None:
             plt.show()
@@ -217,7 +217,7 @@ def plot_data_3d(centers, xmin: float, xmax: float, approx: torch.Tensor, target
         # Create legend handles
         legend_handles = [
             mlines.Line2D([], [], color='orange', label=r'$L^\infty$'),
-            mlines.Line2D([], [], color='blue', label='MSE'),
+            mlines.Line2D([], [], color='blue', label='Loss'),
             mlines.Line2D([], [], linestyle='', marker='o',
                           color='#2cc914', label='Center', markersize=4),
         ]
