@@ -2796,9 +2796,85 @@ To this end, we consider $x \mapsto u_2(x)=(x-1/2)^2, x\in[-1,1]$. We interpolat
 
 We will also consider two different starting shape parameters: the usual $\varepsilon=1$ and $\varepsilon=10$. Recall (see e.g. Figure \ref{fig:negative-exp-rbf}) that the shape parameter plays an important role on the resulting interpolator, with larger values resulting in starker cusps. Not only that, larger shape parameters result in better-posed interpolation problems, which may ultimately improve the results of the interpolation experiments.
 
+\textbf{Starting shape parameter $\varepsilon=1$}
+
+Figure \ref{fig:medians-epochs-statistic-u2-poly-shape-1} shows the medians of the best epochs' ratios as further polynomial terms are considered, whereas Figure \ref{fig:medians-linf-statistic-u2-poly-shape-1} shows the corresponding medians in the $L^\infty-$norm on the verification dataset. On the basis of the $L^\infty-$norm, some conclusions can already be drawn:
+
+\begin{itemize}
+  \item When no polynomial term is considered, larger values of $k$ improve the results on the verification dataset, especially with $7$ centers, achieving an improvement of a unit. For larger numbers of centers, the addition of more training points does not have a harmful effect on the interpolation, but produces slightly worse results. The results on the epochs' ratios are as expected, quickly approaching $1$ as $k$ is increased.
+  \item With the addition of a bias term, the results with $13$ and $15$ centers see their largest improvement. However, the epochs' ratios do not approach $1$ anymore. The same tendency is observed for higher degree polynomials.
+  \item The consideration of a degree $2$ polynomial introduces the most notable improvement, whereby (except for the case involving $7$ centers and $k=1$) almost four digits of accuracy are provided.
+\end{itemize}
+
+
+\begin{figure}[H]
+  
+  {\includegraphics[height=.45\textwidth]
+    {imagenes/experiments/1d/statistical_1d_full/u2/medians_epochs_u2_gaussian_kernel_shape_1_Poly-1.pdf}}
+  {\includegraphics[height=.45\textwidth]
+    {imagenes/experiments/1d/statistical_1d_full/u2/medians_epochs_u2_gaussian_kernel_shape_1_Poly0.pdf}}
+    {\includegraphics[height=.45\textwidth]
+    {imagenes/experiments/1d/statistical_1d_full/u2/medians_epochs_u2_gaussian_kernel_shape_1_Poly1.pdf}}
+    {\includegraphics[height=.45\textwidth]
+    {imagenes/experiments/1d/statistical_1d_full/u2/medians_epochs_u2_gaussian_kernel_shape_1_Poly2.pdf}}
+    {\includegraphics[height=.45\textwidth]
+    {imagenes/experiments/1d/statistical_1d_full/u2/medians_epochs_u2_gaussian_kernel_shape_1_Poly3.pdf}}
+  \caption{Medians of best epochs' ratios for $\varepsilon=1$.}
+  \label{fig:medians-epochs-statistic-u2-poly-shape-1}
+\end{figure}
+
+\begin{figure}[H]
+  
+  {\includegraphics[height=.45\textwidth]
+    {imagenes/experiments/1d/statistical_1d_full/u2/medians_linf_u2_gaussian_kernel_shape_1_Poly-1.pdf}}
+  {\includegraphics[height=.45\textwidth]
+    {imagenes/experiments/1d/statistical_1d_full/u2/medians_linf_u2_gaussian_kernel_shape_1_Poly0.pdf}}
+    {\includegraphics[height=.45\textwidth]
+    {imagenes/experiments/1d/statistical_1d_full/u2/medians_linf_u2_gaussian_kernel_shape_1_Poly1.pdf}}
+    {\includegraphics[height=.45\textwidth]
+    {imagenes/experiments/1d/statistical_1d_full/u2/medians_linf_u2_gaussian_kernel_shape_1_Poly2.pdf}}
+    {\includegraphics[height=.45\textwidth]
+    {imagenes/experiments/1d/statistical_1d_full/u2/medians_linf_u2_gaussian_kernel_shape_1_Poly3.pdf}}
+  \caption{Medians of the $\log_{10}(L^\infty-\text{norm})$ for $\varepsilon=1$.}
+  \label{fig:medians-linf-statistic-u2-poly-shape-1}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{tabular}{cc}
+    \multicolumn{2}{c}{{\includegraphics[width=.7\textwidth, trim={0.5cm 4cm .5cm 3.8cm},clip=true]
+          {imagenes/experiments/1d/statistical_1d_full/runge_function/runge_function_legend.pdf}}} \\ 
+        With bias term  & With quadratic polynomial \\
+    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/u2/linf_u2_C7_gaussian_kernel_shape_1_Poly0.pdf}}  & 
+    {\includegraphics[width=.44\textwidth, trim={.65cm 1.15cm 0 0},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/u2/linf_u2_C7_gaussian_kernel_shape_1_Poly2.pdf}}                                                                                      \\
+    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/u2/linf_u2_C9_gaussian_kernel_shape_1_Poly0.pdf}}  & 
+    {\includegraphics[width=.44\textwidth, trim={.65cm 1.15cm 0 0},clip=true]
+        {imagenes/experiments/1d/statistical_1d_full/u2/linf_u2_C9_gaussian_kernel_shape_1_Poly2.pdf}}
+    \\
+    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/u2/linf_u2_C11_gaussian_kernel_shape_1_Poly0.pdf}} & 
+    {\includegraphics[width=.44\textwidth, trim={.65cm 1.15cm 0 0},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/u2/linf_u2_C11_gaussian_kernel_shape_1_Poly2.pdf}}                                                                                     \\
+    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/u2/linf_u2_C13_gaussian_kernel_shape_1_Poly0.pdf}} & 
+    {\includegraphics[width=.44\textwidth, trim={.65cm 1.15cm 0 0},clip=true]
+        {imagenes/experiments/1d/statistical_1d_full/u2/linf_u2_C13_gaussian_kernel_shape_1_Poly2.pdf}}
+    \\
+    {\includegraphics[width=.5\textwidth, trim={0 0.2cm 0 0},clip=true]
+    {imagenes/experiments/1d/statistical_1d_full/u2/linf_u2_C15_gaussian_kernel_shape_1_Poly0.pdf}}
+                                                                                                              & 
+  {\includegraphics[width=.44\textwidth, trim={.65cm 0.2cm 0 0},clip=true]
+        {imagenes/experiments/1d/statistical_1d_full/u2/linf_u2_C15_gaussian_kernel_shape_1_Poly2.pdf}}
+  \end{tabular}
+  \caption{$\log_{10}(L^\infty-\text{norm})$ results for the interpolation of \texttt{u2} alongside a Gaussian kernel, when adding a bias term (left) and when adding a quadratic polynomial (right).}
+  \label{fig:linf-shape1-poly0-poly2}
+\end{figure}
+\clearpage
 \textbf{Starting shape parameter $\varepsilon=10$}
 
-Figure \ref{fig:medians-epochs-statistic-u2-poly} shows the medians of the best epochs' ratios as further polynomial terms are considered, whereas Figure \ref{fig:medians-linf-statistic-u2-poly} shows the corresponding medians in the $L^\infty-$norm on the verification dataset. On the basis of the $L^\infty-$norm, some conclusions can already be drawn:
+Figure \ref{fig:medians-epochs-statistic-u2-poly-shape-10} shows the medians of the best epochs' ratios as further polynomial terms are considered, whereas Figure \ref{fig:medians-linf-statistic-u2-poly-shape-10} shows the corresponding medians in the $L^\infty-$norm on the verification dataset. On the basis of the $L^\infty-$norm, some conclusions can already be drawn:
 
 \begin{itemize}
   \item The situation is known already when no polynomial term is considered: the medians produce better results as more centers are considered, also finding a  plateau for larger values of $k$.
@@ -2822,7 +2898,7 @@ Figure \ref{fig:medians-epochs-statistic-u2-poly} shows the medians of the best 
     {\includegraphics[height=.45\textwidth]
     {imagenes/experiments/1d/statistical_1d_full/u2/medians_epochs_u2_gaussian_kernel_shape_10_Poly3.pdf}}
   \caption{Medians of best epochs' ratios for $\varepsilon=10$.}
-  \label{fig:medians-epochs-statistic-u2-poly}
+  \label{fig:medians-epochs-statistic-u2-poly-shape-10}
 \end{figure}
 
 \begin{figure}[H]
@@ -2838,7 +2914,7 @@ Figure \ref{fig:medians-epochs-statistic-u2-poly} shows the medians of the best 
     {\includegraphics[height=.45\textwidth]
     {imagenes/experiments/1d/statistical_1d_full/u2/medians_linf_u2_gaussian_kernel_shape_10_Poly3.pdf}}
   \caption{Medians of the $\log_{10}(L^\infty-\text{norm})$ for $\varepsilon=10$.}
-  \label{fig:medians-linf-statistic-u2-poly}
+  \label{fig:medians-linf-statistic-u2-poly-shape-10}
 \end{figure}
 
 \begin{figure}[h]
@@ -2871,37 +2947,40 @@ Figure \ref{fig:medians-epochs-statistic-u2-poly} shows the medians of the best 
         {imagenes/experiments/1d/statistical_1d_full/u2/linf_u2_C15_gaussian_kernel_shape_10_Poly2.pdf}}
   \end{tabular}
   \caption{$\log_{10}(L^\infty-\text{norm})$ results for the interpolation of \texttt{u2} alongside a Gaussian kernel, when adding a bias term (left) and when adding a quadratic polynomial (right).}
-  \label{fig:linf-shape10-poly0-poly3}
+  \label{fig:linf-shape10-poly0-poly2}
 \end{figure}
 
+\clearpage
 
-% To this end, we consider  and $x \mapsto u_3(x)=(x-1/2)^3$ which we interpolate in the interval $[-1,1]$ under the same configurations of centers and training points as in the last set of experiments. 
+\textbf{Common observations and conclusions}
 
-% Furthermore, we equip the RBF interpolators with polynomial terms of order $2$ and $3$, respectively. 
+\begin{itemize}
+  \item Figure \ref{fig:distribution-alphas-u2} shows the distribution of our model's shape parameters at the end of the interpolation processes. It shows that when training with a starting shape $\varepsilon=1$, we expect most of the trained shape parameters around the interval $[0,3]$. When starting out with $\varepsilon=10$, the largest incidence of these values is found for $\varepsilon < 10$.
+  \begin{figure}[h]
+    \includegraphics[width=.5\textwidth]{imagenes/experiments/1d/statistical_1d_full/u2/overall_histogram_of_shapes.pdf}
+    \caption{Distribution of shape parameters at the end of the training process, for starting shape parameters $\varepsilon=1$ and $\varepsilon=10$.}
+    \label{fig:distribution-alphas-u2}
+  \end{figure}
+  \item Figures \ref{fig:u2-TR7-C7-Kgaussian_kernel-Poly0-Equi-Sh1-E50000-4} and \ref{fig:u2-TR7-C7-Kgaussian_kernel-Poly0-Equi-Sh10-E50000-34} depict some descriptive realizations of the experiments for the case $C=7,k=1$ with a bias term. They are realizations for shape parameters $\varepsilon=1$ and $\varepsilon=10$ respectively. When there is not enough information, $\varepsilon=10$ exhibits high oscillations between any two interpolation nodes, which produces bad results $L^\infty-$norm. However, because we know $\varepsilon=10$ forms a better-posed problem that $\varepsilon=1$, this also allows the loss term to be of the order of $10^{-14}$, whereas the case $\varepsilon=1$ is not able to reduce the loss term as visibly.
+  \item This is not just a particular incidence: as $C$ and $k$ increase, Figures \ref{fig:medians-linf-statistic-u2-poly-shape-1} and \ref{fig:medians-linf-statistic-u2-poly-shape-10} show that the case $\varepsilon=1$ produces better results in the $L^\infty-$norm as well, most notably for $k$ close to $1$.
+  \item The epochs' ratios (Figures \ref{fig:medians-linf-statistic-u2-poly-shape-1} and \ref{fig:medians-linf-statistic-u2-poly-shape-10})indicate that, when considering a polynomial term of degree $2$ or $3$, the best epochs in the $L^\infty-$norm tend to happen at about the same iterations, irrespectively of the training points. This implies that, even though the polynomial term may not always guarantee better results in the $L^\infty-$norm, it provides some ``predictability'' beyond the parameters $C$ and $k$ we choose.
+  \item The action of the quadratic polynomial term, by which it may produce results to machine precision, appears most notably for $C=7$, both for $\varepsilon=1$ and $\varepsilon=10$. As more centers are provided, it is harder to produce results to machine precision (see \ref{fig:linf-shape1-poly0-poly2} and \ref{fig:linf-shape10-poly0-poly2}): the ``search'' space is more dense and therefore harder to ``navigate''.
+  \item For all these considerations, the better option seems to be $\varepsilon=1$. 
+\end{itemize}
 
-% Figure \ref{fig:medians-linf-statistic-u2-u3} shows that this interpolator provides, during the best iteration in the $L^\infty-$norm on the verification dataset, a median of three digits of accuracy. This metric does not notably improve for increasing values of $k$. Furthermore, Figure \ref{fig:medians-epochs-statistic-u2-u3} shows that the median of the best epochs' ratio is fixed about $0.8$ in the case of $u_2$ and around $0.9$ in the case of $u_3$. 
-
-% Whereas this finding might be positive in absolute terms, the results do not approach $1.0$ for increasing values of $k$. Therefore, the incorporation of a polynomial addend breaks the pattern we observed when working exclusively with RBF interpolators. The implication of this simple experimentation is that one cannot reliably expect to converge to an optimum solution in the $L^\infty-$norm on the verification dataset--unless we study the model's learning curves on an experiment by experiment basis, that may or may not happen.
 
 
-% \begin{figure}[H]
-  
-%   {\includegraphics[height=.45\textwidth]
-%     {imagenes/experiments/1d/statistical_1d_full/u2/medians_linf_u2_gaussian_kernel.pdf}}
-%   {\includegraphics[height=.45\textwidth]
-%     {imagenes/experiments/1d/statistical_1d_full/u3/medians_linf_u3_gaussian_kernel.pdf}}
-%   \caption{Medians of the $\log_{10}(L^\infty-\text{norm})$.}
-%   \label{fig:medians-linf-statistic-u2-u3}
-% \end{figure}
+\begin{figure}[h]
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full/u2/particular_cases/u2-TR7-C7-Kgaussian_kernel-Poly0-Equi-Sh1-E50000-4.csv-E50000-no-centers.pdf}
+  \caption{Distribution of shape parameters at the end of the training process, for a Gaussian interpolator characterized by $C=7,k=1$ alongside a bias term, with starting shape parameter $\varepsilon=1$.}
+  \label{fig:u2-TR7-C7-Kgaussian_kernel-Poly0-Equi-Sh1-E50000-4}
+\end{figure}
 
-% \begin{figure}[H]
-%   {\includegraphics[height=.45\textwidth]
-%   {imagenes/experiments/1d/statistical_1d_full/u2/medians_epochs_u2_gaussian_kernel.pdf}}
-%   {\includegraphics[height=.45\textwidth]
-%   {imagenes/experiments/1d/statistical_1d_full/u3/medians_epochs_u3_gaussian_kernel.pdf}}
-%   \caption{Medians of the best epochs' ratio.}
-%   \label{fig:medians-epochs-statistic-u2-u3}
-% \end{figure}
+\begin{figure}[h]
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full/u2/particular_cases/u2-TR7-C7-Kgaussian_kernel-Poly0-Equi-Sh10-E50000-34.csv-E50000-no-centers.pdf}
+  \caption{Distribution of shape parameters at the end of the training process, for a Gaussian interpolator characterized by $C=7,k=1$ alongside a bias term, with starting shape parameter $\varepsilon=10$.}
+  \label{fig:u2-TR7-C7-Kgaussian_kernel-Poly0-Equi-Sh10-E50000-34}
+\end{figure}
 
 \clearpage
 
