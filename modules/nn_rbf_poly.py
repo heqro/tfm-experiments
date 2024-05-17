@@ -9,7 +9,7 @@ class RBF_Poly_Free_All(torch.nn.Module):
     def __init__(self, input_dim: int, num_centers: int, output_dim: int,
                  kernel: Callable[[Union[float, Tensor]],
                                   Callable[[Tensor, Tensor], Tensor]],
-                 dev: torch.device | str = 'cpu', degree: int = 1, dim=1, starting_shape=1):
+                 dev: torch.device | str = 'cpu', degree: int = 1, dim=1, starting_shape=1.):
         super(RBF_Poly_Free_All, self).__init__()
 
         from nn_rbf import RBF_Free_All as RBF
