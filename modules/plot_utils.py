@@ -77,17 +77,18 @@ def show_shape_values(shapes_list):
         plt.title('Values of shape parameter')
 
 
-def show_loss_curves(loss: list[float], linf_norm: list[float], l2: list[float], show_legend=True):
+def show_loss_curves(loss: list[float], linf_norm: list[float], l2: list[float], lr: list[float], show_legend=True):
     with torch.no_grad():
-        plt.semilogy(loss, label='Loss\n(train) ', color='blue')
-        plt.semilogy(linf_norm, label=r'$L^\infty$', color='orange')
-        plt.semilogy(l2, label=r'$L^2$', color='red')
+        plt.semilogy(loss, label='Loss\n(train) ', color='blue', alpha=0.7)
+        plt.semilogy(linf_norm, label=r'$L^\infty$', color='orange', alpha=0.7)
+        plt.semilogy(l2, label=r'$L^2$', color='red', alpha=0.7)
+        plt.semilogy(lr, label='LR', color='gray', alpha=0.7)
         plt.title(r'Model curves', fontsize=10)
         if show_legend:
             plt.legend(loc='upper left', bbox_to_anchor=(1, 1))
 
 
-def plot_figure_free_shape(centers, nodes, fn, nn: RBF_Free_All | RBF_Poly_Free_All | RBFInterpolantFreeCenters, dim: int, loss, linf, l2, epoch: int = -1, path: str | None = None, dev='cuda', extension='png',
+def plot_figure_free_shape(centers, nodes, fn, nn: RBF_Free_All | RBF_Poly_Free_All | RBFInterpolantFreeCenters, dim: int, loss, linf, l2, lr, epoch: int = -1, path: str | None = None, dev='cuda', extension='png',
                            show_nodes=False, show_centers=True, resolution=300, xmin=-1, xmax=1, shape: float | torch.Tensor = -1):
 
     with torch.no_grad():
@@ -116,7 +117,7 @@ def plot_figure_free_shape(centers, nodes, fn, nn: RBF_Free_All | RBF_Poly_Free_
 
         # L^inf and loss curves
         plt.subplot(2, 2, 4)
-        show_loss_curves(loss, linf, l2)
+        show_loss_curves(loss, linf, l2, lr)
 
         if path is None:
             plt.show()
@@ -212,7 +213,7 @@ def plot_data_3d(centers, xmin: float, xmax: float, approx: torch.Tensor, target
 
         # plt.subplot(1, 2, 2)
         plt.subplot(gs[1])
-        show_loss_curves(loss, linf, show_legend=False)
+        show_loss_curves(loss, linf, lr, show_legend=False)
 
         # Create legend handles
         legend_handles = [
