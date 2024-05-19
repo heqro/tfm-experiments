@@ -2878,10 +2878,10 @@ Figure \ref{fig:medians-epochs-statistic-u2-poly-shape-10} shows the medians of 
 
 \begin{itemize}
   \item The situation is known already when no polynomial term is considered: the medians produce better results as more centers are considered, also finding a  plateau for larger values of $k$.
-  \item The explicit incorporation of a bias term term has a positive effect on the interpolation, reducing the previously-observed plateau while providing another digit of accuracy in the worst-case scenario. This plateau is further reduced when considering a linear polynomial.
+  \item The explicit incorporation of a bias term has a positive effect on the interpolation, reducing the previously-observed plateau while providing another digit of accuracy in the best-case scenario. This plateau is further reduced when considering a linear polynomial.
   \item The consideration of a quadratic or cubic polynomial, which have the capabilities of faithfully capturing the function we interpolate, yields about the same medians for $k=4$. This indicates that the incorporation of RBF interpolators featuring a large number of centers is not necessary when we have enough information.
   \item There is a visible change in behavior on the epochs' ratios as well when a quadratic/cubic polynomial is added in.
-  \item Figure \ref{fig:linf-shape10-poly0-poly3} shows the violin plots with an explicit bias term alongside a quadratic polynomial. Even though the medians are close, the actual distribution of all the experiments show that those involving a quadratic polynomial (and, to our observations, with $7$ centers) can produce results to machine precision, indeed copying the actual function we sample. As the interpolator gets more complex, featuring more RBF addends, we observe that finding these solutions are less likely, being the worst case in this respect that of $15$ centers.
+  \item Figure \ref{fig:linf-shape10-poly0-poly2} shows the violin plots with an explicit bias term alongside a quadratic polynomial. Even though the medians are close, the actual distribution of all the experiments show that those involving a quadratic polynomial (and, to our observations, with $7$ centers) can produce results to machine precision, indeed copying the actual function we sample. As the interpolator gets more complex, featuring more RBF addends, we observe that finding these solutions are less likely, being the worst case in this respect that of $15$ centers.
 \end{itemize}
 
 
@@ -2961,9 +2961,9 @@ Figure \ref{fig:medians-epochs-statistic-u2-poly-shape-10} shows the medians of 
     \caption{Distribution of shape parameters at the end of the training process, for starting shape parameters $\varepsilon=1$ and $\varepsilon=10$.}
     \label{fig:distribution-alphas-u2}
   \end{figure}
-  \item Figures \ref{fig:u2-TR7-C7-Kgaussian_kernel-Poly0-Equi-Sh1-E50000-4} and \ref{fig:u2-TR7-C7-Kgaussian_kernel-Poly0-Equi-Sh10-E50000-34} depict some descriptive realizations of the experiments for the case $C=7,k=1$ with a bias term. They are realizations for shape parameters $\varepsilon=1$ and $\varepsilon=10$ respectively. When there is not enough information, $\varepsilon=10$ exhibits high oscillations between any two interpolation nodes, which produces bad results $L^\infty-$norm. However, because we know $\varepsilon=10$ forms a better-posed problem that $\varepsilon=1$, this also allows the loss term to be of the order of $10^{-14}$, whereas the case $\varepsilon=1$ is not able to reduce the loss term as visibly.
+  \item Figures \ref{fig:u2-TR7-C7-Kgaussian_kernel-Poly0-Equi-Sh1-E50000-4} and \ref{fig:u2-TR7-C7-Kgaussian_kernel-Poly0-Equi-Sh10-E50000-34} depict some descriptive realizations of the experiments for the case $C=7,k=1$ with a bias term. They are realizations for shape parameters $\varepsilon=1$ and $\varepsilon=10$ respectively. When there is not enough information, $\varepsilon=10$ exhibits high oscillations between any two interpolation nodes, which produces bad results in the $L^\infty-$norm. However, because we know $\varepsilon=10$ forms a better-posed problem that $\varepsilon=1$, this also allows the loss term to be of the order of $10^{-14}$, whereas the case $\varepsilon=1$ is not able to reduce the loss term as visibly.
   \item This is not just a particular incidence: as $C$ and $k$ increase, Figures \ref{fig:medians-linf-statistic-u2-poly-shape-1} and \ref{fig:medians-linf-statistic-u2-poly-shape-10} show that the case $\varepsilon=1$ produces better results in the $L^\infty-$norm as well, most notably for $k$ close to $1$.
-  \item The epochs' ratios (Figures \ref{fig:medians-linf-statistic-u2-poly-shape-1} and \ref{fig:medians-linf-statistic-u2-poly-shape-10})indicate that, when considering a polynomial term of degree $2$ or $3$, the best epochs in the $L^\infty-$norm tend to happen at about the same iterations, irrespectively of the training points. This implies that, even though the polynomial term may not always guarantee better results in the $L^\infty-$norm, it provides some ``predictability'' beyond the parameters $C$ and $k$ we choose.
+  \item The epochs' ratios (Figures \ref{fig:medians-linf-statistic-u2-poly-shape-1} and \ref{fig:medians-linf-statistic-u2-poly-shape-10}) indicate that, when considering a polynomial term of degree $2$ or $3$, the best epochs in the $L^\infty-$norm tend to happen at about the same iterations, irrespectively of the training points. This implies that, even though the polynomial term may not always guarantee better results in the $L^\infty-$norm, it provides some ``predictability'' beyond the parameters $C$ and $k$ we choose.
   \item The action of the quadratic polynomial term, by which it may produce results to machine precision, appears most notably for $C=7$, both for $\varepsilon=1$ and $\varepsilon=10$. As more centers are provided, it is harder to produce results to machine precision (see \ref{fig:linf-shape1-poly0-poly2} and \ref{fig:linf-shape10-poly0-poly2}): the ``search'' space is more dense and therefore harder to ``navigate''.
   \item For all these considerations, the better option seems to be $\varepsilon=1$. 
 \end{itemize}
@@ -2984,6 +2984,82 @@ Figure \ref{fig:medians-epochs-statistic-u2-poly-shape-10} shows the medians of 
 
 \clearpage
 
+\textbf{Further refinements}
+
+Despite achieving satisfactory results across our previous experiments, one can now reflect on what could be refined:
+\begin{enumerate}
+  \item During the preliminary experimentation, we worked with Chebyshev and equispaced nodes. In a ``realistic'' setting, where one would be provided experimental data points, one cannot expect the points to be sampled this way. \label{proposal:uniform-points}
+  \begin{itemize}
+    \item Would our method still work for a set of points that we do not anticipate? \item How would the statistics of our model look like?
+  \end{itemize}
+  \item What is the reason behind starting out with a certain value of $\varepsilon$?
+  Figure \ref{fig:distribution-alphas-u2} shows that, regardless of the starting value, the shape parameters tend to be localized most notoriously close to the starting point. For instance, as $C$ and $k$ are increased, one can expect $\varepsilon=1$ to eventually produce ill-posed problems. \label{proposal:estimate-epsilon}
+  \item Loss curves like those of Figures \ref{fig:u2-TR7-C7-Kgaussian_kernel-Poly0-Equi-Sh1-E50000-4} and \ref{fig:u2-TR7-C7-Kgaussian_kernel-Poly0-Equi-Sh10-E50000-34} feature high oscillations. This ultimately raises some questions on convergence, which we attempted to solve by looking at the best epochs' ratio, which is a non-standard metric. \label{proposal:scheduler} \begin{itemize}
+    \item It is desirable to find a training regime whereby the ``speed'' of the method is preserved while oscillations are reduced.
+  \end{itemize}
+\end{enumerate}
+
+To solve these problems, we introduce the following refinements to our methodology and repeat the exact same previous experiment:
+\begin{enumerate}
+  \item Training points should be sampled from the uniform distribution, whose upper and lower bounds will be those of the interval of the function we wish to approximate.
+  \item Let $C$ be the number of equispaced centers. For each value of $C$, we consider the matrix-form interpolation problem where the interpolation points are also our centers. Using the bisection method, we look for $\varepsilon$ such that the condition number of the interpolation matrix is between $10^{-6}$ and $10^{-7}$. For each value of $C$, we will be using the previously-computed $\varepsilon$ as an estimation of a suitable starting shape value.
+  \item A suitable candidate for preserving the ``speed'' of our method while reducing oscillations, especially towards the end of the training process, is the \href{https://pytorch.org/docs/stable/generated/torch.optim.lr_scheduler.ReduceLROnPlateau.html}{\texttt{ReduceLROnPlateau}} PyTorch scheduler, which verifies if the loss function took values below \texttt{dynamic\_threshold} in \texttt{patience} iterations:
+  \begin{itemize}
+    \item If that is the case, \texttt{dynamic\_threshold} is reduced and we resume operation.
+    \item If that is not the case, the learning rate is reduced by \texttt{factor}.
+  \end{itemize}
+  Preliminary experimentation showed that, in the 1D case, \texttt{patience} could be increased to $100$, whereas the rest of the scheduler's parameters are set as default.
+\end{enumerate}
+
+\textbf{Conclusions}
+
+Including a scheduler into our methodology allows us to reliably compare the last iteration of our iterative method with the best iterations in the $L^\infty-$norm, as we remove oscillations on those verification metrics. Furthermore, we now incorporate other indicators like the $L^2$ norm as used in Machine Learning (the root mean-squared error on the verification dataset): as the study progressed, it became evident that this new metric could provide more detail into the learning process, the $L^\infty$ norm being too stringent for our purposes. 
+
+The incorporation of this new metric has been shown to be illustrative, as Figure \ref{fig:statistic-u2-scheduler-l2-linf} shows, on its right hand side, that the $L^2$ norm continues to decline past the best iteration in the $L^\infty-$norm. The incorporation of a scheduler also allows us to compare the last iteration of our process in the $L^\infty-$norm with its minimum, showing that they are not far away from each other.
+
+\begin{figure}[h]
+  % \frame
+  \hspace*{-1cm}
+  {\includegraphics[width=.42\textwidth,clip=true,trim={0 0 2cm 0}]{imagenes/experiments/1d/statistical_1d_full_scheduler/comparison-linf.pdf}}
+  % \frame
+  {\includegraphics[width=.42\textwidth,clip=true,trim={0 0 2cm 0}]{imagenes/experiments/1d/statistical_1d_full_scheduler/comparison-l2.pdf}}
+  % \frame
+  {\includegraphics[width=.08\textwidth,clip=true,trim={12.1cm 1cm 0 1cm}]{imagenes/experiments/1d/statistical_1d_full_scheduler/comparison-l2.pdf}}
+  \caption{Left-hand side: distributions of the $L^\infty-$norm across all experiments, comparing for each experiment (represented by a data point) its minimum with the value achieved at the last iteration. Right-hand side: comparison in the $L^2-$norm involving the value obtained in best iteration in the $L^\infty-$norm with the end value.}
+  \label{fig:statistic-u2-scheduler-l2-linf}
+\end{figure}
+
+For further reference, Figure \ref{fig:shape-parameters-end-training} shows the distribution of parameters at the end of the training process. The legend shows the suitable estimated starting values for interpolating on an equispaced lattice of $C$ centers yielded by the bijection method.
+
+
+\begin{figure}[h]
+  % \frame
+  
+  {\includegraphics[width=.6\textwidth,clip=true,trim={0 0 0 0}]{imagenes/experiments/1d/statistical_1d_full_scheduler/distribution_of_shape_parameters_at_end_of_training.pdf}}
+  \caption{Distribution of shape parameters at the end of the training process.}
+  \label{fig:shape-parameters-end-training}
+\end{figure}
+
+\begin{figure}[h]
+  % \frame
+  {\includegraphics[width=.4\textwidth,clip=true,trim={0 0 0 0}]{imagenes/experiments/1d/statistical_1d_full_scheduler/medians_linf_u2_gaussian_kernel_Poly-1_uniform.pdf}}
+  {\includegraphics[width=.4\textwidth,clip=true,trim={0 0 0 0}]{imagenes/experiments/1d/statistical_1d_full_scheduler/medians_linf_u2_gaussian_kernel_Poly2_uniform.pdf}}
+  \caption{Distribution of shape parameters at the end of the training process.}
+  \label{fig:medians-linf-scheduler-u2}
+\end{figure}
+
+\begin{figure}[h]
+  % \frame
+  {\includegraphics[width=.4\textwidth,clip=true,trim={0 0 0 0}]{imagenes/experiments/1d/statistical_1d_full_scheduler/medians_l2_u2_gaussian_kernel_Poly-1_uniform.pdf}}
+  {\includegraphics[width=.4\textwidth,clip=true,trim={0 0 0 0}]{imagenes/experiments/1d/statistical_1d_full_scheduler/medians_l2_u2_gaussian_kernel_Poly2_uniform.pdf}}
+  \caption{Distribution of shape parameters at the end of the training process.}
+  \label{fig:medians-l2-scheduler-u2}
+\end{figure}
+
+\begin{figure}
+  
+\end{figure}
+\clearpage
 \subsubsection*{Interpolation in 2D}
 
 The 1D experiment showed that the proposed methodology (employing the Gaussian
