@@ -7,7 +7,7 @@ class RBF_Free_All(nn.Module):
     def __init__(self, input_dim: int, num_centers: int, output_dim: int,
                  kernel: Callable[[Union[float, Tensor]],
                                   Callable[[Tensor, Tensor], Tensor]], starting_shape: float = 1,
-                 left_lim=0, right_lim=1):
+                 left_lim=0., right_lim=1.):
 
         super(RBF_Free_All, self).__init__()
         self.centers = nn.Parameter(Tensor(num_centers, input_dim))
