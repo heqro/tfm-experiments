@@ -25,6 +25,11 @@ def norm_cos(grid: torch.Tensor):
 def norm_cos_pi(grid: torch.Tensor):
     return torch.cos(torch.pi * grid.norm(p=2., dim=1)**2)
 
+
+def parabola(grid: torch.Tensor):
+    x, y = grid[:, 0], grid[:, 1]
+    return (x-1/2)**2 + (y-1/2) ** 2
+
 # 1-d functions
 
 
