@@ -197,7 +197,7 @@ def print_approximation(approx_points, target_points, xmax, xmin, res, centers, 
 
 
 def plot_data_3d(centers, xmin: float, xmax: float, approx: torch.Tensor, target: torch.Tensor,
-                 res: int, loss: list[float], linf: list[float],
+                 res: int, loss: list[float], linf: list[float], l2: list[float], lr: list[float],
                  filename: str = 'output', title: str | None = None):
 
     with torch.no_grad():
@@ -213,12 +213,14 @@ def plot_data_3d(centers, xmin: float, xmax: float, approx: torch.Tensor, target
 
         # plt.subplot(1, 2, 2)
         plt.subplot(gs[1])
-        show_loss_curves(loss, linf, lr, show_legend=False)
+        show_loss_curves(loss, linf, l2, lr, show_legend=False)
 
         # Create legend handles
         legend_handles = [
             mlines.Line2D([], [], color='orange', label=r'$L^\infty$'),
-            mlines.Line2D([], [], color='blue', label='Loss'),
+            mlines.Line2D([], [], color='blue', label='Loss\n(train)'),
+            mlines.Line2D([], [], color='red', label=r'$L^2$'),
+            mlines.Line2D([], [], color='gray', label=r'LR'),
             mlines.Line2D([], [], linestyle='', marker='o',
                           color='#2cc914', label='Center', markersize=4),
         ]
