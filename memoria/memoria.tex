@@ -3060,7 +3060,64 @@ For further reference, Figure \ref{fig:shape-parameters-end-training} shows the 
   
 \end{figure}
 \clearpage
-\subsubsection*{Interpolation in 2D}
+
+\subsubsection*{2D function approximation}
+
+We now approximate 2D functions under the same considerations proposed in the \textit{Further refinements} section. The only difference between the 1D case is the estimated starting values of $\varepsilon$ as well as the \texttt{patience} parameter of the scheduler, which is set to $30$ instead. 
+
+In the following, we consider $(x-1/2)^2+(y-1/2)^2$, which we approximate in the interval $[-1, 1]$. We may refer in the following to this function as \texttt{parabola}. Figure \ref{fig:medians-experiment-parabola} shows the medians of the experiment (elapsed times and $L-$norms). Figure \ref{fig:incidence-l-norms-parabola} shows the incidence of the $L^\infty$ and $L^2-$norms on the verification datasets, showing that the best iterations of both norms are close to the last iteration we do. 
+
+Figure \ref{fig:incidence-largest-error} shows that we commit the largest error in the $L^\infty-$norm along the border of the domain (and most recurrent in the corners). One is evidently less likely to find a training point located the border as it is a zero-measure set in $[-1,1]\times[-1,1]$.
+
+Figure \ref{fig:shape-parameters-end-training-parabola} shows the distribution of the shape parameters at the end of the training process. For the sake of inspection, Figure \ref{fig:parabola-training-TR30-C225} shows an example of the training experiment involving $225$ centers and a scaling factor $k=4$, which indicates that the right combination of $\varepsilon$ and scheduler is still able to produce smooth learning curves.
+
+  \begin{figure}[h]
+    \begin{tabular}{ccc}
+      \hspace*{-2.5cm}
+      {\includegraphics[width=.4\textwidth, clip=true, trim={0 0 0 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler/parabola/medians_linf_parabola_gaussian_kernel_Poly-1.pdf}}       & 
+      {\includegraphics[width=.4\textwidth, clip=true, trim={0 0 0 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler/parabola/medians_l2_parabola_gaussian_kernel_Poly-1.pdf}} &
+      % \frame
+      \includegraphics[width=.4\textwidth, clip=true, trim={0 0 0 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler/parabola/medians_times_parabola_gaussian_kernel_Poly-1.pdf} 
+                                                                                 \\
+      % \frame
+  \multicolumn{3}{c}{{\includegraphics[width=.8\textwidth, clip=true, trim={65cm 9.1cm 0 .2cm}]{imagenes/experiments/2d/statistical_2d_full_scheduler/legend.pdf}}} \\ 
+    \end{tabular}
+    \caption{Medians of $L^\infty-$norm (left), $L^2-$norm (center) and elapsed times (right) at the end of the training process for \texttt{parabola}, for a scaling factor $k$ in $|\text{\texttt{training\_points}}| = \lceil \sqrt{|\text{\texttt{centers}}| \cdot k} \rceil^2$.}
+    \label{fig:medians-experiment-parabola}
+  \end{figure}
+
+\begin{figure}[h]
+  \hspace*{-1cm}
+  % \frame
+  {\includegraphics[width=.47\textwidth, clip=true, trim={0 0 0 0 }]{imagenes/experiments/2d/statistical_2d_full_scheduler/parabola/incidence_of_linf_poly-1.pdf}}
+  % \frame
+  {\includegraphics[width=.45\textwidth, clip=true, trim={0 0 0 0 }]{imagenes/experiments/2d/statistical_2d_full_scheduler/parabola/incidence_of_l2_poly-1.pdf}}
+  \includegraphics[width=.08\textwidth, clip=true, trim={12cm 0 0 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler/parabola/cbar_incidence.pdf}
+  \caption{Distributions of the $L-$norm for the function \texttt{parabola}. Left-hand side: distributions of the $L^\infty-$norm across all experiments, comparing for each experiment (represented by a data point) its minimum with the value achieved at the last iteration. Right-hand side: comparison in the $L^2-$norm involving the value obtained in best iteration in the $L^\infty-$norm with the end value.}
+  \label{fig:incidence-l-norms-parabola}
+\end{figure}
+
+\begin{figure}[h]
+  \includegraphics[width=.45\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler/parabola/distribution_of_errors_L_inf_end.pdf}
+  \caption{Histogram of the largest errors in $L^\infty-$norm across all experiments.}
+  \label{fig:incidence-largest-error}
+\end{figure}
+
+\begin{figure}[h]
+  \includegraphics[width=.6\textwidth,clip=true,trim={0 0 0 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler/parabola/distribution_of_shape_parameters_at_end_of_training.pdf_poly-1.pdf}
+  \caption{Distribution of shape parameters at the end of the training process.}
+  \label{fig:shape-parameters-end-training-parabola}
+\end{figure}
+
+\begin{figure}[h]
+  \includegraphics[width=\textwidth,clip=true,trim={0 0 0 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler/parabola/parabola-TR30-C225-Kgaussian_kernel-Sh3.6621-18-E44371.pdf}
+  \caption{Left-hand side: absolute error of the approximation of \texttt{parabola} with $C=225,k=4$, during its last iteration. Right-hand side: the corresponding learning curves.}
+  \label{fig:parabola-training-TR30-C225}
+\end{figure}
+
+\clearpage
+\newpage
+\subsubsection*{Interpolation in 2D - \texttt{OLD?}}
 
 The 1D experiment showed that the proposed methodology (employing the Gaussian
 kernel RBF interpolator with freely adjustable centers and shape parameters) is
