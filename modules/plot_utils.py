@@ -176,7 +176,7 @@ def print_approximation(approx_points, target_points, xmax, xmin, res, centers, 
 
     # Add heatmap
     plt.imshow(X=torch.abs(approx_points - target_points),
-               extent=(xmin, xmax, xmin, xmax), cmap="cool", norm='log')
+               extent=(xmin, xmax, xmin, xmax), cmap="Oranges_r", norm='log')
     plt.colorbar(location='left', pad=.16)
 
     plt.xlim(xmin, xmax)
@@ -190,7 +190,7 @@ def print_approximation(approx_points, target_points, xmax, xmin, res, centers, 
     y_vals = np.linspace(xmin, xmax, res)
     X, Y = np.meshgrid(x_vals, y_vals)
     plt.contour(X, Y,
-                target_points, cmap='bone', linewidths=1., alpha=.7)
+                target_points, colors='black', linewidths=1., alpha=.7)
     plt.title('Absolute error (verification)', fontsize=10)
     if show_legend:
         plt.legend(loc='lower left', bbox_to_anchor=(-1, 1))
