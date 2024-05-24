@@ -181,6 +181,8 @@ def print_approximation(approx_points, target_points, xmax, xmin, res, centers, 
 
     plt.xlim(xmin, xmax)
     plt.ylim(xmin, xmax)
+    plt.xticks([xmin, xmax])
+    plt.yticks([xmin, xmax])
     # Add centers
     plt.scatter(centers[:, 0], centers[:, 1],
                 label='Centers', color='#2cc914', s=16)
