@@ -2159,8 +2159,6 @@ We iteratively minimize the corresponding loss function considering an Adam opti
 
 We chose the Adam optimizer to avoid settling on the first local minimum we find for our loss function, especially for the initial values of our dynamic learning rate. Once a suitable local minimum is found, the loss function is observed to start exhibiting oscillations by the action of the Adam optimizer, which the scheduler eventually shuts down. This results in the last hundreds of iterations featuring smooth loss curves: an implicit and ``forced convergence'' to a solution\footnote{Because the proposed loss functions are not observed to be reduced to machine precision, our solution to the interpolation problem should--rigorously speaking--not be called an interpolator, but rather an approximator.}. This strategy has been devised as a compromise between the ``speed'' that comes with a high learning rate and reducing oscillations, most importantly throughout the last iterations.
 
-% fig:autodiffgraph
-
 \textbf{A generic experiment case}
 
 To study the effectiveness of $\mathcal{NN}$ in solving $(P)$, we consider a matrix of experiments indexed by $(C,k)$, where $C \in \{7^d,9^d,11^d,13^d,15^d\}$ denotes the number of (initially equispaced) centers we equip $\mathcal{NN}$ with, and $k$ is a scaling factor which will determine the number of training points, say $T$, according to the rule
@@ -2168,24 +2166,25 @@ $T = \lceil \sqrt[d]{C  k} \rceil ^d $.
 
 Furthermore, the training points are uniformly sampled to decisively show the capability of our model to work with an arbitrary set of points. When sampling the training points, we always ensure that some of them are located at the border of the domain. This ensures that $(P)$ is either a interpolation problem (rather than an extrapolation problem) or a well-posed differential equation (so that we have points to work on our boundary conditions).
 
-For each value of $C$, we compute a starting shape parameter common to all RBFs in the following manner: we first distribute those $C$ centers across an equispaced $d-$dimensional lattice. After that is done, choose $\varepsilon$ such that the condition number of the interpolation problem with interpolation points equal to the centers is between $10^{-6}$ and $10^{-7}$. One can do so, for instance, using the bisection method. For such shapes, the loss function is observed to steadily decrease while achieving satisfactory performance on the verification dataset. Larger starting values of the shape parameter reduce this performance, whereas progressively smaller starting values eventually cause the loss function to stagnate at unacceptable orders of magnitude.
+For each value of $C$, we compute a starting shape parameter common to all RBFs in the following manner: we first distribute those $C$ centers across an equispaced $d-$dimensional lattice. After that is done, choose $\varepsilon$ such that the condition number of the interpolation problem with interpolation points equal to the centers is between $10^{-6}$ and $10^{-7}$. One can do so, for instance, using the bisection method. For such shapes, the loss function will be observed to steadily decrease while achieving satisfactory performance on the verification dataset. Larger starting values of the shape parameter reduce this performance, whereas progressively smaller starting values eventually cause the loss function to stagnate at unacceptable orders of magnitude.
 
 Each experiment configuration $(C,k)$ will be simultaneously solved several times for the following reasons: firstly, the model features a remarkably low amount of parameters, which might make it more susceptible to ``bad'' starting parameter sets. Secondly, to distill those experiments featuring training points that may not lead us to the actual solution of the problem. Thirdly, to observe the performance of our method on a verification dataset which will be fixed across every $(C,k)$. Finally, to elaborate statistic descriptions of the model's parameters: shape parameter, coefficients and centers. For each experiment, some recurrent questions to answer will be the following:
 
 \begin{itemize}
   \item How do the $L^\infty$ and $L^2-$norms on the verification dataset behave as $C$ and $k$ increase?
   \item Do we observe any improvements when equipping a polynomial term to our RBF?
+  \item What do the execution times look like? What about the GPU memory consumed by each $(C,k)$?
   \item Are there any recurrent distribution of centers, shape parameters or coefficients?
 \end{itemize}
 
-One reasonable concern for solving any experiment several simultaneous times is that of exhausting the computing resources of the server. The multiple processors the server features is enough to quell any such concern, as long as we launch less problems than processors we have. On the other hand, model memory allocation problem is often an issue when dealing with PINNs, which we address in the following by turning to the \href{https://pytorch.org/docs/stable/generated/torch.cuda.max_memory_allocated.html}{\texttt{max\_memory\_allocated()}}
+One reasonable concern for solving any experiment several simultaneous times is exhausting the computing resources of the server. The multiple processors the server features is enough to quell any such concern as long as we launch less problems than processors we have. On the other hand, model memory allocation problem is often an issue when dealing with PINNs, which we address in the following by turning to the \href{https://pytorch.org/docs/stable/generated/torch.cuda.max_memory_allocated.html}{\texttt{max\_memory\_allocated()}}
 method of the \texttt{torch.cuda} namespace. 
 
-This method returns the peak allocated memory (in bytes) since the beginning of the program, which implies that the
-measurement is to be regarded as approximate. Figure \ref{fig:model-consumption-memory} depicts the memory consumption (in bytes) of the
+This method returns the peak allocated memory (in bytes) since the beginning of the program. Therefore, this
+measurement is to be regarded as approximate. Figure \ref{fig:model-consumption-memory} depicts the memory consumption of the
 model for different numbers of centers, confirming that our model will not be a concern when it comes to memory usage. 
 
-This does not imply in any way that the memory consumed by the executed process is going to be that small, as we will also make room for the training and validation datasets. Regardless, the memory they occupy in low dimensions is observed to be negligible in comparison to the size occupied by the CUDA context\footnote{Recall that the CUDA context manages the interaction between PyTorch tensors and CUDA-capable devices (usually GPUs). The CUDA context in PyTorch handles memory allocation, device synchronization, and execution of CUDA operations on tensors stored on GPU devices. For each separate process, a CUDA context is invoked, which may be a problem if a large amount of ML problems featuring large models are to be solved simultaneously  (refer for instance to \href{https://github.com/pytorch/pytorch/issues/20532}{previous GitHub discussions} in PyTorch's repository).}.
+This does not imply in any way that the memory consumed by the executed process is going to be that small, as we will also make room for the training and validation datasets. Regardless, the memory they occupy in low dimensions is observed to be negligible in comparison to the memory occupied by the CUDA context\footnote{Recall that the CUDA context manages the interaction between PyTorch tensors and CUDA-capable devices (usually GPUs). The CUDA context in PyTorch handles memory allocation, device synchronization, and execution of CUDA operations on tensors stored on GPU devices. For each separate process, a CUDA context is invoked, which may be a problem if a large amount of ML problems featuring large models are to be solved simultaneously  (refer for instance to \href{https://github.com/pytorch/pytorch/issues/20532}{previous GitHub discussions} in PyTorch's repository).}.
 
 
 \begin{figure}[ht]
@@ -2195,1029 +2194,89 @@ This does not imply in any way that the memory consumed by the executed process 
   \label{fig:model-consumption-memory}
 \end{figure}
 
+In the following, we will work on well-behaved polynomial functions. Our objective is to evaluate the performance of our model when we expect to the performance to improve when explicitly incorporating polynomial terms. We will present the results in graphic form, using vector images to allow the usage of electronic zoom if further interpretation of the representations is of interest to the reader.
+
+\section*{Approximation of functions}
 
 
-\section*{title}
 
-We use all these alternative terminologies for the functions in correspondence with their definition in the corresponding \href{https://github.com/heqro/tfm-experiments/blob/main/modules/notable_functions.py}{\texttt{notable\_functions}} module in the repository.
+\subsection*{One-dimensional case}
 
-Each of these functions will be interpolated for under the Gaussian,
-multiquadric and PHS kernels (in particular, $\phi(r)=r^3$ alongside a linear polynomial), which we may occasionally refer to as they are featured in the \href{https://github.com/heqro/tfm-experiments/blob/main/modules/notable_kernels.py}{\texttt{notable\_kernels}} module: \texttt{gaussian\_kernel}, \texttt{mq\_kernel\_sarra}, and \texttt{phs\_kernel}. Furthermore, a fourth kernel will be considered,
-whereby the Gaussian kernel is to be accompanied by a polynomial of degree 1.
+We consider the function $x \mapsto u_2(x)=(x-1/2)^2$ for $x \in [-1,1]$. We may refer to this function by \texttt{u2} as well. For this interval, we have found suitable starting shape parameters $\{1.3428, 1.9531, 2.5635, 3.1738, 3.6621\}$. They will be tied to $C=\{7,9,11,13,15\}$, respectively.
 
-
-For each
-``function-kernel-nodes'' triple, it is reasonable to ask the following
-questions:
-
-\begin{enumerate}[i]
-  \item Fix the number of centers. Does the $L^{\infty}-$norm on the
-        verification dataset decrease as we increase the number of training points?
-        As the number of training points increases, is a larger number of iterations needed to achieve
-        better results (in terms of the $L^{\infty}-$norm)?
-
-  \item Repeat the previous step, but this time around by setting an increasingly larger
-        number of centers.
-
-  \item How do these experiments fare on the verification dataset against the
-        classic methods?
-\end{enumerate}
-
-As an addition to these questions, we also wish to analyze if there are any performance gains by utilizing these
-methods on Chebyshev nodes with respect to equispaced nodes.
-
-Any individual experiment is then uniquely
-characterized according to the parameters shown in Table \ref{tab:keys-table}. The last key of this table, ``add a polynomial'', corresponds to the possibility of complementing the Gaussian kernel with a polynomial of degree 1, the aforementioned fourth kernel. It has only been incorporated into the table for the sake of being exhaustive. It is also relevant to know that the type of nodes we choose will dictate the location of the training points as well as our centers'.
-
-\begin{table}[h]
-  \centering
-  \begin{tabular}{|l|l|l|l|l|l|}
-    \hline
-    function & \# training points & \# centers & kernel & type of nodes &
-    add a polynomial                                                      \\
-    \hline
-  \end{tabular}
-  \caption{Table with experiment keys.}
-  \label{tab:keys-table}
-\end{table}
-
-For the sake of allowing the experiments to be reproducible, we now comment on the parameters of the experiments we carry out with our method: \begin{itemize}
-  \item We will seek to minimize the \textbf{mean-squared error} (MSE) between the interpolator applied to the evaluation point and the corresponding target training values.
-  \item Learning rate: $10^{-2}$.
-  \item Optimizer: Adam.
-  \item Maximum number of iterations: 50000.
-  \item The classic methods will be executed for $\varepsilon=5$ as shape parameter\footnote{As seen in Figure \ref{fig:xor-coefficients-conditioning} during the discussion of the \texttt{xor} binary operator, the choice of the shape parameter has an important impact on the conditioning of the matrix. Therefore, this parameter has been chosen to ensure that the interpolation problems are well-conditioned while preserving the quality of the results.}.
-\end{itemize}
-
-After having commented the experiments and terminology we will follow during the experiment, we can now address the questions we have posed. %To this end, we first locate \hyperref[appendix-1d]{the corresponding Appendix} for the exhaustive relation of results of this experiment. Alongside our observations, we will include some of these results to avoid the reader from going back and forth in the text and thus facilitate the reading.
-
-We first report the results involving the $L^\infty-$norm on the verification dataset
-in the form of 3D heat maps, whereby the $x$ and $y$ coordinates correspond to the number of centers
-and training points respectively, and the $z$ entry corresponds to the minimum across all iterations
-of the logarithm of this norm.
-We will also show during which iterations these values are achieved. This way, we can possibly tell if
-we have ``stabilized'' to a solution without oscillations or if this may not be the case.
-
-
-We start the report by assessing the impact of the last two experiment keys
-of Table \ref{tab:keys-table}, namely the addition of a polynomial term and
-the type of nodes we choose to work with, on the experiments with the proposed methodology as well as the classic methodology.
-
-The \textbf{addition of a polynomial} term
-does not have any significant impact on the $L^{\infty} -$norm. As a representative result of the experiments carried out under the proposed method, Figure \ref{fig:runge-gaussian-comparison-poly-equi} compares the $L^{\infty} -$norm of the interpolation of the Runge function under equispaced training points using a polynomial term (right-hand side) and not using it (left-hand side).
 
 \begin{figure}[h]
-  \begin{tabular}{cc}
-    \multicolumn{2}{c}{{\includegraphics[width=\textwidth, trim={0 5.5cm 0 0},clip=true]
-    {imagenes/experiments/1d/variational/linf_runge_function_gaussian_kernel_Equi_Poly_Title.pdf}}}                                                                                       \\
-    {\includegraphics[height=.4\textwidth, trim={0 0 11.5cm 0},clip=true]
-    {imagenes/experiments/1d/variational/linf_runge_function_gaussian_kernel_Equi_Poly_Comparison.pdf}}  &
-     {\includegraphics[height=.4\textwidth, trim={9.52cm 0 0 0},clip=true]{imagenes/experiments/1d/variational/linf_runge_function_gaussian_kernel_Equi_Poly_Comparison.pdf}} \\
+  \hspace*{-3cm}
+  \begin{tabular}{ccc}
+    \includegraphics[width=.42\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/boxplot_linf_u2_Poly-1.pdf} &
+  \includegraphics[width=.42\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/boxplot_l2_u2_Poly-1.pdf} &
+  \includegraphics[width=.42\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/boxplot_times_u2_Poly-1.pdf} \\
+  \includegraphics[width=.42\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/boxplot_linf_u2_Poly2.pdf} &
+  \includegraphics[width=.42\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/boxplot_l2_u2_Poly2.pdf} &
+  \includegraphics[width=.42\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/boxplot_times_u2_Poly2.pdf} \\
+  \multicolumn{3}{c}{{\includegraphics[width=\textwidth]
+          {imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/legend.pdf}}}
   \end{tabular}
-  \caption{Logarithm of the $L^\infty-$norm of the approximation of the Runge function with a Gaussian kernel using equispaced nodes, comparing the performance our method using no polynomial term (left-hand side) as well as a linear polynomial term (right-hand side).}
-  \label{fig:runge-gaussian-comparison-poly-equi}
-\end{figure}
-
-There is no tendency on the classic methodology
-that clearly favors the choice of a \textbf{set of training nodes} or the other. For instance,
-Figure \ref{fig:runge-sarra-comparison-opt-points} shows that the choice of equispaced nodes may
-be preferable for the particular case of the interpolation of the
-Runge function with a multiquadric kernel: with 19 equispaced centers we may
-guarantee around 3 digits of precision, whereas this happens with 29 centers
-in a Chebyshev disposition.
-
-\begin{figure}[h]
-  \begin{tabular}{cc}
-    \multicolumn{2}{c}{{\includegraphics[width=.5\textwidth]
-    {imagenes/experiments/1d/variational/linf_runge_function_mq_kernel_sarra_Points_Classic_Title.pdf}}}                                                                                       \\
-    {\includegraphics[height=.4\textwidth, trim={0 0 11.2cm 0},clip=true]
-    {imagenes/experiments/1d/variational/linf_runge_function_mq_kernel_sarra_Points_Classic_Comparison.pdf}}  &
-     {\includegraphics[height=.4\textwidth, trim={9.5cm 0 0 0},clip=true]{imagenes/experiments/1d/variational/linf_runge_function_mq_kernel_sarra_Points_Classic_Comparison.pdf}} \\
-  \end{tabular}
-  \caption{Logarithm of the $L^\infty-$norm of the approximation of the Runge function with the multiquadric kernel using equispaced nodes, comparing the performance of equispaced with Chebyshev nodes.}
-  \label{fig:runge-sarra-comparison-opt-points}
-\end{figure}
-
-In other occasions, the situation is the opposite. Such is the case of the interpolation of
-\texttt{sin\_higher\_oscillations} with the Gaussian (as well as multiquadric) kernel,
-proportioning a digit of accuracy more than the equispaced layout as per
-Figure \ref{fig:sin-higher-oscillations-gaussian-kernel-comparison-points-classic}.
-
-\begin{figure}[h]
-  \begin{tabular}{cc}
-    \multicolumn{2}{c}{{\includegraphics[width=.5\textwidth]
-    {imagenes/experiments/1d/variational/linf_sin_higher_oscillations_gaussian_kernel_Points_Classic_Title.pdf}}}                                                                                       \\
-    {\includegraphics[height=.4\textwidth, trim={0 0 11.5cm 0},clip=true]
-    {imagenes/experiments/1d/variational/linf_sin_higher_oscillations_gaussian_kernel_Points_Classic_Comparison.pdf}}  &
-     {\includegraphics[height=.4\textwidth, trim={9.5cm 0 0 0},clip=true]{imagenes/experiments/1d/variational/linf_sin_higher_oscillations_gaussian_kernel_Points_Classic_Comparison.pdf}} \\
-  \end{tabular}
-  \caption{Logarithm of the $L^\infty-$norm of the approximation of the Runge function with a Gaussian kernel using equispaced nodes, comparing the performance our method using no polynomial term (left-hand side) as well as a linear polynomial term (right-hand side).}
-  \label{fig:sin-higher-oscillations-gaussian-kernel-comparison-points-classic}
-\end{figure}
-
-There is no clear preference on either set of nodes under our methodology either. For instance, Figure \ref{fig:runge-function-gaussian-kernel-comparison-points-classic} and \ref{fig:gibbs-function-gaussian-kernel-comparison-points-classic} show an advantage in favor of the equispaced distribution of points when dealing with Runge's and Gibbs' phenomena, respectively.
-
-\begin{figure}[h]
-  \begin{tabular}{cc}
-    \multicolumn{2}{c}{{\includegraphics[width=.5\textwidth]
-    {imagenes/experiments/1d/variational/linf_runge_function_gaussian_kernel_Points_Title.pdf}}}                                                                                       \\
-    {\includegraphics[height=.4\textwidth, trim={0 0 11.5cm 0},clip=true]
-    {imagenes/experiments/1d/variational/linf_runge_function_gaussian_kernel_Points_Comparison.pdf}}  &
-     {\includegraphics[height=.4\textwidth, trim={9.5cm 0 0 0},clip=true]{imagenes/experiments/1d/variational/linf_runge_function_gaussian_kernel_Points_Comparison.pdf}} \\
-  \end{tabular}
-  \caption{Logarithm of the $L^\infty-$norm of the approximation of the Runge function with a Gaussian kernel using equispaced nodes (left-hand side) and Chebyshev nodes (right-hand side).}
-  \label{fig:runge-function-gaussian-kernel-comparison-points-classic}
+  \caption{Top row, left and center: boxplots of the $L^\infty$ and $L^2-$norms on our verification dataset with no polynomial term. Top row, right: boxplot of the elapsed times with no polynomial term. Bottom row: the same results with a quadratic polynomial term.}
+  \label{fig:u2-results-poly-1}
 \end{figure}
 
 \begin{figure}[h]
+  \hspace*{-2cm}
   \begin{tabular}{cc}
-    \multicolumn{2}{c}{{\includegraphics[width=.5\textwidth]
-    {imagenes/experiments/1d/variational/linf_gibbs_function_gaussian_kernel_Points_Title.pdf}}}                                                                                       \\
-    {\includegraphics[height=.4\textwidth, trim={0 0 11.8cm 0},clip=true]
-    {imagenes/experiments/1d/variational/linf_gibbs_function_gaussian_kernel_Points_Comparison.pdf}}  &
-     {\includegraphics[height=.4\textwidth, trim={9.8cm 0 0 0},clip=true]{imagenes/experiments/1d/variational/linf_gibbs_function_gaussian_kernel_Points_Comparison.pdf}} \\
+    \includegraphics[width=.6\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/incidence_of_linf.pdf}
+  \includegraphics[width=.6\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/incidence_of_l2.pdf}
   \end{tabular}
-  \caption{Logarithm of the $L^\infty-$norm of the approximation of the Gibbs function with a Gaussian kernel using equispaced nodes (left-hand side) and Chebyshev nodes (right-hand side).}
-  \label{fig:gibbs-function-gaussian-kernel-comparison-points-classic}
+  \caption{Left: incidence of the $L^\infty-$norm across all experiments, comparing the optimum iteration in this value with the last iteration. Right: incidence of the $L^2-$norm across all experiments, comparing with the value that produced the best iteration in the $L^\infty-$norm.}
+  \label{fig:u2-results-incidence-l-norms}
 \end{figure}
-
-
-Conversely, Figure \ref{fig:sin-higher-oscillations-gaussian-kernel-comparison}, which depicts the heat map of the interpolation of the function \texttt{sin-higher-oscillations} with a Gaussian interpolator, shows that Chebyshev nodes allow for generally better results than with Equispaced nodes.
-
-\begin{figure}[H]
-  \begin{tabular}{cc}
-    \multicolumn{2}{c}{{\includegraphics[width=.5\textwidth]
-    {imagenes/experiments/1d/variational/linf_sin_higher_oscillations_gaussian_kernel_Points_Title.pdf}}}                                                                                       \\
-    {\includegraphics[height=.4\textwidth, trim={0 0 11.5cm 0},clip=true]
-    {imagenes/experiments/1d/variational/linf_sin_higher_oscillations_gaussian_kernel_Points_Comparison.pdf}}  &
-     {\includegraphics[height=.4\textwidth, trim={9.5cm 0 0 0},clip=true]{imagenes/experiments/1d/variational/linf_sin_higher_oscillations_gaussian_kernel_Points_Comparison.pdf}} \\
-  \end{tabular}
-  \caption{Logarithm of the $L^\infty-$norm of the approximation of the Runge function with a multiquadric kernel using equispaced nodes, comparing the performance our method using no polynomial term (left-hand side) as well as a linear polynomial term (right-hand side).}
-  \label{fig:sin-higher-oscillations-gaussian-kernel-comparison}
-\end{figure}
-
-Therefore, it is not clear if any particular choice of training nodes is better. There is also no notable performance gain when incorporating a polynomial addend. For this reason, the remainder of the report defaults to commenting the simpler
-scenario: that of equispaced points and disregarding the fourth kernel (Gaussian + polynomial term). We first address the results with the Gaussian and multiquadric kernels. Secondly, we discuss the results involving the PHS kernel.
-
-Starting with the Runge function, our method reduces the
-$L^{\infty} -$norm performs comparably to the classic method across the Gaussian and multiquadric kernels.
-We first refer to Figure \ref{fig:runge-gaussian-comparison-equi-classic}, which shows a comparison on the $L^\infty-$norm for the Gaussian kernel. Notice that our method yields a minimum of two digits of accuracy across all tests. The classic method starts exhibiting this performance level when supplied with 13
-centers or more, visually yielding the same accuracy irrespectively of the number of training points. Our method is capable of making the most of the training points, possibly yielding three digits of accuracy with just 5 centers and 27 training points. %This is a noticeable difference with the classic method, which is more sensitive to the number of centers than the training points.
-
-
-\begin{figure}[H]
-  \begin{tabular}{cc}
-    \multicolumn{2}{c}{{\includegraphics[width=.5\textwidth]
-    {imagenes/experiments/1d/variational/linf_runge_function_gaussian_kernel_Equi_Classic_Title.pdf}}}                                                                                       \\
-    {\includegraphics[height=.4\textwidth, trim={0 0 11.5cm 0},clip=true]
-    {imagenes/experiments/1d/variational/linf_runge_function_gaussian_kernel_Equi_Classic_Comparison.pdf}}  &
-     {\includegraphics[height=.4\textwidth, trim={9.5cm 0 0 0},clip=true]{imagenes/experiments/1d/variational/linf_runge_function_gaussian_kernel_Equi_Classic_Comparison.pdf}} \\
-  \end{tabular}
-  \caption{Logarithm of the $L^\infty-$norm of the approximation of the Runge function with a Gaussian kernel using equispaced nodes, comparing the performance our method using no polynomial term (left-hand side) as well as a linear polynomial term (right-hand side).}
-  \label{fig:runge-gaussian-comparison-equi-classic}
-\end{figure}
-
-This tendency is also present in Figure \ref{fig:runge-mq-sarra-kernel-comparison-equi-classic}, which compares the performance of the multiquadric kernel: %on the same data set-ups: the 
-results show that our method is capable of not exhibiting oscillations even when trained with a small amount of training points and centers.
-However, the figure shows that the multiquadric kernel (under the classic method) is capable of giving up to four digits of accuracy when solving for 29 training points and 29 centers, which our method is not capable of achieving.
 
 \begin{figure}[h]
-  \begin{tabular}{cc}
-    \multicolumn{2}{c}{{\includegraphics[width=.5\textwidth]
-    {imagenes/experiments/1d/variational/linf_runge_function_mq_kernel_sarra_Equi_Classic_Title.pdf}}}                                                                                       \\
-    {\includegraphics[height=.4\textwidth, trim={0 0 11.5cm 0},clip=true]
-    {imagenes/experiments/1d/variational/linf_runge_function_mq_kernel_sarra_Equi_Classic_Comparison.pdf}}  &
-     {\includegraphics[height=.4\textwidth, trim={9.5cm 0 0 0},clip=true]{imagenes/experiments/1d/variational/linf_runge_function_gaussian_kernel_Equi_Classic_Comparison.pdf}} \\
-  \end{tabular}
-  \caption{Logarithm of the $L^\infty-$norm of the approximation of the Runge function with a multiquadric kernel using equispaced nodes, comparing the performance our method (left-hand side) against the classic one (right-hand side).}
-  \label{fig:runge-mq-sarra-kernel-comparison-equi-classic}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/distribution_of_shape_parameters_at_end_of_training.pdf}
+  \caption{Distribution of shape parameters at the end of the training process fitted to a normal distribution.}
+  \label{fig:u2-results-shape-parameters}
 \end{figure}
 
-For the Gibbs phenomenon, we may just refer to the experiments carried out
-with the Gaussian kernel (see Figure
-\ref{fig:gibbs-gaussian-kernel-comparison-classic}), because the same
-observations hold for the multiquadric kernel as well. For the
-classic methodology, it suffices to note that we need to consider
-21 centers just to be able to remove oscillations to the first digit of
-accuracy. However, a number of centers larger than 7 and a number of training
-points larger than 23 is sufficient to give this first digit of accuracy.
 
 \begin{figure}[h]
-  \begin{tabular}{cc}
-    \multicolumn{2}{c}{{\includegraphics[width=.5\textwidth]
-    {imagenes/experiments/1d/variational/linf_gibbs_function_gaussian_kernel_Methods_Title.pdf}}}                                                                                       \\
-    {\includegraphics[height=.4\textwidth, trim={0 0 11.5cm 0},clip=true]
-    {imagenes/experiments/1d/variational/linf_gibbs_function_gaussian_kernel_Methods_Comparison.pdf}}  &
-     {\includegraphics[height=.4\textwidth, trim={9.5cm 0 0 0},clip=true]{imagenes/experiments/1d/variational/linf_gibbs_function_gaussian_kernel_Methods_Comparison.pdf}} \\
-  \end{tabular}
-  \caption{Logarithm of the $L^\infty-$norm of the approximation of the Gibbs function with a Gaussian kernel using equispaced nodes, comparing the performance our method (left-hand side) against the classic one (right-hand side).}
-  \label{fig:gibbs-gaussian-kernel-comparison-classic}
+  \includegraphics[width=.7\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/distribution_of_errors_L_inf_end.pdf}
+  \caption{Distribution of the locations of the largest errors in the approximation of the functions at the end of the training process.}
+  \label{fig:u2-results-largest-error}
 \end{figure}
-
-Like
-in the case of the Runge phenomenon, the classic methodology improves
-the results as the number of centers increases, whereas our methodology
-produces better results as the number of training points increases.
-Notwithstanding, neither of the two methods are not able to decisively reduce the oscillations with the given amounts of centers and training points, that is, they can only provide in the best case scenario a digit of accuracy under the tests we carried out.
-
-We now address the results of our experiments on the function named for convenience \texttt{sin\_higher\_oscillations}. As for the Gaussian kernel (see Figure \ref{fig:sin-higher-oscillations-gaussian-kernel-comparison-methods}), we observe that our method is capable of providing two digits of accuracy in almost every experiment configuration, bar the ones involving 5 centers and 15 and 19 training points. In a similar vein to the previous experiments, we observe that there are indeed dispositions of centers that are able to minimize oscillations providing three digits of accuracy (compare, for instance, the results of both methods involving 17 training points and 9 centers).
 
 \begin{figure}[h]
-  \begin{tabular}{cc}
-    \multicolumn{2}{c}{{\includegraphics[width=.5\textwidth]
-    {imagenes/experiments/1d/variational/linf_sin_higher_oscillations_gaussian_kernel_Methods_Title.pdf}}}                                                                                       \\
-    {\includegraphics[height=.4\textwidth, trim={0 0 11.5cm 0},clip=true]
-    {imagenes/experiments/1d/variational/linf_sin_higher_oscillations_gaussian_kernel_Methods_Comparison.pdf}}  &
-     {\includegraphics[height=.4\textwidth, trim={9.5cm 0 0 0},clip=true]{imagenes/experiments/1d/variational/linf_sin_higher_oscillations_gaussian_kernel_Methods_Comparison.pdf}} \\
-  \end{tabular}
-  \caption{Logarithm of the $L^\infty-$norm of the approximation of \texttt{sin\_higher\_oscillations} with a Gaussian kernel using equispaced nodes, comparing the performance our method (left-hand side) against the classic one (right-hand side).}
-  \label{fig:sin-higher-oscillations-gaussian-kernel-comparison-methods}
+  \includegraphics[width=.7\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/last_few_all_with_Poly.pdf}
+  \includegraphics[width=.7\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/last_few_TR60_C15.pdf}
+  \caption{Loss curves of the last few hundreds of iterations for all iterations, and for 60 training points and 15 centers.}
+  \label{fig:u2-results-last-iterations}
 \end{figure}
 
-Much like the other experiments involving the multiquadric kernel, we observe that its performance is not as impressive as that of the Gaussian kernel, providing a digit of accuracy less than the latter. Such is the case again for \texttt{sin-higher-oscillations}, depicted in Figure \ref{fig:sin-higher-oscillations-mq-kernel-sarra-comparison-methods}. The addition of more centers does not have a noticeable effect on our method as well as on the classic method. %The former, however, is on a tendency to improve the results as more training points are provided (check, for instance, the 11th and 13th columns), whereas the latter seems not to improve performance past the addition of 13 centers. 
-Providing more training points does not noticeably improve the results for the classic method, in coherence with the previous results we have observed.
 
 \begin{figure}[h]
+  \hspace*{-3.5cm}
   \begin{tabular}{cc}
-    \multicolumn{2}{c}{{\includegraphics[width=.5\textwidth]
-    {imagenes/experiments/1d/variational/linf_sin_higher_oscillations_mq_kernel_sarra_Methods_Title.pdf}}}                                                                                       \\
-    {\includegraphics[height=.4\textwidth, trim={0 0 11.5cm 0},clip=true]
-    {imagenes/experiments/1d/variational/linf_sin_higher_oscillations_mq_kernel_sarra_Methods_Comparison.pdf}}  &
-     {\includegraphics[height=.4\textwidth, trim={9.5cm 0 0 0},clip=true]{imagenes/experiments/1d/variational/linf_sin_higher_oscillations_mq_kernel_sarra_Methods_Comparison.pdf}} \\
+    \includegraphics[width=.7\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/histogram-centers-C7.pdf}
+    % \frame
+    {\includegraphics[width=.7\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/histogram-centers-C15.pdf}  }
   \end{tabular}
-  \caption{Logarithm of the $L^\infty-$norm of the approximation of \texttt{sin\_higher\_oscillations} with a multiquadric kernel using equispaced nodes, comparing the performance our method (left-hand side) against the classic one (right-hand side).}
-  \label{fig:sin-higher-oscillations-mq-kernel-sarra-comparison-methods}
+  \caption{Distribution of centers at the end of the training process.}
+  \label{fig:u2-results-centers}
 \end{figure}
-
-Now, we turn to \texttt{sin\_pi\_x\_sq}. We first refer to Figure \ref{fig:sin-pi-x-sq-gaussian-kernel-comparison-methods} for a comparison of the performance of both methods using the Gaussian kernel. We observe that, avoiding the case where we consider 5 centers, all other configurations are able to yield a minimum of two digits of accuracy. For this to happen with the classic method, we require the consideration of 21 centers.
 
 \begin{figure}[h]
-  \begin{tabular}{cc}
-    \multicolumn{2}{c}{{\includegraphics[width=.5\textwidth]
-    {imagenes/experiments/1d/variational/linf_sin_pi_x_sq_gaussian_kernel_Methods_Title.pdf}}}                                                                                       \\
-    {\includegraphics[height=.4\textwidth, trim={0 0 11.5cm 0},clip=true]
-    {imagenes/experiments/1d/variational/linf_sin_pi_x_sq_gaussian_kernel_Methods_Comparison.pdf}}  &
-     {\includegraphics[height=.4\textwidth, trim={9.5cm 0 0 0},clip=true]{imagenes/experiments/1d/variational/linf_sin_pi_x_sq_gaussian_kernel_Methods_Comparison.pdf}} \\
-  \end{tabular}
-  \caption{Logarithm of the $L^\infty-$norm of the approximation of \texttt{sin\_pi\_x\_sq} with a Gaussian kernel using equispaced nodes, comparing the performance our method (left-hand side) against the classic one (right-hand side).}
-  \label{fig:sin-pi-x-sq-gaussian-kernel-comparison-methods}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/C15-All.pdf}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/C15-TR15.pdf}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/C15-TR60.pdf}
+  \caption{Box plots of shapes and coefficients.}
+  \label{fig:u2-results-shapes-etc}
 \end{figure}
 
 
-We close this section of the report by turning to the case of the PHS interpolator. Figure \ref{fig:runge-function-phs-kernel-comparison-methods} shows a representative experiment that compares our methodology with the classic one. Our method is close to providing a single digit of accuracy in the $L^\infty-$norm, whereas the other is capable of providing a digit of accuracy just by the consideration of 7 centers, reaching around 3 digits of accuracy with just 15 centers. Unlike the other kernels we have considered, the PHS kernel does not significantly improve the results facing larger training points nor centers, which leads one to ponder if our iterative methodology may be ``stuck'' on a local minimum for this particular kernel.
 
-\begin{figure}[h]
-  \begin{tabular}{cc}
-    \multicolumn{2}{c}{{\includegraphics[width=.5\textwidth]
-    {imagenes/experiments/1d/variational/linf_runge_function_phs_kernel_Methods_Title.pdf}}}                                                                                       \\
-    {\includegraphics[height=.4\textwidth, trim={0 0 11.5cm 0},clip=true]
-    {imagenes/experiments/1d/variational/linf_runge_function_phs_kernel_Methods_Comparison.pdf}}  &
-     {\includegraphics[height=.4\textwidth, trim={9.5cm 0 0 0},clip=true]{imagenes/experiments/1d/variational/linf_runge_function_phs_kernel_Methods_Comparison.pdf}} \\
-  \end{tabular}
-  \caption{Logarithm of the $L^\infty-$norm of the approximation of the Runge function with a PHS kernel using equispaced nodes, comparing the performance our method (left-hand side) against the classic one (right-hand side).}
-  \label{fig:runge-function-phs-kernel-comparison-methods}
-\end{figure}
-
-A reasonable concern is the following: the results we have commented on are the comparison of the classic methodology against the iterations that minimized the $L^\infty-$norm on the verification dataset. If these optimal iterations are close to the maximum of iterations we have considered (recall that it is 50000), this indicates that our method ``converges'' to a solution which reduces the oscillations.
-
-Other verification methods could have been considered, for instance:
-\begin{enumerate}
-  \item The ratio of the $L^\infty-$norms between the last and best iterations. Because we trained using the Adam optimizer, which considers ``jumps'' every so often to avoid converging to local minima, this ratio does not yield useful information, for any such ``jumps'' could have occurred close to the last iterations, which could lead us into the wrong direction.
-  \item Refining the previous method, this time around inspecting the $L^\infty-$norm values iteration after iteration for every experiment, to verify if the few last thousands of iterations are reasonably close in value to the best iteration. Whereas this is indeed a sound strategy, it does not scale for the amount of experiments we have carried out.
-        % It is worth considering, however, for specific experiments. \label{option-method}
-\end{enumerate}
-
-We start by calling up on the experiments involving the multiquadric kernel. Figure \ref{fig:epochs-sarra-kernel-report} shows the ratio of the best epoch to the number of total epochs for the interpolation of the Runge function with equispaced points. We can observe that, except for some outliers, the best iteration in terms of the $L^\infty-$norm on the verification dataset happens ``close'' to the maximum of iterations. This indicates that the multiquadric kernel does not only reduce oscillations, but that this reduction can be thought of as the ``stationary''\footnote{Because we work with the Adam optimizer, there is no (strictly speaking) a stationary regime. We mean that the long-term behavior of our interpolator is to minimize the oscillations, if we disregard the iterations where the optimizer tries to consider a different set of parameters.} regime of our iterative process.
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/runge_function-Kmq_kernel_sarra-Equi-epochs.pdf}
-  \caption{Ratio of the best epoch in the sense of the $L^\infty-$norm over the maximum number of epochs, for the interpolation of the Runge function with a multiquadric kernel and equispaced nodes.}
-  \label{fig:epochs-sarra-kernel-report}
-\end{figure}
-
-Figure \ref{fig:epochs-gaussian-kernel-report} paints a different picture for the case of the Gaussian kernel. Indeed, the left-hand side shows that, about two thirds of the times, the iteration that minimizes the $L^\infty-$norm takes place close to the foreseen maximum of iterations. However, the right-hand side of this figure shows that it does not manage to cause the same impression for the Gibbs phenomenon. Similar conclusions can be drawn for the interpolation of the other functions we have considered.
-
-\begin{figure}[h]
-  \begin{tabular}{cc}
-    \multicolumn{2}{c}{{\includegraphics[width=.5\textwidth]
-    {imagenes/experiments/1d/variational/best_epochs_comparison_gaussian_kernel_Title.pdf}}}                                                                                       \\
-    {\includegraphics[height=.4\textwidth, trim={0 0 11.5cm 0},clip=true]
-    {imagenes/experiments/1d/variational/best_epochs_comparison_gaussian_kernel.pdf}}  &
-     {\includegraphics[height=.4\textwidth, trim={9.5cm 0 0 0},clip=true]{imagenes/experiments/1d/variational/best_epochs_comparison_gaussian_kernel.pdf}} \\
-  \end{tabular}
-  \caption{Left-hand side: epochs ratio for the interpolation of the Runge function. Right-hand side: epochs ratio for the interpolation of the Gibbs function. In both images, interpolation has been carried out with the Gaussian kernel.}
-  \label{fig:epochs-gaussian-kernel-report}
-\end{figure}
-
-To close the report, we turn to elaborate on why the results may be poor for the \textbf{PHS kernel}.
-The left-hand side of Figure \ref{fig:epochs-runge-phs-show} depicts the interpolation of the Runge function with a PHS kernel and equispaced points, indicating that the best iteration in the $L^\infty-$norm for the PHS kernel interpolation is close to the last iteration we consider. This is actually the case for every experiment involving this kernel.
-
-
-The right-hand side of this same figure depicts the distribution of the centers at the last iteration of our process, under 15 and 17 training points. Independently of the number of centers we consider, we observe that these centers are organized in well-distinguished groups.
-
-As the right-hand side of the figure shows, all the learnt centers are either close to or larger than zero. Provided the functions we are interpolating for are defined in the $[-1,1]$ interval, the fact that we find most centers just on one side of this interval shows that the iterative method is stuck on a local minimum. Moreover, the addition of training nodes or centers does not solve this situation.
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=.49\textwidth, align=c]{imagenes/experiments/1d/variational_epochs/runge_function-Kphs_kernel-Equi-epochs.pdf}
-  \begin{tabular}{l}
-    \includegraphics[width=.45\textwidth, trim={0 4.47cm 0 0}, clip=true]{imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR15.pdf} \\
-    \includegraphics[width=.45\textwidth, trim={0 4.47cm 0 0}, clip=true]{imagenes/experiments/1d/phs_nodes_asymptotic/runge_function_TR17.pdf}
-  \end{tabular}
-
-  \caption{Left-hand side: epochs ratio for the interpolation of the Runge function with the PHS kernel. Right-hand side: distribution of centers with 15 (top) and 17 (bottom) training nodes.}
-  \label{fig:epochs-runge-phs-show}
-\end{figure}
-
-The results only differ for \texttt{sin\_pi\_x\_sq}, which is the function for which our method managed to provide a digit of accuracy in the $L^\infty-$norm. As Figure \ref{fig:epochs-sin-pi-sq-show} shows, the end of the training process shows the centers to be more spread out. This time around, some of them can be found in the vicinity of $-1$, which is hardly seen in all the other experiments. Centers are still grouping up, albeit not as notably as the number of training nodes increases.
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=.45\textwidth, trim={0 4.47cm 0 0}, clip=true]{imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR15.pdf}
-  \includegraphics[width=.45\textwidth, trim={0 4.47cm 0 0}, clip=true]{imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR19.pdf}
-  \includegraphics[width=.45\textwidth, trim={0 4.47cm 0 0}, clip=true]{imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR23.pdf}
-  \includegraphics[width=.45\textwidth, trim={0 4.47cm 0 0}, clip=true]{imagenes/experiments/1d/phs_nodes_asymptotic/sin_pi_x_sq_TR29.pdf}
-  \caption{Distribution of centers at the end of our iterative process for 15, 19, 23 and 29 training nodes, all of them trained with equispaced training points.}
-  \label{fig:epochs-sin-pi-sq-show}
-\end{figure}
-
-We finally recall that we are searching for the parameters for any arbitrary interpolator using the MSE. In the case the number of centers and training points coincide, an open road is to try to iteratively solve formulation \eqref{eqn-augmented-rbf-poly-system}. Indeed, if $L_{\text{MSE}}$ denotes the loss function due to the MSE, we can propose a loss function for the PHS kernel in the form
-\begin{equation}
-  L_{\text{PHS}} = L_{\tmop{MSE}} + \alpha_1 \sum_{i = 1}^N | \lambda_i | +
-  \alpha_2 \sum_{i = 1}^N | \lambda_i x_i |. \label{eqn-alternative-loss-function}
-\end{equation}
-
-However, this new metric urges us to determine some adequate weights $\alpha_1,\alpha_2$ to successfully interpolate while satisfying the constraints. This is actually what is proposed in \cite{hryniowski2018polyneuron} in the context of learning the parameters of polyharmonic splines and using them as activation functions for neurons. It is \textit{heuristically} found that $\alpha_1=0,\alpha_2=10^{-2}$. Because this alternative formulation entails a large deal of trial and error with several pairs $(\alpha_1,\alpha_2)$, we choose not to delve deeper into this strategy.
-
-After being through the data yielded from the experiments, some conclusions can
-be drawn to answer questions (i) and (iii) about our methodology. We exclude
-from this first set of conclusions the kernel \tmverbatim{phs\_kernel} as well
-as the function \tmverbatim{torch\_sign}.
-\begin{itemize}
-  \item We have seen the $L^{\infty} -$norm on the verification dataset
-        decrease as the number of training points increases. When the number of
-        centers is incremented, the $L^{\infty} -$norm is not seen to decrease. This
-        is actually the opposite of the situation we observe on the classic
-        methodology, whereby incrementing the number of (fixed) centers notably
-        decreases this error metric.
-
-  \item For the multiquadric kernel, we have observed that the best results
-        in terms of the $L^{\infty} -$norm are reliably found close to the fixed
-        limit of iterations (recall Figure \ref{fig:epochs-sarra-kernel-report}).
-        This allows us to see that the results could potentially be improved upon if
-        we iterated further.
-
-        Conversely, the Gaussian kernel has been seen to produce its best results
-        on the first few thousands of iterations (recall Figure
-        \ref{fig:epochs-gaussian-kernel-report}). After repetition of some
-        experiments, we have also seen that the $L^{\infty} -$norm does not
-        necessarily increase past this peak, but it {\tmem{can}} ``stabilize''
-        arguably close to it.
-
-  \item Our method has been able to yield distributions of centers laying
-        outside the interval of the problem. Furthermore, a cursory study of the results sheet shows that shape parameters are capable of varying by
-        more than two orders of magnitude. The addition of centers and shape parameters as learnable of the neural network is seen to provide reduced sets of centers
-        that still manage to capture the details of the functions we study.
-
-        Generally speaking, our methodology shows that 7 centers (alongside
-        suitable shape parameters) are enough to interpolate the proposed functions
-        to a superior level of accuracy to classic methods, which need to compute for a larger number
-        of centers.
-
-  \item The unsupervised method is consistently able to provide more digits of
-        accuracy than the classic method when trained on a reduced set of data.
-        As this data gets richer, the unsupervised method may perform worse than 
-        the classic methods.
-
-  \item There is no clear performance gain when augmenting the Gaussian kernel with a linear polynomial term. There is also no clear preference between equispaced and Chebyshev training nodes: we have discussed experiments where one may outperform the other, as well as experiments where both of them perform similarly.
-\end{itemize}
-With respect to \tmverbatim{phs\_kernel}, the following conclusions can be
-drawn:
-\begin{itemize}
-  \item The classic methodology outperforms the unsupervised method. The
-        latter method is seen not to improve any results when provided more training
-        points nor centers.
-
-  \item Under almost every experiment, the centers are visibly seen to be
-        clustered in four to five groups. Moreover, they tend to be located on the
-        half-plane $x > 0$ (recall Figure \ref{fig:epochs-runge-phs-show} as well as
-        the ones provided in the Appendix).
-
-  \item There is no clear tendency for the results to improve with a larger
-        number of training points, unlike the other kernels. %However, the centers
-        %were shown to be more spread out along the interval $[- 1, 1]$ (recall
-        %Figure \ref{fig:epochs-sin-pi-sq-show}), with some of them even being
-        %located outside the problem interval.
-\end{itemize}
-
-% Finally, none of the methodologies are capable of dealing with the function
-% \tmverbatim{torch\_sign}, exhibiting oscillations large enough for the
-% $L^{\infty} -$norm not to yield any negative values. We located figures
-% \ref{fig:torch-sign-gaussian} and \ref{fig:opt-torch-sign-gaussian} in the
-% Appendix for the sake of completion.
 
 \clearpage
-\section*{``Statistical'' interpolation}
+\subsection*{Two-dimensional case}
 
-We have just observed that the ``classic'' methodology improves the accuracy
-more notably as more centers are provided,
-whereas the proposed one has seen to produce better results by supplying more
-training points. However, our methodology also featured outliers,
-(see e.g. Figure \ref{fig:gibbs-function-gaussian-kernel-comparison-points-classic}),
-whereby a very specific configuration of training points and centers would
-produce notably better or worse results than neighboring configurations.
-
-Moreover, no remarkable finding has so far been made on the impact of the number of
-centers on the interpolation results. Actually, their significance can be
-observed from a statistical point of view. To show this, we focus our efforts on
-the more promising kernels (namely, the Gaussian and multiquadric) and repeat several
-times the interpolation experiments under different configurations of
-training points and centers.
-
-In particular, let $C \in \{7,9,11,13,15\}$ be the number of centers we consider for
-the interpolation of a given function $f$. We then interpolate $f$ for a number
-$\left\lceil k \cdot C \right\rceil, k \in \{1,1.5,2,2.5,3,3.5,4\} $ of equispaced
-training points. 
-
-In the following, we provide ballpark measurements in both execution times and memory usage. To account for the hardware capabilities as in Table
-\ref{tb:hardware-machinery}, each experiment triple determined by function, $C$ and $k$ is
-repeated $160$ times. To allow the coexistence of this experiment with other tasks involving the server, these $160$ instances are launched in $32$ separate
-processes, with 5 experiments each. The parameters of the optimization process (learning rate, optimizer, maximum of iterations) are left unchanged.
-
-Each experiment task is observed to always occupy the exact same memory (around $350$ MB) irrespectively of the number of training points and centers. This is coherent with the memory measurements depicted in Figure \ref{fig:model-consumption-memory}: our model as well as the training data are negligible in comparison with the size occupied by the CUDA context\footnote{Recall that the CUDA context manages the interaction between PyTorch tensors and CUDA-capable devices (usually GPUs). The CUDA context in PyTorch handles memory allocation, device synchronization, and execution of CUDA operations on tensors stored on GPU devices. For each separate process, a CUDA context is invoked, which may be a problem if several ML problems are to be solved simultaneously (refer for instance to \href{https://github.com/pytorch/pytorch/issues/20532}{previous GitHub discussions} in PyTorch's repository).}.
-
-For any function $f$, the execution time of the overall experiment is around 28 hours. We can estimate the number of experiments a single processor carries out: for each configuration of training points and centers, a processor undertakes 5 instances of this experiment. Because we have $5$ different numbers of centers and $7$ different values of $k$, a total of $175$ experiments is carried out by a processor, which results in $6.25$ experiments completed by a single processor each hour. 
-
-Evidently, the overall time can be reduced by considering a smaller number of experiments or a smaller number of iterations. Because it is in our best interest to evaluate the ``stationary'' regime of our method and show whether oscillations are expected to occur from a statistic point of view, reducing either of these parameters would go against the idea of these experiments.
-
-
-Figures \ref{fig:medians-linf-statistic} and \ref{fig:medians-epochs-statistic} show the medians of the $L^\infty-$norm on our verification dataset as well as the best epochs' ratios for the Gaussian kernel. 
-If one desires to examine the results in further detail, Figures \ref{fig:statistic-result-runge-function-gaussian-kernel}-\ref{fig:statistic-result-sin-higher-oscillations-gaussian-kernel} show the distribution of these metrics.
-
-\begin{figure}[H]
-  % \frame
-  {\includegraphics[height=.45\textwidth]
-    {imagenes/experiments/1d/statistical_1d_full/runge_function/medians_linf_runge_function_gaussian_kernel.pdf}}
-  {\includegraphics[height=.45\textwidth]
-    {imagenes/experiments/1d/statistical_1d_full/gibbs_function/medians_linf_gibbs_function_gaussian_kernel.pdf}}
-  {\includegraphics[height=.45\textwidth]
-    {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/medians_linf_sin_pi_x_sq_gaussian_kernel.pdf}}
-  {\includegraphics[height=.45\textwidth]
-    {imagenes/experiments/1d/statistical_1d_full/sin_higher_oscillations/medians_linf_sin_higher_oscillations_gaussian_kernel.pdf}}
-  \caption{Medians of the $\log_{10}(L^\infty-\text{norm})$.}
-  \label{fig:medians-linf-statistic}
-\end{figure}
-
-\begin{figure}[H]
-  % \hspace*{-2cm}
-  {\includegraphics[height=.45\textwidth]
-  {imagenes/experiments/1d/statistical_1d_full/runge_function/medians_epochs_runge_function_gaussian_kernel.pdf}}
-  {\includegraphics[height=.45\textwidth]
-  {imagenes/experiments/1d/statistical_1d_full/gibbs_function/medians_epochs_gibbs_function_gaussian_kernel.pdf}}
-  % \hspace*{-2cm}
-  {\includegraphics[height=.45\textwidth]
-    {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/medians_epochs_sin_pi_x_sq_gaussian_kernel.pdf}}
-  {\includegraphics[height=.45\textwidth]
-    {imagenes/experiments/1d/statistical_1d_full/sin_higher_oscillations/medians_epochs_sin_higher_oscillations_gaussian_kernel.pdf}}
-  \caption{Medians of the best epochs' ratio.}
-  \label{fig:medians-epochs-statistic}
-\end{figure}
-
-
-\begin{figure}[H]
-  \begin{tabular}{rl}
-    \multicolumn{2}{c}{{\includegraphics[width=.7\textwidth, trim={0.5cm 4cm .5cm 3.8cm},clip=true]
-          {imagenes/experiments/1d/statistical_1d_full/runge_function/runge_function_legend.pdf}}} \\ 
-    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/runge_function/linf_runge_function_C7_gaussian_kernel.pdf}}  & 
-    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/runge_function/epochs_runge_function_C7_gaussian_kernel.pdf}}                                                                                      \\
-    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/runge_function/linf_runge_function_C9_gaussian_kernel.pdf}}  & 
-    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
-        {imagenes/experiments/1d/statistical_1d_full/runge_function/epochs_runge_function_C9_gaussian_kernel.pdf}}
-    \\
-    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/runge_function/linf_runge_function_C11_gaussian_kernel.pdf}} & 
-    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/runge_function/epochs_runge_function_C11_gaussian_kernel.pdf}}                                                                                     \\
-    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/runge_function/linf_runge_function_C13_gaussian_kernel.pdf}} & 
-    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
-        {imagenes/experiments/1d/statistical_1d_full/runge_function/epochs_runge_function_C13_gaussian_kernel.pdf}}
-    \\
-    {\includegraphics[width=.5\textwidth, trim={0 0.2cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/runge_function/linf_runge_function_C15_gaussian_kernel.pdf}}
-                                                                                                              & 
-  {\includegraphics[width=.44\textwidth, trim={.7cm 0.2cm 0 0},clip=true]
-        {imagenes/experiments/1d/statistical_1d_full/runge_function/epochs_runge_function_C15_gaussian_kernel.pdf}}
-  \end{tabular}
-  \caption{$\log_{10}(L^\infty-\text{norm})$ and epochs' ratio violin plots, for Runge's function interpolated with the Gaussian kernel.}
-  \label{fig:statistic-result-runge-function-gaussian-kernel}
-\end{figure}
-
-
-\begin{figure}[H]
-  \begin{tabular}{rl}
-    \multicolumn{2}{c}{{\includegraphics[width=.7\textwidth, trim={0.5cm 4cm .5cm 3.8cm},clip=true]
-          {imagenes/experiments/1d/statistical_1d_full/runge_function/runge_function_legend.pdf}}} \\ 
-    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/gibbs_function/linf_gibbs_function_C7_gaussian_kernel.pdf}}  & 
-    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/gibbs_function/epochs_gibbs_function_C7_gaussian_kernel.pdf}}                                                                                      \\
-    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/gibbs_function/linf_gibbs_function_C9_gaussian_kernel.pdf}}  & 
-    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
-        {imagenes/experiments/1d/statistical_1d_full/gibbs_function/epochs_gibbs_function_C9_gaussian_kernel.pdf}}
-    \\
-    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/gibbs_function/linf_gibbs_function_C11_gaussian_kernel.pdf}} & 
-    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/gibbs_function/epochs_gibbs_function_C11_gaussian_kernel.pdf}}                                                                                     \\
-    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/gibbs_function/linf_gibbs_function_C13_gaussian_kernel.pdf}} & 
-    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
-        {imagenes/experiments/1d/statistical_1d_full/gibbs_function/epochs_gibbs_function_C13_gaussian_kernel.pdf}}
-    \\
-    {\includegraphics[width=.5\textwidth, trim={0 0.2cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/gibbs_function/linf_gibbs_function_C15_gaussian_kernel.pdf}}
-                                                                                                              & 
-  {\includegraphics[width=.44\textwidth, trim={.7cm 0.2cm 0 0.2cm},clip=true]
-        {imagenes/experiments/1d/statistical_1d_full/gibbs_function/epochs_gibbs_function_C15_gaussian_kernel.pdf}}
-  \end{tabular}
-  \caption{$\log_{10}(L^\infty-\text{norm})$ and epochs' ratio violin plots, for Gibbs' function interpolated with the Gaussian kernel.}
-  \label{fig:statistic-result-gibbs-function-gaussian-kernel}
-\end{figure}
-
-\begin{figure}[H]
-  \begin{tabular}{rl}
-    \multicolumn{2}{c}{{\includegraphics[width=.7\textwidth, trim={0.5cm 4cm .5cm 3.8cm},clip=true]
-          {imagenes/experiments/1d/statistical_1d_full/runge_function/runge_function_legend.pdf}}} \\ 
-    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/linf_sin_pi_x_sq_C7_gaussian_kernel.pdf}}  & 
-    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/epochs_sin_pi_x_sq_C7_gaussian_kernel.pdf}}                                                                                      \\
-    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/linf_sin_pi_x_sq_C9_gaussian_kernel.pdf}}  & 
-    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
-        {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/epochs_sin_pi_x_sq_C9_gaussian_kernel.pdf}}
-    \\
-    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/linf_sin_pi_x_sq_C11_gaussian_kernel.pdf}} & 
-    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/epochs_sin_pi_x_sq_C11_gaussian_kernel.pdf}}                                                                                     \\
-    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/linf_sin_pi_x_sq_C13_gaussian_kernel.pdf}} & 
-    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
-        {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/epochs_sin_pi_x_sq_C13_gaussian_kernel.pdf}}
-    \\
-    {\includegraphics[width=.5\textwidth, trim={0 0.2cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/linf_sin_pi_x_sq_C15_gaussian_kernel.pdf}}
-                                                                                                              & 
-  {\includegraphics[width=.44\textwidth, trim={.7cm 0.2cm 0 0},clip=true]
-        {imagenes/experiments/1d/statistical_1d_full/sin_pi_x_sq/epochs_sin_pi_x_sq_C15_gaussian_kernel.pdf}}
-  \end{tabular}
-  \caption{$\log_{10}(L^\infty-\text{norm})$ and epochs' ratio violin plots, for \texttt{sin\_pi\_x\_sq} interpolated with the Gaussian kernel.}
-  \label{fig:statistic-result-sin-pi-x-sq-gaussian-kernel}
-\end{figure}
-
-
-\begin{figure}[H]
-  \begin{tabular}{rl}
-    \multicolumn{2}{c}{{\includegraphics[width=.7\textwidth, trim={0.5cm 4cm .5cm 3.8cm},clip=true]
-          {imagenes/experiments/1d/statistical_1d_full/runge_function/runge_function_legend.pdf}}} \\ 
-    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/sin_higher_oscillations/linf_sin_higher_oscillations_C7_gaussian_kernel.pdf}}  & 
-    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/sin_higher_oscillations/epochs_sin_higher_oscillations_C7_gaussian_kernel.pdf}}                                                                                      \\
-    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/sin_higher_oscillations/linf_sin_higher_oscillations_C9_gaussian_kernel.pdf}}  & 
-    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
-        {imagenes/experiments/1d/statistical_1d_full/sin_higher_oscillations/epochs_sin_higher_oscillations_C9_gaussian_kernel.pdf}}
-    \\
-    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/sin_higher_oscillations/linf_sin_higher_oscillations_C11_gaussian_kernel.pdf}} & 
-    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/sin_higher_oscillations/epochs_sin_higher_oscillations_C11_gaussian_kernel.pdf}}                                                                                     \\
-    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/sin_higher_oscillations/linf_sin_higher_oscillations_C13_gaussian_kernel.pdf}} & 
-    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
-        {imagenes/experiments/1d/statistical_1d_full/sin_higher_oscillations/epochs_sin_higher_oscillations_C13_gaussian_kernel.pdf}}
-    \\
-    {\includegraphics[width=.5\textwidth, trim={0 0.2cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/sin_higher_oscillations/linf_sin_higher_oscillations_C15_gaussian_kernel.pdf}}
-                                                                                                              & 
-  {\includegraphics[width=.44\textwidth, trim={.7cm 0.2cm 0 0},clip=true]
-        {imagenes/experiments/1d/statistical_1d_full/sin_higher_oscillations/epochs_sin_higher_oscillations_C15_gaussian_kernel.pdf}}
-  \end{tabular}
-  \caption{$\log_{10}(L^\infty-\text{norm})$ and epochs' ratio violin plots, for \texttt{sin\_higher\_oscillations} interpolated with the Gaussian kernel.}
-  \label{fig:statistic-result-sin-higher-oscillations-gaussian-kernel}
-\end{figure}
-
-\subsubsection*{About the addition of polynomial terms}
-
-Prior to the experimentation, the incorporation of polynomial addends has previously been seen to have a positive impact regarding the precision of the interpolation methods. However, the preliminary experimentation failed to decisively show the advantages of incorporating them. Therefore, the motivation of this section is to consider polynomial functions and apply our ``statistical'' methodology to try and see if the addition of polynomial terms to the Gaussian kernel does improve the interpolation results on the verification dataset.
-
-To this end, we consider $x \mapsto u_2(x)=(x-1/2)^2, x\in[-1,1]$. We interpolate this function for the same configuration of centers and training points as in the last set of experiments. Furthermore, we consider the Gaussian kernel alongside no polynomial terms, a bias term, a linear polynomial, a quadratic polynomial, and a cubic polynomial. 
-
-We will also consider two different starting shape parameters: the usual $\varepsilon=1$ and $\varepsilon=10$. Recall (see e.g. Figure \ref{fig:negative-exp-rbf}) that the shape parameter plays an important role on the resulting interpolator, with larger values resulting in starker cusps. Not only that, larger shape parameters result in better-posed interpolation problems, which may ultimately improve the results of the interpolation experiments.
-
-\textbf{Starting shape parameter $\varepsilon=1$}
-
-Figure \ref{fig:medians-epochs-statistic-u2-poly-shape-1} shows the medians of the best epochs' ratios as further polynomial terms are considered, whereas Figure \ref{fig:medians-linf-statistic-u2-poly-shape-1} shows the corresponding medians in the $L^\infty-$norm on the verification dataset. On the basis of the $L^\infty-$norm, some conclusions can already be drawn:
-
-\begin{itemize}
-  \item When no polynomial term is considered, larger values of $k$ improve the results on the verification dataset, especially with $7$ centers, achieving an improvement of a unit. For larger numbers of centers, the addition of more training points does not have a harmful effect on the interpolation, but produces slightly worse results. The results on the epochs' ratios are as expected, quickly approaching $1$ as $k$ is increased.
-  \item With the addition of a bias term, the results with $13$ and $15$ centers see their largest improvement. However, the epochs' ratios do not approach $1$ anymore. The same tendency is observed for higher degree polynomials.
-  \item The consideration of a degree $2$ polynomial introduces the most notable improvement, whereby (except for the case involving $7$ centers and $k=1$) almost four digits of accuracy are provided.
-\end{itemize}
-
-
-\begin{figure}[H]
-  
-  {\includegraphics[height=.45\textwidth]
-    {imagenes/experiments/1d/statistical_1d_full/u2/medians_epochs_u2_gaussian_kernel_shape_1_Poly-1.pdf}}
-  {\includegraphics[height=.45\textwidth]
-    {imagenes/experiments/1d/statistical_1d_full/u2/medians_epochs_u2_gaussian_kernel_shape_1_Poly0.pdf}}
-    {\includegraphics[height=.45\textwidth]
-    {imagenes/experiments/1d/statistical_1d_full/u2/medians_epochs_u2_gaussian_kernel_shape_1_Poly1.pdf}}
-    {\includegraphics[height=.45\textwidth]
-    {imagenes/experiments/1d/statistical_1d_full/u2/medians_epochs_u2_gaussian_kernel_shape_1_Poly2.pdf}}
-    {\includegraphics[height=.45\textwidth]
-    {imagenes/experiments/1d/statistical_1d_full/u2/medians_epochs_u2_gaussian_kernel_shape_1_Poly3.pdf}}
-  \caption{Medians of best epochs' ratios for $\varepsilon=1$.}
-  \label{fig:medians-epochs-statistic-u2-poly-shape-1}
-\end{figure}
-
-\begin{figure}[H]
-  
-  {\includegraphics[height=.45\textwidth]
-    {imagenes/experiments/1d/statistical_1d_full/u2/medians_linf_u2_gaussian_kernel_shape_1_Poly-1.pdf}}
-  {\includegraphics[height=.45\textwidth]
-    {imagenes/experiments/1d/statistical_1d_full/u2/medians_linf_u2_gaussian_kernel_shape_1_Poly0.pdf}}
-    {\includegraphics[height=.45\textwidth]
-    {imagenes/experiments/1d/statistical_1d_full/u2/medians_linf_u2_gaussian_kernel_shape_1_Poly1.pdf}}
-    {\includegraphics[height=.45\textwidth]
-    {imagenes/experiments/1d/statistical_1d_full/u2/medians_linf_u2_gaussian_kernel_shape_1_Poly2.pdf}}
-    {\includegraphics[height=.45\textwidth]
-    {imagenes/experiments/1d/statistical_1d_full/u2/medians_linf_u2_gaussian_kernel_shape_1_Poly3.pdf}}
-  \caption{Medians of the $\log_{10}(L^\infty-\text{norm})$ for $\varepsilon=1$.}
-  \label{fig:medians-linf-statistic-u2-poly-shape-1}
-\end{figure}
-
-\begin{figure}[H]
-  \begin{tabular}{cc}
-    \multicolumn{2}{c}{{\includegraphics[width=.7\textwidth, trim={0.5cm 4cm .5cm 3.8cm},clip=true]
-          {imagenes/experiments/1d/statistical_1d_full/runge_function/runge_function_legend.pdf}}} \\ 
-        With bias term  & With quadratic polynomial \\
-    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/u2/linf_u2_C7_gaussian_kernel_shape_1_Poly0.pdf}}  & 
-    {\includegraphics[width=.44\textwidth, trim={.65cm 1.15cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/u2/linf_u2_C7_gaussian_kernel_shape_1_Poly2.pdf}}                                                                                      \\
-    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/u2/linf_u2_C9_gaussian_kernel_shape_1_Poly0.pdf}}  & 
-    {\includegraphics[width=.44\textwidth, trim={.65cm 1.15cm 0 0},clip=true]
-        {imagenes/experiments/1d/statistical_1d_full/u2/linf_u2_C9_gaussian_kernel_shape_1_Poly2.pdf}}
-    \\
-    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/u2/linf_u2_C11_gaussian_kernel_shape_1_Poly0.pdf}} & 
-    {\includegraphics[width=.44\textwidth, trim={.65cm 1.15cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/u2/linf_u2_C11_gaussian_kernel_shape_1_Poly2.pdf}}                                                                                     \\
-    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/u2/linf_u2_C13_gaussian_kernel_shape_1_Poly0.pdf}} & 
-    {\includegraphics[width=.44\textwidth, trim={.65cm 1.15cm 0 0},clip=true]
-        {imagenes/experiments/1d/statistical_1d_full/u2/linf_u2_C13_gaussian_kernel_shape_1_Poly2.pdf}}
-    \\
-    {\includegraphics[width=.5\textwidth, trim={0 0.2cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/u2/linf_u2_C15_gaussian_kernel_shape_1_Poly0.pdf}}
-                                                                                                              & 
-  {\includegraphics[width=.44\textwidth, trim={.65cm 0.2cm 0 0},clip=true]
-        {imagenes/experiments/1d/statistical_1d_full/u2/linf_u2_C15_gaussian_kernel_shape_1_Poly2.pdf}}
-  \end{tabular}
-  \caption{$\log_{10}(L^\infty-\text{norm})$ results for the interpolation of \texttt{u2} alongside a Gaussian kernel, when adding a bias term (left) and when adding a quadratic polynomial (right).}
-  \label{fig:linf-shape1-poly0-poly2}
-\end{figure}
-\clearpage
-\textbf{Starting shape parameter $\varepsilon=10$}
-
-Figure \ref{fig:medians-epochs-statistic-u2-poly-shape-10} shows the medians of the best epochs' ratios as further polynomial terms are considered, whereas Figure \ref{fig:medians-linf-statistic-u2-poly-shape-10} shows the corresponding medians in the $L^\infty-$norm on the verification dataset. On the basis of the $L^\infty-$norm, some conclusions can already be drawn:
-
-\begin{itemize}
-  \item The situation is known already when no polynomial term is considered: the medians produce better results as more centers are considered, also finding a  plateau for larger values of $k$.
-  \item The explicit incorporation of a bias term has a positive effect on the interpolation, reducing the previously-observed plateau while providing another digit of accuracy in the best-case scenario. This plateau is further reduced when considering a linear polynomial.
-  \item The consideration of a quadratic or cubic polynomial, which have the capabilities of faithfully capturing the function we interpolate, yields about the same medians for $k=4$. This indicates that the incorporation of RBF interpolators featuring a large number of centers is not necessary when we have enough information.
-  \item There is a visible change in behavior on the epochs' ratios as well when a quadratic/cubic polynomial is added in.
-  \item Figure \ref{fig:linf-shape10-poly0-poly2} shows the violin plots with an explicit bias term alongside a quadratic polynomial. Even though the medians are close, the actual distribution of all the experiments show that those involving a quadratic polynomial (and, to our observations, with $7$ centers) can produce results to machine precision, indeed copying the actual function we sample. As the interpolator gets more complex, featuring more RBF addends, we observe that finding these solutions are less likely, being the worst case in this respect that of $15$ centers.
-\end{itemize}
-
-
-\begin{figure}[H]
-  
-  {\includegraphics[height=.45\textwidth]
-    {imagenes/experiments/1d/statistical_1d_full/u2/medians_epochs_u2_gaussian_kernel_shape_10_Poly-1.pdf}}
-  {\includegraphics[height=.45\textwidth]
-    {imagenes/experiments/1d/statistical_1d_full/u2/medians_epochs_u2_gaussian_kernel_shape_10_Poly0.pdf}}
-    {\includegraphics[height=.45\textwidth]
-    {imagenes/experiments/1d/statistical_1d_full/u2/medians_epochs_u2_gaussian_kernel_shape_10_Poly1.pdf}}
-    {\includegraphics[height=.45\textwidth]
-    {imagenes/experiments/1d/statistical_1d_full/u2/medians_epochs_u2_gaussian_kernel_shape_10_Poly2.pdf}}
-    {\includegraphics[height=.45\textwidth]
-    {imagenes/experiments/1d/statistical_1d_full/u2/medians_epochs_u2_gaussian_kernel_shape_10_Poly3.pdf}}
-  \caption{Medians of best epochs' ratios for $\varepsilon=10$.}
-  \label{fig:medians-epochs-statistic-u2-poly-shape-10}
-\end{figure}
-
-\begin{figure}[H]
-  
-  {\includegraphics[height=.45\textwidth]
-    {imagenes/experiments/1d/statistical_1d_full/u2/medians_linf_u2_gaussian_kernel_shape_10_Poly-1.pdf}}
-  {\includegraphics[height=.45\textwidth]
-    {imagenes/experiments/1d/statistical_1d_full/u2/medians_linf_u2_gaussian_kernel_shape_10_Poly0.pdf}}
-    {\includegraphics[height=.45\textwidth]
-    {imagenes/experiments/1d/statistical_1d_full/u2/medians_linf_u2_gaussian_kernel_shape_10_Poly1.pdf}}
-    {\includegraphics[height=.45\textwidth]
-    {imagenes/experiments/1d/statistical_1d_full/u2/medians_linf_u2_gaussian_kernel_shape_10_Poly2.pdf}}
-    {\includegraphics[height=.45\textwidth]
-    {imagenes/experiments/1d/statistical_1d_full/u2/medians_linf_u2_gaussian_kernel_shape_10_Poly3.pdf}}
-  \caption{Medians of the $\log_{10}(L^\infty-\text{norm})$ for $\varepsilon=10$.}
-  \label{fig:medians-linf-statistic-u2-poly-shape-10}
-\end{figure}
-
-\begin{figure}[h]
-  \begin{tabular}{cc}
-    \multicolumn{2}{c}{{\includegraphics[width=.7\textwidth, trim={0.5cm 4cm .5cm 3.8cm},clip=true]
-          {imagenes/experiments/1d/statistical_1d_full/runge_function/runge_function_legend.pdf}}} \\ 
-        With bias term  & With quadratic polynomial \\
-    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/u2/linf_u2_C7_gaussian_kernel_shape_10_Poly0.pdf}}  & 
-    {\includegraphics[width=.44\textwidth, trim={.65cm 1.15cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/u2/linf_u2_C7_gaussian_kernel_shape_10_Poly2.pdf}}                                                                                      \\
-    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/u2/linf_u2_C9_gaussian_kernel_shape_10_Poly0.pdf}}  & 
-    {\includegraphics[width=.44\textwidth, trim={.65cm 1.15cm 0 0},clip=true]
-        {imagenes/experiments/1d/statistical_1d_full/u2/linf_u2_C9_gaussian_kernel_shape_10_Poly2.pdf}}
-    \\
-    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/u2/linf_u2_C11_gaussian_kernel_shape_10_Poly0.pdf}} & 
-    {\includegraphics[width=.44\textwidth, trim={.65cm 1.15cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/u2/linf_u2_C11_gaussian_kernel_shape_10_Poly2.pdf}}                                                                                     \\
-    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/u2/linf_u2_C13_gaussian_kernel_shape_10_Poly0.pdf}} & 
-    {\includegraphics[width=.44\textwidth, trim={.65cm 1.15cm 0 0},clip=true]
-        {imagenes/experiments/1d/statistical_1d_full/u2/linf_u2_C13_gaussian_kernel_shape_10_Poly2.pdf}}
-    \\
-    {\includegraphics[width=.5\textwidth, trim={0 0.2cm 0 0},clip=true]
-    {imagenes/experiments/1d/statistical_1d_full/u2/linf_u2_C15_gaussian_kernel_shape_10_Poly0.pdf}}
-                                                                                                              & 
-  {\includegraphics[width=.44\textwidth, trim={.65cm 0.2cm 0 0},clip=true]
-        {imagenes/experiments/1d/statistical_1d_full/u2/linf_u2_C15_gaussian_kernel_shape_10_Poly2.pdf}}
-  \end{tabular}
-  \caption{$\log_{10}(L^\infty-\text{norm})$ results for the interpolation of \texttt{u2} alongside a Gaussian kernel, when adding a bias term (left) and when adding a quadratic polynomial (right).}
-  \label{fig:linf-shape10-poly0-poly2}
-\end{figure}
-
-\clearpage
-
-\textbf{Common observations and conclusions}
-
-\begin{itemize}
-  \item Figure \ref{fig:distribution-alphas-u2} shows the distribution of our model's shape parameters at the end of the interpolation processes. It shows that when training with a starting shape $\varepsilon=1$, we expect most of the trained shape parameters around the interval $[0,3]$. When starting out with $\varepsilon=10$, the largest incidence of these values is found for $\varepsilon < 10$.
-  \begin{figure}[h]
-    \includegraphics[width=.5\textwidth]{imagenes/experiments/1d/statistical_1d_full/u2/overall_histogram_of_shapes.pdf}
-    \caption{Distribution of shape parameters at the end of the training process, for starting shape parameters $\varepsilon=1$ and $\varepsilon=10$.}
-    \label{fig:distribution-alphas-u2}
-  \end{figure}
-  \item Figures \ref{fig:u2-TR7-C7-Kgaussian_kernel-Poly0-Equi-Sh1-E50000-4} and \ref{fig:u2-TR7-C7-Kgaussian_kernel-Poly0-Equi-Sh10-E50000-34} depict some descriptive realizations of the experiments for the case $C=7,k=1$ with a bias term. They are realizations for shape parameters $\varepsilon=1$ and $\varepsilon=10$ respectively. When there is not enough information, $\varepsilon=10$ exhibits high oscillations between any two interpolation nodes, which produces bad results in the $L^\infty-$norm. However, because we know $\varepsilon=10$ forms a better-posed problem that $\varepsilon=1$, this also allows the loss term to be of the order of $10^{-14}$, whereas the case $\varepsilon=1$ is not able to reduce the loss term as visibly.
-  \item This is not just a particular incidence: as $C$ and $k$ increase, Figures \ref{fig:medians-linf-statistic-u2-poly-shape-1} and \ref{fig:medians-linf-statistic-u2-poly-shape-10} show that the case $\varepsilon=1$ produces better results in the $L^\infty-$norm as well, most notably for $k$ close to $1$.
-  \item The epochs' ratios (Figures \ref{fig:medians-linf-statistic-u2-poly-shape-1} and \ref{fig:medians-linf-statistic-u2-poly-shape-10}) indicate that, when considering a polynomial term of degree $2$ or $3$, the best epochs in the $L^\infty-$norm tend to happen at about the same iterations, irrespectively of the training points. This implies that, even though the polynomial term may not always guarantee better results in the $L^\infty-$norm, it provides some ``predictability'' beyond the parameters $C$ and $k$ we choose.
-  \item The action of the quadratic polynomial term, by which it may produce results to machine precision, appears most notably for $C=7$, both for $\varepsilon=1$ and $\varepsilon=10$. As more centers are provided, it is harder to produce results to machine precision (see \ref{fig:linf-shape1-poly0-poly2} and \ref{fig:linf-shape10-poly0-poly2}): the ``search'' space is more dense and therefore harder to ``navigate''.
-  \item For all these considerations, the better option seems to be $\varepsilon=1$. 
-\end{itemize}
-
-
-
-\begin{figure}[h]
-  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full/u2/particular_cases/u2-TR7-C7-Kgaussian_kernel-Poly0-Equi-Sh1-E50000-4.csv-E50000-no-centers.pdf}
-  \caption{Distribution of shape parameters at the end of the training process, for a Gaussian interpolator characterized by $C=7,k=1$ alongside a bias term, with starting shape parameter $\varepsilon=1$.}
-  \label{fig:u2-TR7-C7-Kgaussian_kernel-Poly0-Equi-Sh1-E50000-4}
-\end{figure}
-
-\begin{figure}[h]
-  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full/u2/particular_cases/u2-TR7-C7-Kgaussian_kernel-Poly0-Equi-Sh10-E50000-34.csv-E50000-no-centers.pdf}
-  \caption{Distribution of shape parameters at the end of the training process, for a Gaussian interpolator characterized by $C=7,k=1$ alongside a bias term, with starting shape parameter $\varepsilon=10$.}
-  \label{fig:u2-TR7-C7-Kgaussian_kernel-Poly0-Equi-Sh10-E50000-34}
-\end{figure}
-
-\clearpage
-
-\textbf{Further refinements}
-
-Despite achieving satisfactory results across our previous experiments, one can now reflect on what could be refined:
-\begin{enumerate}
-  \item During the preliminary experimentation, we worked with Chebyshev and equispaced nodes. In a ``realistic'' setting, where one would be provided experimental data points, one cannot expect the points to be sampled this way. \label{proposal:uniform-points}
-  \begin{itemize}
-    \item Would our method still work for a set of points that we do not anticipate? \item How would the statistics of our model look like?
-  \end{itemize}
-  \item What is the reason behind starting out with a certain value of $\varepsilon$?
-  Figure \ref{fig:distribution-alphas-u2} shows that, regardless of the starting value, the shape parameters tend to be localized most notoriously close to the starting point. For instance, as $C$ and $k$ are increased, one can expect $\varepsilon=1$ to eventually produce ill-posed problems. \label{proposal:estimate-epsilon}
-  \item Loss curves like those of Figures \ref{fig:u2-TR7-C7-Kgaussian_kernel-Poly0-Equi-Sh1-E50000-4} and \ref{fig:u2-TR7-C7-Kgaussian_kernel-Poly0-Equi-Sh10-E50000-34} feature high oscillations. This ultimately raises some questions on convergence, which we attempted to solve by looking at the best epochs' ratio, which is a non-standard metric. \label{proposal:scheduler} \begin{itemize}
-    \item It is desirable to find a training regime whereby the ``speed'' of the method is preserved while oscillations are reduced.
-  \end{itemize}
-\end{enumerate}
-
-To solve these problems, we introduce the following refinements to our methodology and repeat the exact same previous experiment:
-\begin{enumerate}
-  \item Training points should be sampled from the uniform distribution, whose upper and lower bounds will be those of the interval of the function we wish to approximate.
-  \item Let $C$ be the number of equispaced centers. For each value of $C$, we consider the matrix-form interpolation problem where the interpolation points are also our centers. Using the bisection method, we look for $\varepsilon$ such that the condition number of the interpolation matrix is between $10^{-6}$ and $10^{-7}$. For each value of $C$, we will be using the previously-computed $\varepsilon$ as an estimation of a suitable starting shape value.
-  \item A suitable candidate for preserving the ``speed'' of our method while reducing oscillations, especially towards the end of the training process, is the \href{https://pytorch.org/docs/stable/generated/torch.optim.lr_scheduler.ReduceLROnPlateau.html}{\texttt{ReduceLROnPlateau}} PyTorch scheduler, which verifies if the loss function took values below \texttt{dynamic\_threshold} in \texttt{patience} iterations:
-  \begin{itemize}
-    \item If that is the case, \texttt{dynamic\_threshold} is reduced and we resume operation.
-    \item If that is not the case, the learning rate is reduced by \texttt{factor}.
-  \end{itemize}
-  Preliminary experimentation showed that, in the 1D case, \texttt{patience} could be increased to $100$, whereas the rest of the scheduler's parameters are set as default.
-\end{enumerate}
-
-\textbf{Conclusions}
-
-Including a scheduler into our methodology allows us to reliably compare the last iteration of our iterative method with the best iterations in the $L^\infty-$norm, as we remove oscillations on those verification metrics. Furthermore, we now incorporate other indicators like the $L^2$ norm as used in Machine Learning (the root mean-squared error on the verification dataset): as the study progressed, it became evident that this new metric could provide more detail into the learning process, the $L^\infty$ norm being too stringent for our purposes. 
-
-The incorporation of this new metric has been shown to be illustrative, as Figure \ref{fig:statistic-u2-scheduler-l2-linf} shows, on its right hand side, that the $L^2$ norm continues to decline past the best iteration in the $L^\infty-$norm. The incorporation of a scheduler also allows us to compare the last iteration of our process in the $L^\infty-$norm with its minimum, showing that they are not far away from each other.
-
-\begin{figure}[h]
-  % \frame
-  \hspace*{-1cm}
-  {\includegraphics[width=.42\textwidth,clip=true,trim={0 0 2cm 0}]{imagenes/experiments/1d/statistical_1d_full_scheduler_extrapolation/comparison-linf.pdf}}
-  % \frame
-  {\includegraphics[width=.42\textwidth,clip=true,trim={0 0 2cm 0}]{imagenes/experiments/1d/statistical_1d_full_scheduler_extrapolation/comparison-l2.pdf}}
-  % \frame
-  {\includegraphics[width=.08\textwidth,clip=true,trim={12.1cm 1cm 0 1cm}]{imagenes/experiments/1d/statistical_1d_full_scheduler_extrapolation/comparison-l2.pdf}}
-  \caption{Left-hand side: distributions of the $L^\infty-$norm across all experiments, comparing for each experiment (represented by a data point) its minimum with the value achieved at the last iteration. Right-hand side: comparison in the $L^2-$norm involving the value obtained in best iteration in the $L^\infty-$norm with the end value.}
-  \label{fig:statistic-u2-scheduler-l2-linf}
-\end{figure}
-
-For further reference, Figure \ref{fig:shape-parameters-end-training} shows the distribution of parameters at the end of the training process. The legend shows the suitable estimated starting values for interpolating on an equispaced lattice of $C$ centers yielded by the bijection method.
-
-
-\begin{figure}[h]
-  % \frame
-  
-  {\includegraphics[width=.6\textwidth,clip=true,trim={0 0 0 0}]{imagenes/experiments/1d/statistical_1d_full_scheduler_extrapolation/distribution_of_shape_parameters_at_end_of_training.pdf}}
-  \caption{Distribution of shape parameters at the end of the training process.}
-  \label{fig:shape-parameters-end-training}
-\end{figure}
-
-\begin{figure}[h]
-  % \frame
-  {\includegraphics[width=.4\textwidth,clip=true,trim={0 0 0 0}]{imagenes/experiments/1d/statistical_1d_full_scheduler_extrapolation/medians_linf_u2_gaussian_kernel_Poly-1_uniform.pdf}}
-  {\includegraphics[width=.4\textwidth,clip=true,trim={0 0 0 0}]{imagenes/experiments/1d/statistical_1d_full_scheduler_extrapolation/medians_linf_u2_gaussian_kernel_Poly2_uniform.pdf}}
-  \caption{Distribution of shape parameters at the end of the training process.}
-  \label{fig:medians-linf-scheduler-u2}
-\end{figure}
-
-\begin{figure}[h]
-  % \frame
-  {\includegraphics[width=.4\textwidth,clip=true,trim={0 0 0 0}]{imagenes/experiments/1d/statistical_1d_full_scheduler_extrapolation/medians_l2_u2_gaussian_kernel_Poly-1_uniform.pdf}}
-  {\includegraphics[width=.4\textwidth,clip=true,trim={0 0 0 0}]{imagenes/experiments/1d/statistical_1d_full_scheduler_extrapolation/medians_l2_u2_gaussian_kernel_Poly2_uniform.pdf}}
-  \caption{Distribution of shape parameters at the end of the training process.}
-  \label{fig:medians-l2-scheduler-u2}
-\end{figure}
-
-\begin{figure}
-  
-\end{figure}
-\clearpage
-
-\subsubsection*{2D function approximation}
-
-We now approximate 2D functions under the same considerations proposed in the \textit{Further refinements} section. The only difference between the 1D case is the estimated starting values of $\varepsilon$ as well as the \texttt{patience} parameter of the scheduler, which is set to $30$ instead. 
-
-In the following, we consider $(x-1/2)^2+(y-1/2)^2$, which we approximate in the interval $[-1, 1]$. We may refer in the following to this function as \texttt{parabola}. Figure \ref{fig:medians-experiment-parabola} shows the medians of the experiment (elapsed times and $L-$norms). Figure \ref{fig:incidence-l-norms-parabola} shows the incidence of the $L^\infty$ and $L^2-$norms on the verification datasets, showing that the best iterations of both norms are close to the last iteration we do. 
-
-Figure \ref{fig:incidence-largest-error} shows that we commit the largest error in the $L^\infty-$norm along the border of the domain (and most recurrent in the corners). One is evidently less likely to find a training point located the border as it is a zero-measure set in $[-1,1]\times[-1,1]$.
-
-Figure \ref{fig:shape-parameters-end-training-parabola} shows the distribution of the shape parameters at the end of the training process. For the sake of inspection, Figure \ref{fig:parabola-training-TR30-C225} shows an example of the training experiment involving $225$ centers and a scaling factor $k=4$, which indicates that the right combination of $\varepsilon$ and scheduler is still able to produce smooth learning curves.
-
-  \begin{figure}[h]
-    \begin{tabular}{ccc}
-      \hspace*{-2.5cm}
-      {\includegraphics[width=.4\textwidth, clip=true, trim={0 0 0 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler/parabola/medians_linf_parabola_gaussian_kernel_Poly-1.pdf}}       & 
-      {\includegraphics[width=.4\textwidth, clip=true, trim={0 0 0 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler/parabola/medians_l2_parabola_gaussian_kernel_Poly-1.pdf}} &
-      % \frame
-      \includegraphics[width=.4\textwidth, clip=true, trim={0 0 0 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler/parabola/medians_times_parabola_gaussian_kernel_Poly-1.pdf} 
-                                                                                 \\
-      % \frame
-  \multicolumn{3}{c}{{\includegraphics[width=.8\textwidth, clip=true, trim={65cm 9.1cm 0 .2cm}]{imagenes/experiments/2d/statistical_2d_full_scheduler/legend.pdf}}} \\ 
-    \end{tabular}
-    \caption{Medians of $L^\infty-$norm (left), $L^2-$norm (center) and elapsed times (right) at the end of the training process for \texttt{parabola}, for a scaling factor $k$ in $|\text{\texttt{training\_points}}| = \lceil \sqrt{|\text{\texttt{centers}}| \cdot k} \rceil^2$.}
-    \label{fig:medians-experiment-parabola}
-  \end{figure}
-
-\begin{figure}[h]
-  \hspace*{-1cm}
-  % \frame
-  {\includegraphics[width=.47\textwidth, clip=true, trim={0 0 0 0 }]{imagenes/experiments/2d/statistical_2d_full_scheduler/parabola/incidence_of_linf_poly-1.pdf}}
-  % \frame
-  {\includegraphics[width=.45\textwidth, clip=true, trim={0 0 0 0 }]{imagenes/experiments/2d/statistical_2d_full_scheduler/parabola/incidence_of_l2_poly-1.pdf}}
-  \includegraphics[width=.08\textwidth, clip=true, trim={12cm 0 0 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler/parabola/cbar_incidence.pdf}
-  \caption{Distributions of the $L-$norm for the function \texttt{parabola}. Left-hand side: distributions of the $L^\infty-$norm across all experiments, comparing for each experiment (represented by a data point) its minimum with the value achieved at the last iteration. Right-hand side: comparison in the $L^2-$norm involving the value obtained in best iteration in the $L^\infty-$norm with the end value.}
-  \label{fig:incidence-l-norms-parabola}
-\end{figure}
-
-\begin{figure}[h]
-  \includegraphics[width=.45\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler/parabola/distribution_of_errors_L_inf_end.pdf}
-  \caption{Histogram of the largest errors in $L^\infty-$norm across all experiments.}
-  \label{fig:incidence-largest-error}
-\end{figure}
-
-\begin{figure}[h]
-  \includegraphics[width=.6\textwidth,clip=true,trim={0 0 0 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler/parabola/distribution_of_shape_parameters_at_end_of_training.pdf_poly-1.pdf}
-  \caption{Distribution of shape parameters at the end of the training process.}
-  \label{fig:shape-parameters-end-training-parabola}
-\end{figure}
-
-\begin{figure}[h]
-  \includegraphics[width=\textwidth,clip=true,trim={0 0 0 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler/parabola/parabola-TR30-C225-Kgaussian_kernel-Sh3.6621-18-E44371.pdf}
-  \caption{Left-hand side: absolute error of the approximation of \texttt{parabola} with $C=225,k=4$, during its last iteration. Right-hand side: the corresponding learning curves.}
-  \label{fig:parabola-training-TR30-C225}
-\end{figure}
-
-\clearpage
-\newpage
-\subsubsection*{Interpolation in 2D - \texttt{OLD?}}
-
-The 1D experiment showed that the proposed methodology (employing the Gaussian
-kernel RBF interpolator with freely adjustable centers and shape parameters) is
-capable of interpolating most of the functions we proposed with a low amount of
-centers. We now turn to the 2D case.
-
-In a preliminary experimentation phase, we considered Franke's function (depicted in Figure \ref{fig:franke-function-surface-contour} and referred to as \texttt{franke\_function}) for evaluating the performance of our model. Because this function exhibits three hotspots of (almost) radial symmetries, which can be reliably reproduced by the Gaussian kernel alongside suitable shape parameters and centers, our method performed according to expectations, requiring a total of $10$ centers for guaranteeing a median of $3$ digits of precision with $12^2$ equispaced training points (see Figure \ref{fig:franke-tr12-c10}). As predicted, three centers would always be found in those three hotspots, whereas the rest of them would be found outside the domain, most surprisingly along the maximum ascent direction of the function.
-
-\begin{figure}[ht]
-  \includegraphics[width=.8\textwidth]{imagenes/experiments/2d/franke_interpolation/Franke_Function_Surface_Contour.pdf}
-  \caption{Left-hand side: Franke's function as a surface. Right-hand side:
-    its filled contour representation.}
-  \label{fig:franke-function-surface-contour}
-\end{figure}
-
-
-\begin{figure}[h]
-  \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c10_franke_function_gaussian_kernel.pdf}
-  \caption{Results of the interpolation of Franke's function (10 centers).
-    Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio.
-    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
-  \label{fig:franke-tr12-c10}
-\end{figure}
-
-For this reason, we instead consider a ``harder'' test function. Letting $C\in\{7^2,9^2,11^2,13^2,15^2\}$ be the number of centers, and for a number of equispaced training points $ \lceil \sqrt{C \cdot k} \rceil^2, k \in \{1,1.5,2,2.5,3,3.5,4\}$, we interpolate $(x,y)\mapsto \sin(\pi(x^2+y^2)),$ which we name \texttt{sin\_pi\_x\_y\_sq} in the following. Figure \ref{fig:medians-epochs-statistic-sin-pi-x-y-sq} shows the medians for the $L^\infty-$norm and for the best epochs' ratio
-, whereas Figure \ref{fig:statistic-result-sin-pi-x-y-sq-gaussian-kernel} shows the corresponding violin plots for further detail. 
-
-As depicted by the medians and in coherence with the 2D experiments, there is a clear ``saturation'' of the model toward $-1.8$ in the $L^\infty-$norm for $11$ centers onwards, whereby the addition of further data does not translate into better results irrespectively of $k$ or the number of centers. 
-
-\todo[inline]{medir la RAM, el tiempo de ejecución y si hay overfitting o no}
-
-\begin{figure}[h]
-  {\includegraphics[height=.45\textwidth]
-  {imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/medians_linf_sin_pi_x_y_sq_gaussian_kernel.pdf}}
-  {\includegraphics[height=.45\textwidth]
-  {imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/medians_epochs_sin_pi_x_y_sq_gaussian_kernel.pdf}}
-  \caption{Medians of the $L^\infty-$norm (left) and of the best epochs' ratio (right).}
-  \label{fig:medians-epochs-statistic-sin-pi-x-y-sq}
-\end{figure}
-
-\begin{figure}[h]
-  \begin{tabular}{rl}
-    \multicolumn{2}{c}{{\includegraphics[width=.7\textwidth, trim={0.5cm 4cm .5cm 3.8cm},clip=true]
-          {imagenes/experiments/1d/statistical_1d_full/runge_function/runge_function_legend.pdf}}} \\ 
-    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
-    {imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/linf_sin_pi_x_y_sq_C7_gaussian_kernel.pdf}}  & 
-    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
-    {imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/epochs_sin_pi_x_y_sq_C7_gaussian_kernel.pdf}}                                                                                      \\
-    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
-    {imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/linf_sin_pi_x_y_sq_C9_gaussian_kernel.pdf}}  & 
-    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
-        {imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/epochs_sin_pi_x_y_sq_C9_gaussian_kernel.pdf}}
-    \\
-    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
-    {imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/linf_sin_pi_x_y_sq_C11_gaussian_kernel.pdf}} & 
-    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
-    {imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/epochs_sin_pi_x_y_sq_C11_gaussian_kernel.pdf}}                                                                                     \\
-    {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
-    {imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/linf_sin_pi_x_y_sq_C13_gaussian_kernel.pdf}} & 
-    {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
-        {imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/epochs_sin_pi_x_y_sq_C13_gaussian_kernel.pdf}}
-    \\
-    {\includegraphics[width=.5\textwidth, trim={0 0.2cm 0 0},clip=true]
-    {imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/linf_sin_pi_x_y_sq_C15_gaussian_kernel.pdf}}
-                                                                                                              & 
-  {\includegraphics[width=.44\textwidth, trim={.7cm 0.2cm 0 0},clip=true]
-        {imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/epochs_sin_pi_x_y_sq_C15_gaussian_kernel.pdf}}
-  \end{tabular}
-  \caption{$\log_{10}(L^\infty-\text{norm})$ and epochs' ratio violin plots, for \texttt{sin\_pi\_x\_y\_sq} interpolated with the Gaussian kernel.}
-  \label{fig:statistic-result-sin-pi-x-y-sq-gaussian-kernel}
-\end{figure}
-
-\clearpage
 \section*{Solving differential equations}
 
 \subsection*{An observation on the computation of derivatives}
@@ -3237,7 +2296,7 @@ An immediate conclusion is the following: memory-efficient code will benefit fro
 ``massaging'' the expression of our problem into more manageable forms, i.e., applying
 simplifications or identities to reduce the number of nodes on our graph.
 Even if memory is not a concern to us, the construction of the expression graph is
-in the context of RBF. Indeed, Figure \ref{fig:wenger-trace-gaussian}
+in the context of RBF. To better show this, Figure \ref{fig:wenger-trace-gaussian}
 depicts the Wengert trace of an RBF equipped with the Gaussian kernel, operating in the 2D
 case.
 
@@ -3324,6 +2383,7 @@ model solving this equation.
     Right-hand side: learning curves (mean squared error and $L^\infty-$norm) of the model.}
   \label{fig:solution-ode-1d}
 \end{figure}
+
 
 \begin{wrapfigure}{R}{.5\textwidth}
   \caption{Parameters of the network.\label{fig-parameters-ode-1d}}
