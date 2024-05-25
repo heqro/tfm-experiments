@@ -2059,7 +2059,7 @@ Even though the latter strategy is preferred for convergence reasons, by a numer
   \label{fig:phs-runge-phenomenon-deg-3-discussion}
 \end{figure}
 
-Furthermore, Figures \ref{fig:phs-runge-phenomenon-deg-5} and \ref{fig:phs-runge-phenomenon-deg-7} of the Appendix show that, for $r^5$ and $r^7$, oscillations start appearing when using only 9 equispaced centers. Moreover, the condition numbers start increasing up until the results obtained are completely unreliable.
+% Furthermore, Figures \ref{fig:phs-runge-phenomenon-deg-5} and \ref{fig:phs-runge-phenomenon-deg-7} of the Appendix show that, for $r^5$ and $r^7$, oscillations start appearing when using only 9 equispaced centers. Moreover, the condition numbers start increasing up until the results obtained are completely unreliable.
 
 Another such example of interest is \textbf{Gibbs' phenomenon}\footnote{The following images can be easily derived from the relevant \href{https://github.com/heqro/tfm-experiments/blob/main/introductory_notebooks/rbf_interpolation/gibbs_rbf_and_phs.ipynb}{Gibbs interpolation notebook}.}. Often described in the context of Fourier expansions of piecewise continuously differentiable functions, it establishes that oscillations are bound to occur near such points of non-differentiability (or even jump discontinuity).
 Although our techniques do not involve Fourier analysis, the nature of the interpolators we chose (as well as the previous experimentation on Runge's phenomenon) dictate that a similar situation is bound to happen in our framework.
@@ -2109,7 +2109,7 @@ Figure \ref{fig:sign-with-curves} shows a poorer version of the situation shown 
 
 \chapter{Experimentation}
 
-\section{Hardware information}
+% \section*{Hardware information}
 
 All the experimentation featured in the following has been carried out in a server
 kindly provided by my advisors.
@@ -2122,7 +2122,7 @@ kindly provided by my advisors.
     \hline
     GPU & NVIDIA RTX A6000 (49140 MiB)                                    \\
     \hline
-    RAM & 251 Gi                                                          \\
+    RAM & 251 GiB                                                          \\
     \hline
     OS  & Ubuntu 22.04.1 (Kernel 6.5.0-14)                                \\
     \hline
@@ -2131,46 +2131,73 @@ kindly provided by my advisors.
   \label{tb:hardware-machinery}
 \end{table}
 
-\section{Interpolation}
-\section*{Preliminary experimentation}
+\section{Introduction}
 
-The methodology for solving Problem \ref{interpolationproblemstatement} using an RBF interpolator can be expressed in terms of a two-step process: the first step is explicitly locating the RBF centers and (if applicable) setting the value of the shape parameter $\varepsilon$. The second step involves computing the values of $\lambda$ as in \eqref{eqn-p-is-a-linear-combination-of-rbfs}, which ultimately leads to solve \eqref{eqn-linear-system-equations-rbf}. We refer to this methodology in the following as classic.
 
-Alternatively to this methodology, we propose to let the centers as well as the shape parameters\footnote{We remark that we are now speaking in plural.} be found following an \textbf{unsupervised learning} strategy, whereby the training points will not only dictate the values of $\lambda$ as in \eqref{eqn-linear-system-equations-rbf}, but also the position of the RBF centers as well as the value of the shape parameters.
-Therefore, it is interesting to compare the performance of this alternative methodology against the classic one, especially in their treatment of the oscillation
-issues (Runge and Gibbs phenomena) we have previously observed. We will analyze
-three different functions:
+The methodology for solving eiter interpolation problems or differential equations using RBF functions can be expressed in terms of a two-step process:
+
 \begin{itemize}
-  \item $1 / (1 + 25 x^2)$, which we may refer to as the Runge function or as \texttt{runge\_function}.
-
-  \item $\tmop{arc} \tan (20 x)$, which we may refer to as the Gibbs
-        function or as \texttt{gibbs\_function}.
-
-  \item The sign function, which exhibits a behavior similar to that of the
-        Gibbs function, but worse-posed from a mathematical perspective (for
-        instance, non-differentiability appears). We may refer to it as \texttt{torch\_sign}.
+  \item Explicitly locating the RBF centers and (if applicable) setting the value of the shape parameter $\varepsilon$.
+  \item In the case of an interpolation problem, computing the entries of $\hat{\lambda}$ as in \eqref{eqn-p-is-a-linear-combination-of-rbfs}, which ultimately leads to solve \eqref{eqn-linear-system-equations-rbf}. In the case of a differential equation, computing a suitable $\hat{\lambda}$ to satisfy the problem.
 \end{itemize}
 
-We will also consider some additional functions which, despite exhibiting some
-oscillations in their graph, we have preliminarily seen them not to pose any
-pathologies when interpolating unlike the former two. This allows to verify that
-the proposed methods do indeed work on a ``better-posed'' setting. In
-particular, we consider the ``control'' functions
-\begin{itemize}
-  \item $ \sin (x^2)$ for $x \in [0,
-            3]$. We may refer to it as \texttt{sin\_higher\_oscillations}.%\footnote{Defined \href{https://github.com/heqro/tfm-experiments/blob/1a4d7f00a5ae097f62db9fa912a8253e43efe60c/modules/notable_functions.py\#L52}{here} in the repository. We may refer to it as , but it has been redefined to fit in the interval $[-1,1]$ to ease up the programming.}.
+  
 
-  \item$ \sin (\pi x^2)$ for $x \in [- 1, 1]$. We may refer to it as \texttt{sin\_pi\_x\_sq}.%\footnote{Defined \href{https://github.com/heqro/tfm-experiments/blob/1a4d7f00a5ae097f62db9fa912a8253e43efe60c/modules/notable_functions.py\#L48}{here} in the repository. We may refer to it as }.
+Alternatively to this methodology, we propose to let the centers as well as the shape parameters\footnote{We remark that we are now speaking in plural.} be found following an \textbf{unsupervised learning} strategy, whereby the training points will not only dictate the values of $\hat{\lambda}$ as in \eqref{eqn-linear-system-equations-rbf}, but also the position of the RBF centers as well as the value of the shape parameters. \todo[inline]{Explicitly locate the files in the repository} 
+
+Denote by $(P)$  an arbitrary $d-$dimensional interpolation problem or differential equation. We will study solutions to $(P)$ in the form of linear combinations of radial basis functions up to a polynomial, say $\mathcal{NN}(\theta) = \mathcal{NN}(\hat{\varepsilon}, \hat{\tmmathbf{x}})$, where $\hat{\varepsilon}$ and $\hat{\tmmathbf{x}}$ denote the (learnable) shape parameters and centers that conform $\varphi$. To lessen the notation, we simply denote by $\mathcal{NN}(\tmmathbf{x})$ the application of $\mathcal{NN}$ to $\tmmathbf{x}$ up to $\hat{\varepsilon}$ and $\hat{\tmmathbf{x}}$.
+
+\textbf{A methodology for finding solutions}
+
+In the case $(P)$ is an interpolation problem, assume we are given $S = \{\tmmathbf{x}_i, \tmmathbf{y}_i\}_{i=1}^n$. Denote by $\mathcal{NN}(S)$ the vector yielding the application of $\mathcal{NN}$ to each $(\tmmathbf{x}_i, \tmmathbf{y}_i)$. In such case, we solve $(P)$ by seeking to minimize the mean-squared error of $\mathcal{NN}(S)$ with respect to $(\tmmathbf{y}_1, \tmmathbf{y}_2, ..., \tmmathbf{y}_n)$. If $(P)$ is instead a differential equations problem, we then aim to solve a problem of the form \eqref{loss-fun-pinn} following the discussion presented in the corresponding section. Preliminary experimentation showed the Gaussian kernel to be the most suitable kernel to equip to $\mathcal{NN}$, which is the one we refer our experimentation to.
+
+We iteratively minimize the corresponding loss function considering an Adam optimizer alongside a starting learning rate $10^{-2}$. We dynamically modify the learning rate by the action of the \href{https://pytorch.org/docs/stable/generated/torch.optim.lr_scheduler.ReduceLROnPlateau.html}{\texttt{ReduceLROnPlateau}} PyTorch scheduler. It verifies if the loss function took values below \texttt{dynamic\_threshold} in \texttt{patience} iterations:
+\begin{itemize}
+  \item If that is the case, its internal variable \texttt{dynamic\_threshold} is reduced and we resume operation.
+  \item If that is not the case, the learning rate is reduced by \texttt{factor}. If the learning rate is $10^{-6}$, we stop the iterative process.
 \end{itemize}
+
+We chose the Adam optimizer to avoid settling on the first local minimum we find for our loss function, especially for the initial values of our dynamic learning rate. Once a suitable local minimum is found, the loss function is observed to start exhibiting oscillations by the action of the Adam optimizer, which the scheduler eventually shuts down. This results in the last hundreds of iterations featuring smooth loss curves: an implicit and ``forced convergence'' to a solution\footnote{Because the proposed loss functions are not observed to be reduced to machine precision, our solution to the interpolation problem should--rigorously speaking--not be called an interpolator, but rather an approximator.}. This strategy has been devised as a compromise between the ``speed'' that comes with a high learning rate and reducing oscillations, most importantly throughout the last iterations.
+
+% fig:autodiffgraph
+
+\textbf{A generic experiment case}
+
+To study the effectiveness of $\mathcal{NN}$ in solving $(P)$, we consider a matrix of experiments indexed by $(C,k)$, where $C \in \{7^d,9^d,11^d,13^d,15^d\}$ denotes the number of (initially equispaced) centers we equip $\mathcal{NN}$ with, and $k$ is a scaling factor which will determine the number of training points, say $T$, according to the rule
+$T = \lceil \sqrt[d]{C  k} \rceil ^d $. 
+
+Furthermore, the training points are uniformly sampled to decisively show the capability of our model to work with an arbitrary set of points. When sampling the training points, we always ensure that some of them are located at the border of the domain. This ensures that $(P)$ is either a interpolation problem (rather than an extrapolation problem) or a well-posed differential equation (so that we have points to work on our boundary conditions).
+
+For each value of $C$, we compute a starting shape parameter common to all RBFs in the following manner: we first distribute those $C$ centers across an equispaced $d-$dimensional lattice. After that is done, choose $\varepsilon$ such that the condition number of the interpolation problem with interpolation points equal to the centers is between $10^{-6}$ and $10^{-7}$. One can do so, for instance, using the bisection method. For such shapes, the loss function is observed to steadily decrease while achieving satisfactory performance on the verification dataset. Larger starting values of the shape parameter reduce this performance, whereas progressively smaller starting values eventually cause the loss function to stagnate at unacceptable orders of magnitude.
+
+Each experiment configuration $(C,k)$ will be simultaneously solved several times for the following reasons: firstly, the model features a remarkably low amount of parameters, which might make it more susceptible to ``bad'' starting parameter sets. Secondly, to distill those experiments featuring training points that may not lead us to the actual solution of the problem. Thirdly, to observe the performance of our method on a verification dataset which will be fixed across every $(C,k)$. Finally, to elaborate statistic descriptions of the model's parameters: shape parameter, coefficients and centers. For each experiment, some recurrent questions to answer will be the following:
+
+\begin{itemize}
+  \item How do the $L^\infty$ and $L^2-$norms on the verification dataset behave as $C$ and $k$ increase?
+  \item Do we observe any improvements when equipping a polynomial term to our RBF?
+  \item Are there any recurrent distribution of centers, shape parameters or coefficients?
+\end{itemize}
+
+One reasonable concern for solving any experiment several simultaneous times is that of exhausting the computing resources of the server. The multiple processors the server features is enough to quell any such concern, as long as we launch less problems than processors we have. On the other hand, model memory allocation problem is often an issue when dealing with PINNs, which we address in the following by turning to the \href{https://pytorch.org/docs/stable/generated/torch.cuda.max_memory_allocated.html}{\texttt{max\_memory\_allocated()}}
+method of the \texttt{torch.cuda} namespace. 
+
+This method returns the peak allocated memory (in bytes) since the beginning of the program, which implies that the
+measurement is to be regarded as approximate. Figure \ref{fig:model-consumption-memory} depicts the memory consumption (in bytes) of the
+model for different numbers of centers, confirming that our model will not be a concern when it comes to memory usage. 
+
+This does not imply in any way that the memory consumed by the executed process is going to be that small, as we will also make room for the training and validation datasets. Regardless, the memory they occupy in low dimensions is observed to be negligible in comparison to the size occupied by the CUDA context\footnote{Recall that the CUDA context manages the interaction between PyTorch tensors and CUDA-capable devices (usually GPUs). The CUDA context in PyTorch handles memory allocation, device synchronization, and execution of CUDA operations on tensors stored on GPU devices. For each separate process, a CUDA context is invoked, which may be a problem if a large amount of ML problems featuring large models are to be solved simultaneously  (refer for instance to \href{https://github.com/pytorch/pytorch/issues/20532}{previous GitHub discussions} in PyTorch's repository).}.
+
 
 \begin{figure}[ht]
-  \centering
-  \includegraphics[width=.4\textwidth]{imagenes/experiments/1d/intro/sin_higher_oscillations.pdf}
-  \includegraphics[width=.4\textwidth]{imagenes/experiments/1d/intro/sin_pi_x_sq.pdf}
-  \caption{Left-hand side: $\sin (x^2)$ for $x \in [0,
-        3]$. Right-hand side: $ \sin (\pi x^2)$ for $x \in [- 1, 1]$.}
-  \label{fig:intro-control-functions}
+  \includegraphics[width=.7\textwidth]{imagenes/model_consumption/Memory_allocation_vs_number_of_centers.pdf}
+  \caption{Memory allocation of the model plotted against the number of centers, for
+    a number of dimensions between 1 and 10.}
+  \label{fig:model-consumption-memory}
 \end{figure}
+
+
+
+\section*{title}
 
 We use all these alternative terminologies for the functions in correspondence with their definition in the corresponding \href{https://github.com/heqro/tfm-experiments/blob/main/modules/notable_functions.py}{\texttt{notable\_functions}} module in the repository.
 
@@ -2222,7 +2249,7 @@ For the sake of allowing the experiments to be reproducible, we now comment on t
   \item The classic methods will be executed for $\varepsilon=5$ as shape parameter\footnote{As seen in Figure \ref{fig:xor-coefficients-conditioning} during the discussion of the \texttt{xor} binary operator, the choice of the shape parameter has an important impact on the conditioning of the matrix. Therefore, this parameter has been chosen to ensure that the interpolation problems are well-conditioned while preserving the quality of the results.}.
 \end{itemize}
 
-After having commented the experiments and terminology we will follow during the experiment, we can now address the questions we have posed. To this end, we first locate \hyperref[appendix-1d]{the corresponding Appendix} for the exhaustive relation of results of this experiment. Alongside our observations, we will include some of these results to avoid the reader from going back and forth in the text and thus facilitate the reading.
+After having commented the experiments and terminology we will follow during the experiment, we can now address the questions we have posed. %To this end, we first locate \hyperref[appendix-1d]{the corresponding Appendix} for the exhaustive relation of results of this experiment. Alongside our observations, we will include some of these results to avoid the reader from going back and forth in the text and thus facilitate the reading.
 
 We first report the results involving the $L^\infty-$norm on the verification dataset
 in the form of 3D heat maps, whereby the $x$ and $y$ coordinates correspond to the number of centers
@@ -3324,9 +3351,9 @@ Further conclusions can be drawn from this image:
 \begin{itemize}
   \item From a practical perspective, considering three
         RBFs alongside a bias term could have sufficed to solve this differential equation
-        \footnote{However, we know from the conclusions devolved in the experiment in Section
-          \ref{section:interpolation-of-franke} that smaller models are less likely to find
-          satisfactory solutions.}.
+        % \footnote{However, we know from the conclusions devolved in the experiment in Section
+          % \ref{section:interpolation-of-franke} that smaller models are less likely to find
+          % satisfactory solutions.}.
   \item Those RBFs whose shape parameter is large enough still feature $\varepsilon<1$, which is
         known to provide better accuracy. Two of these RBFs are located outside the
         domain of the problem.
@@ -3505,14 +3532,6 @@ For further reference, \ref{fig:statistic-result-pde-gaussian-kernel} depicts th
 \end{figure}
 
 \chapter{random info to organize}
-\section{Quality metrics}
-
-Root-mean-square error
-\[ \sqrt{\frac{1}{M} \sum_{j = 1}^M [\mathcal{P} (\xi_j) - f (\xi_j)]^2} =
-  \frac{1}{\sqrt{M}} \| \mathcal{P}- f \|_2 . \]
-$L^{\infty}$ error
-\[ \max_{j = 1, \ldots, M} | \mathcal{P} (\xi_j) - f (\xi_j) | = \|
-  \mathcal{P}- f \|_{\infty} . \]
   
 
 \section{plots}
@@ -3547,645 +3566,6 @@ $L^{\infty}$ error
   \caption{Caption \href{https://github.com/heqro/tfm-experiments/blob/main/introductory_notebooks/rbf_interpolation/runge_phs.ipynb}{Runge function RBF interpolation}}
   \label{fig:rbf-runge-phenomenon-eps-7}
 \end{figure}
-
-\subsubsection{phs}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\textwidth]{imagenes/phs_interpolation/runge_phs_r1_deg1.pdf}
-  \caption{Caption \href{https://github.com/heqro/tfm-experiments/blob/main/introductory_notebooks/rbf_interpolation/runge_phs.ipynb}{Runge function PHS interpolation}}
-  \label{fig:phs-runge-phenomenon-deg-1}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\textwidth]{imagenes/phs_interpolation/runge_phs_r3_deg1.pdf}
-  \caption{Caption}
-  \label{fig:phs-runge-phenomenon-deg-3}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\textwidth]{imagenes/phs_interpolation/runge_phs_r5_deg1.pdf}
-  \caption{Caption}
-  \label{fig:phs-runge-phenomenon-deg-5}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\textwidth]{imagenes/phs_interpolation/runge_phs_r7_deg1.pdf}
-  \caption{Caption}
-  \label{fig:phs-runge-phenomenon-deg-7}
-\end{figure}
-
-\subsection{gibbs plots}
-\subsubsection{arctan20x}
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\textwidth]{imagenes/phs_interpolation/arctan20x_r1_deg1.pdf}
-  \caption{Caption \href{https://github.com/heqro/tfm-experiments/blob/main/introductory_notebooks/rbf_interpolation/gibbs.ipynb}{Gibbs arctan PHS interpolation}}
-  \label{fig:arctan20x-r1-deg1}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\textwidth]{imagenes/phs_interpolation/arctan20x_r3_deg1.pdf}
-  \caption{Caption}
-  \label{fig:arctan20x-r3-deg1}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\textwidth]{imagenes/phs_interpolation/arctan20x_r5_deg1.pdf}
-  \caption{Caption}
-  \label{fig:arctan20x-r5-deg1}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\textwidth]{imagenes/phs_interpolation/arctan20x_r7_deg1.pdf}
-  \caption{Caption}
-  \label{fig:arctan20x-r7-deg1}
-\end{figure}
-
-\subsubsection{sign}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\textwidth]{imagenes/phs_interpolation/sign_r1_deg1.pdf}
-  \caption{Caption}
-  \label{fig:sign-r1-deg1}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\textwidth]{imagenes/phs_interpolation/sign_r3_deg1.pdf}
-  \caption{Caption}
-  \label{fig:sign-r3-deg1}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\textwidth]{imagenes/phs_interpolation/sign_r5_deg1.pdf}
-  \caption{Caption}
-  \label{fig:sign-r5-deg1}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\textwidth]{imagenes/phs_interpolation/sign_r7_deg1.pdf}
-  \caption{Caption}
-  \label{fig:sign-r7-deg1}
-\end{figure}
-
-
-% \begin{figure}[ht]
-%     \centering
-%     % \frame
-%     {\includegraphics[width=.5\textwidth, clip=true, trim={0 0 .1cm 0}]{imagenes/rbf_discussion/negative-exp-rbf.pdf}}
-%     \caption{Representation of the radial basis function $e^{-\varepsilon^2 r^2}$. Note that a smaller value of $\varepsilon$ translates into a progressively flatter shape, whereas a larger value of $\varepsilon$ causes the function to feature a more stark cusp.}
-%     \label{fig:negative-exp-rbf}
-% \end{figure}
-
-
-% IMPORTANT: Latex special characters are: # $ % & \ ^ _ { } ~. To avoid mistakes when compiling try writing \ before. For: \ use \textbackslash ; for ^ \textasciitilde and ~ \textasciicircum.
-
-%     Example of figure:
-%     \begin{figure}[ht]
-%     	\ffigbox[\FBwidth] {
-%     	\caption[Name as seen in index]{Figure name}
-%     	}
-%     	{\includegraphics[scale=0.6]{imagenes/creativecommons.png}}
-%     \end{figure}
-
-
-%     Example of table:
-% \begin{table}[H]
-% 	\ttabbox[\FBwidth]
-% 	{\caption{Lorem ipsum}}
-% 	{\begin{tabular}{|c|P{1.5cm}|c|P{1.5cm}|P{2cm}|c|P{1.5cm}|P{2cm}|}
-% 		\hline
-% 		\multicolumn{2}{|c|}{\textbf{I}} & \multicolumn{2}{c|}{\textbf{II}} & \multicolumn{3}{c|}{\textbf{III}} & \textbf{IV} \\
-% 		\hline
-% 		x & y & x & y & x & y & x & y \\
-% 		\hline
-% 		10.0 & 8.04 & 10.0 & 9.14 & 10.0 & 7.46 & 8.0 & 6.58 \\
-% 		\hline
-% 		8.0 & 6.95 & 8.0 & 8.14 & 8.0 & 6.77 & 8.0 & 5.76 \\
-% 		\hline
-% 		13.0 & 7.58 & 13.0 & 8.74 & 13.0 & 12.74 & 8.0 & 7.71 \\
-% 		\hline
-% 		9.0 & 8.81 & 9.0 & 8.77 & 9.0 & 7.11 & 8.0 & 8.84 \\
-% 		\hline
-% 		11.0 & 8.33 & 11.0 & 9.26 & 11.0 & 7.81 & 8.0 & 8.47 \\
-% 		\hline
-% 		14.0 & 9.96 & 14.0 & 8.10 & 14.0 & 8.84 & 8.0 & 7.04 \\
-% 		\hline
-% 		6.0 & 7.24 & 6.0 & 6.13 & 6.0 & 6.08 & 8.0 & 5.25 \\
-% 		\hline
-% 		4.0 & 4.26 & 4.0 & 3.10 & 4.0 & 5.39 & 19.0 & 12.50 \\
-% 		\hline
-% 		12.0 & 10.84 & 12.0 & 9.13 & 12.0 & 8.15 & 8.0 & 5.56 \\
-% 		\hline
-% 		7.0 & 4.82 & 7.0 & 7.26 & 7.0 & 6.42 & 8.0 & 7.91 \\
-% 		\hline
-% 		5.0 & 5.68 & 5.0 & 4.74 & 5.0 & 5.73 & 8.0 & 6.89 \\
-% 		\hline
-% 		\multicolumn{5}{l}{Source: BOE}
-% 	\end{tabular}}
-% \end{table}
-
-
-
-
-
-\section{Lo que quedó sin pasar de preliminary testing}
-
-
-
-
-
-
-
-
-Furthermore, we also mention (see Figure \ref{fig:sin-pi-x-sq-gaussian-kernel-cheb-poly-comparison-methods}) the case where a polynomial addend as well as Chebyshev nodes are considered. We do so because they allow us to obtain up to three digits of accuracy with the usage of just 5 centers under our methodology. Even though with 5 centers the classic method is not able to provide the same results, it is clear that the latter is capable of providing up to five digits of accuracy under some experiments configurations, which outperforms the proposed method.
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/sin_pi_x_sq-Kgaussian_kernel-Poly-Cheb.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/least_squares/opt-sin_pi_x_sq-Kgaussian_kernel-Poly-Cheb.pdf}
-  \caption{Logarithm of the $L^\infty-$norm of the approximation of \texttt{sin\_pi\_x\_sq} with a Gaussian kernel using equispaced nodes, comparing our method (left-hand side) with the classic method (right-hand side).}
-  \label{fig:sin-pi-x-sq-gaussian-kernel-cheb-poly-comparison-methods}
-\end{figure}
-
-
-Finally, we consider the sign function that we named \texttt{torch\_sign}. Under the considered configurations of centers and training points, none of the methodologies are able to reduce the oscillations associated. In fact, the logarithm of the $L^\infty-$norm does not even return negative values, which indicates that the oscillations are larger than the unit. Figure \ref{fig:torch-sign-gaussian-kernel-equi-comparison-methods} reports the comparison of the step function for both methodologies under the Gaussian kernel.
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/torch_sign-Kgaussian_kernel-Equi.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/least_squares/opt-torch_sign-Kgaussian_kernel-Equi.pdf}
-  \caption{Logarithm of the $L^\infty-$norm of the approximation of \texttt{torch\_sign} with a Gaussian kernel using equispaced nodes, comparing our method (left-hand side) with the classic method (right-hand side).}
-  \label{fig:torch-sign-gaussian-kernel-equi-comparison-methods}
-\end{figure}
-
-
-For the sake of completion, Figure \ref{fig:sin-pi-x-sq-phs} of the Appendix shows the sole case (featuring \texttt{sin\_pi\_x\_sq}) where the PHS kernel is able to provide a digit of accuracy.
-As the rest of the report unfolds, we will provide some additional information on why our method applied to the PHS kernel may be underperforming by such a large margin.
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/runge_function-Kphs_kernel-Equi.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/least_squares/opt-runge_function-Kphs_kernel-Equi.pdf}
-  \caption{Logarithm of the $L^\infty-$norm of the approximation of \texttt{runge\_function} with a PHS kernel using equispaced nodes, comparing our method (left-hand side) with the classic method (right-hand side).}
-  \label{fig:runge-function-phs-kernel-equi-comparison-methods}
-\end{figure}
-
-
-A reasonable concern is the following: the results we have commented on are the comparison of the classic methodology against the iterations that minimized the $L^\infty-$norm on the verification dataset. If these optimal iterations are close to the maximum of iterations we have considered (recall that it is 50000), this indicates that our method ``converges'' to a solution which reduces the oscillations.%, and that this result we are showing is not a byproduct of us knowing the values of the functions between each training point.
-
-Other verification methods could have been considered, for instance:
-\begin{enumerate}
-  \item The ratio of the $L^\infty-$norms between the last and best iterations. Because we trained using the Adam optimizer, which considers ``jumps'' every so often to avoid converging to local minima, this ratio does not yield useful information, for any such ``jumps'' could have occurred close to the last iterations, which could lead us into the wrong direction.
-  \item Refining the previous method, this time around inspecting the $L^\infty-$norm values iteration after iteration for every experiment, to verify if the few last thousands of iterations are reasonably close in value to the best iteration. Whereas this is indeed a sound strategy, it does not scale for the amount of experiments we have carried out. %To keep it simple and avoid explicitly defining concepts such as ``reasonably close'' in number of iterations and $L^\infty-$norm as well, this option was discarded for showing all the results, but 
-        It is worth considering, however, for specific experiments. \label{option-method}
-\end{enumerate}
-
-Much like with the previous section of the report, we write down the complete results sheet on \hyperref[appendix-1d]{the corresponding Appendix}, and we comment the most relevant findings. 
-
-
-
-% The right-hand side of this same figure depicts the ratio for the interpolation of \texttt{sin\_pi\_x\_sq} with a Gaussian kernel with equispaced points. This is actually the 
-
-% Figure \ref{fig:epochs-gaussian-kernel-report} paints a different picture for the case of the Gaussian kernel. Indeed, the left-hand side shows that, about two thirds of the times, the iteration that minimizes the $L^\infty-$norm takes place close to the foreseen maximum of iterations\footnote{See as well Figures \ref{fig:epochs-sin-higher-oscillations-gaussian}, \ref{fig:epochs-sin-higher-oscillations-gaussian-poly} for similar results with \texttt{sin\_higher\_oscillations}.}. However, the right-hand side of this figure shows that it does not manage to cause the same impression for the Gibbs phenomenon\footnote{See also Figures \ref{fig:epochs-sin-pi-x-sq-gaussian} and \ref{fig:epochs-sin-pi-x-sq-gaussian-poly} for \texttt{sin-pi-x-sq}.}.
-
-% \begin{figure}[ht]
-%   \centering
-%   \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/runge_function-Kgaussian_kernel-Equi-epochs.pdf}
-%   \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/gibbs_function-Kgaussian_kernel-Equi-epochs.pdf}
-%   \caption{Left-hand side: epochs ratio for the interpolation of the Runge function. Right-hand side: epochs ratio for the interpolation of the Gibbs function. In both images, interpolation has been carried out with the Gaussian kernel.}
-%   \label{fig:epochs-gaussian-kernel-report}
-% \end{figure}
-
-One could argue that, perhaps, the last iterations are not that ``far away'' in the $L^\infty-$norm from the optimal iteration we have come upon. In this case we can use method \ref{option-method} and take a closer look at the data of specific experiments to show whether that is the case. In particular, we take a look at the two training results reported in Table
-\ref{table-compare-instances}, involving the Gaussian kernel (without
-polynomial term) and equispaced points.
-
-
-\begin{table}[h]
-  \begin{tabular}{ccc|cc|}
-    \cline{4-5}
-                                                   &                                         &            & \multicolumn{2}{c|}{best iteration}                         \\ \hline
-    \multicolumn{1}{|c|}{function}                 & \multicolumn{1}{c|}{\# training points} & \# centers & \multicolumn{1}{c|}{epoch}          & $L^{\infty} -$norm    \\ \hline
-    \multicolumn{1}{|c|}{\texttt{runge\_function}} & \multicolumn{1}{c|}{15}                 & 13         & \multicolumn{1}{c|}{9848}           & $7.76 \cdot 10^{- 3}$ \\ \hline
-    \multicolumn{1}{|c|}{\texttt{gibbs\_function}} & \multicolumn{1}{c|}{29}                 & 7          & \multicolumn{1}{c|}{23485}          & $1.80 \cdot 10^{- 2}$ \\ \hline
-  \end{tabular}
-  \caption{Experiments to gather more information
-    on.}\label{table-compare-instances}
-\end{table}
-
-We repeat these two experiments gathering more data, namely training MSE and
-$L^{\infty} -$norm curves, as well as the per-iteration values of shape parameters,
-the approximation provided by the interpolator and the relative errors on the verification dataset. This way, we can verify if the
-experiment results can be reliably reproduced or if the positive results we have attested to are one-offs.
-Figure \ref{last-few-iterations-runge} and \ref{last-few-iterations-gibbs}
-report the last few iterations of these experiments involving the Runge and
-Gibbs functions respectively. On the basis of these two simple experiment
-repetitions, we can already infer a great deal about the unsupervised training
-process:
-\begin{itemize}
-  \item The $L^{\infty} -$norm most notably decreases in the first few
-        thousands of iterations, following a similar trend to the MSE. After these
-        iterations, the MSE keeps decreasing, most notably hitting $10^{-
-              10}$ for the Runge function experiment. This, alongside the other graphs,
-        allows us to assume that the interpolation is carried out
-        successfully. On the other hand, the $L^{\infty} -$norm stagnates, which
-        indicates that no significant improvements on the verification dataset can be made on the basis of the
-        provided data.
-
-  \item Our methodology varies the values of the shape parameters, initially
-        set to $1$, to best fit the needs of the interpolation problem. In
-        particular, the Gibbs function experiment sees some shape parameters go
-        smaller than the unit (say $0.47, 0.63$), whereas some others are almost an
-        order of magnitude larger than the unit (say $8.1, 12$).
-
-  \item Figure \ref{fig-centers-end} shows the distribution of the RBF centers
-        at the end of the training processes, for the Runge and Gibbs functions. In
-        order to further reduce the interpolation error, our method locates some centers outside the interval of the problem.
-
-        \begin{table}[h]
-          \begin{tabular}{ccc|cc|}
-            \cline{4-5}
-                                                               &                                         &            & \multicolumn{2}{c|}{best iteration}                         \\ \hline
-            \multicolumn{1}{|c|}{function}                     & \multicolumn{1}{c|}{\# training points} & \# centers & \multicolumn{1}{c|}{epoch}          & $L^{\infty} -$norm    \\ \hline
-            \multicolumn{1}{|c|}{\tmverbatim{runge\_function}} & \multicolumn{1}{c|}{15}                 & 13         & \multicolumn{1}{c|}{44025}          & $3.59 \cdot 10^{- 3}$ \\ \hline
-            \multicolumn{1}{|c|}{\tmverbatim{gibbs\_function}} & \multicolumn{1}{c|}{29}                 & 7          & \multicolumn{1}{c|}{25665}          & $5.41 \cdot 10^{- 2}$ \\ \hline
-          \end{tabular}
-          \caption{Results of the proposed repetition of experiments.}
-          \label{table-compare-instances-repeated}
-        \end{table}
-
-  \item Table \ref{table-compare-instances-repeated} depicts the results of
-        the repetitions of experiments proposed in Table
-        \ref{table-compare-instances}. The results in the $L^{\infty} -$norm are
-        comparable, locating both in the same order of magnitude. However, results
-        on the row spearheaded by \tmverbatim{runge\_function} show that the best
-        epochs are notably different. This is coherent with the observation
-        about the $L^{\infty} -$norm decaying most notably in the first thousands of
-        iterations and yielding diminishing returns later on.
-\end{itemize}
-
-
-
-
-\begin{figure}[ht]
-  % \raisebox{0.0\height}
-  {\includegraphics[width=.9\textwidth]{imagenes/experiments/1d/re_testing/reproducibility_runge.pdf}}
-  \caption{Last few iterations of the interpolation of
-    \tmverbatim{runge\_function} with 15 training points and 13
-    centers.\label{last-few-iterations-runge}}
-\end{figure}
-
-\begin{figure}[ht]
-  % \raisebox{0.0\height}
-  {\includegraphics[width=.9\textwidth]{imagenes/experiments/1d/re_testing/reproducibility_gibbs.pdf}}
-  \caption{Last few iterations of the interpolation of
-    \tmverbatim{gibbs\_function} with 29 training points and 7
-    centers.\label{last-few-iterations-gibbs}}
-\end{figure}
-
-\begin{wrapfigure}{R}{.4\textwidth}
-  \caption{Distribution of centers at the end of the training
-    process.\label{fig-centers-end}}
-  {\includegraphics[width=\textwidth]{imagenes/experiments/1d/re_testing/reproducibility_centers.pdf}}
-\end{wrapfigure}
-
-\newpage
-
-
- This is actually the case for a good part of all our experiments (see Figures \ref{fig:asymptotic-runge_function-TR15}-\ref{fig:asymptotic-sin_pi_x_sq-TR29} of the Appendix).
-
-
-
-
-
-
-
-
-
-
-
-\section{Interpolation of 2D functions}
-\label{section:interpolation-of-franke}
-
-\subsection*{Description of the experiment}
-
-The 1D experiment showed that the proposed methodology (employing the Gaussian
-kernel RBF interpolator with freely adjustable centers and shape parameters) is
-capable of interpolating most of the functions we proposed with a low amount of
-centers.
-
-% We also observed that the ``classic'' methodology improved the accuracy
-% more notably as more centers were provided,
-% whereas the proposed one was seen to produce better results by supplying more
-% training points. However, our methodology also featured outliers,
-% (see e.g. Figure \ref{fig:sin-higher-oscillations-gaussian}),
-% whereby a very specific configuration of training points and centers would
-% produce notably better or worse results than neighboring configurations.
-
-We now turn to the 2D case, where we consider the following functions:
-\begin{itemize}
-  \item Franke's function (depicted in Figure \ref{fig:franke-function-surface-contour}).
-  \item $\sin(\pi((2x-1)^2+(2y-1)^2))$ in the $[0.07,0.93]\times[0.07,0.93]$ interval.
-        We will refer to this function in the following plots as \texttt{sin\_pi\_x\_y\_sq}
-        \footnote{The
-          reason for using such an apparently weird interval is to avoid the function from
-          abruptly changing too close to the boundary of the domain, which would produce
-          poor results unless we proportioned a larger grid. This would only artificially extend the
-          time and memory dedicated to each particular experiment, which is against the idea behind this
-          experiment - that of launching several simultaneous training instances.}.
-\end{itemize}
-
-We interpolate these functions providing a dense enough grid of
-equispaced points as training data.
-For each number of centers, we will repeat the interpolation experiment
-several times to capture the effect on the number of centers we provide for
-the experiment.
-
-In particular, we consider a fine enough grid of training points consisting of
-the Cartesian product of 12 equispaced points in $[0,1]$. We interpolate this
-function for a number of centers ranging from $5$ to $12$. Like in the previous
-experiment, we will capture the minimum of the $L^\infty-$norm on the
-verification dataset across all training iterations.
-
-We complement
-this result with the ratio of the such best epoch with respect to the
-total of iterations we consider, which is set to 50000. Finally, for each
-configuration of training points and centers, we also will note the location
-of the centers at the end of the training process. With these ideas in mind,
-we ask the following questions:
-
-\begin{itemize}
-  \item What does the distribution of the centers look like at the end of the
-        training processes?
-  \item How do the $L^\infty-$norm and the best epochs' ratio distribute
-        as the number of centers varies?
-  \item On the basis of repeated experiments, can we account for the outliers
-        we observed in the 1D case?
-  \item Are there any trade-offs associated with decreasing
-        or increasing the number of centers in the interpolation process?
-\end{itemize}
-
-
-% \begin{figure}[ht]
-%   \includegraphics[width=\textwidth]{imagenes/experiments/2d/franke_interpolation/Franke_Function_Surface_Contour.pdf}
-%   \caption{Left-hand side: Franke's function as a surface. Right-hand side:
-%     its filled contour representation.}
-%   \label{fig:franke-function-surface-contour}
-% \end{figure}
-
-\begin{figure}[ht]
-  {\includegraphics[width=\textwidth, trim={3cm 0 1cm 0}, clip=true]{imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/Sin_pi_x_y_sq_Contour.pdf}}
-  \caption{Left-hand side: \texttt{sin\_pi\_x\_y\_sq} as a surface. Right-hand side:
-    its filled contour representation.}
-  \label{fig:sin-pi-x-y-sq-function-surface-contour}
-\end{figure}
-
-
-\subsection*{Results (Gaussian kernel)}
-
-\begin{figure}[H]
-  % \frame
-  {\includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c5_franke_function_gaussian_kernel.pdf}}
-  \caption{Results of the interpolation of Franke's function (5 centers).
-    Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio.
-    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
-  \label{fig:franke-tr12-c5}
-\end{figure}
-
-\begin{figure}[H]
-  \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c6_franke_function_gaussian_kernel.pdf}
-  \caption{Results of the interpolation of Franke's function (6 centers).
-    Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio.
-    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
-  \label{fig:franke-tr12-c6}
-\end{figure}
-\begin{figure}[H]
-  \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c7_franke_function_gaussian_kernel.pdf}
-  \caption{Results of the interpolation of Franke's function (7 centers).
-    Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio.
-    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
-  \label{fig:franke-tr12-c7}
-\end{figure}
-\begin{figure}[H]
-  \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c8_franke_function_gaussian_kernel.pdf}
-  \caption{Results of the interpolation of Franke's function (8 centers).
-    Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio.
-    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
-  \label{fig:franke-tr12-c8}
-\end{figure}
-\begin{figure}[H]
-  \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c9_franke_function_gaussian_kernel.pdf}
-  \caption{Results of the interpolation of Franke's function (9 centers).
-    Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio.
-    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
-  \label{fig:franke-tr12-c9}
-\end{figure}
-\begin{figure}[H]
-  \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c10_franke_function_gaussian_kernel.pdf}
-  \caption{Results of the interpolation of Franke's function (10 centers).
-    Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio.
-    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
-  \label{fig:franke-tr12-c10-old}
-\end{figure}
-\begin{figure}[H]
-  \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c11_franke_function_gaussian_kernel.pdf}
-  \caption{Results of the interpolation of Franke's function (11 centers).
-    Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio.
-    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
-  \label{fig:franke-tr12-c11}
-\end{figure}
-\begin{figure}[H]
-  \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c12_franke_function_gaussian_kernel.pdf}
-  \caption{Results of the interpolation of Franke's function (12 centers).
-    Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio.
-    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
-  \label{fig:franke-tr12-c12}
-\end{figure}
-
-\subsection*{Results (multiquadric kernel)}
-
-\begin{figure}[H]
-  % \frame
-  {\includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c5_franke_function_mq_kernel_sarra.pdf}}
-  \caption{Results of the interpolation of Franke's function (5 centers).
-    Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio.
-    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
-  \label{fig:franke-tr12-c5-mq}
-\end{figure}
-
-\begin{figure}[H]
-  \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c6_franke_function_mq_kernel_sarra.pdf}
-  \caption{Results of the interpolation of Franke's function (6 centers).
-    Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio.
-    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
-  \label{fig:franke-tr12-c6-mq}
-\end{figure}
-\begin{figure}[H]
-  \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c7_franke_function_mq_kernel_sarra.pdf}
-  \caption{Results of the interpolation of Franke's function (7 centers).
-    Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio.
-    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
-  \label{fig:franke-tr12-c7-mq}
-\end{figure}
-\begin{figure}[H]
-  \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c8_franke_function_mq_kernel_sarra.pdf}
-  \caption{Results of the interpolation of Franke's function (8 centers).
-    Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio.
-    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
-  \label{fig:franke-tr12-c8-mq}
-\end{figure}
-\begin{figure}[H]
-  \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c9_franke_function_mq_kernel_sarra.pdf}
-  \caption{Results of the interpolation of Franke's function (9 centers).
-    Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio.
-    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
-  \label{fig:franke-tr12-c9-mq}
-\end{figure}
-\begin{figure}[H]
-  \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c10_franke_function_mq_kernel_sarra.pdf}
-  \caption{Results of the interpolation of Franke's function (10 centers).
-    Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio.
-    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
-  \label{fig:franke-tr12-c10-mq}
-\end{figure}
-\begin{figure}[H]
-  \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c11_franke_function_mq_kernel_sarra.pdf}
-  \caption{Results of the interpolation of Franke's function (11 centers).
-    Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio.
-    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
-  \label{fig:franke-tr12-c11-mq}
-\end{figure}
-\begin{figure}[H]
-  \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/franke_interpolation/tr12_c12_franke_function_mq_kernel_sarra.pdf}
-  \caption{Results of the interpolation of Franke's function (12 centers).
-    Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio.
-    Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
-  \label{fig:franke-tr12-c12-mq}
-\end{figure}
-
-\subsection*{Conclusions}
-
-In this section, we first discuss some observations for the Gaussian kernel and observe
-if these same remarks hold for the multiquadric kernel.
-
-\begin{itemize}
-  \item The epochs' ratio shifts towards $1.0$ as more centers are
-        provided to train with. The median of the $\log_{10}L^\infty-$norm
-        shifts towards progressively smaller values. This shift is most noticeable when
-        moving from 5 centers to 6 centers (compare right-hand sides of Figures
-        \ref{fig:franke-tr12-c5} and \ref{fig:franke-tr12-c6}). The same holds for
-        the multiquadric kernel (Figures \ref{fig:franke-tr12-c5-mq} and \ref{fig:franke-tr12-c6-mq}).
-  \item As more centers are provided, the ratio of epochs is distributed
-        following a ``trumpet-like'' shape. This is change is most clear in the progression
-        from 6, 7 and 8 centers (Figures \ref{fig:franke-tr12-c6}, \ref{fig:franke-tr12-c7},
-        \ref{fig:franke-tr12-c8}). The same holds for the multiquadric kernel
-        (Figures \ref{fig:franke-tr12-c8-mq}, \ref{fig:franke-tr12-c9-mq} and
-        \ref{fig:franke-tr12-c10-mq}).
-  \item The $\log_{10}L^\infty-$norm metric distribution features a tail on the top
-        side of it. It is at its largest for 5 centers (Figure \ref{fig:franke-tr12-c5}),
-        then notably diminishing for 6 centers (Figure \ref{fig:franke-tr12-c6})
-        and dissipating for 10 centers onwards (Figures \ref{fig:franke-tr12-c10},
-        \ref{fig:franke-tr12-c11} and \ref{fig:franke-tr12-c12}). For 6 centers onwards, this tail is compartmentalized from the rest of the
-        distribution of the data, which resembles a normal distribution. Then again, a
-        similar observation can be made for the multiquadric kernel, where this tail disappears
-        for 9 centers onwards (Figure \ref{fig:franke-tr12-c9-mq}).
-
-
-
-  \item Independently of the number of centers provided, the three extrema of the
-        interpolated function are always occupied with a center. After they have been
-        occupied, the rest of the centers distribute along the steepest ascent direction
-        of Franke's function, which is located outside the domain and is not part of
-        the training data. This is
-        most notable from 8 centers onwards (Figure \ref{fig:franke-tr12-c8}).
-
-        The remaining centers distribute elsewhere, notably outside the domain
-        as well. Their particular distribution seems to be preserved from 10 centers
-        onwards (Figures
-        \ref{fig:franke-tr12-c10}, \ref{fig:franke-tr12-c11}, and
-        \ref{fig:franke-tr12-c12}).
-
-        On the other hand, the multiquadric kernel exhibits a different distribution of
-        centers at the end of the training process. Much like with the Gaussian kernel,
-        whatever this distribution may be it is preserved as more centers are provided
-        to the interpolator.
-
-  \item For the Gaussian kernel, the repetition of experiments shows that
-        $10$ centers are enough to guarantee
-        from a practical perspective at least two digits of accuracy at the end of the
-        training process, with a median of three digits. Nevertheless, the data shows
-        there exist configurations of our model involving 6 centers that are capable of
-        providing this performance as well, but they are not found very often with our
-        training methods and initial starting configuration.
-
-        Likewise, 9 centers would have sufficed for providing a digit of accuracy under
-        the multiquadric kernel. However, and in consistency with what we observed in the
-        1D case, this kernel seems not to perform as brilliantly as the Gaussian kernel.
-\end{itemize}
-
-\section{Interpolation of \texttt{sin\_pi\_x\_y\_sq}}\label{sec:interp2d-experiment2}
-
-\subsection*{Results (Gaussian kernel)}
-
-% \begin{figure}[H]
-%   % \frame
-%   {\includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/tr12_c5_sin_pi_x_y_sq_gaussian_kernel.pdf}}
-%   \caption{Results of the interpolation of \texttt{sin\_pi\_x\_y\_sq} (5 centers).
-%     Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio.
-%     Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
-%   \label{fig:sin-pi-x-y-sq-tr12-c5}
-% \end{figure}
-
-% \begin{figure}[H]
-%   \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/tr12_c20_sin_pi_x_y_sq_gaussian_kernel.pdf}
-%   \caption{Results of the interpolation of \texttt{sin\_pi\_x\_y\_sq} (20 centers).
-%     Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio.
-%     Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
-%   \label{fig:sin-pi-x-y-sq-tr12-c20}
-% \end{figure}
-% \begin{figure}[H]
-%   \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/tr12_c25_sin_pi_x_y_sq_gaussian_kernel.pdf}
-%   \caption{Results of the interpolation of \texttt{sin\_pi\_x\_y\_sq} (25 centers).
-%     Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio.
-%     Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
-%   \label{fig:sin-pi-x-y-sq-tr12-c25}
-% \end{figure}
-% \begin{figure}[H]
-%   \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/tr12_c30_sin_pi_x_y_sq_gaussian_kernel.pdf}
-%   \caption{Results of the interpolation of \texttt{sin\_pi\_x\_y\_sq} (30 centers).
-%     Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio.
-%     Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
-%   \label{fig:sin-pi-x-y-sq-tr12-c30}
-% \end{figure}
-% \begin{figure}[H]
-%   \includegraphics[width=\textwidth, trim={2cm 0 2.8cm 0}, clip=true]{imagenes/experiments/2d/sin_pi_x_y_sq_interpolation/tr12_c35_sin_pi_x_y_sq_gaussian_kernel.pdf}
-%   \caption{Results of the interpolation of \texttt{sin\_pi\_x\_y\_sq} (35 centers).
-%     Left-hand side: distribution of centers with respect to the problem domain (black rectangle). Center: the best epoch to total epochs' ratio.
-%     Right-hand side: $\log_{10}(L^\infty-\text{norm})$.}
-%   \label{fig:sin-pi-x-y-sq-tr12-c35}
-% \end{figure}
-
-\subsection*{Conclusions}
-
-The conclusions are very similar to the ones we observed in the previous experiments: providing
-more centers is bound to decrease the number of \textit{outliers}, that is, the number of
-experiments that underperform on our verification dataset. It also causes the
-``trumpet'' shape on the epochs' ratio to appear again, shifting the second quartile towards
-$1.0$. Moreover, the centers are arranged
-where one would expect them to: in the center of the surface and around its ring.
-
-
 
 
 
@@ -4273,7 +3653,7 @@ then discretized as the Cartesian product of those two sets. The associated (dis
     +\mathcal{N}\mathcal{N} (1, y ; \theta)^2 \right] . \]
 
 
-\subsection*{Intento de ver la solución}
+
 
 
 
@@ -4297,426 +3677,10 @@ then discretized as the Cartesian product of those two sets. The associated (dis
 %----------	
 
 % If your work includes Appendix, you can uncomment the following lines
-\chapter*{Appendix A}\label{appendix-1d}
-\pagenumbering{gobble} % Appendix pages are not numbered
+% \chapter*{Appendix A}\label{appendix-1d}
+% \pagenumbering{gobble} % Appendix pages are not numbered
 
-\section*{plots from experiment}
 
-\subsection*{Runge}
-
-\begin{figure}[ht]
-  \centering
-
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/runge_function-Kgaussian_kernel-Equi.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/runge_function-Kgaussian_kernel-Cheb.pdf}
-  \caption{Caption}
-  \label{fig:runge-gaussian}
-\end{figure}
-
-
-\begin{figure}[ht]
-  \centering
-
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/runge_function-Kgaussian_kernel-Poly-Equi.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/runge_function-Kgaussian_kernel-Poly-Cheb.pdf}
-  \caption{Caption}
-  \label{fig:runge-gaussian-poly}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/runge_function-Kmq_kernel_sarra-Equi.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/runge_function-Kmq_kernel_sarra-Cheb.pdf}
-  \caption{Caption}
-  \label{fig:runge-sarra}
-\end{figure}
-
-
-\begin{figure}[ht]
-  \centering
-
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/runge_function-Kphs_kernel-Equi.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/runge_function-Kphs_kernel-Cheb.pdf}
-  \caption{Caption}
-  \label{fig:runge-phs}
-\end{figure}
-
-
-\subsection*{Gibbs}
-
-\begin{figure}[ht]
-  \centering
-
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/gibbs_function-Kgaussian_kernel-Equi.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/gibbs_function-Kgaussian_kernel-Cheb.pdf}
-  \caption{Caption}
-  \label{fig:gibbs-gaussian}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-
-  \includegraphics[width=.6\textwidth]{imagenes/experiments/1d/variational/gibbs_gaussian_extended.pdf}
-  \caption{Caption}
-  \label{fig:gibbs-gaussian-extended}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-
-  \includegraphics[width=.6\textwidth]{imagenes/experiments/1d/least_squares/gibbs_exact_solution_fucks_up.pdf}
-  \caption{Caption}
-  \label{fig:gibbs-gaussian-extended-lstsq}
-\end{figure}
-
-
-\begin{figure}[ht]
-  \centering
-
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/gibbs_function-Kgaussian_kernel-Poly-Equi.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/gibbs_function-Kgaussian_kernel-Poly-Cheb.pdf}
-  \caption{Caption}
-  \label{fig:gibbs-gaussian-poly}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/gibbs_function-Kmq_kernel_sarra-Equi.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/gibbs_function-Kmq_kernel_sarra-Cheb.pdf}
-  \caption{Caption}
-  \label{fig:gibbs-sarra}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/gibbs_function-Kphs_kernel-Equi.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/gibbs_function-Kphs_kernel-Cheb.pdf}
-  \caption{Caption}
-  \label{fig:gibbs-phs}
-\end{figure}
-
-
-\subsection*{Sign function}
-
-\begin{figure}[ht]
-  \centering
-
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/torch_sign-Kgaussian_kernel-Equi.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/torch_sign-Kgaussian_kernel-Cheb.pdf}
-  \caption{Caption}
-  \label{fig:torch-sign-gaussian}
-\end{figure}
-
-
-\begin{figure}[ht]
-  \centering
-
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/torch_sign-Kgaussian_kernel-Poly-Equi.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/torch_sign-Kgaussian_kernel-Poly-Cheb.pdf}
-  \caption{Caption}
-  \label{fig:torch-sign-gaussian-poly}
-\end{figure}
-
-
-\begin{figure}[ht]
-  \centering
-
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/torch_sign-Kmq_kernel_sarra-Equi.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/torch_sign-Kmq_kernel_sarra-Cheb.pdf}
-  \caption{Caption}
-  \label{fig:torch-sign-sarra}
-\end{figure}
-
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/torch_sign-Kphs_kernel-Equi.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/torch_sign-Kphs_kernel-Cheb.pdf}
-  \caption{Caption}
-  \label{fig:torch-sign-phs}
-\end{figure}
-
-\subsection*{\texttt{sin\_higher\_oscillations}}
-
-\begin{figure}[ht]
-  \centering
-
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/sin_higher_oscillations-Kgaussian_kernel-Equi.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/sin_higher_oscillations-Kgaussian_kernel-Cheb.pdf}
-  \caption{Caption}
-  \label{fig:sin-higher-oscillations-gaussian}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/sin_higher_oscillations-Kgaussian_kernel-Poly-Equi.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/sin_higher_oscillations-Kgaussian_kernel-Poly-Cheb.pdf}
-  \caption{Caption}
-  \label{fig:sin-higher-oscillations-gaussian-poly}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/sin_higher_oscillations-Kmq_kernel_sarra-Equi.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/sin_higher_oscillations-Kmq_kernel_sarra-Cheb.pdf}
-  \caption{Caption}
-  \label{fig:sin-higher-oscillations-sarra}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/sin_higher_oscillations-Kphs_kernel-Equi.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/sin_higher_oscillations-Kphs_kernel-Cheb.pdf}
-  \caption{Caption}
-  \label{fig:sin-higher-oscillations-phs}
-\end{figure}
-
-\subsection*{\texttt{sin\_pi\_x\_sq}}
-
-\begin{figure}[ht]
-  \centering
-
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/sin_pi_x_sq-Kgaussian_kernel-Equi.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/sin_pi_x_sq-Kgaussian_kernel-Cheb.pdf}
-  \caption{Caption}
-  \label{fig:sin-pi-x-sq-gaussian}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/sin_pi_x_sq-Kgaussian_kernel-Poly-Equi.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/sin_pi_x_sq-Kgaussian_kernel-Poly-Cheb.pdf}
-  \caption{Caption}
-  \label{fig:sin-pi-x-sq-gaussian-poly}
-\end{figure}
-
-
-\begin{figure}[ht]
-  \centering
-
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/sin_pi_x_sq-Kmq_kernel_sarra-Equi.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/sin_pi_x_sq-Kmq_kernel_sarra-Cheb.pdf}
-  \caption{Caption}
-  \label{fig:sin-pi-x-sq-sarra}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/sin_pi_x_sq-Kphs_kernel-Equi.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational/sin_pi_x_sq-Kphs_kernel-Cheb.pdf}
-  \caption{Caption}
-  \label{fig:sin-pi-x-sq-phs}
-\end{figure}
-
-\section*{epochs}
-
-\subsection*{Runge}
-
-\begin{figure}[ht]
-  \centering
-
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/runge_function-Kgaussian_kernel-Equi-epochs.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/runge_function-Kgaussian_kernel-Cheb-epochs.pdf}
-  \caption{Caption}
-  \label{fig:epochs-runge-gaussian}
-\end{figure}
-
-
-\begin{figure}[ht]
-  \centering
-
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/runge_function-Kgaussian_kernel-Poly-Equi-epochs.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/runge_function-Kgaussian_kernel-Poly-Cheb-epochs.pdf}
-  \caption{Caption}
-  \label{fig:epochs-runge-gaussian-poly}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/runge_function-Kmq_kernel_sarra-Equi-epochs.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/runge_function-Kmq_kernel_sarra-Cheb-epochs.pdf}
-  \caption{Caption}
-  \label{fig:epochs-runge-sarra}
-\end{figure}
-
-
-\begin{figure}[ht]
-  \centering
-
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/runge_function-Kphs_kernel-Equi-epochs.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/runge_function-Kphs_kernel-Cheb-epochs.pdf}
-  \caption{Caption}
-  \label{fig:epochs-runge-phs}
-\end{figure}
-
-
-\subsection*{Gibbs}
-
-\begin{figure}[ht]
-  \centering
-
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/gibbs_function-Kgaussian_kernel-Equi-epochs.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/gibbs_function-Kgaussian_kernel-Cheb-epochs.pdf}
-  \caption{Caption}
-  \label{fig:epochs-gibbs-gaussian}
-\end{figure}
-
-
-
-\begin{figure}[ht]
-  \centering
-
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/gibbs_function-Kgaussian_kernel-Poly-Equi-epochs.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/gibbs_function-Kgaussian_kernel-Poly-Cheb-epochs.pdf}
-  \caption{Caption}
-  \label{fig:epochs-gibbs-gaussian-poly}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/gibbs_function-Kmq_kernel_sarra-Equi-epochs.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/gibbs_function-Kmq_kernel_sarra-Cheb-epochs.pdf}
-  \caption{Caption}
-  \label{fig:epochs-gibbs-sarra}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/gibbs_function-Kphs_kernel-Equi-epochs.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/gibbs_function-Kphs_kernel-Cheb-epochs.pdf}
-  \caption{Caption}
-  \label{fig:epochs-gibbs-phs}
-\end{figure}
-
-
-\subsection*{Sign function}
-
-\begin{figure}[ht]
-  \centering
-
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/torch_sign-Kgaussian_kernel-Equi-epochs.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/torch_sign-Kgaussian_kernel-Cheb-epochs.pdf}
-  \caption{Caption}
-  \label{fig:epochs-torch-sign-gaussian}
-\end{figure}
-
-
-\begin{figure}[ht]
-  \centering
-
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/torch_sign-Kgaussian_kernel-Poly-Equi-epochs.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/torch_sign-Kgaussian_kernel-Poly-Cheb-epochs.pdf}
-  \caption{Caption}
-  \label{fig:epochs-torch-sign-gaussian-poly}
-\end{figure}
-
-
-\begin{figure}[ht]
-  \centering
-
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/torch_sign-Kmq_kernel_sarra-Equi-epochs.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/torch_sign-Kmq_kernel_sarra-Cheb-epochs.pdf}
-  \caption{Caption}
-  \label{fig:epochs-torch-sign-sarra}
-\end{figure}
-
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/torch_sign-Kphs_kernel-Equi-epochs.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/torch_sign-Kphs_kernel-Cheb-epochs.pdf}
-  \caption{Caption}
-  \label{fig:epochs-torch-sign-phs}
-\end{figure}
-
-\clearpage
-\subsection*{\texttt{sin\_higher\_oscillations}}
-
-\begin{figure}[ht]
-  \centering
-
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kgaussian_kernel-Equi-epochs.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kgaussian_kernel-Cheb-epochs.pdf}
-  \caption{Caption}
-  \label{fig:epochs-sin-higher-oscillations-gaussian}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kgaussian_kernel-Poly-Equi-epochs.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kgaussian_kernel-Poly-Cheb-epochs.pdf}
-  \caption{Caption}
-  \label{fig:epochs-sin-higher-oscillations-gaussian-poly}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kmq_kernel_sarra-Equi-epochs.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kmq_kernel_sarra-Cheb-epochs.pdf}
-  \caption{Caption}
-  \label{fig:epochs-sin-higher-oscillations-sarra}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kphs_kernel-Equi-epochs.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/sin_higher_oscillations-Kphs_kernel-Cheb-epochs.pdf}
-  \caption{Caption}
-  \label{fig:epochs-sin-higher-oscillations-phs}
-\end{figure}
-
-\subsection*{\texttt{sin\_pi\_x\_sq}}
-
-\begin{figure}[ht]
-  \centering
-
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kgaussian_kernel-Equi-epochs.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kgaussian_kernel-Cheb-epochs.pdf}
-  \caption{Caption}
-  \label{fig:epochs-sin-pi-x-sq-gaussian}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kgaussian_kernel-Poly-Equi-epochs.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kgaussian_kernel-Poly-Cheb-epochs.pdf}
-  \caption{Caption}
-  \label{fig:epochs-sin-pi-x-sq-gaussian-poly}
-\end{figure}
-
-
-\begin{figure}[ht]
-  \centering
-
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kmq_kernel_sarra-Equi-epochs.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kmq_kernel_sarra-Cheb-epochs.pdf}
-  \caption{Caption}
-  \label{fig:epochs-sin-pi-x-sq-sarra}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kphs_kernel-Equi-epochs.pdf}
-  \includegraphics[width=.49\textwidth]{imagenes/experiments/1d/variational_epochs/sin_pi_x_sq-Kphs_kernel-Cheb-epochs.pdf}
-  \caption{Caption}
-  \label{fig:epochs-sin-pi-x-sq-phs}
-\end{figure}
 
 \clearpage
 
@@ -4967,287 +3931,12 @@ then discretized as the Cartesian product of those two sets. The associated (dis
 \end{figure}
 
 
-\includepdf[pages=-]{new_results_05-04-24.pdf}
 
 
-\chapter*{Repeated interpolation experiments}\label{appendix-1d-sin-pi-x-sq}
-
-\section*{Objective of the experiment}
-
-Same questions as in every other experiment:
-\begin{itemize}
-  \item Distribution of points at the end of the training process.
-  \item How does the amount of training points and centers relate to the $L^\infty-$norm
-        as well as the best epochs' ratio.
-\end{itemize}
-
-We provide 15 and 29 training points, which are the cases with least and most information
-in the previous experiments, respectively.
-
-
-\section*{Conclusions}
-
-\begin{itemize}
-  \item Providing 15 training points may be too little for the function
-        we wish to interpolate. In no experiment
-        involving this number of training points have we observed the ``trumpet'' shape.
-        Indeed, the first thousand iterations were the most effective, likely overfitting
-        the input data later on.
-  \item On the other hand, 29 training points is enough for us to start distinguishing
-        the ``trumpet'' shape in the epochs' ratio
-        (see Figure \ref{fig:sin-pi-x-sq-statistic-tr29-c17}
-        for the case with 17 centers), which indicates that our process is very likely
-        to find the best solutions in the $L^\infty-$norm towards the end of the training process.
-        Providing more centers is seen to improve accuracy on the verification dataset,
-        albeit with diminishing returns past the 17 centers mark.
-\end{itemize}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\textwidth]
-  {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr15_c5_sin_pi_x_sq_gaussian_kernel.pdf}
-  \caption{Left-hand side: distribution of centers at the end of the training process for
-    \texttt{sin\_pi\_x\_sq} (15 training points, 5 centers, Gaussian kernel). Center: the best epochs' ratio.
-    Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
-  \label{fig:sin-pi-x-sq-statistic-tr15-c5}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\textwidth]
-  {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr15_c7_sin_pi_x_sq_gaussian_kernel.pdf}
-  \caption{Left-hand side: distribution of centers at the end of the training process for
-    \texttt{sin\_pi\_x\_sq} (15 training points, 7 centers, Gaussian kernel). Center: the best epochs' ratio.
-    Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
-  \label{fig:sin-pi-x-sq-statistic-tr15-c7}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\textwidth]
-  {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr15_c9_sin_pi_x_sq_gaussian_kernel.pdf}
-  \caption{Left-hand side: distribution of centers at the end of the training process for
-    \texttt{sin\_pi\_x\_sq} (15 training points, 9 centers, Gaussian kernel). Center: the best epochs' ratio.
-    Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
-  \label{fig:sin-pi-x-sq-statistic-tr15-c9}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\textwidth]
-  {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr15_c11_sin_pi_x_sq_gaussian_kernel.pdf}
-  \caption{Left-hand side: distribution of centers at the end of the training process for
-    \texttt{sin\_pi\_x\_sq} (15 training points, 11 centers, Gaussian kernel). Center: the best epochs' ratio.
-    Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
-  \label{fig:sin-pi-x-sq-statistic-tr15-c11}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\textwidth]
-  {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr15_c13_sin_pi_x_sq_gaussian_kernel.pdf}
-  \caption{Left-hand side: distribution of centers at the end of the training process for
-    \texttt{sin\_pi\_x\_sq} (15 training points, 13 centers, Gaussian kernel). Center: the best epochs' ratio.
-    Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
-  \label{fig:sin-pi-x-sq-statistic-tr15-c13}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\textwidth]
-  {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr15_c15_sin_pi_x_sq_gaussian_kernel.pdf}
-  \caption{Left-hand side: distribution of centers at the end of the training process for
-    \texttt{sin\_pi\_x\_sq} (15 training points, 15 centers, Gaussian kernel). Center: the best epochs' ratio.
-    Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
-  \label{fig:sin-pi-x-sq-statistic-tr15-c15}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\textwidth]
-  {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c9_sin_pi_x_sq_gaussian_kernel.pdf}
-  \caption{Left-hand side: distribution of centers at the end of the training process for
-    \texttt{sin\_pi\_x\_sq} (29 training points, 9 centers, Gaussian kernel). Center: the best epochs' ratio.
-    Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
-  \label{fig:sin-pi-x-sq-statistic-tr29-c9}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\textwidth]
-  {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c11_sin_pi_x_sq_gaussian_kernel.pdf}
-  \caption{Left-hand side: distribution of centers at the end of the training process for
-    \texttt{sin\_pi\_x\_sq} (29 training points, 11 centers, Gaussian kernel). Center: the best epochs' ratio.
-    Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
-  \label{fig:sin-pi-x-sq-statistic-tr29-c11}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\textwidth]
-  {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c13_sin_pi_x_sq_gaussian_kernel.pdf}
-  \caption{Left-hand side: distribution of centers at the end of the training process for
-    \texttt{sin\_pi\_x\_sq} (29 training points, 13 centers, Gaussian kernel). Center: the best epochs' ratio.
-    Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
-  \label{fig:sin-pi-x-sq-statistic-tr29-c13}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\textwidth]
-  {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c15_sin_pi_x_sq_gaussian_kernel.pdf}
-  \caption{Left-hand side: distribution of centers at the end of the training process for
-    \texttt{sin\_pi\_x\_sq} (29 training points, 15 centers, Gaussian kernel). Center: the best epochs' ratio.
-    Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
-  \label{fig:sin-pi-x-sq-statistic-tr29-c15}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\textwidth]
-  {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c17_sin_pi_x_sq_gaussian_kernel.pdf}
-  \caption{Left-hand side: distribution of centers at the end of the training process for
-    \texttt{sin\_pi\_x\_sq} (29 training points, 17 centers, Gaussian kernel). Center: the best epochs' ratio.
-    Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
-  \label{fig:sin-pi-x-sq-statistic-tr29-c17}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\textwidth]
-  {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c19_sin_pi_x_sq_gaussian_kernel.pdf}
-  \caption{Left-hand side: distribution of centers at the end of the training process for
-    \texttt{sin\_pi\_x\_sq} (29 training points, 19 centers, Gaussian kernel). Center: the best epochs' ratio.
-    Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
-  \label{fig:sin-pi-x-sq-statistic-tr29-c19}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\textwidth]
-  {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c21_sin_pi_x_sq_gaussian_kernel.pdf}
-  \caption{Left-hand side: distribution of centers at the end of the training process for
-    \texttt{sin\_pi\_x\_sq} (29 training points, 21 centers, Gaussian kernel). Center: the best epochs' ratio.
-    Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
-  \label{fig:sin-pi-x-sq-statistic-tr29-c21}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\textwidth]
-  {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c23_sin_pi_x_sq_gaussian_kernel.pdf}
-  \caption{Left-hand side: distribution of centers at the end of the training process for
-    \texttt{sin\_pi\_x\_sq} (29 training points, 23 centers, Gaussian kernel). Center: the best epochs' ratio.
-    Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
-  \label{fig:sin-pi-x-sq-statistic-tr29-c23}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\textwidth]
-  {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c25_sin_pi_x_sq_gaussian_kernel.pdf}
-  \caption{Left-hand side: distribution of centers at the end of the training process for
-    \texttt{sin\_pi\_x\_sq} (29 training points, 25 centers, Gaussian kernel). Center: the best epochs' ratio.
-    Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
-  \label{fig:sin-pi-x-sq-statistic-tr29-c25}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\textwidth]
-  {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c27_sin_pi_x_sq_gaussian_kernel.pdf}
-  \caption{Left-hand side: distribution of centers at the end of the training process for
-    \texttt{sin\_pi\_x\_sq} (29 training points, 27 centers, Gaussian kernel). Center: the best epochs' ratio.
-    Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
-  \label{fig:sin-pi-x-sq-statistic-tr29-c27}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\textwidth]
-  {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c29_sin_pi_x_sq_gaussian_kernel.pdf}
-  \caption{Left-hand side: distribution of centers at the end of the training process for
-    \texttt{sin\_pi\_x\_sq} (29 training points, 29 centers, Gaussian kernel). Center: the best epochs' ratio.
-    Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
-  \label{fig:sin-pi-x-sq-statistic-tr29-c29}
-\end{figure}
-
-\section*{A short ablation test}
-
-We have heuristically seen that the consideration of 21 centers alongside 29 training points
-yields acceptable results in both the epochs' ratio and in the $L^\infty-$norm, yielding
-with a median of three digits of accuracy over all experiments carried out. However,
-it is not entirely clear if we can neglect any of the parameters of the network for the sake
-of further reducing its number of parameters. Besides the coefficients involved in the
-weighted sum of our RBFs, the location of their centers as well as the shape parameter
-are two parameters which one may think could potentially be saved up on.
-
-To this end, we now show the repetition of the
-experiments for this configuration of centers and training points
-under the following two models:
-\begin{itemize}
-  \item A model where the centers are equispaced and fixed (Figure
-        \ref{fig:sin-pi-x-sq-statistic-tr29-c29-fixed-centers}).
-  \item A model where the shape parameter is fixed (for instance, to $\varepsilon=1$).
-        The corresponding results can be seen in Figure
-        \ref{fig:sin-pi-x-sq-statistic-tr29-c29-fixed-shapes-1}.
-\end{itemize}
-
-As the results show, both the shape parameter and the location of the centers
-being trainable are key for obtaining the previous results, and we can neglect
-none of them.
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\textwidth]
-  {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c21_sin_pi_x_sq_gaussian_kernel_fixed_centers.pdf}
-  \caption{Results for the training processes for fixed centers. Left-hand side: distribution of centers at the end of the training process for
-    \texttt{sin\_pi\_x\_sq} (29 training points, 21 centers, Gaussian kernel). Center: the best epochs' ratio.
-    Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
-  \label{fig:sin-pi-x-sq-statistic-tr29-c29-fixed-centers}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\textwidth]
-  {imagenes/experiments/1d/sin_pi_x_sq_statistic_interpolation/tr29_c21_sin_pi_x_sq_gaussian_kernel_fixed_shapes_1.pdf}
-  \caption{Results for the training processes for a common shape parameter fixed to 1. Left-hand side: distribution of centers at the end of the training process for
-    \texttt{sin\_pi\_x\_sq} (29 training points, 21 centers, Gaussian kernel). Center: the best epochs' ratio.
-    Right-hand side: logarithm of the $L^\infty-$norm on the verification dataset.}
-  \label{fig:sin-pi-x-sq-statistic-tr29-c29-fixed-shapes-1}
-\end{figure}
 
 \chapter*{Model metrics}
 
 \section*{Memory consumption}
 
-Model memory allocation measurements can be computed using the
-\href{https://pytorch.org/docs/stable/generated/torch.cuda.max_memory_allocated.html}{\texttt{max\_memory\_allocated()}}
-method of the \texttt{torch.cuda} namespace. As per the documentation,
-this method returns the peak allocated memory (in bytes) since the beginning of the program, which implies that the
-measurement is to be regarded as approximate. Listing \ref{code:python-memory-measure} shows a simple code to
-provide readings on \textit{the memory consumed by the model}.
-Figure \ref{fig:model-consumption-memory} depicts the memory consumption (in bytes) of the
-model for different numbers of centers.
-
-\begin{lstlisting}[language=Python, caption=Simple memory consumption measurement., label=code:python-memory-measure]
-  import torch
-  from notable_kernels import gaussian_kernel
-  from nn_rbf import RBF_Free_All as RBF
-
-  def report_data(input_dim: int, num_centers: int):
-    before = torch.cuda.memory_allocated('cuda')
-    nn = RBF(input_dim, num_centers, 1, gaussian_kernel).to('cuda')
-    after = torch.cuda.memory_allocated('cuda')
-
-    print(f'Memory consumed by the model: {after-before}')
-  \end{lstlisting}
-
-\begin{figure}[ht]
-  \includegraphics[width=.7\textwidth]{imagenes/model_consumption/Memory_allocation_vs_number_of_centers.pdf}
-  \caption{Memory allocation of the model plotted against the number of centers, for
-    a number of dimensions between 1 and 10.}
-  \label{fig:model-consumption-memory}
-\end{figure}
 
 \end{document}
