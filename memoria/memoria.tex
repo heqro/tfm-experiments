@@ -2202,7 +2202,7 @@ In the following, we will work on well-behaved polynomial functions. Our objecti
 
 \subsection*{One-dimensional case}
 
-We consider the function $x \mapsto u_2(x)=(x-1/2)^2$ for $x \in [-1,1]$. We may refer to this function by \texttt{u2} as well. For this interval, we have found suitable starting shape parameters $\{1.3428, 1.9531, 2.5635, 3.1738, 3.6621\}$. They will be tied to $C=\{7,9,11,13,15\}$, respectively.
+We consider the function $x \mapsto u_2(x)=(x-1/2)^2$ for $x \in [-1,1]$. We may refer to this function by \texttt{u2} as well. For this interval, we have found suitable starting shape parameters $\{0.78125, 1.25, 1.5625, 2.03125, 2.5\}$. They will be tied to $C=\{7,9,11,13,15\}$, respectively.
 
 
 \begin{figure}[h]
@@ -2276,6 +2276,26 @@ We consider the function $x \mapsto u_2(x)=(x-1/2)^2$ for $x \in [-1,1]$. We may
 
 \clearpage
 \subsection*{Two-dimensional case}
+
+We consider the function $(x,y) \mapsto (x-1/2)^2 + (y-1/2)^2$ for $(x,y)$ in the disk centered in $(0,0)$ of unit radius. We may refer to this function as \texttt{parabola}. Considering initially equispaced centers in the interval $[-1,1]\times[-1,1]$, we found suitable starting shape parameters $\{1.3428, 1.9531, 2.5635, 3.1738, 3.6621\}$. They will be tied to $C=\{7^2,9^2,11^2,13^2,15^2\}$, respectively.
+
+One can sample uniformly-distributed training points for working with the unitary disk as follows:
+\begin{itemize}
+  \item The interior points are sampled uniformly on the interval $[-1,1]\times[-1,1]$. We retain those verifying the equation of the disk.
+  \item The points on the boundary have to be explicitly generated, as the boundary constitutes a measure zero set in 2D. We obtain them by sampling from the uniform distribution $U[0,2\pi)$, and then identifying $(x,y)=(\cos\theta, \sin\theta)$.
+\end{itemize}
+
+Figure \ref{fig:uniform-circle} visually depicts the sieve of points that is carried out when sampling from the uniform distribution (points in green and blue), while also showing the generic formulation to generate points at the boundary (point in orange).
+
+\begin{figure}[h]  
+  \includegraphics[width=.5\textwidth]{imagenes/experiments/helpful_images/uniform_circle.pdf}
+  \caption{Visual representation of one can generate uniformly distributed points as well as points lying on the boundary of a circle.}
+  \label{fig:uniform-circle}
+\end{figure}
+
+Working in the interior, it is not correct to sample $r$ from $U[0,1)$ and $\theta$ from $U[0,2\pi)$ and then map $(x,y)=(r \cos \theta, r \sin \theta)$. The change to polar coordinates is not a linear function; for our purposes, this implies that regions close to the origin will feature a higher density of points than those farther from it.
+
+For the sake of reproducibility, we explicitly state the number of points we consider on the boundary and inside the circle: let $T^2$ be the number of training points we work with. We then consider $4 (T - 2) + 4$ points on the boundary, and the rest are to be in the interior of the domain\footnote{This apparently obscure formula comes from the idea that, working with a square, a reasonable amount of boundary points is $T$ per side. Provided one would like to always have points at the corners of the square, one would then have $T-2$ uniformly sampled points per side (because of the $2$ fixed points), which yields our proposed formula for the number of points on the boundary.}.
 
 \section*{Solving differential equations}
 
