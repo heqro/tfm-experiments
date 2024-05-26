@@ -23,7 +23,7 @@ def get_ball(radius: float, n_interior_points: int, n_boundary_points: int, dim=
     def get_boundary_points(radius: float, n_points: int) -> torch.Tensor:
         from torch import pi, cos, sin
         points = torch.zeros(size=(n_points, dim))
-        angles = pi * torch.rand(n_points)
+        angles = 2 * pi * torch.rand(n_points)
         points[:, 0] = radius * cos(angles)
         points[:, 1] = radius * sin(angles)
         return points
