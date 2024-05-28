@@ -2297,6 +2297,87 @@ Working in the interior, it is not correct to sample $r$ from $U[0,1)$ and $\the
 
 For the sake of reproducibility, we explicitly state the number of points we consider on the boundary and inside the circle: let $T^2$ be the number of training points we work with. We then consider $4 (T - 2) + 4$ points on the boundary, and the rest are to be in the interior of the domain\footnote{This apparently obscure formula comes from the idea that, working with a square, a reasonable amount of boundary points is $T$ per side. Provided one would like to always have points at the corners of the square, one would then have $T-2$ uniformly sampled points per side (because of the $2$ fixed points), which yields our proposed formula for the number of points on the boundary.}.
 
+
+
+\begin{figure}[h]
+  \hspace*{-3cm}
+  \begin{tabular}{ccc}
+    \includegraphics[width=.42\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/boxplot_linf_parabola_Poly-1.pdf} &
+  \includegraphics[width=.42\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/boxplot_l2_parabola_Poly-1.pdf} &
+  \includegraphics[width=.42\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/boxplot_times_parabola_Poly-1.pdf} \\
+  \includegraphics[width=.42\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/boxplot_linf_parabola_Poly2.pdf} &
+  \includegraphics[width=.42\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/boxplot_l2_parabola_Poly2.pdf} &
+  \includegraphics[width=.42\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/boxplot_times_parabola_Poly2.pdf} \\
+  \multicolumn{3}{c}{
+    {\includegraphics[width=\textwidth]
+          {imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/legend.pdf}}
+          }
+  \end{tabular}
+  \caption{Top row, left and center: boxplots of the $L^\infty$ and $L^2-$norms on our verification dataset with no polynomial term. Top row, right: boxplot of the elapsed times with no polynomial term. Bottom row: the same results with a quadratic polynomial term.}
+  \label{fig:parabola-results-poly-1}
+\end{figure}
+
+\begin{figure}[h]
+  \hspace*{-2cm}
+  \begin{tabular}{cc}
+    \includegraphics[width=.6\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/incidence_of_linf.pdf}
+  \includegraphics[width=.6\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/incidence_of_l2.pdf}
+  \end{tabular}
+  \caption{Left: incidence of the $L^\infty-$norm across all experiments, comparing the optimum iteration in this value with the last iteration. Right: incidence of the $L^2-$norm across all experiments, comparing with the value that produced the best iteration in the $L^\infty-$norm.}
+  \label{fig:parabola-results-incidence-l-norms}
+\end{figure}
+
+
+
+\begin{figure}[h]
+  \includegraphics[width=.8\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/distribution_of_shape_parameters_at_end_of_training.pdf}
+  \caption{Distribution of shape parameters at the end of the training process fitted to a normal distribution.}
+  \label{fig:parabola-results-shape-parameters}
+\end{figure}
+
+% \begin{figure}[h]
+%   \includegraphics[width=.7\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/distribution_of_errors_L_inf_end.pdf}
+%   \caption{Distribution of the locations of the largest errors in the approximation of the functions at the end of the training process.}
+%   \label{fig:parabola-results-largest-error}
+% \end{figure}
+
+\begin{figure}[h]
+  \hspace*{-2cm}
+  \begin{tabular}{ccc}
+    {\includegraphics[width=.4\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/distribution_of_errors_L_inf_end_C49.pdf}} &
+    \includegraphics[width=.4\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/distribution_of_errors_L_inf_end_C81.pdf} &
+    \includegraphics[width=.4\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/distribution_of_errors_L_inf_end_C121.pdf} \\
+    \includegraphics[width=.4\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/distribution_of_errors_L_inf_end_C169.pdf} &
+    \includegraphics[width=.4\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/distribution_of_errors_L_inf_end_C225.pdf} &
+    \includegraphics[width=.4\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/distribution_of_errors_L_inf_end.pdf}
+  \end{tabular}
+  \caption{Distribution of the largest errors at the end of the training process according to the number of centers and overall.}
+  \label{fig:parabola-results-largest-errors}
+\end{figure}
+
+\begin{figure}[h]
+  \includegraphics[width=.7\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/loss_curves_all}
+  \includegraphics[width=.7\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/last_few_iterations_all.pdf}
+  \caption{Top: loss curves of the total amount of experiments, alongside the mean. Bottom: loss curves of the last few hundreds of iterations for all iterations.}
+  \label{fig:parabola-results-last-iterations}
+\end{figure}
+
+
+\begin{figure}[h]
+  \hspace*{-2cm}
+  \begin{tabular}{cc}
+    \includegraphics[width=.6\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/circle_c49_parabola_gaussian_kernel.pdf} &
+    \includegraphics[width=.6\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/circle_c81_parabola_gaussian_kernel.pdf} \\
+    \includegraphics[width=.6\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/circle_c121_parabola_gaussian_kernel.pdf} &
+    \includegraphics[width=.6\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/circle_c169_parabola_gaussian_kernel.pdf}\\
+    \includegraphics[width=.6\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/circle_c225_parabola_gaussian_kernel.pdf}
+  \end{tabular}
+  \caption{Distribution of centers at the end of the training process.}
+  \label{fig:parabola-results-centers}
+\end{figure}
+
+
+\clearpage
 \section*{Solving differential equations}
 
 \subsection*{An observation on the computation of derivatives}
