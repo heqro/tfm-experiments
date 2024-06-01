@@ -204,6 +204,7 @@ hmargin=3cm
 \addbibresource{referencias.bib} % The references.bib file in which the bibliography used should be
 
 \usepackage{graphbox}
+\usepackage{rotating}
 % start TeXmacs macros
 \newcommand{\nobracket}{}
 \newcommand{\tmmathbf}[1]{\ensuremath{\boldsymbol{#1}}}
@@ -2164,7 +2165,7 @@ We chose the Adam optimizer to avoid settling on the first local minimum we find
 To study the effectiveness of $\mathcal{NN}$ in solving $(P)$, we consider a matrix of experiments indexed by $(C,k)$, where $C \in \{7^d,9^d,11^d,13^d,15^d\}$ denotes the number of (initially equispaced) centers we equip $\mathcal{NN}$ with, and $k$ is a scaling factor which will determine the number of training points, say $T$, according to the rule
 $T = \lceil \sqrt[d]{C  k} \rceil ^d $. 
 
-Furthermore, the training points are uniformly sampled to decisively show the capability of our model to work with an arbitrary set of points. When sampling the training points, we always ensure that some of them are located at the border of the domain. This ensures that $(P)$ is either a interpolation problem (rather than an extrapolation problem) or a well-posed differential equation (so that we have points to work on our boundary conditions).
+Furthermore, the training points are uniformly sampled to decisively show the capability of our model to work with an arbitrary set of points. When sampling the training points, we always ensure that some of them are located at the border of the domain. This ensures that $(P)$ is either an interpolation problem (rather than an extrapolation problem) or a well-posed differential equation (so that we have points to work with along the boundary).
 
 For each value of $C$, we compute a starting shape parameter common to all RBFs in the following manner: we first distribute those $C$ centers across an equispaced $d-$dimensional lattice. After that is done, choose $\varepsilon$ such that the condition number of the interpolation problem with interpolation points equal to the centers is between $10^{-6}$ and $10^{-7}$. One can do so, for instance, using the bisection method. For such shapes, the loss function will be observed to steadily decrease while achieving satisfactory performance on the verification dataset. Larger starting values of the shape parameter reduce this performance, whereas progressively smaller starting values eventually cause the loss function to stagnate at unacceptable orders of magnitude.
 
@@ -2194,6 +2195,8 @@ This does not imply in any way that the memory consumed by the executed process 
   \label{fig:model-consumption-memory}
 \end{figure}
 
+\todo[inline]{memory consumption per dimension}
+
 In the following, we will work on well-behaved polynomial functions. Our objective is to evaluate the performance of our model when we expect to the performance to improve when explicitly incorporating polynomial terms. We will present the results in graphic form, using vector images to allow the usage of electronic zoom if further interpretation of the representations is of interest to the reader.
 
 \section*{Approximation of functions}
@@ -2204,22 +2207,32 @@ In the following, we will work on well-behaved polynomial functions. Our objecti
 
 We consider the function $x \mapsto u_2(x)=(x-1/2)^2$ for $x \in [-1,1]$. We may refer to this function by \texttt{u2} as well. For this interval, we have found suitable starting shape parameters $\{0.78125, 1.25, 1.5625, 2.03125, 2.5\}$. They will be tied to $C=\{7,9,11,13,15\}$, respectively.
 
+Figure \ref{u2-example-training-TR15-C15} shows how an instance of this experiment is carried out. Notice (top-right image) that the largest error is located where the density of training points is at its lowest. Furthermore, the two figures on the left-hand show the location and the shape parameters of the RBF functions, allowing one to see at a glance the parameters of the proposed network. Finally, the image on the bottom-right hand side shows the loss function of our model alongside the $L^2$ and $L^\infty-$norms on the verification dataset. The action of the scheduler allows us to iteratively reduce oscillations in the model, most importantly nullifying them in the very last few iterations.
 
 \begin{figure}[h]
-  \hspace*{-3cm}
-  \begin{tabular}{ccc}
-    \includegraphics[width=.42\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/boxplot_linf_u2_Poly-1.pdf} &
-  \includegraphics[width=.42\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/boxplot_l2_u2_Poly-1.pdf} &
-  \includegraphics[width=.42\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/boxplot_times_u2_Poly-1.pdf} \\
-  \includegraphics[width=.42\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/boxplot_linf_u2_Poly2.pdf} &
-  \includegraphics[width=.42\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/boxplot_l2_u2_Poly2.pdf} &
-  \includegraphics[width=.42\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/boxplot_times_u2_Poly2.pdf} \\
-  \multicolumn{3}{c}{{\includegraphics[width=\textwidth]
-          {imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/legend.pdf}}}
-  \end{tabular}
-  \caption{Top row, left and center: boxplots of the $L^\infty$ and $L^2-$norms on our verification dataset with no polynomial term. Top row, right: boxplot of the elapsed times with no polynomial term. Bottom row: the same results with a quadratic polynomial term.}
-  \label{fig:u2-results-poly-1}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/u2-TR15-C15-Kgaussian_kernel-Sh2.5-6-E35542.pdf}
+  \caption{Last iteration of an instance of the approximation experiment $(C,k)=(15,1)$ for $u_2$ with no polynomial term. Top-left: original function alongside its approximation, the training nodes and the centers. Top-right: absolute error alongside the training nodes. Bottom-left: values of each of the shape parameters of our RBFs. Bottom-right: model curves, namely the loss term and learning rates, as well as the $L^\infty$ and $L^2$ norms on the verification datasets.}
+  \label{u2-example-training-TR15-C15}
 \end{figure}
+
+As previously anticipated, we shall be repeating each experiment configuration several times to extract statistics on the performance of our model, most importantly when a polynomial term is considered. Figure \ref{fig:u2-results-overall} shows a comparison of the distribution of results in the $L^\infty$ and $L^2-$norms as well as in execution times, when a quadratic polynomial term is considered with respect to the case where no polynomial term is featured. We observe that the results improve more visibly when $k$ is increased than when $C$ is increased, which is likely to the ``good behavior'' of the test function. The consideration of a quadratic polynomial term further decreases the $L^2$ and $L^\infty-$norm metrics, most notably for $C=7$.
+
+\begin{sidewaysfigure}[H]
+  \hspace*{-1cm}
+  \begin{tabular}{cccccc}
+    {\includegraphics[width=.014\textwidth,clip=true,trim={0 .59cm 9cm 0}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/violins/violins_linf_u2_C7_gaussian_kernel_shape_0.78125_Poly-1_uniform.pdf}} & {\includegraphics[width=.2\textwidth,clip=true,trim={.81cm .59cm 0 0}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/violins/violins_linf_u2_C7_gaussian_kernel_shape_0.78125_Poly-1_uniform.pdf}} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm .59cm 0 0}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/violins/violins_linf_u2_C9_gaussian_kernel_shape_1.25_Poly-1_uniform.pdf} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm .59cm 0 0}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/violins/violins_linf_u2_C11_gaussian_kernel_shape_1.5625_Poly-1_uniform.pdf} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm .59cm 0 0}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/violins/violins_linf_u2_C13_gaussian_kernel_shape_2.03125_Poly-1_uniform.pdf} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm .59cm 0 0}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/violins/violins_linf_u2_C15_gaussian_kernel_shape_2.5_Poly-1_uniform.pdf} \\
+    {\includegraphics[width=.014\textwidth,clip=true,trim={0 .59cm 9cm 0}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/violins/violins_l2_u2_C7_gaussian_kernel_shape_0.78125_Poly-1_uniform.pdf}} & {\includegraphics[width=.2\textwidth,clip=true,trim={.81cm .59cm 0 .65cm}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/violins/violins_l2_u2_C7_gaussian_kernel_shape_0.78125_Poly-1_uniform.pdf}} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm .59cm 0 .65cm}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/violins/violins_l2_u2_C9_gaussian_kernel_shape_1.25_Poly-1_uniform.pdf} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm .59cm 0 .65cm}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/violins/violins_l2_u2_C11_gaussian_kernel_shape_1.5625_Poly-1_uniform.pdf} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm .59cm 0 .65cm}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/violins/violins_l2_u2_C13_gaussian_kernel_shape_2.03125_Poly-1_uniform.pdf} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm .59cm 0 .65cm}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/violins/violins_l2_u2_C15_gaussian_kernel_shape_2.5_Poly-1_uniform.pdf} \\
+    {\includegraphics[width=.014\textwidth,clip=true,trim={0 0 9cm 0}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/violins/violins_times_u2_C7_gaussian_kernel_shape_0.78125_Poly-1_uniform.pdf}} & {\includegraphics[width=.2\textwidth,clip=true,trim={.81cm 0 0 .65cm}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/violins/violins_times_u2_C7_gaussian_kernel_shape_0.78125_Poly-1_uniform.pdf}} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm 0 0 .65cm}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/violins/violins_times_u2_C9_gaussian_kernel_shape_1.25_Poly-1_uniform.pdf} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm 0 0 .65cm}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/violins/violins_times_u2_C11_gaussian_kernel_shape_1.5625_Poly-1_uniform.pdf} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm 0 0 .65cm}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/violins/violins_times_u2_C13_gaussian_kernel_shape_2.03125_Poly-1_uniform.pdf} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm 0 0 .65cm}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/violins/violins_times_u2_C15_gaussian_kernel_shape_2.5_Poly-1_uniform.pdf} \\ \hline
+    {\includegraphics[width=.014\textwidth,clip=true,trim={0 .59cm 9cm 0}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/violins/violins_linf_u2_C7_gaussian_kernel_shape_0.78125_Poly2_uniform.pdf}} & {\includegraphics[width=.2\textwidth,clip=true,trim={.81cm .59cm 0 0}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/violins/violins_linf_u2_C7_gaussian_kernel_shape_0.78125_Poly2_uniform.pdf}} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm .59cm 0 0}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/violins/violins_linf_u2_C9_gaussian_kernel_shape_1.25_Poly2_uniform.pdf} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm .59cm 0 0}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/violins/violins_linf_u2_C11_gaussian_kernel_shape_1.5625_Poly2_uniform.pdf} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm .59cm 0 0}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/violins/violins_linf_u2_C13_gaussian_kernel_shape_2.03125_Poly2_uniform.pdf} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm .59cm 0 0}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/violins/violins_linf_u2_C15_gaussian_kernel_shape_2.5_Poly2_uniform.pdf} \\
+    {\includegraphics[width=.014\textwidth,clip=true,trim={0 .59cm 9cm 0}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/violins/violins_l2_u2_C7_gaussian_kernel_shape_0.78125_Poly2_uniform.pdf}} & {\includegraphics[width=.2\textwidth,clip=true,trim={.81cm .59cm 0 .65cm}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/violins/violins_l2_u2_C7_gaussian_kernel_shape_0.78125_Poly2_uniform.pdf}} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm .59cm 0 .65cm}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/violins/violins_l2_u2_C9_gaussian_kernel_shape_1.25_Poly2_uniform.pdf} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm .59cm 0 .65cm}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/violins/violins_l2_u2_C11_gaussian_kernel_shape_1.5625_Poly2_uniform.pdf} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm .59cm 0 .65cm}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/violins/violins_l2_u2_C13_gaussian_kernel_shape_2.03125_Poly2_uniform.pdf} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm .59cm 0 .65cm}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/violins/violins_l2_u2_C15_gaussian_kernel_shape_2.5_Poly2_uniform.pdf} \\
+    {\includegraphics[width=.014\textwidth,clip=true,trim={0 0 9cm 0}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/violins/violins_times_u2_C7_gaussian_kernel_shape_0.78125_Poly2_uniform.pdf}} & {\includegraphics[width=.2\textwidth,clip=true,trim={.81cm 0 0 .65cm}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/violins/violins_times_u2_C7_gaussian_kernel_shape_0.78125_Poly2_uniform.pdf}} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm 0 0 .65cm}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/violins/violins_times_u2_C9_gaussian_kernel_shape_1.25_Poly2_uniform.pdf} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm 0 0 .65cm}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/violins/violins_times_u2_C11_gaussian_kernel_shape_1.5625_Poly2_uniform.pdf} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm 0 0 .65cm}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/violins/violins_times_u2_C13_gaussian_kernel_shape_2.03125_Poly2_uniform.pdf} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm 0 0 .65cm}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/violins/violins_times_u2_C15_gaussian_kernel_shape_2.5_Poly2_uniform.pdf} \\
+  \end{tabular}
+  % \includegraphics[width=\textwidth]{figure.png}
+  \caption{Distribution of the $L^\infty$, $L^2-$norms on our verification dataset, and overall elapsed times, without a polynomial term (top section) and with a quadratic polynomial term (bottom section).}
+  \label{fig:u2-results-overall}
+\end{sidewaysfigure}
+
+A reasonable concern comes from the fact that letting the iterative process run long enough might eventually allow for oscillations to arise between any two training nodes. To settle this problem, Figure \ref{fig:u2-results-incidence-l-norms} depicts, across all instances of experiments, the incidence of the $L^\infty$ and $L^2-$norms during the last iteration in comparison to the best iteration in the $L^\infty-$norm that was hit. It indicates that the last iterations we make are, in general, not far from the best iterations, sometimes even surpassing the best iteration for the $L^2-$norm.
 
 \begin{figure}[h]
   \hspace*{-2cm}
@@ -2231,11 +2244,8 @@ We consider the function $x \mapsto u_2(x)=(x-1/2)^2$ for $x \in [-1,1]$. We may
   \label{fig:u2-results-incidence-l-norms}
 \end{figure}
 
-\begin{figure}[h]
-  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/distribution_of_shape_parameters_at_end_of_training.pdf}
-  \caption{Distribution of shape parameters at the end of the training process fitted to a normal distribution.}
-  \label{fig:u2-results-shape-parameters}
-\end{figure}
+Figure \ref{fig:u2-results-largest-error} features a histogram of the incidence of maxima of the $L^\infty-$norm across all experiments at the end of the training process, indicating that they are more likely to be found towards the boundary of the domain. 
+
 
 
 \begin{figure}[h]
@@ -2244,11 +2254,27 @@ We consider the function $x \mapsto u_2(x)=(x-1/2)^2$ for $x \in [-1,1]$. We may
   \label{fig:u2-results-largest-error}
 \end{figure}
 
+Figure \ref{fig:u2-results-shape-parameters} depicts the incidence of the shape parameters at the end of all training processes fitted to a normal distribution. Some observations are in order:
+\begin{itemize}
+  \item The mean of the fitted normal distributions approach the starting shape parameter as $C$ (and thus the starting parameter) is increased. The fitted variance diminishes as well.
+  \item For $\varepsilon=0.78125$ and $\varepsilon=1.25$, associated with $C=7$ and $C=9$ respectively, some shape parameters are found to be close to zero. This indicates that some of the RBF terms are effectively working as bias terms.
+\end{itemize}
+
 \begin{figure}[h]
-  \includegraphics[width=.7\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/last_few_all_with_Poly.pdf}
-  \includegraphics[width=.7\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/last_few_TR60_C15.pdf}
-  \caption{Loss curves of the last few hundreds of iterations for all iterations, and for 60 training points and 15 centers.}
-  \label{fig:u2-results-last-iterations}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/distribution_of_shape_parameters_at_end_of_training.pdf}
+  \caption{Distribution of shape parameters at the end of the training process fitted to a normal distribution.}
+  \label{fig:u2-results-shape-parameters}
+\end{figure}
+
+Figure \ref{fig:u2-results-all} provides cursory insights into the learning curves of the model. It features the loss functions and the $L^2$ and $L^\infty-$norms of all the experiments that have been carried out. It shows that the loss term reaches satisfactory orders of magnitude, well under $10^{-5}$. It also shows that the $L^2$ and $L^\infty-$norms have similar behaviors, differring only in slight visual details.
+
+\begin{figure}[h]
+  \includegraphics[width=.7\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/Loss_curves_semilogy_all.pdf}
+  \includegraphics[width=.7\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/L2_curves_semilogy_all.pdf}
+  \includegraphics[width=.7\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/Linf_curves_semilogy_all.pdf}
+  % \includegraphics[width=.7\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/loss_curves_semilogy_TR60_C15.pdf}
+  \caption{Representation of the loss, $L^2$ and $L^\infty$ curves across all iterations.}
+  \label{fig:u2-results-all}
 \end{figure}
 
 
@@ -2288,7 +2314,7 @@ One can sample uniformly-distributed training points for working with the unitar
 Figure \ref{fig:uniform-circle} visually depicts the sieve of points that is carried out when sampling from the uniform distribution (points in green and blue), while also showing the generic formulation to generate points at the boundary (point in orange).
 
 \begin{figure}[h]  
-  \includegraphics[width=.5\textwidth]{imagenes/experiments/helpful_images/uniform_circle.pdf}
+  {\includegraphics[width=.8\textwidth]{imagenes/experiments/helpful_images/uniform_circle.pdf}}
   \caption{Visual representation of one can generate uniformly distributed points as well as points lying on the boundary of a circle.}
   \label{fig:uniform-circle}
 \end{figure}
@@ -2297,25 +2323,31 @@ Working in the interior, it is not correct to sample $r$ from $U[0,1)$ and $\the
 
 For the sake of reproducibility, we explicitly state the number of points we consider on the boundary and inside the circle: let $T^2$ be the number of training points we work with. We then consider $4 (T - 2) + 4$ points on the boundary, and the rest are to be in the interior of the domain\footnote{This apparently obscure formula comes from the idea that, working with a square, a reasonable amount of boundary points is $T$ per side. Provided one would like to always have points at the corners of the square, one would then have $T-2$ uniformly sampled points per side (because of the $2$ fixed points), which yields our proposed formula for the number of points on the boundary.}.
 
-
+Much like in the one-dimensional case, Figure \ref{fig:parabola-example-training-TR22-C121} depicts a particular instance of this experiment. Notice that the metrics of the model (right-hand side) shows that the scheduler is able to notably reduce oscillations, reducing the learning rate as soon as they show up. In comparison with the one-dimensional case, the oscillations are much shorter-lived and the learning rate that occupies most of the time of computation is $10^{-5}$.
 
 \begin{figure}[h]
-  \hspace*{-3cm}
-  \begin{tabular}{ccc}
-    \includegraphics[width=.42\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/boxplot_linf_parabola_Poly-1.pdf} &
-  \includegraphics[width=.42\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/boxplot_l2_parabola_Poly-1.pdf} &
-  \includegraphics[width=.42\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/boxplot_times_parabola_Poly-1.pdf} \\
-  \includegraphics[width=.42\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/boxplot_linf_parabola_Poly2.pdf} &
-  \includegraphics[width=.42\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/boxplot_l2_parabola_Poly2.pdf} &
-  \includegraphics[width=.42\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/boxplot_times_parabola_Poly2.pdf} \\
-  \multicolumn{3}{c}{
-    {\includegraphics[width=\textwidth]
-          {imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/legend.pdf}}
-          }
-  \end{tabular}
-  \caption{Top row, left and center: boxplots of the $L^\infty$ and $L^2-$norms on our verification dataset with no polynomial term. Top row, right: boxplot of the elapsed times with no polynomial term. Bottom row: the same results with a quadratic polynomial term.}
-  \label{fig:parabola-results-poly-1}
+  \includegraphics[width=\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/parabola-TR22-C121-Kgaussian_kernel-Sh2.5635-5-E57813.pdf}
+  \caption{Last iteration of an instance of the approximation experiment $(C,k)=(121,4)$. Left-hand side: absolute error on the verification dataset. Right-hand side: model curves of the training process (loss function, learning rate) as well as its performance on the verification dataset ($L^2, L^\infty-$norms).}
+  \label{fig:parabola-example-training-TR22-C121}
 \end{figure}
+
+Furthermore, Figure \ref{fig:parabola-results-overall} shows the comparison of the distribution of these results in the $L^\infty$ and $L^2-$norms and in execution times, both with and without a quadratic polynomial addend. As observed in the 1D case, the improvements come not from the consideration of a larger value of $C$, but rather by the increment of $k$. Further increasing $k$ is also seen to visibly decrease the spread of results in the $L^2$ and $L^\infty-$norms. The consideration of a quadratic polynomial produces timid improvements on these two metrics. Finally, the execution times are at their largest for increasing values of $C$. 
+
+\begin{sidewaysfigure}[H]
+  \hspace*{-1cm}
+  \begin{tabular}{cccccc}
+    {\includegraphics[width=.014\textwidth,clip=true,trim={0 .59cm 9cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/violins/violins_linf_parabola_C49_gaussian_kernel_shape_1.3428_Poly-1.pdf}} & {\includegraphics[width=.2\textwidth,clip=true,trim={.81cm .59cm 0 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/violins/violins_linf_parabola_C49_gaussian_kernel_shape_1.3428_Poly-1.pdf}} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm .59cm 0 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/violins/violins_linf_parabola_C81_gaussian_kernel_shape_1.9531_Poly-1.pdf} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm .59cm 0 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/violins/violins_linf_parabola_C121_gaussian_kernel_shape_2.5635_Poly-1.pdf} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm .59cm 0 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/violins/violins_linf_parabola_C169_gaussian_kernel_shape_3.1738_Poly-1.pdf} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm .59cm 0 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/violins/violins_linf_parabola_C225_gaussian_kernel_shape_3.6621_Poly-1.pdf} \\
+    {\includegraphics[width=.014\textwidth,clip=true,trim={0 .59cm 9.3cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/violins/violins_l2_parabola_C49_gaussian_kernel_shape_1.3428_Poly-1.pdf}} & {\includegraphics[width=.2\textwidth,clip=true,trim={.81cm .59cm 0 .65cm}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/violins/violins_l2_parabola_C49_gaussian_kernel_shape_1.3428_Poly-1.pdf}} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm .59cm 0 .65cm}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/violins/violins_l2_parabola_C81_gaussian_kernel_shape_1.9531_Poly-1.pdf} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm .59cm 0 .65cm}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/violins/violins_l2_parabola_C121_gaussian_kernel_shape_2.5635_Poly-1.pdf} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm .59cm 0 .65cm}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/violins/violins_l2_parabola_C169_gaussian_kernel_shape_3.1738_Poly-1.pdf} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm .59cm 0 .65cm}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/violins/violins_l2_parabola_C225_gaussian_kernel_shape_3.6621_Poly-1.pdf} \\
+    {\includegraphics[width=.014\textwidth,clip=true,trim={0 0 9cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/violins/violins_times_parabola_C49_gaussian_kernel_shape_1.3428_Poly-1.pdf}} & {\includegraphics[width=.2\textwidth,clip=true,trim={.81cm 0 0 .65cm}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/violins/violins_times_parabola_C49_gaussian_kernel_shape_1.3428_Poly-1.pdf}} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm 0 0 .65cm}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/violins/violins_times_parabola_C81_gaussian_kernel_shape_1.9531_Poly-1.pdf} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm 0 0 .65cm}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/violins/violins_times_parabola_C121_gaussian_kernel_shape_2.5635_Poly-1.pdf} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm 0 0 .65cm}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/violins/violins_times_parabola_C169_gaussian_kernel_shape_3.1738_Poly-1.pdf} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm 0 0 .65cm}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/violins/violins_times_parabola_C225_gaussian_kernel_shape_3.6621_Poly-1.pdf} \\ \hline
+    {\includegraphics[width=.014\textwidth,clip=true,trim={0 .59cm 9cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/violins/violins_linf_parabola_C49_gaussian_kernel_shape_1.3428_Poly2.pdf}} & {\includegraphics[width=.2\textwidth,clip=true,trim={.81cm .59cm 0 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/violins/violins_linf_parabola_C49_gaussian_kernel_shape_1.3428_Poly2.pdf}} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm .59cm 0 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/violins/violins_linf_parabola_C81_gaussian_kernel_shape_1.9531_Poly2.pdf} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm .59cm 0 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/violins/violins_linf_parabola_C121_gaussian_kernel_shape_2.5635_Poly2.pdf} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm .59cm 0 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/violins/violins_linf_parabola_C169_gaussian_kernel_shape_3.1738_Poly2.pdf} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm .59cm 0 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/violins/violins_linf_parabola_C225_gaussian_kernel_shape_3.6621_Poly2.pdf} \\
+    {\includegraphics[width=.014\textwidth,clip=true,trim={0 .59cm 9.3cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/violins/violins_l2_parabola_C49_gaussian_kernel_shape_1.3428_Poly2.pdf}} & {\includegraphics[width=.2\textwidth,clip=true,trim={.81cm .59cm 0 .65cm}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/violins/violins_l2_parabola_C49_gaussian_kernel_shape_1.3428_Poly2.pdf}} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm .59cm 0 .65cm}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/violins/violins_l2_parabola_C81_gaussian_kernel_shape_1.9531_Poly2.pdf} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm .59cm 0 .65cm}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/violins/violins_l2_parabola_C121_gaussian_kernel_shape_2.5635_Poly2.pdf} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm .59cm 0 .65cm}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/violins/violins_l2_parabola_C169_gaussian_kernel_shape_3.1738_Poly2.pdf} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm .59cm 0 .65cm}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/violins/violins_l2_parabola_C225_gaussian_kernel_shape_3.6621_Poly2.pdf} \\
+    {\includegraphics[width=.014\textwidth,clip=true,trim={0 0 9cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/violins/violins_times_parabola_C49_gaussian_kernel_shape_1.3428_Poly2.pdf}} & {\includegraphics[width=.2\textwidth,clip=true,trim={.81cm 0 0 .65cm}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/violins/violins_times_parabola_C49_gaussian_kernel_shape_1.3428_Poly2.pdf}} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm 0 0 .65cm}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/violins/violins_times_parabola_C81_gaussian_kernel_shape_1.9531_Poly2.pdf} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm 0 0 .65cm}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/violins/violins_times_parabola_C121_gaussian_kernel_shape_2.5635_Poly2.pdf} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm 0 0 .65cm}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/violins/violins_times_parabola_C169_gaussian_kernel_shape_3.1738_Poly2.pdf} & \includegraphics[width=.2\textwidth,clip=true,trim={.81cm 0 0 .65cm}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/violins/violins_times_parabola_C225_gaussian_kernel_shape_3.6621_Poly2.pdf} \\
+  \end{tabular}
+  \caption{Distribution of the $L^\infty$, $L^2-$norms on our verification dataset, and overall elapsed times, without a polynomial term (top section) and with a quadratic polynomial term (bottom section).}
+  \label{fig:parabola-results-overall}
+\end{sidewaysfigure}
+
+Figure \ref{fig:parabola-results-incidence-l-norms} features the incidence of maxima in the $L^\infty-$norm across all experiments by the end of each experiment instance. The results differ with regards to the 1D case, because there is a small spread in the $L^\infty-$norm (left-hand side). Furthermore, $L^2-$norm results for the last iterations are better than the ones obtained for the best iteration in the $L^\infty-$norm, indicating that more iterations can reliably produce, on average, better approximations to the verification dataset.
 
 \begin{figure}[h]
   \hspace*{-2cm}
@@ -2327,7 +2359,7 @@ For the sake of reproducibility, we explicitly state the number of points we con
   \label{fig:parabola-results-incidence-l-norms}
 \end{figure}
 
-
+Figure \ref{fig:parabola-results-shape-parameters} depicts the distribution of shape parameters at the end of the training process, with a normal distribution laid over it. Like in the 1D case, the spread is clearly normally distributed (bar the cluster around zero for the starting parameter $\varepsilon=1.3428$). The means of the distributions approach the actual starting parameter as it is increased in value, with a smaller variance as well.
 
 \begin{figure}[h]
   \includegraphics[width=.8\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/distribution_of_shape_parameters_at_end_of_training.pdf}
@@ -2335,11 +2367,7 @@ For the sake of reproducibility, we explicitly state the number of points we con
   \label{fig:parabola-results-shape-parameters}
 \end{figure}
 
-% \begin{figure}[h]
-%   \includegraphics[width=.7\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/distribution_of_errors_L_inf_end.pdf}
-%   \caption{Distribution of the locations of the largest errors in the approximation of the functions at the end of the training process.}
-%   \label{fig:parabola-results-largest-error}
-% \end{figure}
+Figure \ref{fig:parabola-results-largest-errors} shows the locations of the largest error by the end of all training processes, distinguishing by number of centers we consider as well as the overall distribution. As more centers are provided, the formula we prescribed for the number of points at the interior and alongside the boundary is going to provide more points at the interior than at the boundary. This explains why the case $C=225$ features more errors at the boundary than $C=49$.
 
 \begin{figure}[h]
   \hspace*{-2cm}
@@ -2355,13 +2383,18 @@ For the sake of reproducibility, we explicitly state the number of points we con
   \label{fig:parabola-results-largest-errors}
 \end{figure}
 
+Figure \ref{fig:parabola-results-last-iterations} provides information at a glance on the loss, $L^2$ and $L^\infty-$norms of all the experiments we carried out. The largest difference with regards to the 1D case is the fact that the loss plot, featuring the aggregation of all loss curves, is much less dispersed this time around. This can be understood by way of the illustrative example in Figure \ref{fig:parabola-example-training-TR22-C121}, where oscillations are immediately stopped by the action of the scheduler.
+
 \begin{figure}[h]
-  \includegraphics[width=.7\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/loss_curves_all}
-  \includegraphics[width=.7\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/last_few_iterations_all.pdf}
-  \caption{Top: loss curves of the total amount of experiments, alongside the mean. Bottom: loss curves of the last few hundreds of iterations for all iterations.}
+  \includegraphics[width=.7\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/Loss_curves_semilogy_all.pdf}
+  \includegraphics[width=.7\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/L2_curves_semilogy_all.pdf}
+  \includegraphics[width=.7\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/Linf_curves_semilogy_all.pdf}
+  \caption{Representation of the loss, $L^2$ and $L^\infty$ curves across all iterations.}
   \label{fig:parabola-results-last-iterations}
 \end{figure}
 
+Finally,
+Figure \ref{fig:parabola-results-centers} shows the distribution of the centers by the end of all training processes according to $C$. The centers are clustered forming circles inside circles. The spread of the centers is seen to be reduced as more centers are provided. It can be seen, by carrying out the same experiment on the domain $[-1,1]\times[-1,1]$, that the centers are clustered forming squares instead.
 
 \begin{figure}[h]
   \hspace*{-2cm}
