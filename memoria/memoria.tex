@@ -2174,7 +2174,7 @@ Each experiment configuration $(C,k)$ will be simultaneously solved several time
 \begin{itemize}
   \item How do the $L^\infty$ and $L^2-$norms on the verification dataset behave as $C$ and $k$ increase?
   \item Do we observe any improvements when equipping a polynomial term to our RBF?
-  \item What do the execution times look like? What about the GPU memory consumed by each $(C,k)$?
+  \item What do the execution times look like? %What about the GPU memory consumed by each $(C,k)$?
   \item Are there any recurrent distribution of centers, shape parameters or coefficients?
 \end{itemize}
 
@@ -2183,19 +2183,16 @@ method of the \texttt{torch.cuda} namespace.
 
 This method returns the peak allocated memory (in bytes) since the beginning of the program. Therefore, this
 measurement is to be regarded as approximate. Figure \ref{fig:model-consumption-memory} depicts the memory consumption of the
-model for different numbers of centers, confirming that our model will not be a concern when it comes to memory usage. 
+model for different numbers of centers per dimension, seeing that higher orders of dimensionality may cause the model to be a memory concern.
 
 This does not imply in any way that the memory consumed by the executed process is going to be that small, as we will also make room for the training and validation datasets. Regardless, the memory they occupy in low dimensions is observed to be negligible in comparison to the memory occupied by the CUDA context\footnote{Recall that the CUDA context manages the interaction between PyTorch tensors and CUDA-capable devices (usually GPUs). The CUDA context in PyTorch handles memory allocation, device synchronization, and execution of CUDA operations on tensors stored on GPU devices. For each separate process, a CUDA context is invoked, which may be a problem if a large amount of ML problems featuring large models are to be solved simultaneously  (refer for instance to \href{https://github.com/pytorch/pytorch/issues/20532}{previous GitHub discussions} in PyTorch's repository).}.
 
 
 \begin{figure}[ht]
-  \includegraphics[width=.7\textwidth]{imagenes/model_consumption/Memory_allocation_vs_number_of_centers.pdf}
-  \caption{Memory allocation of the model plotted against the number of centers, for
-    a number of dimensions between 1 and 10.}
+  \includegraphics[width=.7\textwidth]{imagenes/model_consumption/Memory_allocation_vs_number_of_centers_per_dimension.pdf}
+  \caption{Memory allocation of the model plotted against the number of centers per dimension.}
   \label{fig:model-consumption-memory}
 \end{figure}
-
-\todo[inline]{memory consumption per dimension}
 
 In the following, we will work on well-behaved polynomial functions. Our objective is to evaluate the performance of our model when we expect to the performance to improve when explicitly incorporating polynomial terms. We will present the results in graphic form, using vector images to allow the usage of electronic zoom if further interpretation of the representations is of interest to the reader.
 
