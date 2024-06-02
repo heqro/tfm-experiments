@@ -245,7 +245,7 @@ hmargin=3cm
         \bigskip
 
       \end{Large}
-      {\Huge ``Thesis title''}\\
+      {\Huge ``An RBF-based Physics-Informed Neural Network''}\\
       \vspace*{0.5cm}
       \rule{10.5cm}{0.1mm}\\
       \vspace*{0.9cm}
@@ -659,7 +659,7 @@ We remark that the component depicted as \textit{target} in the figure is not la
   }\label{fig:autodiffgraph}
 \end{figure}
 
-\section{RBF/Polynomial approximation}
+\section{RBF and polynomial approximation}
 
 % \chapter{Interpolation}
 
@@ -2153,7 +2153,7 @@ Alternatively to this methodology, we propose to let the centers as well as the 
 
 Denote by $(P)$  an arbitrary $d-$dimensional interpolation problem or differential equation. We will study solutions to $(P)$ in the form of linear combinations of radial basis functions up to a polynomial, say $\mathcal{NN}(\theta) = \mathcal{NN}(\hat{\varepsilon}, \hat{\tmmathbf{x}})$, where $\hat{\varepsilon}$ and $\hat{\tmmathbf{x}}$ denote the (learnable) shape parameters and centers that conform $\varphi$. To lessen the notation, we simply denote by $\mathcal{NN}(\tmmathbf{x})$ the application of $\mathcal{NN}$ to $\tmmathbf{x}$ up to $\hat{\varepsilon}$ and $\hat{\tmmathbf{x}}$.
 
-\textbf{A methodology for finding solutions}
+\subsection{A methodology for finding solutions}
 
 In the case $(P)$ is an interpolation problem, assume we are given $S = \{\tmmathbf{x}_i, \tmmathbf{y}_i\}_{i=1}^n$. Denote by $\mathcal{NN}(S)$ the vector yielding the application of $\mathcal{NN}$ to each $(\tmmathbf{x}_i, \tmmathbf{y}_i)$. In such case, we solve $(P)$ by seeking to minimize the mean-squared error of $\mathcal{NN}(S)$ with respect to $(\tmmathbf{y}_1, \tmmathbf{y}_2, ..., \tmmathbf{y}_n)$. If $(P)$ is instead a differential equations problem, we then aim to solve a problem of the form \eqref{loss-fun-pinn} following the discussion presented in the corresponding section. Preliminary experimentation showed the Gaussian kernel to be the most suitable kernel to equip to $\mathcal{NN}$, which is the one we refer our experimentation to.
 
@@ -2165,7 +2165,7 @@ We iteratively minimize the corresponding loss function considering an Adam opti
 
 We chose the Adam optimizer to avoid settling on the first local minimum we find for our loss function, especially for the initial values of our dynamic learning rate. Once a suitable local minimum is found, the loss function is observed to start exhibiting oscillations by the action of the Adam optimizer, which the scheduler eventually shuts down. This results in the last hundreds of iterations featuring smooth loss curves: an implicit and ``forced convergence'' to a solution\footnote{Because the proposed loss functions are not observed to be reduced to machine precision, our solution to the interpolation problem should--rigorously speaking--not be called an interpolator, but rather an approximator.}. This strategy has been devised as a compromise between the ``speed'' that comes with a high learning rate and reducing oscillations, most importantly throughout the last iterations.
 
-\textbf{A generic experiment case}
+\subsection{A generic experiment case}
 
 To study the effectiveness of $\mathcal{NN}$ in solving $(P)$, we consider a matrix of experiments indexed by $(C,k)$, where $C \in \{7^d,9^d,11^d,13^d,15^d\}$ denotes the number of (initially equispaced) centers we equip $\mathcal{NN}$ with, and $k$ is a scaling factor which will determine the number of training points, say $T$, according to the rule
 $T = \lceil \sqrt[d]{C  k} \rceil ^d $. 
@@ -2201,7 +2201,7 @@ This does not imply in any way that the memory consumed by the executed process 
 
 In the following, we will work on well-behaved polynomial functions. Our objective is to evaluate the performance of our model when we expect to the performance to improve when explicitly incorporating polynomial terms. We will present the results in graphic form, using vector images to allow the usage of electronic zoom if further interpretation of the representations is of interest to the reader.
 
-\section*{Approximation of functions}
+\section{Approximation of functions}
 
 
 
@@ -2413,7 +2413,7 @@ Figure \ref{fig:parabola-results-centers} shows the distribution of the centers 
 
 
 \clearpage
-\section*{Solving differential equations}
+\section{Solving differential equations}
 
 \subsection*{An observation on the computation of derivatives}
 
