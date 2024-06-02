@@ -2143,7 +2143,13 @@ The methodology for solving eiter interpolation problems or differential equatio
 
   
 
-Alternatively to this methodology, we propose to let the centers as well as the shape parameters\footnote{We remark that we are now speaking in plural.} be found following an \textbf{unsupervised learning} strategy, whereby the training points will not only dictate the values of $\hat{\lambda}$ as in \eqref{eqn-linear-system-equations-rbf}, but also the position of the RBF centers as well as the value of the shape parameters. \todo[inline]{Explicitly locate the files in the repository} 
+Alternatively to this methodology, we propose to let the centers as well as the shape parameters\footnote{We remark that we are now speaking in plural.} be found following an \textbf{unsupervised learning} strategy, whereby the training points will not only dictate the values of $\hat{\lambda}$ as in \eqref{eqn-linear-system-equations-rbf}, but also the position of the RBF centers as well as the value of the shape parameters. Relevant pointers in the repository are the following:
+
+\begin{itemize}
+  \item The \href{https://github.com/heqro/tfm-experiments/blob/4fd010c560a247b00def20dd94d1f984d7992a24/modules/nn_rbf.py\#L6}{\texttt{RBF\_Free\_All}} class, implementing a Radial Basis Function neural network for an unspecified kernel.
+  \item The \href{https://github.com/heqro/tfm-experiments/blob/4fd010c560a247b00def20dd94d1f984d7992a24/modules/nn_poly.py#L6}{\texttt{PolynomialInterpolant}} class, implementing a polynomial function.
+  \item The \href{https://github.com/heqro/tfm-experiments/blob/4fd010c560a247b00def20dd94d1f984d7992a24/modules/nn_rbf_poly.py#L8}{\texttt{RBF\_Poly\_Free\_All}} class, whose sole functionality is adding the results of the previous two classes.
+\end{itemize}
 
 Denote by $(P)$  an arbitrary $d-$dimensional interpolation problem or differential equation. We will study solutions to $(P)$ in the form of linear combinations of radial basis functions up to a polynomial, say $\mathcal{NN}(\theta) = \mathcal{NN}(\hat{\varepsilon}, \hat{\tmmathbf{x}})$, where $\hat{\varepsilon}$ and $\hat{\tmmathbf{x}}$ denote the (learnable) shape parameters and centers that conform $\varphi$. To lessen the notation, we simply denote by $\mathcal{NN}(\tmmathbf{x})$ the application of $\mathcal{NN}$ to $\tmmathbf{x}$ up to $\hat{\varepsilon}$ and $\hat{\tmmathbf{x}}$.
 
