@@ -2219,6 +2219,7 @@ Figure \ref{u2-example-training-TR15-C15} shows how an instance of this experime
 
 As previously anticipated, we shall be repeating each experiment configuration several times to extract statistics on the performance of our model, most importantly when a polynomial term is considered. Figure \ref{fig:u2-results-overall} shows a comparison of the distribution of results in the $L^\infty$ and $L^2-$norms as well as in execution times, when a quadratic polynomial term is considered with respect to the case where no polynomial term is featured. We observe that the results improve more visibly when $k$ is increased than when $C$ is increased, which is likely to the ``good behavior'' of the test function. The consideration of a quadratic polynomial term further decreases the $L^2$ and $L^\infty-$norm metrics, most notably for $C=7$.
 
+\clearpage
 \begin{sidewaysfigure}[H]
   \hspace*{-1cm}
   \begin{tabular}{cccccc}
@@ -2333,8 +2334,9 @@ Much like in the one-dimensional case, Figure \ref{fig:parabola-example-training
   \label{fig:parabola-example-training-TR22-C121}
 \end{figure}
 
-Furthermore, Figure \ref{fig:parabola-results-overall} shows the comparison of the distribution of these results in the $L^\infty$ and $L^2-$norms and in execution times, both with and without a quadratic polynomial addend. As observed in the 1D case, the improvements come not from the consideration of a larger value of $C$, but rather by the increment of $k$. Further increasing $k$ is also seen to visibly decrease the spread of results in the $L^2$ and $L^\infty-$norms. The consideration of a quadratic polynomial produces timid improvements on these two metrics. Finally, the execution times are at their largest for increasing values of $C$. 
 
+Furthermore, Figure \ref{fig:parabola-results-overall} shows the comparison of the distribution of these results in the $L^\infty$ and $L^2-$norms and in execution times, both with and without a quadratic polynomial addend. As observed in the 1D case, the improvements come not from the consideration of a larger value of $C$, but rather by the increment of $k$. Further increasing $k$ is also seen to visibly decrease the spread of results in the $L^2$ and $L^\infty-$norms. The consideration of a quadratic polynomial produces timid improvements on these two metrics. Finally, the execution times are at their largest for increasing values of $C$. 
+\clearpage
 \begin{sidewaysfigure}[H]
   \hspace*{-1cm}
   \begin{tabular}{cccccc}
@@ -2621,6 +2623,8 @@ Figure \ref{fig:2d-pde-usual-result} depicts a usual instance of a training expe
   \label{fig:2d-pde-usual-result}
 \end{figure}
 
+Like in the previous experiments, Figure \ref{fig:2d-pde-parabola-results-overall} compares the distribution of all instances of experiments in the $L^\infty$ and $L^2-$norms as well as in execution times, both with and without a quadratic polynomial term, which should in theory allow us to recover the actual solution. As in the previous experiments, the consideration of a quadratic polynomial has some impact, further reducing the norms, but it is not enough to allow us to recover the actual solution. Nevertheless, the quality metrics improve as $k$ is increased, much like in the previous cases. 
+
 \begin{sidewaysfigure}[H]
   \hspace*{-1cm}
   \begin{tabular}{cccccc}
@@ -2636,6 +2640,10 @@ Figure \ref{fig:2d-pde-usual-result} depicts a usual instance of a training expe
 \end{sidewaysfigure}
 
 
+A striking difference is the fact that the execution times are progressively less spread and smaller as more centers are considered. Furthermore, they clearly are less spread when no polynomial term is considered. After inspecting particular realizations of all experiments for $C=225$, all learning curves were seen to follow the behavior of Figure \ref{fig:2d-pde-usual-result}: smooth, decreasing learning curves, hence ruling out the possibility of having prescribed an ill-suited starting shape parameter $\varepsilon$. It is therefore not clear how this behavior could have been anticipated.
+
+Like in the previous cases, Figure \ref{fig:pde-2d-results-incidence-l-norms} depicts the incidence of the $L^\infty$ and $L^2-$norms across all training experiments that have been carried out. In coherence with the 2D function approximation case, there is little spread from the line $y=x$, hinting that the last iterations are not far from the best iterations in the quality metrics.
+
 \begin{figure}[h]
   \hspace*{-2cm}
   \begin{tabular}{cc}
@@ -2646,7 +2654,7 @@ Figure \ref{fig:2d-pde-usual-result} depicts a usual instance of a training expe
   \label{fig:pde-2d-results-incidence-l-norms}
 \end{figure}
 
-
+Figure \ref{fig:2d-pde-results-shape-parameters} shows the distribution of all shape parameters by the end of the training processes fitted to normal distributions. Unlike the previous cases, the fitted means do not clearly approach the prescribed starting shape parameters. The variances are still diminishing, albeit in an unremarkable manner.
 
 \begin{figure}[h]
   \includegraphics[width=.8\textwidth]{imagenes/experiments/2d/pde_parabola/distribution_of_shape_parameters_at_end_of_training.pdf}
@@ -2654,7 +2662,7 @@ Figure \ref{fig:2d-pde-usual-result} depicts a usual instance of a training expe
   \label{fig:2d-pde-results-shape-parameters}
 \end{figure}
 
-
+Figure \ref{fig:2d-pde-results-largest-errors} shows the location of the largest errors in the $L^\infty-$norm that have taken place across all experiments. Like in the case of the 2D function approximation, the errors are observed to be at the boundary, especially as more centers (and thus more training points) are provided. This is coherent with the distributions we have prescribed for the number of points at the boundary and at the interior, sampling more of the latter as more training points are to be worked with.
 
 \begin{figure}[h]
   \hspace*{-2cm}
@@ -2678,6 +2686,8 @@ Figure \ref{fig:2d-pde-usual-result} depicts a usual instance of a training expe
   \caption{Representation of the loss, $L^2$ and $L^\infty$ curves across all iterations.}
   \label{fig:2d-pde-results-last-iterations}
 \end{figure}
+
+Finally, Figure \ref{fig:2d-pde-results-centers} depicts the distribution of the centers by the end of the training process. The observed patterns are clearly different from the function approximation problem, showing the centers to be uniformly distributed at the interior, where the diffusion term is constant. A similarity between the two cases is the fact that those centers located outside the domain are closer to the boundary as more centers are provided. 
 
 \begin{figure}[h]
   \hspace*{-2cm}
