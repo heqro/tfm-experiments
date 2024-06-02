@@ -2040,8 +2040,7 @@ Gaussian RBFs are able to further reduce this oscillation problem without the ne
   \label{fig:rbf-runge-phenomenon-eps-5-discussion}
 \end{figure}
 
-As previously mentioned, the shape parameter plays a decisive role in the condition number of the matrix. For instance, refer to Figure \ref{fig:rbf-runge-phenomenon-eps-7} in the appendix for the corresponding results for $\varepsilon=7$. Indeed, the increment of the shape parameter reduces the condition number of the interpolation matrix for 27 centers in three orders of magnitude. Furthermore, the $L^\infty-$norm of the interpolation for 9 centers has visibly increased. Conversely, Figures \ref{fig:rbf-runge-phenomenon-eps-3} and \ref{fig:rbf-runge-phenomenon-eps-1} depict the situation for $\varepsilon=3,1$ respectively, whereby smaller values for $\varepsilon$ lead us to severe numerical errors.
-
+As previously mentioned, the shape parameter plays a decisive role in the condition number of the matrix. 
 To avoid explicitly choosing a shape parameter, \textbf{polyharmonic splines} (PHS) are defined by equipping a polynomial of degree larger than the unit to a suitable radial function, usually chosen $r^m,m$ odd, as in \eqref{eqn-rbf-poly}. We refer to Figures \ref{fig:phs-runge-phenomenon-deg-1-discussion} and \ref{fig:phs-runge-phenomenon-deg-3-discussion} for similar charts on the performance of PHS on the Runge function with $r^1$ and $r^3$ respectively\footnote{Images generated in the \href{https://github.com/heqro/tfm-experiments/blob/main/introductory_notebooks/rbf_interpolation/runge_phs.ipynb}{PHS Runge interpolation notebook}.}. Note that the exponent we choose will dictate the behavior of the function between every pair of interpolation nodes. Indeed, $r^1$ dictates that our interpolator will essentially ``join the dots with a straight line'', whereas $r^3$ will instead employ a cubic term.
 
 Even though the latter strategy is preferred for convergence reasons, by a numerical argument one can see why using a large exponent is not always bound to increase our results.
@@ -2524,7 +2523,7 @@ This can be due to the ``imbalance'' between the weights given to the boundary a
   \label{fig:ode-1d-results-overall}
 \end{sidewaysfigure}
 
-\todo[inline]{comentar que la incidencia 1D es similar, pero los valores de linf y l2 son mucho menores}
+Figure \ref{fig:ode-1d-results-incidence-l-norms} depicts the incidence of the $L^\infty$ and $L^2-$ norms. It features a similar disposition than in the case of the function approximation, albeit with some entries in the $L^\infty-$norm and in the $L^2-$norm laying up to an order of magnitude larger and smaller than in the former case.
 
 \begin{figure}[h]
   \hspace*{-2cm}
@@ -2564,6 +2563,13 @@ Figure \ref{fig:ode-1d-results-all} holds the mean curves for the loss, $L^2$ an
   \includegraphics[width=.7\textwidth]{imagenes/experiments/1d/ode/Linf_curves_semilogy_all.pdf}
   \caption{Representation of the loss, $L^2$ and $L^\infty$ curves across all iterations.}
   \label{fig:ode-1d-results-all}
+\end{figure}
+
+\begin{figure}[h]
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/ode/histogram-centers-C7.pdf}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/ode/histogram-centers-C15.pdf}
+  \caption{Distribution of centers at the end of the training process.}
+  \label{fig:ode-1d-distribution-of-centers}
 \end{figure}
 
 \clearpage
@@ -2679,247 +2685,6 @@ Figure \ref{fig:2d-pde-usual-result} depicts a usual instance of a training expe
   \caption{Distribution of centers at the end of the training process.}
   \label{fig:2d-pde-results-centers}
 \end{figure}
-
-% \subsection*{A 2D boundary value problem}
-
-% We consider the Laplace problem in $\Omega = (0, 1) \times (0, 1)$
-% \[ \left\{\begin{array}{ll}
-%      \Delta u = f (x, y), & (x, y) \in \Omega\\
-%      u = u (x, y), & (x, y) \in \partial \Omega
-%    \end{array}\right., \]
-% whose solution we prescribe to be
-% \[ u = \exp \left\{ - \left( x - \frac{1}{4} \right)^2 - \left( y -
-%    \frac{1}{2} \right)^2 \right\} \cdot \cos (2 \pi y) \cdot \sin (\pi x) . \]
-% This implies that the Dirichlet boundary conditions are $u (0, y) = u (1, y) =
-% 0$ and
-% \[ u (x, 0) = u (x, 1) = \exp \left\{ - \frac{1}{4} \right\} \cdot \exp
-%    \left\{ - \left( x - \frac{1}{4} \right)^2 \right\} \cdot \sin (\pi x) . \]
-
-% Furthermore, in the interior it holds that
-% \begin{align*}
-%   f(x,y) &= \left(- 2 \pi \left(2 x - 0.5\right) \cos{\left(\pi x \right)} + 2 \cdot \left
-%   (2 \left(x - 0.25\right)^{2} - 1\right) \sin{\left(\pi x \right)} - \pi^{2} \sin
-%   {\left(\pi x \right)}\right) \\ 
-%   &\cdot \exp\{- \left(x - 0.25\right)^{2} - \left(y - 0.5\right
-%   )^{2}\} \cos{\left(2 \pi y \right)} \\ &+  2 \cdot \left(2 \pi \left(2 y - 1.0\right) 
-%   \sin{\left(2 \pi y \right)} + \left(2 \left(y - 0.5\right)^{2} - 1\right) \cos{\
-%   \left(2 \pi y \right)} - 2 \pi^{2} \cos{\left(2 \pi y \right)}\right) \\
-%   &\cdot \exp\{- \left
-%   (x - 0.25\right)^{2} - \left(y - 0.5\right)^{2}\} \sin{\left(\pi x \right)}.
-% \end{align*}
-
-% The PDE can be discretized into a variational formulation in the following
-% manner: let $\tmmathbf{z}_I = \{ z_i \}_{i = 1}^n$ be an arbitrary subset of
-% $(0, 1)^2$. As for the boundaries of the domain, consider some sets
-% \[ \tmmathbf{z}_L \subset \{ 0 \} \times [0, 1], \tmmathbf{z}_R \subset \{ 1
-%    \} \times [0, 1], \tmmathbf{z}_B \subset [0, 1] \times \{ 0 \},
-%    \tmmathbf{z}_T \subset [0, 1] \times \{ 1 \}, \]
-% and assume their cardinality to be $n_L, n_R, n_B, n_T$. We denote by
-% $\mathcal{N}\mathcal{N} (\tmmathbf{z}; \theta)$ the application of our PINN to
-% each $z \in \tmmathbf{z}$ under a set of parameters $\theta$. A possible variational
-% formulation of the problem for $\mathcal{N}\mathcal{N}$ is then
-% \begin{align*}
-%     & \min_{\theta} \frac{1}{n} \left\| \frac{\partial^2}{\partial x^2} \mathcal{N}\mathcal{N} (\tmmathbf{z}; \theta) + \frac{\partial^2}{\partial y^2} \mathcal{N}\mathcal{N} (\tmmathbf{z}; \theta) - f(\tmmathbf{z}) \right\|_2^2 \\ 
-%     & + \frac{1}{4} \left( \frac{1}{n_L} \| \mathcal{N}\mathcal{N} (\tmmathbf{z}_L ; \theta) \|^2_2 + \frac{1}{n_R} \| \mathcal{N}\mathcal{N} (\tmmathbf{z}_R ; \theta) \|^2_2 \right.\\
-%     & + \frac{1}{n_B} \left\| \mathcal{N}\mathcal{N} (\tmmathbf{z}_B ; \theta) - \exp \left\{ - \frac{1}{4} \cdot \left( - \left( \tmmathbf{z}_B - \frac{1}{4} \right) \right)^2 \right\} \cdot \sin (\pi \tmmathbf{z}_B) \right\|_2^2\\
-%     & + \left. \frac{1}{n_T} \left\| \mathcal{N}\mathcal{N} (\tmmathbf{z}_T ; \theta) - \exp \left\{ - \frac{1}{4} \cdot \left( - \left( \tmmathbf{z}_T - \frac{1}{4} \right) \right)^2 \right\} \cdot \sin (\pi \tmmathbf{z}_T) \right\|_2^2 \right) .
-% \end{align*}
-
-
-
-% We solve this PDE under the same pairs of centers and training points as in the 2D interpolation problem, solving the PDE for such pairs of points 20 times\footnote{This number has been decided, again, to make the most of the hardware we are given.}. It has been heuristically seen that a learning rate of $10^{-2}$ tends to work better for this problem. We consider 10000 iterations to allow for reasonable times of expermientation. Even so, Figure \ref{fig:medians-times-storage-2d-pde} shows that the total amount of time invested in the overall experiment is about $26$ hours. The Figure also shows the CUDA context storage required to carry out the experiments, indicating that the scaling factor plays an important role in the memory consumed by the experiment when considering a large enough number of centers.
-
-
-
-% \begin{figure}[ht]
-%   \centering
-%   \includegraphics[width=.45\textwidth]{imagenes/experiments/2d/pde_fornberg_wright/medians_elapsed_times_pde_gaussian_kernel.pdf}
-%   \includegraphics[width=.45\textwidth]{imagenes/experiments/2d/pde_fornberg_wright/memory_usage_pde_gaussian_kernel.pdf}
-%   \caption{Left-hand side: medians of the time elapsed for each configuration of training points and centers. Right-hand side: memory required by the CUDA context per individual experiment.}
-%   \label{fig:medians-times-storage-2d-pde}
-% \end{figure}
-
-
-% Figure \ref{fig:medians-epochs-statistic-2d-pde} shows the usual medians plot, on the epochs' ratio and the $L^\infty-$norm. It shows that almost every experiment is capable of providing a digit of accuracy on the verification dataset. As expected, considering more centers and further increasing the scaling factor $k$ provides better results. 
-
-
-% \begin{figure}[h]
-%   {\includegraphics[height=.45\textwidth]
-%   {imagenes/experiments/2d/pde_fornberg_wright/medians_linf_pde_gaussian_kernel.pdf}}
-%   {\includegraphics[height=.45\textwidth]
-%   {imagenes/experiments/2d/pde_fornberg_wright/medians_epochs_pde_gaussian_kernel.pdf}}
-%   \caption{Medians of the $L^\infty-$norm (left) and of the best epochs' ratio (right).}
-%   \label{fig:medians-epochs-statistic-2d-pde}
-% \end{figure}
-
-% The results in the epochs' ratio are less revealing, apparently showing that the best iterations for 121 centers are found around the six thousandths. 
-% As previously mentioned, this does not necessarily imply that the rest of iterations lead us into a high-oscillating solution. 
-% After reviewing the experiments' results more in detail for this amount of centers, Figure \ref{fig:example-analysis-TR22-C121-2d-pde} is a good representative of the situations we can observe: despite the $L^\infty-$norm having found its minimum long before the last iterations, its posterior increment plateaued shortly after.
-% For further reference, \ref{fig:statistic-result-pde-gaussian-kernel} depicts the usual violin plots of the epochs' ratio as well as the base-10 logarithm of the $L^\infty-$norm.
-
-% \begin{figure}[h]
-%   {\includegraphics[width=\textwidth]
-%   {imagenes/experiments/2d/pde_fornberg_wright/TR22-C121-Tag5.pdf}}
-%   \caption{Left-hand side: distribution of centers at the end of the training process, alongside the contour lines of the target solution and the color map of the absolute error on the verification dataset. Right-hand side: curves of the PDE loss function (labelled as MSE, colored in blue) and the $L^\infty-$norm on the verification dataset (colored in orange).}
-%   \label{fig:example-analysis-TR22-C121-2d-pde}
-% \end{figure}
-
-
-
-% \begin{figure}[h]
-%   \begin{tabular}{rl}
-%     \multicolumn{2}{c}{{\includegraphics[width=.7\textwidth, trim={0.5cm 4cm .5cm 3.8cm},clip=true]
-%           {imagenes/experiments/1d/statistical_1d_full/runge_function/runge_function_legend.pdf}}} \\ 
-%     {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
-%     {imagenes/experiments/2d/pde_fornberg_wright/linf_pde_C7_gaussian_kernel.pdf}}  & 
-%     {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
-%     {imagenes/experiments/2d/pde_fornberg_wright/epochs_pde_C7_gaussian_kernel.pdf}}                                                                                      \\
-%     {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
-%     {imagenes/experiments/2d/pde_fornberg_wright/linf_pde_C9_gaussian_kernel.pdf}}  & 
-%     {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
-%         {imagenes/experiments/2d/pde_fornberg_wright/epochs_pde_C9_gaussian_kernel.pdf}}
-%     \\
-%     {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
-%     {imagenes/experiments/2d/pde_fornberg_wright/linf_pde_C11_gaussian_kernel.pdf}} & 
-%     {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
-%     {imagenes/experiments/2d/pde_fornberg_wright/epochs_pde_C11_gaussian_kernel.pdf}}                                                                                     \\
-%     {\includegraphics[width=.5\textwidth, trim={0 1.25cm 0 0},clip=true]
-%     {imagenes/experiments/2d/pde_fornberg_wright/linf_pde_C13_gaussian_kernel.pdf}} & 
-%     {\includegraphics[width=.44\textwidth, trim={.7cm 1.15cm 0 0},clip=true]
-%         {imagenes/experiments/2d/pde_fornberg_wright/epochs_pde_C13_gaussian_kernel.pdf}}
-%     \\
-%     {\includegraphics[width=.5\textwidth, trim={0 0.2cm 0 0},clip=true]
-%     {imagenes/experiments/2d/pde_fornberg_wright/linf_pde_C15_gaussian_kernel.pdf}}
-%                                                                                                               & 
-%   {\includegraphics[width=.44\textwidth, trim={.7cm 0.2cm 0 0},clip=true]
-%         {imagenes/experiments/2d/pde_fornberg_wright/epochs_pde_C15_gaussian_kernel.pdf}}
-%   \end{tabular}
-%   \caption{$\log_{10}(L^\infty-\text{norm})$ and epochs' ratio violin plots, for the 2D PDE solved with the Gaussian kernel.}
-%   \label{fig:statistic-result-pde-gaussian-kernel}
-% \end{figure}
-
-\chapter{random info to organize}
-  
-
-\section{plots}
-\subsection{runge plots}
-
-\subsubsection{rbf Gaussian}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\textwidth]{imagenes/rbf_interpolation/rbf_runge_1.pdf}
-  \caption{Caption \href{https://github.com/heqro/tfm-experiments/blob/main/introductory_notebooks/rbf_interpolation/runge_phs.ipynb}{Runge function RBF interpolation}}
-  \label{fig:rbf-runge-phenomenon-eps-1}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\textwidth]{imagenes/rbf_interpolation/rbf_runge_3.pdf}
-  \caption{Caption \href{https://github.com/heqro/tfm-experiments/blob/main/introductory_notebooks/rbf_interpolation/runge_phs.ipynb}{Runge function RBF interpolation}}
-  \label{fig:rbf-runge-phenomenon-eps-3}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\textwidth]{imagenes/rbf_interpolation/rbf_runge_5.pdf}
-  \caption{Caption \href{https://github.com/heqro/tfm-experiments/blob/main/introductory_notebooks/rbf_interpolation/runge_phs.ipynb}{Runge function RBF interpolation}}
-  \label{fig:rbf-runge-phenomenon-eps-5}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\textwidth]{imagenes/rbf_interpolation/rbf_runge_7.pdf}
-  \caption{Caption \href{https://github.com/heqro/tfm-experiments/blob/main/introductory_notebooks/rbf_interpolation/runge_phs.ipynb}{Runge function RBF interpolation}}
-  \label{fig:rbf-runge-phenomenon-eps-7}
-\end{figure}
-
-
-
-\subsection*{1D ODE}
-
-
-% \subsubsection*{Conclusions}
-
-
-
-% \begin{figure}[ht]
-%   \includegraphics[width=\textwidth]{imagenes/experiments/1d/ode/tr15_c5_gaussian_kernel_deg-1.pdf}
-%   \caption{Left-hand side: distribution of centers at the end of the training experiment
-%     without polynomial terms. Center
-%     image: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty-$norm
-%     regarding the verification dataset during the best epoch.}
-%   \label{fig:tr15-c5-gaussian-kernel-ode-1d}
-% \end{figure}
-
-% \begin{figure}[ht]
-%   \includegraphics[width=\textwidth]{imagenes/experiments/1d/ode/tr15_c5_gaussian_kernel_deg0.pdf}
-%   \caption{Left-hand side: distribution of centers at the end of the training experiment
-%     with a bias term. Center
-%     image: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty-$norm regarding
-%     the verification dataset during the best epoch.}
-%   \label{fig:tr15-c5-gaussian-kernel-bias-ode-1d}
-% \end{figure}
-
-% \begin{figure}[ht]
-%   \includegraphics[width=\textwidth]{imagenes/experiments/1d/ode/tr15_c5_gaussian_kernel_deg1.pdf}
-%   \caption{Left-hand side: distribution of centers at the end of the training experiment
-%     with a linear polynomial. Center
-%     image: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty-$norm regarding
-%     the verification dataset during the best epoch.}
-%   \label{fig:tr15-c5-gaussian-kernel-linear-ode-1d}
-% \end{figure}
-
-% \begin{figure}[ht]
-%   \includegraphics[width=\textwidth]{imagenes/experiments/1d/ode/tr15_c5_gaussian_kernel_deg2.pdf}
-%   \caption{Left-hand side: distribution of centers at the end of the training experiment
-%     with a quadratic polynomial. Center
-%     image: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty-$norm regarding
-%     the verification dataset during the best epoch.}
-%   \label{fig:tr15-c5-gaussian-kernel-quadratic-ode-1d}
-% \end{figure}
-
-% \begin{figure}[ht]
-%   \includegraphics[width=\textwidth]{imagenes/experiments/1d/ode/tr15_c5_gaussian_kernel_deg3.pdf}
-%   \caption{Left-hand side: distribution of centers at the end of the training experiment
-%     with a cubic polynomial. Center
-%     image: the best epochs' ratio to the total of epochs. Right-hand side: $L^\infty-$norm regarding
-%     the verification dataset during the best epoch.}
-%   \label{fig:tr15-c5-gaussian-kernel-cubic-ode-1d}
-% \end{figure}
-
-
-
-\clearpage
-\subsection{2D PDE}
-
-We consider the 2D steady-state PDE in $[0, 1] \times [0, 1]$
-\begin{equation}
-  \left\{\begin{array}{l}
-    \mathLaplace u = - 2 \pi^2 \sin (\pi x) \sin (\pi y) \\
-    u (x, 0) = 0                                         \\
-    u (x, 1) = 0                                         \\
-    u (0, y) = 0                                         \\
-    u (1, y) = 0
-  \end{array}\right. . \label{eqn-problem-pde-2d}
-\end{equation}
-
-It features the exact solution $u (x, y) = \sin (\pi x) \sin (\pi y)$. For any
-$(x, y)$, let $\mathcal{N}\mathcal{N} (x, y ; \theta)$ be the application to
-$(x, y)$ of our RBF model with parameters $\theta$. Consider $0 < x_1 < x_2 <
-  \cdots < x_n < 1$ and $0 < y_1 < y_2 < \cdots < y_m < 1$ two sets of points in
-$\mathbb{R}$, say $X$ and $Y$. The domain of \eqref{eqn-problem-pde-2d} is
-then discretized as the Cartesian product of those two sets. The associated (discretized) minimization problem is
-\[ \min_{\theta} \frac{1}{n m} \sum_{x \in \tmmathbf{x}, y \in \tmmathbf{y}}
-  \left( \frac{\partial^2}{\partial x^2} \mathcal{N}\mathcal{N} (x, y ;
-    \theta) + \frac{\partial^2}{\partial y^2} \mathcal{N}\mathcal{N} (x, y ;
-    \theta) + 2 \pi^2 \sin (\pi x) \sin (\pi y) \right)^2 + \]
-\[ + \frac{1}{4} \left[ \sum_{x \in \tmmathbf{x}} \mathcal{N}\mathcal{N} (x, 0
-    ; \theta)^2 +\mathcal{N}\mathcal{N} (x, 1, \theta)^2 + \sum_{y \in
-      \tmmathbf{y}} \mathcal{N}\mathcal{N} (0, y ; \theta)^2
-    +\mathcal{N}\mathcal{N} (1, y ; \theta)^2 \right] . \]
-
-
 
 
 
