@@ -19,13 +19,14 @@ def cheb_points(num: int):
 
 
 # assume (0,0) is the center
-def get_ball(radius: float, n_interior_points: int, n_boundary_points: int, dim=2):
+def get_ball(radius: float, n_interior_points: int, n_boundary_points: int, dim=2, requires_grad=False):
     def get_boundary_points(radius: float, n_points: int) -> torch.Tensor:
         from torch import pi, cos, sin
         points = torch.zeros(size=(n_points, dim))
         angles = 2 * pi * torch.rand(n_points)
         points[:, 0] = radius * cos(angles)
         points[:, 1] = radius * sin(angles)
+        points.requires_grad = requires_grad
         return points
 
     def get_interior_points(xmin: float, xmax: float, radius: float, n_points: int) -> torch.Tensor:
@@ -37,6 +38,7 @@ def get_ball(radius: float, n_interior_points: int, n_boundary_points: int, dim=
             if torch.linalg.norm(candidate) < radius:
                 points[inside_points, :] = candidate
                 inside_points += 1
+        points.requires_grad = requires_grad
         return points
     return get_interior_points(-radius, radius, radius, n_interior_points), \
         get_boundary_points(radius, n_boundary_points)
