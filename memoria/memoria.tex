@@ -2211,7 +2211,7 @@ We consider the function $x \mapsto u_2(x)=(x-1/2)^2$ for $x \in [-1,1]$. We may
 
 Figure \ref{u2-example-training-TR15-C15} shows how an instance of this experiment is carried out. Notice (top-right image) that the largest error is located where the density of training points is at its lowest. Furthermore, the two figures on the left-hand show the location and the shape parameters of the RBF functions, allowing one to see at a glance the parameters of the proposed network. Finally, the image on the bottom-right hand side shows the loss function of our model alongside the $L^2$ and $L^\infty-$norms on the verification dataset. The action of the scheduler allows us to iteratively reduce oscillations in the model, most importantly nullifying them in the very last few iterations.
 
-\begin{figure}[h]
+\begin{figure}
   \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/u2-TR15-C15-Kgaussian_kernel-Sh2.5-6-E35542.pdf}
   \caption{Last iteration of an instance of the approximation experiment $(C,k)=(15,1)$ for $u_2$ with no polynomial term. Top-left: original function alongside its approximation, the training nodes and the centers. Top-right: absolute error alongside the training nodes. Bottom-left: values of each of the shape parameters of our RBFs. Bottom-right: model curves, namely the loss term and learning rates, as well as the $L^\infty$ and $L^2$ norms on the verification datasets.}
   \label{u2-example-training-TR15-C15}
@@ -2237,7 +2237,7 @@ As previously anticipated, we shall be repeating each experiment configuration s
 
 A reasonable concern comes from the fact that letting the iterative process run long enough might eventually allow for oscillations to arise between any two training nodes. To settle this problem, Figure \ref{fig:u2-results-incidence-l-norms} depicts, across all instances of experiments, the incidence of the $L^\infty$ and $L^2-$norms during the last iteration in comparison to the best iteration in the $L^\infty-$norm that was hit. It indicates that the last iterations we make are, in general, not far from the best iterations, sometimes even surpassing the best iteration for the $L^2-$norm.
 
-\begin{figure}[h]
+\begin{figure}
   \hspace*{-2cm}
   \begin{tabular}{cc}
     \includegraphics[width=.6\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/incidence_of_linf.pdf}
@@ -2251,7 +2251,7 @@ Figure \ref{fig:u2-results-largest-error} features a histogram of the incidence 
 
 
 
-\begin{figure}[h]
+\begin{figure}
   \includegraphics[width=.7\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/distribution_of_errors_L_inf_end.pdf}
   \caption{Distribution of the locations of the largest errors in the approximation of the functions at the end of the training process.}
   \label{fig:u2-results-largest-error}
@@ -2263,7 +2263,7 @@ Figure \ref{fig:u2-results-shape-parameters} depicts the incidence of the shape 
   \item For $\varepsilon=0.78125$ and $\varepsilon=1.25$, associated with $C=7$ and $C=9$ respectively, some shape parameters are found to be close to zero. This indicates that some RBF addends are effectively working as bias terms.
 \end{itemize}
 
-\begin{figure}[h]
+\begin{figure}
   \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/distribution_of_shape_parameters_at_end_of_training.pdf}
   \caption{Distribution of shape parameters at the end of the training process fitted to a normal distribution.}
   \label{fig:u2-results-shape-parameters}
@@ -2371,7 +2371,7 @@ Figure \ref{fig:parabola-results-shape-parameters} depicts the distribution of s
   \label{fig:parabola-results-shape-parameters}
 \end{figure}
 
-Figure \ref{fig:parabola-results-largest-errors} shows the locations of the largest error by the end of all training processes, distinguishing by number of centers we consider as well as the overall distribution. As more centers are provided, the formula we prescribed for the number of points at the interior and alongside the boundary is going to provide more points at the interior than at the boundary. This explains why the case $C=225$ features more errors at the boundary than $C=49$.
+Figure \ref{fig:parabola-results-largest-errors} shows the locations of the largest error by the end of all training processes, distinguishing by number of centers we consider as well as the overall distribution. As more centers are provided, the formula we prescribed for the number of points at the interior and alongside the boundary is going to provide more points at the interior than at the boundary. This explains why the case $C=225$ features more errors at the boundary than $C=49$. The function we are approximating features the largest values at the third quadrant, which explains why the larget error happens more often by that section of the circumference.
 
 \begin{figure}[h]
   \hspace*{-2cm}
