@@ -2107,7 +2107,7 @@ Figure \ref{fig:sign-with-curves} shows a poorer version of the situation shown 
 
 
 
-\chapter{Experimentation}
+\chapter{Preliminary experimentation for methodology development}
 
 % \section*{Hardware information}
 
@@ -2292,26 +2292,36 @@ Figure \ref{fig:u2-results-all} provides cursory insights into the learning curv
 
 
 \begin{figure}
-  \hspace*{-2.5cm}
-  \begin{tabular}{cc}
-    {\includegraphics[width=.6\textwidth, clip=true,trim={.5cm 0 .5cm 0}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/histogram-centers-C7.pdf}} &
-    {\includegraphics[width=.6\textwidth, clip=true,trim={.5cm 0 .5cm 0}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/histogram-centers-C11.pdf} }\\
-    {\includegraphics[width=.6\textwidth, clip=true,trim={.5cm 0 .5cm 0}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/histogram-centers-C15.pdf}} &
-    {\includegraphics[width=.6\textwidth, clip=true,trim={.5cm 0 .5cm 0}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/histogram-centers-C20.pdf} }\\
-    {\includegraphics[width=.6\textwidth, clip=true,trim={.5cm 0 .5cm 0}]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/histogram-centers-C30.pdf}} &
-  \end{tabular}
-  \caption{Distribution of centers at the end of the training process.}
-  \label{fig:u2-results-centers}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/C7-TR28.pdf}
+  \label{fig:u2-results-shapes-etc-c7-tr28}
+\end{figure}
+
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/C11-TR44.pdf}
+  \caption{Box plots of shapes and coefficients.}
+  \label{fig:u2-results-shapes-etc-c11-tr44}
 \end{figure}
 
 \begin{figure}
-  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/C15-All.pdf}
-  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/C15-TR15.pdf}
+  
   \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/C15-TR60.pdf}
+  
   \caption{Box plots of shapes and coefficients.}
-  \label{fig:u2-results-shapes-etc}
+  \label{fig:u2-results-shapes-etc-c15-tr60}
 \end{figure}
 
+\begin{figure}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/C20-TR80.pdf}
+  \caption{Box plots of shapes and coefficients.}
+  \label{fig:u2-results-shapes-etc-c20-tr80}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/C30-TR120.pdf}
+  \caption{Box plots of shapes and coefficients.}
+  \label{fig:u2-results-shapes-etc-c30-tr120}
+\end{figure}
 
 
 
@@ -2393,7 +2403,7 @@ Figure \ref{fig:parabola-results-shape-parameters} depicts the distribution of s
   \label{fig:parabola-results-shape-parameters}
 \end{figure}
 
-Figure \ref{fig:parabola-results-largest-errors} shows the locations of the largest error by the end of all training processes, distinguishing by number of centers we consider as well as the overall distribution. As more centers are provided, the formula we prescribed for the number of points at the interior and alongside the boundary is going to provide more points at the interior than at the boundary. This explains why the case $C=225$ features more errors at the boundary than $C=49$. The function we are approximating features the largest values at the third quadrant, which explains why the larget error happens more often by that section of the circumference.
+Figure \ref{fig:parabola-results-largest-errors} shows the locations of the largest error by the end of all training processes, distinguishing by number of centers we consider as well as the overall distribution. As more centers are provided, the formula we prescribed for the number of points at the interior and alongside the boundary is going to provide more points at the interior than at the boundary. This explains why the case $C=225$ features more errors at the boundary than $C=49$. The function we are approximating features the largest values at the third quadrant, which explains why the largest error happens more often by that section of the circumference.
 
 \begin{figure}[h]
   \hspace*{-2cm}
@@ -2750,8 +2760,178 @@ Finally, Figure \ref{fig:2d-pde-results-centers} depicts the distribution of the
   \label{fig:2d-pde-results-centers}
 \end{figure}
 
+\chapter{Application of methodology to established problems}
 
+Irrespectively of the number of centers that one considers, the case $k=4$ provides the best results in the quality metrics that we have considered thus far. The consideration of polynomial addends does not decisively improve our quality metrics. 
 
+For these reasons, in the following we shall be posing and solving some problems on function approximation and differential equations for the sets of centers we introduced for the 1D and 2D cases, albeit restricting ourselves to the case $k=4$ to ensure we obtain the best results right off the bat. 
+
+\section{Approximation of functions}
+\subsection*{1D functions approximation}
+We work with the following functions:
+\begin{itemize}
+  \item $x \mapsto 1/(1+25x^2), x\in[-1,1]$, which has been shown during the second chapter to be a case of special interest (Runge's phenomenon). We refer to this function as \texttt{runge\_function}.
+  \item $x \mapsto -\arctan(5(x+1/2)), x\in[-1,1]$, as defined in \cite{fornberg2002observations} for modelling a ``less pathological'' version of Gibbs' phenomenon. We refer to this function as \texttt{arctan}.
+  \item $x \mapsto |\sin(2\pi x)|^3, x\in[0,1]$, as defined in \cite{trefethen2000spectral}, featuring a third derivative of bounded variation. We refer to this function as \texttt{sin\_cube\_tref}.
+  \item $x\mapsto \sin(\pi x ^2), x \in [-1,1]$. We refer to this function as \texttt{sin\_pi\_x\_sq}.
+\end{itemize}
+
+\subsubsection*{Results for \texttt{runge\_function}}
+
+\begin{figure}
+  \includegraphics[width=.45\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/runge_function/violins_linf_runge_function_endgame.pdf}
+  \includegraphics[width=.45\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/runge_function/violins_l2_runge_function_endgame.pdf}
+  \caption{Quality metrics on the verification dataset for \texttt{runge\_function}, across all centers.}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=.5\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/runge_function/distribution_of_errors_L_inf_end_runge_function.pdf}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=.45\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/runge_function/incidence_of_linf_runge_function.pdf}
+  \includegraphics[width=.45\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/runge_function/incidence_of_l2_runge_function.pdf}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/runge_function/C7-TR28-runge_function.pdf}
+\end{figure}
+\begin{figure}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/runge_function/C11-TR44-runge_function.pdf}
+\end{figure}
+\begin{figure}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/runge_function/C15-TR60-runge_function.pdf}
+\end{figure}
+\begin{figure}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/runge_function/C20-TR80-runge_function.pdf}
+\end{figure}
+  \begin{figure}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/runge_function/C30-TR120-runge_function.pdf}  
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/runge_function/distribution_of_shape_parameters-runge_function.pdf}
+\end{figure}
+
+\clearpage
+\subsubsection*{Results for \texttt{arctan}}
+
+\begin{figure}
+  \includegraphics[width=.45\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/arctan_paper/violins_linf_arctan_paper_endgame.pdf}
+  \includegraphics[width=.45\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/arctan_paper/violins_l2_arctan_paper_endgame.pdf}
+  \caption{Quality metrics on the verification dataset for \texttt{arctan}, across all centers.}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=.5\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/arctan_paper/distribution_of_errors_L_inf_end_arctan_paper.pdf}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=.45\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/arctan_paper/incidence_of_linf_arctan_paper.pdf}
+  \includegraphics[width=.45\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/arctan_paper/incidence_of_l2_arctan_paper.pdf}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/arctan_paper/C7-TR28-arctan_paper.pdf}
+\end{figure}
+\begin{figure}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/arctan_paper/C11-TR44-arctan_paper.pdf}
+\end{figure}
+\begin{figure}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/arctan_paper/C15-TR60-arctan_paper.pdf}
+\end{figure}
+\begin{figure}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/arctan_paper/C20-TR80-arctan_paper.pdf}
+\end{figure}
+  \begin{figure}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/arctan_paper/C30-TR120-arctan_paper.pdf}  
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/arctan_paper/distribution_of_shape_parameters-arctan_paper.pdf}
+\end{figure}
+
+\clearpage
+\subsubsection*{Results for \texttt{sin\_cube\_tref}}
+
+\begin{figure}
+  \includegraphics[width=.45\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/sin_cube_tref/violins_linf_sin_cube_tref_endgame.pdf}
+  \includegraphics[width=.45\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/sin_cube_tref/violins_l2_sin_cube_tref_endgame.pdf}
+  \caption{Quality metrics on the verification dataset for \texttt{sin\_cube\_tref}, across all centers.}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=.5\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/sin_cube_tref/distribution_of_errors_L_inf_end_sin_cube_tref.pdf}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=.45\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/sin_cube_tref/incidence_of_linf_sin_cube_tref.pdf}
+  \includegraphics[width=.45\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/sin_cube_tref/incidence_of_l2_sin_cube_tref.pdf}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/sin_cube_tref/C7-TR28-sin_cube_tref.pdf}
+\end{figure}
+\begin{figure}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/sin_cube_tref/C11-TR44-sin_cube_tref.pdf}
+\end{figure}
+\begin{figure}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/sin_cube_tref/C15-TR60-sin_cube_tref.pdf}
+\end{figure}
+\begin{figure}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/sin_cube_tref/C20-TR80-sin_cube_tref.pdf}
+\end{figure}
+  \begin{figure}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/sin_cube_tref/C30-TR120-sin_cube_tref.pdf}  
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/sin_cube_tref/distribution_of_shape_parameters-sin_cube_tref.pdf}
+\end{figure}
+
+\clearpage
+\subsubsection*{Results for \texttt{sin\_pi\_x\_sq}}
+
+\begin{figure}
+  \includegraphics[width=.45\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/sin_pi_x_sq/violins_linf_sin_pi_x_sq_endgame.pdf}
+  \includegraphics[width=.45\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/sin_pi_x_sq/violins_l2_sin_pi_x_sq_endgame.pdf}
+  \caption{Quality metrics on the verification dataset for \texttt{sin\_pi\_x\_sq}, across all centers.}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=.5\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/sin_pi_x_sq/distribution_of_errors_L_inf_end_sin_pi_x_sq.pdf}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=.45\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/sin_pi_x_sq/incidence_of_linf_sin_pi_x_sq.pdf}
+  \includegraphics[width=.45\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/sin_pi_x_sq/incidence_of_l2_sin_pi_x_sq.pdf}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/sin_pi_x_sq/C7-TR28-sin_pi_x_sq.pdf}
+\end{figure}
+\begin{figure}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/sin_pi_x_sq/C11-TR44-sin_pi_x_sq.pdf}
+\end{figure}
+\begin{figure}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/sin_pi_x_sq/C15-TR60-sin_pi_x_sq.pdf}
+\end{figure}
+\begin{figure}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/sin_pi_x_sq/C20-TR80-sin_pi_x_sq.pdf}
+\end{figure}
+  \begin{figure}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/sin_pi_x_sq/C30-TR120-sin_pi_x_sq.pdf}  
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/sin_pi_x_sq/distribution_of_shape_parameters-sin_pi_x_sq.pdf}
+\end{figure}
+
+\clearpage
+
+\subsection*{2D functions approximation}
+
+\section{Solving differential equations}
 
 % Start writing here----------------------------------------------------
 
