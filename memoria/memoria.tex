@@ -2952,6 +2952,76 @@ We work with the following functions:
 
 \subsection*{2D functions approximation}
 
+We consider the following functions along the unit circle:
+
+\begin{itemize}
+  \item $(x,y)\mapsto 25/(25+(x-1/5)^2+2y^2)$, named \texttt{runge\_2d} in the following. It is defined in \cite{fornberg2002observations} and \cite{larsson2003numerical} in the context of approximation of functions near the boundary and solving elliptic differential equations, respectively. This is the ``extension'' of \texttt{runge\_function} to the 2D case.
+  \item  $(x,y)\mapsto \arctan(2(x+3y-1))$, named \texttt{arctan\_2d} as also proposed in \cite{fornberg2002observations} to evaluate the performance of approximation methods near the boundary. This is the 2D ``extension'' of \texttt{arctan}.
+\end{itemize}
+
+\subsubsection*{Results for \texttt{runge\_2d}}
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/runge_2d/runge_2d-TR22-C121-Kgaussian_kernel-Sh2.5635-4-E50574.pdf}
+  \caption{Example of an execution for \texttt{runge\_2d}, for $C=121$.}
+\end{figure}
+
+\begin{figure}
+  \hspace*{-2cm}
+  \begin{tabular}{cc}
+    \includegraphics[width=.6\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/runge_2d/incidence_of_linf_runge_2d.pdf}
+    \includegraphics[width=.6\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/runge_2d/incidence_of_l2_runge_2d.pdf}
+  \end{tabular}
+  \caption{Left: incidence of the $L^\infty-$norm across all experiments, comparing the optimum iteration in this value with the last iteration. Right: incidence of the $L^2-$norm across all experiments, comparing with the value that produced the best iteration in the $L^\infty-$norm.}
+  \label{fig:runge-2d-results-incidence-l-norms}
+\end{figure}
+
+\begin{figure}
+  \hspace*{-2cm}
+  \begin{tabular}{cc}
+    \includegraphics[width=.6\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/runge_2d/circle_c49_runge_2d_gaussian_kernel.pdf}  &
+    \includegraphics[width=.6\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/runge_2d/circle_c81_runge_2d_gaussian_kernel.pdf}    \\
+    \includegraphics[width=.6\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/runge_2d/circle_c121_runge_2d_gaussian_kernel.pdf} &
+    \includegraphics[width=.6\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/runge_2d/circle_c169_runge_2d_gaussian_kernel.pdf}   \\
+    \includegraphics[width=.6\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/runge_2d/circle_c225_runge_2d_gaussian_kernel.pdf}
+  \end{tabular}
+  \caption{Distribution of centers at the end of the training process.}
+  \label{fig:runge-2d-results-centers}
+\end{figure}
+
+\clearpage
+\subsubsection*{Results for \texttt{arctan\_2d}}
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/arctan_2d/arctan_paper_2d-TR26-C169-Kgaussian_kernel-Sh3.1738-10-E77017.pdf}
+  \caption{Example of an execution for \texttt{arctan\_2d}, for $C=169$.}
+\end{figure}
+
+\begin{figure}
+  \hspace*{-2cm}
+  \begin{tabular}{cc}
+    \includegraphics[width=.6\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/arctan_2d/incidence_of_linf_arctan_paper_2d.pdf}
+    \includegraphics[width=.6\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/arctan_2d/incidence_of_l2_arctan_paper_2d.pdf}
+  \end{tabular}
+  \caption{Left: incidence of the $L^\infty-$norm across all experiments, comparing the optimum iteration in this value with the last iteration. Right: incidence of the $L^2-$norm across all experiments, comparing with the value that produced the best iteration in the $L^\infty-$norm.}
+  \label{fig:arctan-2d-results-incidence-l-norms}
+\end{figure}
+
+
+\begin{figure}
+  \hspace*{-2cm}
+  \begin{tabular}{cc}
+    \includegraphics[width=.6\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/arctan_2d/circle_c49_arctan_paper_2d_gaussian_kernel.pdf}  &
+    \includegraphics[width=.6\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/arctan_2d/circle_c81_arctan_paper_2d_gaussian_kernel.pdf}    \\
+    \includegraphics[width=.6\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/arctan_2d/circle_c121_arctan_paper_2d_gaussian_kernel.pdf} &
+    \includegraphics[width=.6\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/arctan_2d/circle_c169_arctan_paper_2d_gaussian_kernel.pdf}   \\
+    \includegraphics[width=.6\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/arctan_2d/circle_c225_arctan_paper_2d_gaussian_kernel.pdf}
+  \end{tabular}
+  \caption{Distribution of centers at the end of the training process.}
+  \label{fig:arctan-2d-results-centers}
+\end{figure}
+
+
 \section{Solving differential equations}
 
 % Start writing here----------------------------------------------------
