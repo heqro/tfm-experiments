@@ -2352,12 +2352,12 @@ Working in the interior, it is not correct to sample $r$ from $U[0,1)$ and $\the
 
 For the sake of reproducibility, we explicitly state the number of points we consider on the boundary and inside the circle: let $T^2$ be the number of training points we work with. We then consider $4 (T - 2) + 4$ points on the boundary, and the rest are to be in the interior of the domain\footnote{This apparently obscure formula comes from the idea that, working with a square, a reasonable amount of boundary points is $T$ per side. Provided one would like to always have points at the corners of the square, one would then have $T-2$ uniformly sampled points per side (because of the $2$ fixed points), which yields our proposed formula for the number of points on the boundary.}.
 
-Much like in the one-dimensional case, Figure \ref{fig:parabola-example-training-TR22-C121} depicts a particular instance of this experiment. Notice that the metrics of the model (right-hand side) shows that the scheduler is able to notably reduce oscillations, reducing the learning rate as soon as they show up. In comparison with the one-dimensional case, the oscillations are much shorter-lived and the learning rate that occupies most of the time of computation is $10^{-5}$.
+Much like in the one-dimensional case, Figure \ref{fig:parabola-example-training-TR15-C81} depicts a particular instance of this experiment. Notice that the metrics of the model (right-hand side) shows that the scheduler is able to notably reduce oscillations, reducing the learning rate as soon as they show up. In comparison with the one-dimensional case, the oscillations are much shorter-lived and the learning rate that occupies most of the time of computation is $10^{-5}$. Note that a notable amount of centers are outside the domain of our data.
 
 \begin{figure}[h]
-  \includegraphics[width=\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/parabola-TR22-C121-Kgaussian_kernel-Sh2.5635-5-E57813.pdf}
-  \caption{Last iteration of an instance of the approximation experiment $(C,k)=(121,4)$. Left-hand side: absolute error on the verification dataset. Right-hand side: model curves of the training process (loss function, learning rate) as well as its performance on the verification dataset ($L^2, L^\infty-$norms).}
-  \label{fig:parabola-example-training-TR22-C121}
+  \includegraphics[width=\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/parabola-TR15-C81-Kgaussian_kernel-Sh1.9531-rrrepetishon-E60521.pdf}
+  \caption{Last iteration of an instance of the approximation experiment $(C,k)=(81,2.5)$. Left-hand side: absolute error on the verification dataset. Right-hand side: model curves of the training process (loss function, learning rate) as well as its performance on the verification dataset ($L^2, L^\infty-$norms).}
+  \label{fig:parabola-example-training-TR15-C81}
 \end{figure}
 
 
@@ -2413,19 +2413,18 @@ Figure \ref{fig:parabola-results-shape-parameters} depicts the distribution of s
 
 Figure \ref{fig:parabola-results-largest-errors} shows the locations of the largest error by the end of all training processes, distinguishing by number of centers we consider as well as the overall distribution. As more centers are provided, the formula we prescribed for the number of points at the interior and alongside the boundary is going to provide more points at the interior than at the boundary. This explains why the case $C=225$ features more errors at the boundary than $C=49$. The function we are approximating features the largest values at the third quadrant, which explains why the largest error happens more often by that section of the circumference.
 
-\begin{figure}[h]
-  \hspace*{-2cm}
-  \begin{tabular}{ccc}
-    {\includegraphics[width=.4\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/distribution_of_errors_L_inf_end_C49.pdf}} &
-    \includegraphics[width=.4\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/distribution_of_errors_L_inf_end_C81.pdf}   &
-    \includegraphics[width=.4\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/distribution_of_errors_L_inf_end_C121.pdf}    \\
-    \includegraphics[width=.4\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/distribution_of_errors_L_inf_end_C169.pdf}  &
-    \includegraphics[width=.4\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/distribution_of_errors_L_inf_end_C225.pdf}  &
-    \includegraphics[width=.4\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/distribution_of_errors_L_inf_end.pdf}
+\begin{figure}
+  \hspace*{-.5cm}
+  \begin{tabular}{ccl}
+    {\includegraphics[width=.4\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/parabola_49.pdf}}                    &
+    \includegraphics[width=.4\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/parabola_81.pdf}                      & \multirow{3}{*}{\includegraphics[width=.15\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/colorbar_parabola.pdf}}    \\
+    \multicolumn{1}{r}{\includegraphics[width=.4\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/parabola_121.pdf}} & \includegraphics[width=.4\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/parabola_169.pdf} & \\
+    \multicolumn{2}{l}{\includegraphics[width=.4\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/parabola_225.pdf}} &
   \end{tabular}
-  \caption{Distribution of the largest errors at the end of the training process according to the number of centers and overall.}
+  \caption{Distribution of the average absolute errors at the end of the training processes according to the number of centers.}
   \label{fig:parabola-results-largest-errors}
 \end{figure}
+
 
 Figure \ref{fig:parabola-results-last-iterations} provides information at a glance on the loss, $L^2$ and $L^\infty-$norms of all the experiments we carried out. The largest difference with respect to the 1D case is the fact that the loss plot, featuring the aggregation of all loss curves, is much less dispersed this time around. This can be understood by way of the illustrative example in Figure \ref{fig:parabola-example-training-TR22-C121}, where oscillations are immediately stopped by the action of the scheduler.
 
@@ -2680,7 +2679,7 @@ Figure \ref{fig:2d-pde-usual-result} depicts a usual instance of a training expe
 
 \begin{figure}[h]
   \includegraphics[width=\textwidth]{imagenes/experiments/2d/pde_parabola/parabola-TR15-C81-19-E47449.pdf}
-  \caption{Last iteration of an instance of the solution of the PDE for $(C,k)=(81,1.5)$. Left-hand side: absolute error on the verification dataset. Right-hand side: model curves of the training process (loss function, learning rate) alongside its performance on the verification dataset on the $L^2$ and $L^\infty-$norms.}
+  \caption{Last iteration of an instance of the solution of the PDE for $(C,k)=(81,2.5)$. Left-hand side: absolute error on the verification dataset. Right-hand side: model curves of the training process (loss function, learning rate) alongside its performance on the verification dataset on the $L^2$ and $L^\infty-$norms.}
   \label{fig:2d-pde-usual-result}
 \end{figure}
 
@@ -2794,8 +2793,9 @@ We work with the following functions:
 We expand the set of centers we consider to $\{7,11,15,20,30,40,50,60\}$. This expansion will prove crucial for improving the accuracy in the approximation of some of the functions we consider. This set is mapped to the following shape parameters according to the domain of the problem:
 \begin{itemize}
   \item Under the interval $[-1,1]$, we map the centers to the starting shape parameters $\{0.78125, 1.5625, 2.5,3.6621, 5.6152, 7.8125,9.7656, 11.7188\}$.
-  \item As for $[0,1]$, we map the centers to the starting shape parameters $\{0.78125, 1.5625,  2.5, $ $3.6621,5.6152,  7.8125, 9.7656, 11.7188\}$.
+  \item As for $[0,1]$, we map the centers to the starting shape parameters $\{1.4648,  3.4180, 4.8828$ $  7.3242, 11.2305, 15.6250,19.5313, 23.4375\}$.
 \end{itemize}
+
 
 \subsubsection*{Results for \texttt{runge\_function}}
 
@@ -2813,7 +2813,7 @@ This can also be effectively seen in Figure \ref{fig:distribution-avg-absolute-e
 
 \begin{figure}
   \includegraphics[width=.45\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/runge_function/violins_linf_runge_function_endgame_2.pdf}
-  \includegraphics[width=.45\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/runge_function/violins_l2_runge_function_endgame_2.pdf}
+  \includegraphics[width=.45\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/runge_function/violins_l2_runge_function_endgame.pdf}
   \caption{Quality metrics on the verification dataset for \texttt{runge\_function}, across all centers.}
   \label{fig:violins-l-runge}
 \end{figure}
@@ -2862,7 +2862,7 @@ Figure \ref{fig:violins-l-arctan} shows that the consideration of additional cen
 
 \begin{figure}
   \includegraphics[width=.45\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/arctan_paper/violins_linf_arctan_paper_endgame_2.pdf}
-  \includegraphics[width=.45\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/arctan_paper/violins_l2_arctan_paper_endgame_2.pdf}
+  \includegraphics[width=.45\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/arctan_paper/violins_l2_arctan_paper_endgame.pdf}
   \caption{Quality metrics on the verification dataset for \texttt{arctan}, across all centers.}
   \label{fig:violins-l-arctan}
 \end{figure}
@@ -2905,7 +2905,7 @@ Unlike the results for \texttt{arctan}, Figure \ref{fig:violins-sin-cube-tref} s
 
 \begin{figure}
   \includegraphics[width=.45\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/sin_cube_tref/violins_linf_sin_cube_tref_endgame_2.pdf}
-  \includegraphics[width=.45\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/sin_cube_tref/violins_l2_sin_cube_tref_endgame_2.pdf}
+  \includegraphics[width=.45\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/sin_cube_tref/violins_l2_sin_cube_tref_endgame.pdf}
   \caption{Quality metrics on the verification dataset for \texttt{sin\_cube\_tref}, across all centers.}
   \label{fig:violins-sin-cube-tref}
 \end{figure}
@@ -2947,7 +2947,7 @@ Even though one could argue that this function is visually similar to \texttt{si
 
 \begin{figure}
   \includegraphics[width=.45\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/sin_pi_x_sq/violins_linf_sin_pi_x_sq_endgame_2.pdf}
-  \includegraphics[width=.45\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/sin_pi_x_sq/violins_l2_sin_pi_x_sq_endgame_2.pdf}
+  \includegraphics[width=.45\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/sin_pi_x_sq/violins_l2_sin_pi_x_sq_endgame.pdf}
   \caption{Quality metrics on the verification dataset for \texttt{sin\_pi\_x\_sq}, across all centers.}
   \label{fig:violins-l-sin-pi-x-sq}
 \end{figure}
@@ -2990,10 +2990,24 @@ We consider the following functions along the unit circle:
 
 \subsubsection*{Results for \texttt{runge\_2d}}
 
+Figure \ref{fig:example-execution-runge-2d} shows an execution of the approximation of \texttt{runge\_2d}. It is observed that $10^{-5}$ causes most iterations for this instance, albeit it does not necessarily diminish the loss term as effectively as the other learning rates. If a faster speed of execution were desirable, the configuration for the scheduler could be more stringent or one could terminate the execution as soon as this learning rate was hit. Nevertheless, the curves are notably smooth, which again is due to the scheduler.
+
 \begin{figure}
-  \includegraphics[width=\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/runge_2d/runge_2d-TR22-C121-Kgaussian_kernel-Sh2.5635-4-E50574.pdf}
+  \includegraphics[width=\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/runge_2d/runge_2d-TR22-C121-Kgaussian_kernel-Sh2.5635-rrrepetishon-E47252.pdf}
   \caption{Example of an execution for \texttt{runge\_2d}, for $C=121$.}
+  \label{fig:example-execution-runge-2d}
 \end{figure}
+
+Figure \ref{fig:violins-runge-2d} holds the violin plots for the $L^2$ and $L^\infty-$norms on the verification dataset, according to the overall number of centers we consider. Both metrics are seen to stagnate fast, albeit the $L^2-$norm reduces its spread as more centers and training points are provided.
+
+\begin{figure}
+  \includegraphics[width=.45\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/runge_2d/violins_linf_runge_2d_endgame.pdf}
+  \includegraphics[width=.45\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/runge_2d/violins_l2_runge_2d_endgame.pdf}
+  \caption{Quality metrics on the verification dataset for \texttt{runge\_2d}, across all centers.}
+  \label{fig:violins-runge-2d}
+\end{figure}
+
+Figure \ref{fig:runge-2d-results-incidence-l-norms} shows again the incidence of our quality metrics under study with regards to the best iteration for each instance of all our experiments. The proximity of all the points to the line $y=x$ indicates that the minima over all experiments are not far from the values we obtain by the last iterations. 
 
 \begin{figure}
   \hspace*{-2cm}
@@ -3004,6 +3018,8 @@ We consider the following functions along the unit circle:
   \caption{Left: incidence of the $L^\infty-$norm across all experiments, comparing the optimum iteration in this value with the last iteration. Right: incidence of the $L^2-$norm across all experiments, comparing with the value that produced the best iteration in the $L^\infty-$norm.}
   \label{fig:runge-2d-results-incidence-l-norms}
 \end{figure}
+
+Figure \ref{fig:runge-2d-results-centers} shows the aggregation of all centers by the end of the experiments. The centers are seen to spread less from the domain as more centers and training points are provided.
 
 \begin{figure}
   \hspace*{-2cm}
@@ -3018,33 +3034,38 @@ We consider the following functions along the unit circle:
   \label{fig:runge-2d-results-centers}
 \end{figure}
 
-\begin{figure}[h]
-  \hspace*{-2cm}
-  % \begin{tabular}{ccc}
-  % {\includegraphics[width=.4\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/runge_2d/runge_2d_49.pdf}} &
-  % \includegraphics[width=.4\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/runge_2d/runge_2d_81.pdf}   &
-  % \includegraphics[width=.4\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/runge_2d/runge_2d_121.pdf}    \\
-  % \includegraphics[width=.4\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/runge_2d/runge_2d_169.pdf}  &
-  % \includegraphics[width=.4\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/runge_2d/runge_2d_225.pdf}  & 
-  %   \includegraphics[width=.1\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/runge_2d/colorbar_runge_averages.pdf}
-  % \end{tabular}
-  % \caption{Distribution of the largest errors at the end of the training process according to the number of centers and overall.}
-  % \label{fig:runge-2d-results-largest-errors}
+Figure \ref{fig:runge-2d-results-errors-avg} holds the average absolute errors that we commit, distinguishing according to the number of centers. The absolute error is seen to diminish, not uniformly over the domain, but rather by the successive appearance of concentric ``circumferences'' of lower absolute error.
 
+\begin{figure}
+  \hspace*{-.5cm}
   \begin{tabular}{ccl}
     {\includegraphics[width=.4\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/runge_2d/runge_2d_49.pdf}}                    &
     \includegraphics[width=.4\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/runge_2d/runge_2d_81.pdf}                      & \multirow{3}{*}{\includegraphics[width=.15\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/runge_2d/colorbar_runge_averages.pdf}}    \\
     \multicolumn{1}{r}{\includegraphics[width=.4\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/runge_2d/runge_2d_121.pdf}} & \includegraphics[width=.4\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/runge_2d/runge_2d_169.pdf} & \\
     \multicolumn{2}{l}{\includegraphics[width=.4\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/runge_2d/runge_2d_225.pdf}} &
   \end{tabular}
+  \caption{Distribution of the average absolute error across all experiments per number of centers.}
+  \label{fig:runge-2d-results-errors-avg}
 \end{figure}
 
 \clearpage
 \subsubsection*{Results for \texttt{arctan\_2d}}
 
+Figure \ref{fig:example-execution-arctan-2d} exemplifies an execution of the approximation of \texttt{arctan\_2d}. The loss term is observed to diminish most effectively by the first thousands of iterations, slowly diminishing for the remainder of the instance. Some centers are established along the contour lines, which denote the level curves of the function under study.
+
 \begin{figure}
   \includegraphics[width=\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/arctan_2d/arctan_paper_2d-TR26-C169-Kgaussian_kernel-Sh3.1738-10-E77017.pdf}
   \caption{Example of an execution for \texttt{arctan\_2d}, for $C=169$.}
+  \label{fig:example-execution-arctan-2d}
+\end{figure}
+
+Figure \ref{fig:violins-arctan-2d} depicts the violin plots for our quality metrics of interest, showing that there is a steady improvement as more data is provided to work with. Figure \ref{fig:arctan-2d-results-incidence-l-norms} also shows their incidence with regards to the best iterations, showing that they are, in general, close to the line $y=x$, that is, the last iteration is close to the best iterations.
+
+\begin{figure}
+  \includegraphics[width=.45\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/arctan_2d/violins_linf_arctan_paper_2d_endgame.pdf}
+  \includegraphics[width=.45\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/arctan_2d/violins_l2_arctan_paper_2d_endgame.pdf}
+  \caption{Quality metrics on the verification dataset for \texttt{arctan\_2d}, across all centers.}
+  \label{fig:violins-arctan-2d}
 \end{figure}
 
 \begin{figure}
@@ -3057,6 +3078,8 @@ We consider the following functions along the unit circle:
   \label{fig:arctan-2d-results-incidence-l-norms}
 \end{figure}
 
+
+Figure \ref{fig:arctan-2d-results-centers} shows the distribution of the centers by the end of all training processes. As preliminarily observed in Figure \ref{fig:example-execution-arctan-2d}, the centers are highly clustered by the level curves of the function, this tendency being clearer as more centers are taken into consideration.
 
 \begin{figure}
   \hspace*{-2cm}
@@ -3071,40 +3094,18 @@ We consider the following functions along the unit circle:
   \label{fig:arctan-2d-results-centers}
 \end{figure}
 
-% \begin{figure}[h]
-%   \hspace*{-1.5cm}
-%   \begin{tabular}{ccc}
-%     {\includegraphics[width=.4\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/arctan_2d/arctan_paper_2d_49.pdf}} &
-%     \includegraphics[width=.4\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/arctan_2d/arctan_paper_2d_81.pdf}   &
-%     \includegraphics[width=.4\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/arctan_2d/arctan_paper_2d_121.pdf}    \\
-%     \includegraphics[width=.4\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/arctan_2d/arctan_paper_2d_169.pdf}  &
-%     \includegraphics[width=.4\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/arctan_2d/arctan_paper_2d_225.pdf}  &
-%     % \includegraphics[width=.4\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/arctan_2d/distribution_of_errors_L_inf__arctan_paper_2d.pdf}
-%   \end{tabular}
-%   \caption{Distribution of the largest errors at the end of the training process according to the number of centers and overall.}
-%   \label{fig:arctan-2d-results-largest-errors}
-% \end{figure}
+Finally, Figure \ref{fig:arctan-2d-results-errors-avg} shows the average error across all training experiments. It can be seen that the lower section of the domain is successively better approximated as more centers are provided.
 
-
-\begin{figure}[h]
+\begin{figure}
   \hspace*{-2cm}
-  % \begin{tabular}{ccc}
-  % {\includegraphics[width=.4\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/arctan_2d/arctan_paper_2d_49.pdf}} &
-  % \includegraphics[width=.4\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/arctan_2d/arctan_paper_2d_81.pdf}   &
-  % \includegraphics[width=.4\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/arctan_2d/arctan_paper_2d_121.pdf}    \\
-  % \includegraphics[width=.4\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/arctan_2d/arctan_paper_2d_169.pdf}  &
-  % \includegraphics[width=.4\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/arctan_2d/arctan_paper_2d_225.pdf}  & 
-  %   \includegraphics[width=.1\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/arctan_2d/colorbar_runge_averages.pdf}
-  % \end{tabular}
-  % \caption{Distribution of the largest errors at the end of the training process according to the number of centers and overall.}
-  % \label{fig:runge-2d-results-largest-errors}
-
   \begin{tabular}{ccl}
     {\includegraphics[width=.4\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/arctan_2d/arctan_paper_2d_49.pdf}}                    &
     \includegraphics[width=.4\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/arctan_2d/arctan_paper_2d_81.pdf}                      & \multirow{3}{*}{\includegraphics[width=.15\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/arctan_2d/colorbar_arctan_averages.pdf}}          \\
     \multicolumn{1}{r}{\includegraphics[width=.4\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/arctan_2d/arctan_paper_2d_121.pdf}} & \includegraphics[width=.4\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/arctan_2d/arctan_paper_2d_169.pdf} & \\
     \multicolumn{2}{l}{\includegraphics[width=.4\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/arctan_2d/arctan_paper_2d_225.pdf}} &
   \end{tabular}
+  \caption{Distribution of the average absolute error across all experiments per number of centers.}
+  \label{fig:arctan-2d-results-errors-avg}
 \end{figure}
 
 \clearpage
