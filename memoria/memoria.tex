@@ -2731,21 +2731,21 @@ Figure \ref{fig:2d-pde-results-shape-parameters} shows the distribution of all s
   \label{fig:2d-pde-results-shape-parameters}
 \end{figure}
 
-Figure \ref{fig:2d-pde-results-largest-errors} shows the location of the largest errors in the $L^\infty-$norm that have taken place across all experiments. Like in the case of the 2D function approximation, the errors are observed to be at the boundary, especially as more centers (and thus more training points) are provided. This is coherent with the distributions we have prescribed for the number of points at the boundary and at the interior, sampling more of the latter as more training points are to be worked with.
 
-\begin{figure}[h]
-  \hspace*{-2cm}
-  \begin{tabular}{ccc}
-    {\includegraphics[width=.4\textwidth]{imagenes/experiments/2d/pde_parabola/distribution_of_errors_L_inf_end_C49.pdf}} &
-    \includegraphics[width=.4\textwidth]{imagenes/experiments/2d/pde_parabola/distribution_of_errors_L_inf_end_C81.pdf}   &
-    \includegraphics[width=.4\textwidth]{imagenes/experiments/2d/pde_parabola/distribution_of_errors_L_inf_end_C121.pdf}    \\
-    \includegraphics[width=.4\textwidth]{imagenes/experiments/2d/pde_parabola/distribution_of_errors_L_inf_end_C169.pdf}  &
-    \includegraphics[width=.4\textwidth]{imagenes/experiments/2d/pde_parabola/distribution_of_errors_L_inf_end_C225.pdf}  &
-    \includegraphics[width=.4\textwidth]{imagenes/experiments/2d/pde_parabola/distribution_of_errors_L_inf_end.pdf}
+Figure \ref{fig:2d-pde-results-average-errors} shows the distribution of the average absolute errors across all training experiments, distinguishing between the number of centers and the degree of the polynomial addend. The consideration of a polynomial term seems to have a slight edge for $C=169,225$, but its impact on the final result is not decisive. 
+
+\clearpage
+\begin{sidewaysfigure}[H]
+  \hspace*{-1cm}
+  \begin{tabular}{ccccc}
+    {\includegraphics[width=.2\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/pde_parabola/parabola_49_-1.pdf}} & {\includegraphics[width=.2\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/pde_parabola/parabola_81_-1.pdf}} & {\includegraphics[width=.2\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/pde_parabola/parabola_121_-1.pdf}} & {\includegraphics[width=.2\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/pde_parabola/parabola_169_-1.pdf}} & {\includegraphics[width=.2\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/pde_parabola/parabola_225_-1.pdf}} \\
+    {\includegraphics[width=.2\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/pde_parabola/parabola_49_2.pdf}} & {\includegraphics[width=.2\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/pde_parabola/parabola_81_2.pdf}} & {\includegraphics[width=.2\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/pde_parabola/parabola_121_2.pdf}} & {\includegraphics[width=.2\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/pde_parabola/parabola_169_2.pdf}} & {\includegraphics[width=.2\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/pde_parabola/parabola_225_2.pdf}} \\
+    \multicolumn{5}{c}{\includegraphics[width=.2\textwidth]{imagenes/experiments/2d/pde_parabola/legend_parabola_pde.png}}
   \end{tabular}
-  \caption{Distribution of the largest errors at the end of the training process according to the number of centers and overall.}
-  \label{fig:2d-pde-results-largest-errors}
-\end{figure}
+  \caption{Average absolute errors in the solution of the PDE according to the number of centers and the degree of the accompanying polynomial.}
+  \label{fig:2d-pde-results-average-errors}
+\end{sidewaysfigure}
+
 
 
 \begin{figure}[h]
