@@ -2167,30 +2167,36 @@ We chose the Adam optimizer to avoid settling on the first local minimum we find
 
 \subsection{A generic experiment case}
 
-To study the effectiveness of $\mathcal{NN}$ in solving $(P)$, we consider a matrix of experiments indexed by $(C,k)$, where $C \in \{7^d,9^d,11^d,13^d,15^d\}$ denotes the number of (initially equispaced) centers we equip $\mathcal{NN}$ with, and $k$ is a scaling factor which will determine the number of training points, say $T$, according to the rule
+To study the effectiveness of $\mathcal{NN}$ in solving $(P)$, we consider a matrix of experiments indexed by $(C,k)$, where $C$ denotes the number of (initially equispaced) centers we equip $\mathcal{NN}$ with, and $k$ is a scaling factor which will determine the number of training points, say $T$, according to the rule
 $T = \lceil \sqrt[d]{C  k} \rceil ^d $.
 
 Furthermore, the training points are uniformly sampled to decisively show the capability of our model to work with an arbitrary set of points. When sampling the training points, we always ensure that some of them are located at the border of the domain. This ensures that $(P)$ is either an interpolation problem (rather than an extrapolation problem) or a well-posed differential equation (so that we have points to work with along the boundary).
 
-For each value of $C$, we compute a starting shape parameter common to all RBFs in the following manner: we first distribute those $C$ centers across an equispaced $d-$dimensional lattice. After that is done, choose $\varepsilon$ such that the condition number of the interpolation problem with interpolation points equal to the centers is between $10^{-6}$ and $10^{-7}$. One can do so, for instance, using the bisection method. For such shapes, the loss function will be observed to steadily decrease while achieving satisfactory performance on the verification dataset. Larger starting values of the shape parameter reduce this performance, whereas progressively smaller starting values eventually cause the loss function to stagnate at unacceptable orders of magnitude.
+For each value of $C$, we compute a starting shape parameter common to all RBFs in the following manner: we first distribute those $C$ centers across an equispaced $d-$dimensional lattice. After that is done, choose $\varepsilon$ such that the condition number of the interpolation problem with interpolation points equal to the centers is between $10^{-6}$ and $10^{-7}$. One can do so, for instance, using the bisection method. For such shapes, the loss function will be observed to steadily decrease while achieving satisfactory performance on the verification dataset. 
+\begin{itemize}
+  \item Larger starting values of the shape parameter reduce the loss term to the order $10^{-13}$ in few iterations, effectively interpolating the proposed training points. This is observed to harm the ``generalization'' capability of the model, causing large oscillations to occur between any pair of training nodes.
+  \item Progressively smaller starting values cause the loss function to stagnate too early for $\mathcal{NN}$ to bear any visual resemblance to the actual function. Furthermore, for small enough values of the starting shape parameter the loss function is observed to oscillate, a clear sign of operating under an ill-conditioned problem.
+\end{itemize}
 
-Each experiment configuration $(C,k)$ will be simultaneously solved several times for the following reasons: firstly, the model features a remarkably low amount of parameters, which might make it more susceptible to ``bad'' starting parameter sets. Secondly, to distill those experiments featuring training points that may not lead us to the actual solution of the problem. Thirdly, to observe the performance of our method on a verification dataset which will be fixed across every $(C,k)$. Finally, to elaborate statistic descriptions of the model's parameters: shape parameter, coefficients and centers. For each experiment, some recurrent questions to answer will be the following:
+Each experiment configuration $(C,k)$ will be simultaneously solved several times for the following reasons: firstly, the model features a remarkably low amount of parameters, which might make it more susceptible to ``bad'' starting parameter sets. Secondly, to distill those experiments featuring training points that may not lead us to the actual solution of the problem. Thirdly, to observe the performance of our method on a verification dataset which will be common to every experiment. Finally, to elaborate statistic descriptions of the model's parameters: shape parameter, coefficients and centers. Some recurrent questions to answer will be the following:
 
 \begin{itemize}
   \item How do the $L^\infty$ and $L^2-$norms on the verification dataset behave as $C$ and $k$ increase?
   \item Do we observe any improvements when equipping a polynomial term to our RBF?
-  \item What do the execution times look like? %What about the GPU memory consumed by each $(C,k)$?
+  % \item What about the GPU memory consumed by each $(C,k)$?
   \item Are there any recurrent distribution of centers, shape parameters or coefficients?
 \end{itemize}
 
-One reasonable concern for solving any experiment several simultaneous times is exhausting the computing resources of the server. The multiple processors the server features is enough to quell any such concern as long as we launch fewer instances than the amount of idle processors. On the other hand, model memory allocation problem is often an issue when dealing with PINNs, which we address in the following by turning to the \href{https://pytorch.org/docs/stable/generated/torch.cuda.max_memory_allocated.html}{\texttt{max\_memory\_allocated()}}
-method of the \texttt{torch.cuda} namespace.
+The question for execution times is a relevant one as well, albeit it cannot be reliably answered as the experiments are launched in a shared server, that is, measurements have been carried out but they have been observed to be inconsistent, varying according to the workload of the server during the launch event.
 
-This method returns the peak allocated memory (in bytes) since the beginning of the program. Therefore, this
+One reasonable concern for solving any experiment several simultaneous times is exhausting the computing resources of the server, namely CPU and GPU. The multiple processors the server features is enough to quell the CPU concern as long as we launch fewer instances than the amount of idle processors. 
+
+On the other hand, model memory allocation problem is often an issue when dealing with PINNs, which we address in the following by turning to the \href{https://pytorch.org/docs/stable/generated/torch.cuda.max_memory_allocated.html}{\texttt{max\_memory\_allocated()}}
+method of the \texttt{torch.cuda} namespace in Python. This method returns the peak allocated memory (in bytes) since the beginning of the program. Therefore, this
 measurement is to be regarded as approximate. Figure \ref{fig:model-consumption-memory} depicts the memory consumption of the
-model for different numbers of centers per dimension, seeing that higher orders of dimensionality may cause the model to be a memory concern.
+model for different numbers of centers per dimension. It is observed to reach $100$ MB for the largest pair of dimensionality and centers we evaluate, two orders of magnitude below the amount the server can allocate. For our purposes, the model is not going to be an issue regarding GPU memory.
 
-This does not imply in any way that the memory consumed by the executed process is going to be that small, as we will also make room for the training and validation datasets. Regardless, the memory they occupy in low dimensions is observed to be negligible in comparison to the memory occupied by the CUDA context\footnote{Recall that the CUDA context manages the interaction between PyTorch tensors and CUDA-capable devices (usually GPUs). The CUDA context in PyTorch handles memory allocation, device synchronization, and execution of CUDA operations on tensors stored on GPU devices. For each separate process, a CUDA context is invoked, which may be a problem if a large amount of ML problems featuring large models are to be solved simultaneously  (refer for instance to \href{https://github.com/pytorch/pytorch/issues/20532}{previous GitHub discussions} in PyTorch's repository).}.
+The memory consumed by each instance is not going to be that small. The training and validation datasets are observed to be larger contributors to the total allocated memory. Regardless, the memory they occupy in low dimensions is observed to be negligible in comparison to the memory occupied by the CUDA context\footnote{Recall that the CUDA context manages the interaction between PyTorch tensors and CUDA-capable devices (usually GPUs). The CUDA context in PyTorch handles memory allocation, device synchronization, and execution of CUDA operations on tensors stored on GPU devices. For each separate process, a CUDA context is invoked, which may be a problem if a large amount of ML problems featuring large models are to be solved simultaneously  (refer for instance to \href{https://github.com/pytorch/pytorch/issues/20532}{previous GitHub discussions} in PyTorch's repository).}.
 
 
 \begin{figure}
@@ -2199,7 +2205,7 @@ This does not imply in any way that the memory consumed by the executed process 
   \label{fig:model-consumption-memory}
 \end{figure}
 
-In the following, we will work on well-behaved polynomial functions. Our objective is to evaluate the performance of our model when we expect to the performance to improve when explicitly incorporating polynomial terms. We will present the results in graphic form, using vector images to allow the usage of electronic zoom if further interpretation of the representations is of interest to the reader.
+In the following, we will work on ``well-behaved'' polynomial functions. Our objective is to evaluate the performance of our model when we expect to the performance to improve when explicitly incorporating polynomial terms. %We will present the results in graphic form, using vector images to allow the usage of electronic zoom if further interpretation of the representations is of interest to the reader.
 
 \section{Approximation of functions}
 
@@ -2207,7 +2213,7 @@ In the following, we will work on well-behaved polynomial functions. Our objecti
 
 \subsection*{One-dimensional case}
 
-We consider the function $x \mapsto u_2(x)=(x-1/2)^2$ for $x \in [-1,1]$. We may refer to this function by \texttt{u2} as well. For this interval, we have found suitable starting shape parameters $\{0.78125, 1.25, 1.5625, 2.03125, 2.5\}$. They will be tied to $C=\{7,9,11,13,15\}$, respectively.
+We consider the function $x \mapsto u_2(x)=(x-1/2)^2$ for $x \in [-1,1]$. We may refer to this function by \texttt{u2} as well. For this interval, we have found suitable starting shape parameters $(0.78125, 1.5625, 2.5, 3.6621, 5.6152)$, which we map to the list of (initially equispaced) centers $(7,11,15,20,30)$, respectively.
 
 Figure \ref{u2-example-training-TR15-C15} shows how an instance of this experiment is carried out. Notice (top-right image) that the largest error is located where the density of training points is at its lowest. Furthermore, the two figures on the left-hand show the location and the shape parameters of the RBF functions, allowing one to see at a glance the parameters of the proposed network. Finally, the image on the bottom-right hand side shows the loss function of our model alongside the $L^2$ and $L^\infty-$norms on the verification dataset. The action of the scheduler allows us to iteratively reduce oscillations in the model, most importantly nullifying them in the very last few iterations.
 
@@ -2262,20 +2268,19 @@ A reasonable concern comes from the fact that letting the iterative process run 
   \label{fig:u2-results-incidence-l-norms}
 \end{figure}
 
-Figure \ref{fig:u2-results-largest-error} features a histogram of the incidence of maxima of the $L^\infty-$norm across all experiments at the end of the training process, indicating that they are more likely to be found towards the boundary of the domain.
-
-
+Figure \ref{fig:u2-results-largest-error} features two diagrams of the averages of the absolute errors across all training experiments that have been carried out, most importantly the cases $k=1$ and $k=4$. In coherence with Figures \ref{fig:u2-results-overall-poly-1} and \ref{fig:u2-results-overall-poly2}, it indicates that the case $k=4$ produces the best results: $(C,k)=(7,4)$ is observed to produce comparable results to the case $(C,k)=(30,1)$, indicating that the results improve with the number of training points.
 
 \begin{figure}
-  \includegraphics[width=.5\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/distribution_of_errors_L_inf_end.pdf}
-  \caption{Distribution of the locations of the largest errors in the approximation of the functions at the end of the training process.}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/u2_30_1}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/u2_30_4}
+  \caption{Average of the absolute errors across all training experiments, comparing the cases $k=1$ and $k=4$.}
   \label{fig:u2-results-largest-error}
 \end{figure}
 
 Figure \ref{fig:u2-results-shape-parameters} depicts the incidence of the shape parameters at the end of all training processes fitted to a normal distribution. Some observations are in order:
 \begin{itemize}
   \item The mean of the fitted normal distributions approach the starting shape parameter as $C$ (and thus the starting parameter) is increased. The fitted variance diminishes as well.
-  \item For $\varepsilon=0.78125$ and $\varepsilon=1.25$, associated with $C=7$ and $C=9$ respectively, some shape parameters are found to be close to zero. This indicates that some RBF addends are effectively working as bias terms.
+  \item For $\varepsilon=0.78125$, associated with $C=7$, some shape parameters are found to be close to zero. This indicates that some RBF addends are effectively working as bias terms. This is observed not to happen for larger values of $C$.
 \end{itemize}
 
 \begin{figure}
@@ -2295,35 +2300,16 @@ Figure \ref{fig:u2-results-all} provides cursory insights into the learning curv
 \end{figure}
 
 
-\begin{figure}
-  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/C7-TR28.pdf}
-  \label{fig:u2-results-shapes-etc-c7-tr28}
-\end{figure}
+Figure \ref{fig:u2-results-shapes-etc-c30-tr120} depicts a histogram of the trained centers by the end of all training instances, alongside violin plots of the shapes and coefficients. This is the experiment featuring the largest amount of centers and training points. Some immediate observations about this Figure are the following: \begin{itemize}
+  \item There the largest incidence of centers is located \textit{outside} the domain of the problem.
+  \item The medians of the coefficients, depicted by the horizontal lines in the violin plots, seem to match the behavior of the actual function.
+\end{itemize}
 
-
-\begin{figure}
-  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/C11-TR44.pdf}
-  \caption{Box plots of shapes and coefficients.}
-  \label{fig:u2-results-shapes-etc-c11-tr44}
-\end{figure}
+The same diagrams can be drawn for different pairs $(C,k)$, and the same observations will be reached. However, there are some key differences: the incidence of centers is further away from the domain as less centers are taken into consideration, and the coefficients do not resemble the function as closely as Figure \ref{fig:u2-results-shapes-etc-c30-tr120}, the resemblance loosening as fewer centers are considered.
 
 \begin{figure}
-
-  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/C15-TR60.pdf}
-
-  \caption{Box plots of shapes and coefficients.}
-  \label{fig:u2-results-shapes-etc-c15-tr60}
-\end{figure}
-
-\begin{figure}
-  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/C20-TR80.pdf}
-  \caption{Box plots of shapes and coefficients.}
-  \label{fig:u2-results-shapes-etc-c20-tr80}
-\end{figure}
-
-\begin{figure}
-  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/C30-TR120.pdf}
-  \caption{Box plots of shapes and coefficients.}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/C30-TR120-u2.pdf}
+  \caption{Top diagram: histogram of the incidence of centers at the end of all the training processes, alongside \texttt{u2}. Middle diagram: violin plots of the shape parameter for each histogram bin. Bottom: violin plots of the coefficients for each histogram bin.}
   \label{fig:u2-results-shapes-etc-c30-tr120}
 \end{figure}
 
