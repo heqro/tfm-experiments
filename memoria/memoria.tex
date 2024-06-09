@@ -2338,7 +2338,7 @@ Working in the interior, it is not correct to sample $r$ from $U[0,1)$ and $\the
 
 For the sake of reproducibility, we explicitly state the number of points we consider on the boundary and inside the circle: let $T^2$ be the number of training points we work with. We then consider $4 (T - 2) + 4$ points on the boundary, and the rest are to be in the interior of the domain\footnote{This apparently obscure formula comes from the idea that, working with a square, a reasonable amount of boundary points is $T$ per side. Provided one would like to always have points at the corners of the square, one would then have $T-2$ uniformly sampled points per side (because of the $2$ fixed points), which yields our proposed formula for the number of points on the boundary.}.
 
-Much like in the one-dimensional case, Figure \ref{fig:parabola-example-training-TR15-C81} depicts a particular instance of this experiment. Notice that the metrics of the model (right-hand side) shows that the scheduler is able to notably reduce oscillations, reducing the learning rate as soon as they show up. In comparison with the one-dimensional case, the oscillations are much shorter-lived and the learning rate that occupies most of the time of computation is $10^{-5}$. Note that a notable amount of centers are outside the domain of our data.
+Much like in the one-dimensional case, Figure \ref{fig:parabola-example-training-TR15-C81} depicts a particular instance of this experiment. The metrics of the model (right-hand side) show that the scheduler readily reduces oscillations, reducing the learning rate as soon as they show up. In comparison with the one-dimensional case, the oscillations are much shorter-lived. For this instance of the experiment, the learning rate that occupies most of the time of computation is $10^{-5}$. Note that a notable amount of centers is outside the domain of our data.
 
 \begin{figure}[h]
   \includegraphics[width=\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/parabola-TR15-C81-Kgaussian_kernel-Sh1.9531-rrrepetishon-E60521.pdf}
@@ -2349,7 +2349,7 @@ Much like in the one-dimensional case, Figure \ref{fig:parabola-example-training
 
 
 
-In the following, we show the comparison of the distribution of these results in the $L^\infty$ and $L^2-$norms and in execution times, without (Figure \ref{fig:parabola-results-overall-poly-1}) and with a quadratic polynomial addend (Figure \ref{fig:parabola-results-overall-poly2}). As observed in the 1D case, the improvements come not from the consideration of a larger value of $C$, but rather by the increment of $k$. Increasing $k$ is also seen to visibly decrease the spread of results in the $L^2$ and $L^\infty-$norms. The consideration of a quadratic polynomial produces timid improvements on these two metrics. Finally, the execution times are at their largest for increasing values of $C$.
+In the following, we show the comparison of the distribution of these results in the $L^\infty$ and $L^2-$norms and in execution times, without (Figure \ref{fig:parabola-results-overall-poly-1}) and with a quadratic polynomial addend (Figure \ref{fig:parabola-results-overall-poly2}). As observed in the 1D case, the improvements come not from the consideration of a larger value of $C$, but rather by the increment of $k$. Increasing $k$ is also seen to visibly decrease the spread of results in the $L^2$ and $L^\infty-$norms. The consideration of a quadratic polynomial produces timid improvements on these two metrics. %Finally, the execution times are at their largest for increasing values of $C$.
 \clearpage
 \begin{sidewaysfigure}[H]
   \hspace*{-1cm}
@@ -2377,7 +2377,7 @@ In the following, we show the comparison of the distribution of these results in
   \label{fig:parabola-results-overall-poly2}
 \end{sidewaysfigure}
 
-Figure \ref{fig:parabola-results-incidence-l-norms} features the incidence of maxima in the $L^\infty-$norm across all experiments by the end of each experiment instance. The results differ regarding the 1D case, because there is a small spread in the $L^\infty-$norm (left-hand side). Furthermore, $L^2-$norm results for the last iterations are better than the ones obtained for the best iteration in the $L^\infty-$norm, indicating that more iterations can reliably produce, on average, better approximations to the verification dataset.
+Figure \ref{fig:parabola-results-incidence-l-norms} features the incidence of maxima in the $L^\infty-$norm across all experiments by the end of each experiment instance. The results differ regarding the 1D case, because there is a smaller spread in the $L^\infty-$norm (left-hand side). Furthermore, $L^2-$norm results for the last iterations are smaller than the ones obtained for the best iteration in the $L^\infty-$norm, indicating that more iterations can reliably produce, on average, better approximations to the verification dataset.
 
 \begin{figure}[h]
   \hspace*{-2cm}
@@ -2389,7 +2389,7 @@ Figure \ref{fig:parabola-results-incidence-l-norms} features the incidence of ma
   \label{fig:parabola-results-incidence-l-norms}
 \end{figure}
 
-Figure \ref{fig:parabola-results-shape-parameters} depicts the distribution of shape parameters at the end of the training process, with a normal distribution laid over it. Like in the 1D case, the spread is clearly normally distributed (bar the cluster around zero for the starting parameter $\varepsilon=1.3428$). The means of the distributions approach the actual starting parameter as it is increased in value, with a smaller variance as well.
+Figure \ref{fig:parabola-results-shape-parameters} depicts the distribution of shape parameters at the end of the training process, with a normal distribution laid over it. Like in the 1D case, the spread is clearly normally distributed (bar the cluster around zero for the starting parameter $\varepsilon=1.3428$). The means of the distributions approach the actual starting parameter as the latter increases, with a smaller variance as well.
 
 \begin{figure}[h]
   \includegraphics[width=.8\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/distribution_of_shape_parameters_at_end_of_training.pdf}
@@ -2397,7 +2397,7 @@ Figure \ref{fig:parabola-results-shape-parameters} depicts the distribution of s
   \label{fig:parabola-results-shape-parameters}
 \end{figure}
 
-Figure \ref{fig:parabola-results-largest-errors} shows the locations of the largest error by the end of all training processes, distinguishing by number of centers we consider as well as the overall distribution. As more centers are provided, the formula we prescribed for the number of points at the interior and alongside the boundary is going to provide more points at the interior than at the boundary. This explains why the case $C=225$ features more errors at the boundary than $C=49$. The function we are approximating features the largest values at the third quadrant, which explains why the largest error happens more often by that section of the circumference.
+Figure \ref{fig:parabola-results-largest-errors} shows the averages of the absolute errors by the end of all training processes, according to the number of centers we consider. Notice that the decrement of the absolute error is not ``uniform'', but rather ``wavy'': that is, we observe an increase in the amount of concentric circumferences where the absolute error is at its lowest (compare with Figure \ref{fig:u2-results-largest-error} of the 1D case, where a similar phenomenon is observed).
 
 \begin{figure}
   \hspace*{-.5cm}
@@ -2412,7 +2412,7 @@ Figure \ref{fig:parabola-results-largest-errors} shows the locations of the larg
 \end{figure}
 
 
-Figure \ref{fig:parabola-results-last-iterations} provides information at a glance on the loss, $L^2$ and $L^\infty-$norms of all the experiments we carried out. The largest difference with respect to the 1D case is the fact that the loss plot, featuring the aggregation of all loss curves, is much less dispersed this time around. This can be understood by way of the illustrative example in Figure \ref{fig:parabola-example-training-TR22-C121}, where oscillations are immediately stopped by the action of the scheduler.
+Figure \ref{fig:parabola-results-last-iterations} provides information at a glance on the loss, $L^2$ and $L^\infty-$norms of all the experiments we carried out. The largest difference with respect to the 1D case is the fact that the loss plot, featuring the aggregation of all loss curves, is much less dispersed this time around. %This can be understood by way of the illustrative example in Figure \ref{fig:parabola-example-training-TR22-C121}, where oscillations are immediately stopped by the action of the scheduler.
 
 \begin{figure}[h]
   \includegraphics[width=.7\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/Loss_curves_semilogy_all.png}
@@ -2423,7 +2423,7 @@ Figure \ref{fig:parabola-results-last-iterations} provides information at a glan
 \end{figure}
 
 Finally,
-Figure \ref{fig:parabola-results-centers} shows the distribution of the centers by the end of all training processes according to $C$. The centers are clustered forming circles inside circles. The spread of the centers is seen to be reduced as more centers are provided. It can be seen, by carrying out the same experiment on the domain $[-1,1]\times[-1,1]$, that the centers are clustered forming squares instead.
+Figure \ref{fig:parabola-results-centers} shows the distribution of centers by the end of all training processes according to $C$. The centers are clustered forming concentric circumferences. The spread of the centers is seen to be reduced as more centers are provided. It can be seen, by carrying out the same experiment on the domain $[-1,1]\times[-1,1]$, that the centers are clustered forming squares instead.
 
 \begin{figure}[h]
   \hspace*{-2cm}
