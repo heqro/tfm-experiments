@@ -2675,7 +2675,7 @@ Once we have prescribed the discretized formulation, we may proceed by consider 
 Figure \ref{fig:2d-pde-usual-result} depicts a usual instance of a training experiment. The model curves are notably smooth, the loss term only spiking up when oscillations do occur. Nevertheless, the scheduler comes shows its usefulness again by immediately reducing the learning rate and making the oscillations disappear.
 
 \begin{figure}[h]
-  \includegraphics[width=\textwidth]{imagenes/experiments/2d/pde_parabola/parabola-TR15-C81-19-E47449.pdf}
+  \includegraphics[width=\textwidth]{imagenes/experiments/2d/pde_parabola/parabola-TR15-C81-rrrrepetishon-E52502.pdf}
   \caption{Last iteration of an instance of the solution of the PDE for $(C,k)=(81,2.5)$. Left-hand side: absolute error on the verification dataset. Right-hand side: model curves of the training process (loss function, learning rate) alongside its performance on the verification dataset on the $L^2$ and $L^\infty-$norms.}
   \label{fig:2d-pde-usual-result}
 \end{figure}
@@ -2796,7 +2796,7 @@ We expand the set of centers we consider to $\{7,11,15,20,30,40,50,60\}$. This e
 
 \subsubsection*{Results for \texttt{runge\_function}}
 
-Figure \ref{fig:example-execution-runge} depicts an usual execution of the approximation of \texttt{runge\_function} following the same style as in Figure \ref{u2-example-training-TR15-C15}. The situation is similar to other particular instances of experiments that have been previously shown: the loss curves are smooth enough for our purposes by the action of the scheduler, and the absolute error is at its largest in those sections where training nodes are lacking.
+Figure \ref{fig:example-execution-runge} depicts a usual execution of the approximation of \texttt{runge\_function} following the same style as in Figure \ref{u2-example-training-TR15-C15}. The situation is similar to other particular instances of experiments that have been previously shown: the loss curves are smooth enough for our purposes by the action of the scheduler, and the absolute error is at its largest in those sections where training nodes are lacking.
 
 \begin{figure}
   \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/runge_function/runge_function-TR44-C11-Kgaussian_kernel-Sh1.5625-7-E237969.pdf}
