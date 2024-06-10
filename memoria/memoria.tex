@@ -2625,16 +2625,16 @@ Figure \ref{fig:ode-1d-results-all} holds the mean curves for the loss, $L^2$ an
 \end{figure}
 
 \begin{figure}
-  \hspace*{-2cm}
-  \begin{tabular}{cc}
-    \includegraphics[width=.6\textwidth, clip=true,trim={.5cm 0 .5cm 0}]{imagenes/experiments/1d/ode/histogram-centers-C7.pdf}  &
-    \includegraphics[width=.6\textwidth, clip=true,trim={.5cm 0 .5cm 0}]{imagenes/experiments/1d/ode/histogram-centers-C11.pdf}   \\
-    \includegraphics[width=.6\textwidth, clip=true,trim={.5cm 0 .5cm 0}]{imagenes/experiments/1d/ode/histogram-centers-C15.pdf} &
-    \includegraphics[width=.6\textwidth, clip=true,trim={.5cm 0 .5cm 0}]{imagenes/experiments/1d/ode/histogram-centers-C20.pdf}   \\
-    \includegraphics[width=.6\textwidth, clip=true,trim={.5cm 0 .5cm 0}]{imagenes/experiments/1d/ode/histogram-centers-C30.pdf}
-  \end{tabular}
-  \caption{Distribution of centers at the end of the training process.}
-  \label{fig:ode-1d-distribution-of-centers}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/ode/C30-TR120-poly-1.pdf}
+  \caption{Top diagram: histogram of the incidence of centers at the end of all the training processes, alongside the solution. Middle: violin plots of the shape parameters for each histogram bin. Bottom: violin plots of the coefficients for each histogram bin.}
+  \label{fig:tripleplot-ode-poly-1}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/ode/C30-TR120-poly2.pdf}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/ode/histogram_of_coefficients.pdf}
+  \caption{First diagram: histogram of the incidence of centers at the end of all the training processes, alongside the solution. Second: violin plots of the shape parameters for each histogram bin. Third: violin plots of the coefficients for each histogram bin. Fourth: distribution of the coefficients of the quadratic polynomial addend.}
+  \label{fig:tripleplot-ode-poly2}
 \end{figure}
 
 \clearpage
