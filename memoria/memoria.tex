@@ -215,7 +215,9 @@ hmargin=3cm
 \providecommand{\xequal}[2][]{\mathop{=}\limits_{#1}^{#2}}
 \newcommand{\tmcolor}[2]{{\color{#1}{#2}}}
 \newcommand{\mathLaplace}{\Delta}
-\hfuzz=60.0pt 
+\hfuzz=100.0pt 
+\vbadness=10000
+
 % end TeXmacs macros
 \usepackage{pdfpages}
 
@@ -2940,7 +2942,7 @@ Figure \ref{fig:example-execution-sin-pi-x-sq} shows an execution of the approxi
   \label{fig:example-execution-sin-pi-x-sq}
 \end{figure}
 
-Even though one could argue that this function is visually similar to \texttt{sin\_cube\_tref}, Figure \ref{fig:violins-l-sin-pi-x-sq} shows that the consideration of a larger number of training points and centers does not improve the results whatsoever, stagnating after $C=15$ in both the $L^2$ and $L^\infty-$norm. This stagnation can be diagnosed after looking at the distribution of the average absolute error across al experiments in Figure \ref{fig:distribution-avg-absolute-error-sin-pi-x-sq}, which shows that the largest error is taking place towards the boundary of the function.
+Even though one could argue that this function is visually similar to \texttt{sin\_cube\_tref}, Figure \ref{fig:violins-l-sin-pi-x-sq} shows that the consideration of a larger number of training points and centers does not improve the results whatsoever, stagnating after $C=15$ in both the $L^2$ and $L^\infty-$norm. This stagnation can be diagnosed after looking at the distribution of the average absolute error across all experiments in Figure \ref{fig:distribution-avg-absolute-error-sin-pi-x-sq}, which shows that the largest error is taking place towards the boundary of the function.
 
 \begin{figure}
   \includegraphics[width=.45\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/sin_pi_x_sq/violins_linf_sin_pi_x_sq_endgame_2.pdf}
@@ -2964,7 +2966,7 @@ Despite that Figure \ref{fig:incidence-l-sin-pi-x-sq-function} shows that the in
   \label{fig:incidence-l-sin-pi-x-sq-function}
 \end{figure}
 
-Figure \ref{fig:triple-plot-sin-pi-x-sq-function} shows the histogram of the incidence of centers alongside the distributions of shape parameters and coefficients for each bin for $C=60$. Notice that the medians of the coefficients closely follow the behavior of the actual function, which is coherent with previous findings. However, the shape parameters feature an abnormal spread, most importantly towards the boundary. This may be due to the derivative being largest in absolute value at the boundary, which has to be ``reproduced'' by means of a larger shape parameter for the corresponding bin. This is a decisive distinction with regards to \texttt{sin\_cube\_tref}, which justifies such different approximation results.
+Figure \ref{fig:triple-plot-sin-pi-x-sq-function} shows the histogram of the incidence of centers alongside the distributions of shape parameters and coefficients for each bin for $C=60$. Notice that the medians of the coefficients closely follow the behavior of the actual function, which is coherent with previous findings. However, the shape parameters feature an abnormal spread, most importantly towards the boundary. This may be due to the derivative being largest in absolute value at the boundary, which has to be ``reproduced'' by means of a larger shape parameter for the corresponding bin. This is a decisive distinction regarding \texttt{sin\_cube\_tref}, which justifies such different approximation results.
 
 \begin{figure}
   \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/sin_pi_x_sq/C60-TR240-sin_pi_x_sq.pdf}
@@ -3056,7 +3058,7 @@ Figure \ref{fig:example-execution-arctan-2d} exemplifies an execution of the app
   \label{fig:example-execution-arctan-2d}
 \end{figure}
 
-Figure \ref{fig:violins-arctan-2d} depicts the violin plots for our quality metrics of interest, showing that there is a steady improvement as more data is provided to work with. Figure \ref{fig:arctan-2d-results-incidence-l-norms} also shows their incidence with regards to the best iterations, showing that they are, in general, close to the line $y=x$, that is, the last iteration is close to the best iterations.
+Figure \ref{fig:violins-arctan-2d} depicts the violin plots for our quality metrics of interest, showing that there is a steady improvement as more data is provided to work with. Figure \ref{fig:arctan-2d-results-incidence-l-norms} also shows their incidence regarding the best iterations, showing that they are, in general, close to the line $y=x$, that is, the last iteration is close to the best iterations.
 
 \begin{figure}
   \includegraphics[width=.45\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/arctan_2d/violins_linf_arctan_paper_2d_endgame.pdf}
@@ -3125,8 +3127,6 @@ Our domain $\Omega$ is the unit circle. We consider the following problems, as f
   \item $u_1(x,y)$, with $u_1$ defined exactly as \texttt{runge\_2d}.
   \item $(x,y) \mapsto u_2(x,y)=\sin(\pi(x^2+y^2))$, which we may refer to as \texttt{sin\_pi\_x\_y\_sq} in the following.
 \end{itemize}
-
-\todo[inline]{el que las propone avanza que tendríamos que encontrar epsilons "ideales" muy distintos}
 
 \subsubsection*{Results for \texttt{runge\_2d}}
 
