@@ -2289,15 +2289,15 @@ Figure \ref{fig:u2-results-shape-parameters} depicts the incidence of the shape 
   \label{fig:u2-results-shape-parameters}
 \end{figure}
 
-Figure \ref{fig:u2-results-all} provides cursory insights into the learning curves of the model. It features the loss functions and the $L^2$ and $L^\infty-$norms of all the experiments that have been carried out. It shows that the loss term reaches satisfactory orders of magnitude, well under $10^{-5}$. Furthermore, it also shows that the $L^2$ and $L^\infty-$norms have similar behaviors, differing only in slight visual details.
+% Figure \ref{fig:u2-results-all} provides cursory insights into the learning curves of the model. It features the loss functions and the $L^2$ and $L^\infty-$norms of all the experiments that have been carried out. It shows that the loss term reaches satisfactory orders of magnitude, well under $10^{-5}$. Furthermore, it also shows that the $L^2$ and $L^\infty-$norms have similar behaviors, differing only in slight visual details.
 
-\begin{figure}[h]
-  \includegraphics[width=.7\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/Loss_curves_semilogy_all.png}
-  \includegraphics[width=.7\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/L2_curves_semilogy_all.png}
-  \includegraphics[width=.7\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/Linf_curves_semilogy_all.png}
-  \caption{Representation of the loss, $L^2$ and $L^\infty$ curves across all iterations.}
-  \label{fig:u2-results-all}
-\end{figure}
+% \begin{figure}[h]
+%   \includegraphics[width=.7\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/Loss_curves_semilogy_all.png}
+%   \includegraphics[width=.7\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/L2_curves_semilogy_all.png}
+%   \includegraphics[width=.7\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/Linf_curves_semilogy_all.png}
+%   \caption{Representation of the loss, $L^2$ and $L^\infty$ curves across all iterations.}
+%   \label{fig:u2-results-all}
+% \end{figure}
 
 
 Figure \ref{fig:u2-results-shapes-etc-c30-tr120} depicts a histogram of the trained centers by the end of all training instances, alongside violin plots of the shapes and coefficients. This is the experiment featuring the largest amount of centers and training points. Some immediate observations about this Figure are the following: \begin{itemize}
@@ -2305,7 +2305,7 @@ Figure \ref{fig:u2-results-shapes-etc-c30-tr120} depicts a histogram of the trai
   \item The medians of the coefficients, depicted by the horizontal lines in the violin plots, seem to match the behavior of the actual function.
 \end{itemize}
 
-The same diagrams can be drawn for different pairs $(C,k)$, and the same observations will be reached. However, there are some key differences: the incidence of centers is further away from the domain as less centers are taken into consideration, and the coefficients do not resemble the function as closely as Figure \ref{fig:u2-results-shapes-etc-c30-tr120}, the resemblance loosening as fewer centers are considered.
+The same diagrams can be drawn for different pairs $(C,k)$, and the same observations will be reached. However, there are some key differences: the incidence of centers is further away from the domain as fewer centers are taken into consideration, and the coefficients do not resemble the function as closely as Figure \ref{fig:u2-results-shapes-etc-c30-tr120}, the resemblance loosening as fewer centers are considered.
 
 \begin{figure}
   \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/C30-TR120-u2.pdf}
@@ -2412,15 +2412,15 @@ Figure \ref{fig:parabola-results-largest-errors} shows the averages of the absol
 \end{figure}
 
 
-Figure \ref{fig:parabola-results-last-iterations} provides information at a glance on the loss, $L^2$ and $L^\infty-$norms of all the experiments we carried out. The largest difference with respect to the 1D case is the fact that the loss plot, featuring the aggregation of all loss curves, is much less dispersed this time around. %This can be understood by way of the illustrative example in Figure \ref{fig:parabola-example-training-TR22-C121}, where oscillations are immediately stopped by the action of the scheduler.
+% Figure \ref{fig:parabola-results-last-iterations} provides information at a glance on the loss, $L^2$ and $L^\infty-$norms of all the experiments we carried out. The largest difference with respect to the 1D case is the fact that the loss plot, featuring the aggregation of all loss curves, is much less dispersed this time around. %This can be understood by way of the illustrative example in Figure \ref{fig:parabola-example-training-TR22-C121}, where oscillations are immediately stopped by the action of the scheduler.
 
-\begin{figure}[h]
-  \includegraphics[width=.7\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/Loss_curves_semilogy_all.png}
-  \includegraphics[width=.7\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/L2_curves_semilogy_all.png}
-  \includegraphics[width=.7\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/Linf_curves_semilogy_all.png}
-  \caption{Representation of the loss, $L^2$ and $L^\infty$ curves across all iterations.}
-  \label{fig:parabola-results-last-iterations}
-\end{figure}
+% \begin{figure}[h]
+%   \includegraphics[width=.7\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/Loss_curves_semilogy_all.png}
+%   \includegraphics[width=.7\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/L2_curves_semilogy_all.png}
+%   \includegraphics[width=.7\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/Linf_curves_semilogy_all.png}
+%   \caption{Representation of the loss, $L^2$ and $L^\infty$ curves across all iterations.}
+%   \label{fig:parabola-results-last-iterations}
+% \end{figure}
 
 Finally,
 Figure \ref{fig:parabola-results-centers} shows the distribution of centers by the end of all training processes according to $C$. The centers are clustered forming concentric circumferences. The spread of the centers is seen to be reduced as more centers are provided. It can be seen, by carrying out the same experiment on the domain $[-1,1]\times[-1,1]$, that the centers are clustered forming squares instead.
@@ -2610,19 +2610,19 @@ Figure \ref{fig:ode-1d-results-shape-parameters} shows the distribution of shape
   \label{fig:ode-1d-results-shape-parameters}
 \end{figure}
 
-Finally,
-Figure \ref{fig:ode-1d-results-all} holds the mean curves for the loss, $L^2$ and $L^\infty-$norms across all experiments that have been carried out.
+% Finally,
+% Figure \ref{fig:ode-1d-results-all} holds the mean curves for the loss, $L^2$ and $L^\infty-$norms across all experiments that have been carried out.
 %  It shows that there is at least one experiment realization featuring values above the unit in the $L^\infty-$norm across several iterations, hinting at the fact that the \todo[inline]{mira el file 
 % %TR7-C7-Kgaussian_kernel-Poly0-Sh0.78125-1.csv-E2480.csv
 % }
 
-\begin{figure}
-  \includegraphics[width=.7\textwidth]{imagenes/experiments/1d/ode/Loss_curves_semilogy_all.png}
-  \includegraphics[width=.7\textwidth]{imagenes/experiments/1d/ode/L2_curves_semilogy_all.png}
-  \includegraphics[width=.7\textwidth]{imagenes/experiments/1d/ode/Linf_curves_semilogy_all.png}
-  \caption{Representation of the loss, $L^2$ and $L^\infty$ curves across all iterations.}
-  \label{fig:ode-1d-results-all}
-\end{figure}
+% \begin{figure}
+%   \includegraphics[width=.7\textwidth]{imagenes/experiments/1d/ode/Loss_curves_semilogy_all.png}
+%   \includegraphics[width=.7\textwidth]{imagenes/experiments/1d/ode/L2_curves_semilogy_all.png}
+%   \includegraphics[width=.7\textwidth]{imagenes/experiments/1d/ode/Linf_curves_semilogy_all.png}
+%   \caption{Representation of the loss, $L^2$ and $L^\infty$ curves across all iterations.}
+%   \label{fig:ode-1d-results-all}
+% \end{figure}
 
 \begin{figure}
   \includegraphics[width=\textwidth]{imagenes/experiments/1d/ode/C30-TR120-poly-1.pdf}
@@ -2748,13 +2748,13 @@ Figure \ref{fig:2d-pde-results-average-errors} shows the distribution of the ave
 
 
 
-\begin{figure}[h]
-  \includegraphics[width=.7\textwidth]{imagenes/experiments/2d/pde_parabola/Loss_curves_semilogy_all.png}
-  \includegraphics[width=.7\textwidth]{imagenes/experiments/2d/pde_parabola/L2_curves_semilogy_all.png}
-  \includegraphics[width=.7\textwidth]{imagenes/experiments/2d/pde_parabola/Linf_curves_semilogy_all.png}
-  \caption{Representation of the loss, $L^2$ and $L^\infty$ curves across all iterations.}
-  \label{fig:2d-pde-results-last-iterations}
-\end{figure}
+% \begin{figure}[h]
+%   \includegraphics[width=.7\textwidth]{imagenes/experiments/2d/pde_parabola/Loss_curves_semilogy_all.png}
+%   \includegraphics[width=.7\textwidth]{imagenes/experiments/2d/pde_parabola/L2_curves_semilogy_all.png}
+%   \includegraphics[width=.7\textwidth]{imagenes/experiments/2d/pde_parabola/Linf_curves_semilogy_all.png}
+%   \caption{Representation of the loss, $L^2$ and $L^\infty$ curves across all iterations.}
+%   \label{fig:2d-pde-results-last-iterations}
+% \end{figure}
 
 Finally, Figure \ref{fig:2d-pde-results-centers} depicts the distribution of the centers by the end of the training process. The observed patterns are clearly different from the function approximation problem, showing the centers to be uniformly distributed at the interior, where the diffusion term is constant. A similarity between the two cases is the fact that those centers located outside the domain are closer to the boundary as more centers are provided.
 
