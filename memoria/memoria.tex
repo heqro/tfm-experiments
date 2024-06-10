@@ -3128,6 +3128,60 @@ Our domain $\Omega$ is the unit circle. We consider the following problems, as f
 
 \todo[inline]{el que las propone avanza que tendríamos que encontrar epsilons "ideales" muy distintos}
 
+\subsubsection*{Results for \texttt{runge\_2d}}
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{imagenes/experiments/2d/pde_runge_2d/runge_2d-TR15-C81-rrrrepetishon-E6270.pdf}
+  \caption{Example of an execution of the BVP for \texttt{runge\_2d}, for $C=81$.}
+  \label{fig:example-execution-runge-2d-pde}
+\end{figure}
+
+Figure \ref{fig:violins-runge-pde-2d} holds the violin plots for the $L^2$ and $L^\infty-$norms on the verification dataset, according to the overall number of centers we consider. %Both metrics are seen to stagnate fast, albeit the $L^2-$norm reduces its spread as more centers and training points are provided.
+
+\begin{figure}
+  \includegraphics[width=.45\textwidth]{imagenes/experiments/2d/pde_runge_2d/violins_linf_runge_2d_endgame.pdf}
+  \includegraphics[width=.45\textwidth]{imagenes/experiments/2d/pde_runge_2d/violins_l2_runge_2d_endgame.pdf}
+  \caption{Quality metrics on the verification dataset of the BVP for \texttt{runge\_2d}, across all centers.}
+  \label{fig:violins-runge-pde-2d}
+\end{figure}
+
+\begin{figure}
+  \hspace*{-2cm}
+  \begin{tabular}{cc}
+    \includegraphics[width=.6\textwidth]{imagenes/experiments/2d/pde_runge_2d/incidence_of_linf_runge_2d.pdf}
+    \includegraphics[width=.6\textwidth]{imagenes/experiments/2d/pde_runge_2d/incidence_of_l2_runge_2d.pdf}
+  \end{tabular}
+  \caption{Left: incidence of the $L^\infty-$norm across all experiments, comparing the optimum iteration in this value with the last iteration. Right: incidence of the $L^2-$norm across all experiments, comparing with the value that produced the best iteration in the $L^\infty-$norm.}
+  \label{fig:runge-pde-2d-results-incidence-l-norms}
+\end{figure}
+
+\begin{figure}
+  \hspace*{-2cm}
+  \begin{tabular}{cc}
+    \includegraphics[width=.6\textwidth]{imagenes/experiments/2d/pde_runge_2d/circle_c49_runge_2d_gaussian_kernel.pdf} &
+    \includegraphics[width=.6\textwidth]{imagenes/experiments/2d/pde_runge_2d/circle_c81_runge_2d_gaussian_kernel.pdf} \\
+    \includegraphics[width=.6\textwidth]{imagenes/experiments/2d/pde_runge_2d/circle_c121_runge_2d_gaussian_kernel.pdf} &
+    \includegraphics[width=.6\textwidth]{imagenes/experiments/2d/pde_runge_2d/circle_c169_runge_2d_gaussian_kernel.pdf} \\
+    \includegraphics[width=.6\textwidth]{imagenes/experiments/2d/pde_runge_2d/circle_c225_runge_2d_gaussian_kernel.pdf}  
+  \end{tabular}
+  \caption{Distribution of centers at the end of the training process.}
+  \label{fig:runge-pde-2d-results-centers}
+\end{figure}
+
+
+\begin{figure}
+  \hspace*{-.5cm}
+  \begin{tabular}{ccl}
+    {\includegraphics[width=.4\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/pde_runge_2d/runge_2d_49.pdf}}                    &
+    \includegraphics[width=.4\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/pde_runge_2d/runge_2d_81.pdf}                      & \multirow{3}{*}{\includegraphics[width=.15\textwidth]{imagenes/experiments/2d/pde_runge_2d/legend.pdf}}    \\
+    \multicolumn{1}{r}{\includegraphics[width=.4\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/pde_runge_2d/runge_2d_121.pdf}} & \includegraphics[width=.4\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/pde_runge_2d/runge_2d_169.pdf} & \\
+    \multicolumn{2}{l}{\includegraphics[width=.4\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/pde_runge_2d/runge_2d_225.pdf}} &
+  \end{tabular}
+  \caption{Distribution of the average absolute error across all experiments per number of centers.}
+  \label{fig:runge-pde-2d-results-errors-avg}
+\end{figure}
+
+
 % Start writing here----------------------------------------------------
 
 
