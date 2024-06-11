@@ -39,6 +39,13 @@ class RBF_Free_All(nn.Module):
     def get_centers(self):
         return list_centers(self)
 
+    def set_shapes(self, shapes: Tensor):
+        with torch.no_grad():
+            self.shape.data = torch.nn.Parameter(shapes)
+
+    def get_shapes(self):
+        return self.shape
+
 
 class RBF_Fix_All(nn.Module):
     def __init__(self,
