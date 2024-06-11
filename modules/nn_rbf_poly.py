@@ -33,6 +33,9 @@ class RBF_Poly_Free_All(torch.nn.Module):
     def get_centers(self):
         return list_centers(self)
 
+    def set_centers(self, centers: torch.Tensor):
+        self.rbf.set_centers(centers)
+
 
 class RBF_Poly(torch.nn.Module):
     def __init__(self, centers: torch.Tensor, degree: int,
