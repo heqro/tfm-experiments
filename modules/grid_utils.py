@@ -1,3 +1,4 @@
+from typing import Literal
 import torch
 
 
@@ -42,3 +43,71 @@ def get_ball(radius: float, n_interior_points: int, n_boundary_points: int, dim=
         return points
     return get_interior_points(-radius, radius, radius, n_interior_points), \
         get_boundary_points(radius, n_boundary_points)
+
+
+def get_rectangle(bottom_left: tuple[float, float], width: float, height: float,
+                  n_interior_points: int, n_points_per_boundary: int, requires_grad=False, separate_into_sets=False) \
+        -> dict[Literal['boundary', 'interior', 'corners'], torch.Tensor | dict[Literal['left', 'right', 'top', 'bottom'], torch.Tensor] |
+                dict[Literal['top_left', 'bottom_left', 'top_right', 'bottom_right'], torch.Tensor]] | torch.Tensor:
+    if width <= 0 or height <= 0 or n_interior_points <= 0 or n_points_per_boundary <= 0:
+        raise Exception('Parameters should be positive')
+    x = bottom_left[0] * torch.ones(n_points_per_boundary).reshape(-1, 1)
+    y = height * \
+        torch.rand(n_points_per_boundary).reshape(-1, 1) + bottom_left[1]
+    left_bd = torch.cat((x, y), dim=1)
+    left_bd.requires_grad = requires_grad
+
+    x = (bottom_left[0] + width) * \
+        torch.ones(n_points_per_boundary).reshape(-1, 1)
+    y = height * \
+        torch.rand(n_points_per_boundary).reshape(-1, 1) + bottom_left[1]
+    right_bd = torch.cat((x, y), dim=1)
+    right_bd.requires_grad = requires_grad
+
+    x = width * torch.rand(n_points_per_boundary).reshape(-1,
+                                                          1) + bottom_left[0]
+    y = (bottom_left[1] + height) * \
+        torch.ones(n_points_per_boundary).reshape(-1, 1)
+    top_bd = torch.cat((x, y), dim=1)
+    top_bd.requires_grad = requires_grad
+
+    x = width * torch.rand(n_points_per_boundary).reshape(-1,
+                                                          1) + bottom_left[0]
+    y = bottom_left[1] * \
+        torch.ones(n_points_per_boundary).reshape(-1, 1)
+    bottom_bd = torch.cat((x, y), dim=1)
+    bottom_bd.requires_grad = requires_grad
+
+    top_left_corner = torch.tensor(
+        [bottom_left[0], bottom_left[1]+height], requires_grad=requires_grad).reshape(-1, 2)
+    top_right_corner = torch.tensor(
+        [bottom_left[0]+width, bottom_left[1]+height], requires_grad=requires_grad).reshape(-1, 2)
+    bottom_left_corner = torch.tensor(
+        [bottom_left[0], bottom_left[1]], requires_grad=requires_grad).reshape(-1, 2)
+    bottom_right_corner = torch.tensor(
+        [bottom_left[0]+width, bottom_left[1]], requires_grad=requires_grad).reshape(-1, 2)
+
+    # interior = torch.rand((n_interior_points, 2), requires_grad=requires_grad)
+    interior_x = width * \
+        torch.rand(n_interior_points,
+                   requires_grad=requires_grad).reshape(-1, 1) + bottom_left[0]
+    interior_y = height * \
+        torch.rand(n_interior_points,
+                   requires_grad=requires_grad).reshape(-1, 1) + bottom_left[1]
+    interior = torch.cat((interior_x, interior_y), dim=1)
+    if separate_into_sets:
+        return {'boundary': {
+            'left': left_bd,
+            'right': right_bd,
+            'top': top_bd,
+            'bottom': bottom_bd
+        },
+            'interior': interior,
+            'corners': {
+            'top_left': top_left_corner,
+            'top_right': top_right_corner,
+            'bottom_left': bottom_left_corner,
+            'bottom_right': bottom_right_corner
+        }}
+    else:
+        return torch.cat((interior, top_left_corner, top_right_corner, bottom_left_corner, bottom_right_corner, left_bd, right_bd, top_bd, bottom_bd), dim=0)
