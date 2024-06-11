@@ -2399,19 +2399,19 @@ Figure \ref{fig:parabola-results-shape-parameters} depicts the distribution of s
   \label{fig:parabola-results-shape-parameters}
 \end{figure}
 
-Figure \ref{fig:parabola-results-largest-errors} shows the averages of the absolute errors by the end of all training processes, according to the number of centers we consider. Notice that the decrement of the absolute error is not ``uniform'', but rather ``wavy'': that is, we observe an increase in the amount of concentric circumferences where the absolute error is at its lowest (compare with Figure \ref{fig:u2-results-largest-error} of the 1D case, where a similar phenomenon is observed).
+Figure \ref{fig:parabola-results-average-errors} shows the averages of the absolute errors by the end of all training processes, according to the number of centers we consider. Notice that the decrement of the absolute error is not ``uniform'', but rather ``wavy'': that is, we observe an increase in the amount of concentric circumferences where the absolute error is at its lowest (compare with Figure \ref{fig:u2-results-largest-error} of the 1D case, where a similar phenomenon is observed).
 
-\begin{figure}
-  \hspace*{-.5cm}
-  \begin{tabular}{ccl}
-    {\includegraphics[width=.4\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/parabola_49.pdf}}                    &
-    \includegraphics[width=.4\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/parabola_81.pdf}                      & \multirow{3}{*}{\includegraphics[width=.15\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/colorbar_parabola.pdf}}    \\
-    \multicolumn{1}{r}{\includegraphics[width=.4\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/parabola_121.pdf}} & \includegraphics[width=.4\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/parabola_169.pdf} & \\
-    \multicolumn{2}{l}{\includegraphics[width=.4\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/parabola_225.pdf}} &
+\clearpage
+\begin{sidewaysfigure}[H]
+  \hspace*{-1cm}
+  \begin{tabular}{ccccc}
+    {\includegraphics[width=.2\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/parabola_49_-1.pdf}} & {\includegraphics[width=.2\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/parabola_81_-1.pdf}} & {\includegraphics[width=.2\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/parabola_121_-1.pdf}} & {\includegraphics[width=.2\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/parabola_169_-1.pdf}} & {\includegraphics[width=.2\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/parabola_225_-1.pdf}} \\
+    {\includegraphics[width=.2\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/parabola_49_2.pdf}} & {\includegraphics[width=.2\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/parabola_81_2.pdf}} & {\includegraphics[width=.2\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/parabola_121_2.pdf}} & {\includegraphics[width=.2\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/parabola_169_2.pdf}} & {\includegraphics[width=.2\textwidth, clip=true,trim={0 0 2.1cm 0}]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/parabola_225_2.pdf}} \\
+    \multicolumn{5}{c}{\includegraphics[width=.05\textwidth,angle=270,origin=c]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/colorbar_parabola.pdf}}
   \end{tabular}
-  \caption{Distribution of the average absolute errors at the end of the training processes according to the number of centers.}
-  \label{fig:parabola-results-largest-errors}
-\end{figure}
+  \caption{Average absolute errors for the approximation of \texttt{parabola} according to the number of centers and the degree of the accompanying polynomial.}
+  \label{fig:parabola-results-average-errors}
+\end{sidewaysfigure}
 
 
 % Figure \ref{fig:parabola-results-last-iterations} provides information at a glance on the loss, $L^2$ and $L^\infty-$norms of all the experiments we carried out. The largest difference with respect to the 1D case is the fact that the loss plot, featuring the aggregation of all loss curves, is much less dispersed this time around. %This can be understood by way of the illustrative example in Figure \ref{fig:parabola-example-training-TR22-C121}, where oscillations are immediately stopped by the action of the scheduler.
