@@ -2421,7 +2421,7 @@ Figure \ref{fig:parabola-results-shape-parameters} depicts the distribution of s
   \label{fig:parabola-results-shape-parameters}
 \end{figure}
 
-Figure \ref{fig:parabola-results-average-errors} shows the averages of the absolute errors by the end of all training processes, according to the number of centers we consider. Notice that the decrement of the absolute error is not ``uniform'', but rather ``wavy'': that is, we observe an increase in the amount of concentric circumferences where the absolute error is at its lowest (compare with Figure \ref{fig:u2-results-largest-error} of the 1D case, where a similar phenomenon is observed).
+Figure \ref{fig:parabola-results-average-errors} shows the averages of the absolute errors by the end of all training processes, according to the number of centers we consider. Notice that the decrement of the absolute error is not ``uniform'', but rather ``wavy'': that is, we observe an increase in the amount of concentric circumferences where the absolute error is at its lowest (compare with Figure \ref{fig:u2-results-average-error} of the 1D case, where a similar phenomenon is observed).
 
 \clearpage
 \begin{sidewaysfigure}[H]
@@ -3102,7 +3102,7 @@ Finally, Figure \ref{fig:arctan-2d-results-errors-avg} shows the average error a
 \clearpage
 \section{Solving differential equations}
 
-\subsection*{Elliptic differential equations}
+\subsection{Elliptic differential equations}
 
 We consider a 2D domain and a generic Poisson problem of the form
 
@@ -3174,8 +3174,82 @@ Figure \ref{fig:violins-runge-pde-2d} holds the violin plots for the $L^2$ and $
 \end{figure}
 
 
-% Start writing here----------------------------------------------------
+\subsection{1D heat equation}
 
+We address the 1D heat equation on the domain $x \in [0, 1], t \in [0, 1]$. We search for a suitable solution $u$ verifying
+\[ \frac{\partial u}{\partial t} = \alpha \frac{\partial^2 u}{\partial x^2} \]
+in the interior in space, alongside boundary and initial conditions prescribed by the 
+solution
+\begin{equation}
+  u (x, t) = \frac{1}{\sqrt{4 \pi \alpha (t + \tau)}} \exp \left\{ -
+  \frac{\left( x - \frac{1}{2} \right)^2}{4 \alpha (t + \tau)} \right\}
+  \label{eqn:heat-eqn-solution}
+\end{equation}
+for $\alpha = 1 / 30$ and $\tau = 1 / 50$. 
+
+This test problem is found in \cite{abrahamsen2019explicit}, which proposes a way to work with irregularly-placed training
+nodes in the context of solving PDEs with finite difference schemes and RBFs.
+Apart from the obvious fact that our discussion does not involve finite differences,
+the cited work prescribes an {\tmem{ad hoc}} distribution of nodes, which is
+denser along the points of interest of \eqref{eqn:heat-eqn-solution}, namely
+its maxima and sections of the domain of larger derivative (see Figure \ref{fig:representation-of-the-solution-to-the-heat-equation}) to ensure the stability of their method as well as obtain better numerical results.
+
+\begin{figure}
+  % \frame
+  {\includegraphics[width=.6\textwidth]{cool_graphics/solution-to-heat-equation.pdf}}
+  \caption{Representation of the solution to the prescribed heat equation.}
+  \label{fig:representation-of-the-solution-to-the-heat-equation}
+\end{figure}
+
+We proceed with our methodology instead by considering an arbitrary, uniformly
+distributed finite subset of $[0, 1] \times [0, 1]$, which will cover the interior of our domain\footnote{Recall that the boundaries are zero-measure sets in 2D. By sampling from the uniform distribution, despite considering rounding errors, we are unlikely to find points on the boundary.}. We account for the
+boundary of the domain just like we did with a circular domain: assuming $T^2$
+is the total number of training points, we prescribe $4 (T - 2) + 4$ of them to be on
+the boundary of the square: four of such points are set on the corners,
+whereas $T - 2$ are uniformly distributed along each of the four sides of the
+square.
+
+Figure \ref{fig:representation-domain-problem} shows a drawing of a possible distribution of nodes we can have with this sampling technique. The interior points are painted as black circles and the corner points are depicted as circumferences. Among the remaining points, boundary points for $t<1$ are painted in pink and the ones for $t=1$ are painted in green. We use this diagram to propose a variational formulation of of the parabolic PDE as follows.
+
+\begin{figure}
+  \includegraphics[width=.3\textwidth]{cool_graphics/cuadrado_dominio_edp_parabolica.pdf}
+  \caption{A representation of the distribution of nodes we consider for our problem.}
+  \label{fig:representation-domain-problem}
+\end{figure}
+
+
+Let $\mathcal{S} \subset [0, 1] \times [0, 1]$ a set of points sampled
+following the technique we have just introduced. To make the discussion easier
+to follow, assume that Figure \ref{fig:representation-domain-problem} is a
+realization of $\mathcal{S}$. Notice that the green points along the boundary
+are qualitatively different to the ones painted in pink: we are studying a
+diffusion phenomenon along a specific time frame that we decide to restrict to
+$[0, 1]$. However, this domain fails to take into consideration the stationary
+regime, where
+\[ u_{\infty} (x) = \lim_{t \rightarrow \infty} u (x, t) = \lim_{t \rightarrow
+   \infty} \frac{1}{\sqrt{4 \pi \alpha (t + \tau)}} \exp \left\{ - \frac{(x -
+   1 / 2)^2}{4 \alpha (t + \tau)} \right\} = 0. \]
+
+In such case, $u_{\infty}$ verifies the ODE describing the stationary regime of our parabolic equation
+\[ \left\{\begin{array}{ll}
+     \frac{d^2 u_{\infty}}{d x^2} = 0, & \text{for } x \in (0, 1)\\
+     u_{\infty} (x=0) = u_{\infty} (x=1) = 0 & 
+   \end{array}\right. . \]
+
+Consequently, diffusion is taking place for $t = 1$. With this remark, it is sound to define the set $\mathcal{I}$ containing the black and green circles in the
+depiction of $\mathcal{S}$. The remaining points, namely the circumferences
+and the pink points, constitute a set we denote by $\mathcal{B}$.
+
+Furthermore, denote by $\mathcal{N}\mathcal{N} (\mathcal{S}; \theta)$ the application
+of our model with a set of parameters $\theta$ to each $(x, y) \in
+\mathcal{S}$. Similarly, we write $u (\mathcal{S})$ to describe the application of $u$
+to each $(x, y) \in \mathcal{S}$. A discretized formulation of the parabolic
+differential equation is
+\[ \min_{\theta} \frac{1}{| \mathcal{I} |} \left\| \alpha \frac{\partial^2
+   \mathcal{N}\mathcal{N} (\mathcal{I}; \theta)}{\partial x^2} -
+   \frac{\partial \mathcal{N}\mathcal{N} (\mathcal{I}; \theta)}{\partial t}
+   \right\|_2^2 + \frac{1}{| \mathcal{B} |} \| \mathcal{N}\mathcal{N}
+   (\mathcal{B}; \theta) - u (\mathcal{B}) \|_2^2. \]
 
 %----------
 %	Bibliography
