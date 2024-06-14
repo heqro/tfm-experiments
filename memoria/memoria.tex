@@ -412,9 +412,9 @@ can potentially show the way forward to reconciling well-known theoretical princ
 surging empirical methodologies. While numerical
 methods offer rigorous formulations and verifiable procedures, ML adopts a more heuristic
 approach by leveraging compositions of functions with empirically validated approximation
-capabilities. Therefore, the starting point of the work carried out for this thesis is to establish an intermediary perspective that intertwines mathematical theory, particularly that of Radial Basis Functions (RBFs), with the computational power and flexibility supplied by ML techniques. 
+capabilities. Therefore, the starting point of the work carried out for this thesis is to establish an intermediary perspective that intertwines mathematical theory, particularly that of Radial Basis Functions (RBFs), with the computational power and flexibility supplied by ML techniques. To this end, the subsequent chapter proposes a literature review on key aspects of both bodies of knowledge.
 
-Even though the subsequent chapter serves as a literature review, the experimental chapters of this thesis are to be regarded as a snapshot of the author's research. The relation of experiments proposed thereafter has been meticulously elaborated before the delivery date to capture the most recent advancements. This is because the development of this project is iterative; upon encountering roadblocks in the form of unsatisfactory solutions to the problems we propose, the work plan is then slightly modified and the experiments list then re-evaluated from the beginning. This methodology ensures continuous refinement and validation of our approach.
+The experimental chapters of this thesis, which follow the literature review, are to be regarded as a snapshot of the author's research during the realization of his Master's degree studies. The relation of experiments proposed thereafter has been meticulously elaborated before the delivery date to capture the most recent advancements. This is because the development of this project is iterative; upon encountering roadblocks in the form of unsatisfactory solutions to the problems we propose, the work plan is then slightly modified and the experiments list then re-evaluated from the beginning. This methodology ensures continuous refinement and validation of our approach.
 
 If the reader is interested in the evolution of the codebase, the progress of the manuscript or the overall time devoted to the project, the publicly available accompanying \href{https://github.com/heqro/tfm-experiments}{repository} published to GitHub serves as an entry point to vacate any such concerns. It also stores relevant Jupyter notebooks that the reader will be referred to as the discussion unfolds.
 
@@ -422,9 +422,24 @@ If the reader is interested in the evolution of the codebase, the progress of th
 
 \section{Objectives}
 
-\chapter{State of the art}
+As previously anticipated, the overarching goal of this Master's thesis is to provide a succint and justified framework that integrates ML techniques and RBF theory to ultimately undertake problems on approximation of functions and differential equations. To do so, the following specific objectives are observed:
+
+\begin{enumerate}
+  \item Provide a comprehensive literature review of the key concepts involving neural networks and RBFs. To this end, the following sub-objectives are proposed:
+  \begin{itemize}
+    \item Introduce the key foundational concepts of neural networks and constraining our scope thereafter to Physics-Informed neural networks shortly after, discussing the relevance of the automatic differentiation engine in their success.
+    \item Formalize the scattered data interpolation problem, which then motivates the discussion on Radial Basis Functions as a means to solve it.
+  \end{itemize}
+  This objective is carried out in Chapter \ref{chap:state-of-the-art}.
+  \item Propose an embryonic neural network based on RBFs on the basis of the literature review, highlighting foundational works along this line of research and addressing some well-known ``pathological'' cases and relevant workarounds. This objective is achieved by the turn of Section \ref{sec:rbf-based-neural-networks}.
+  \item Discuss the present developmental stage of our methodology involving an RBF-based neural network, detailing the thought process behind its most relevant features as well as describing problems that have been observed before the due date of the thesis. This objective is achieved in Section \ref{sec:introduction} of Chapter \ref{chap:preliminary-experimentation}.
+  \item Present and solve a series of preliminary simple experiments with our model for the sake of verification. The model will be shown to be inexpensive in memory, which makes possible to carry out statistical analyses repeating the experiment instances and draw solid conclusions on the basis of the usual quality metrics in numerical analysis, namely the $L^\infty$ and $L^2$ norms. This objetive is undertaken throughout Sections \ref{sec:preliminary-problem-1} and \ref{sec:preliminary-problem-2} of Chaper \ref{chap:preliminary-experimentation}.
+  \item Extend the experimentation to an array of problems of interest, be it discussed during the previous chapters or newly introduced for steadily approaching state-of-the-art problems. This extension is to be carried out in Chapter \ref{chap:application-to-established-problems}.
+\end{enumerate}
+
+\chapter{State of the art} \label{chap:state-of-the-art}
 \section{Neural Networks} \label{sec-neural-networks}
-The starting point for defining a Neural Network is the multilayer perceptron, whose recursive definition we express following \cite{lu2021deepxde}:
+The starting point for defining a neural network is the multilayer perceptron, whose recursive definition we express following \cite{lu2021deepxde}:
 \begin{definition}[Multilayer perceptron]
   Let \(L \in \mathbb{N}\) and \(\{ N_i \}_{i = 1}^L \subset \mathbb{N}\). The
     {\textbf{$L-$layer perceptron}} is a function
@@ -1440,7 +1455,7 @@ with the definitions devised in Section \ref{sec-neural-networks}. Furthermore,
 we shall explicitly propose examples to move the discussion forward and identify
 concerns on the computational side of the Problem.
 
-\section{Putting it all together: RBF-based neural networks}
+\section{Putting it all together: RBF-based neural networks}\label{sec:rbf-based-neural-networks}
 
 The radial basis function method for interpolating a function can then be
 proposed and solved by means of a neural network. One of the first works at
@@ -2078,7 +2093,7 @@ Figure \ref{fig:sign-with-curves} shows a poorer version of the situation shown 
 
 
 \chapter{Preliminary experimentation for methodology development}
-
+\label{chap:preliminary-experimentation}
 % \section*{Hardware information}
 
 All the experimentation featured in the following has been carried out in a server
@@ -2101,7 +2116,7 @@ kindly provided by my advisors.
   \label{tb:hardware-machinery}
 \end{table}
 
-\section{Introduction}
+\section{Introduction}\label{sec:introduction}
 
 
 The methodology for solving either interpolation problems or differential equations using RBF functions can be expressed in terms of a two-step process:
@@ -2178,7 +2193,7 @@ The memory consumed by each instance is not going to be that small. The training
 
 In the following, we will work on ``well-behaved'' polynomial functions. Our objective is to evaluate the performance of our model when we expect to the performance to improve when explicitly incorporating polynomial terms. %We will present the results in graphic form, using vector images to allow the usage of electronic zoom if further interpretation of the representations is of interest to the reader.
 
-\section{Approximation of functions}
+\section{Approximation of functions}\label{sec:preliminary-problem-1}
 
 
 
@@ -2432,7 +2447,7 @@ Figure \ref{fig:parabola-results-centers} shows the distribution of centers by t
 
 
 \clearpage
-\section{Solving differential equations}
+\section{Solving differential equations}\label{sec:preliminary-problem-2}
 
 \subsection*{An observation on the computation of derivatives}
 
@@ -2733,7 +2748,7 @@ Finally, Figure \ref{fig:2d-pde-results-centers} depicts the distribution of the
   \label{fig:2d-pde-results-centers}
 \end{figure}
 
-\chapter{Application of methodology to established problems}
+\chapter{Application of methodology to established problems}\label{chap:application-to-established-problems}
 
 Irrespectively of the number of centers that one considers, the case $k=4$ provides the best results in the quality metrics that we have considered thus far. We will consider this case from now on to obtain the best results right off the bat. It has also been observed that incorporating polynomial addends does not decisively improve our quality metrics. Therefore, we do not explore this branch in the following.
 
