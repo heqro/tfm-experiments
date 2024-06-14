@@ -405,11 +405,7 @@ basis functions are employed to
 reconstruct the target function through a linear combination, akin to the linear combination
 one would expect to find at the last layer of many neural networks.
 
-However, a fundamental distinction arises in the
-prescription of basis functions: while numerical methods explicitly define basis functions,
-such as ``hat'' functions for solving ordinary differential equations (ODEs), ML practitioners
-rely on arbitrarily complex compositions of functions which have been empirically verified
-to possess sufficient approximation capacity for the desired problem domains.
+However, a fundamental distinction arises in the prescription of basis functions: while numerical methods explicitly define basis functions, such as ``hat'' functions for solving ordinary differential equations (ODEs), ML practitioners rely on arbitrarily complex compositions of functions which have been empirically verified to possess sufficient approximation capacity for the desired problem domains.
 
 Latent similarities between FEM (as well as other techniques) and ML practices
 can potentially show the way forward to reconciling well-known theoretical principles with
@@ -1510,31 +1506,7 @@ Such is the case of the \tmverbatim{xor} operator (``exclusive or''), a
 binary operator that obeys the rule expressed in the left-hand side of Table
 \ref{table-xor-distances}:
 
-% \begin{table}[h]
-%   \begin{tabular}{ll}
-%     {\center{\begin{tabular}{|c|c|c|}
-%       \hline
-%       \tmverbatim{A} & \tmverbatim{B} & \tmverbatim{xor(A,B)}\\
-%       \hline
-%       0 & 0 & 0\\
-%       \hline
-%       0 & 1 & 1\\
-%       \hline
-%       1 & 0 & 1\\
-%       \hline
-%       1 & 1 & 0\\
-%       \hline
-%     \end{tabular}}} &
-%     \frame
-%     {\includegraphics[width=.45\textwidth]{imagenes/rbf_discussion/drawing-xor.pdf}}
-%   \end{tabular}
-%   \caption{On the left-hand side, the explicit mapping of the \tmverbatim{xor}
-%   function for any binary input. On the right-hand side, the localization of
-%   the 2D inputs in a plane alongside their pairwise Euclidean distances.
-%   \label{table-xor-distances}}
-% \end{table}
-
-\begin{table}[h]
+\begin{figure}[h]
   \begin{tabular}{ll}
     \frame
     {\begin{tabular}{|c|c|c|}
@@ -1552,12 +1524,12 @@ binary operator that obeys the rule expressed in the left-hand side of Table
        \end{tabular}} &
     {\includegraphics[width=.41\textwidth]{imagenes/rbf_discussion/drawing-xor.pdf}}
   \end{tabular}
-  \caption{On the left-hand side, the explicit mapping of the \tmverbatim{xor}
-    function for any binary input. On the right-hand side, the localization of
+  \caption{Left-hand side: the explicit mapping of the \tmverbatim{xor}
+    function for any binary input. Right-hand side, the localization of
     the 2D inputs in a plane alongside their pairwise Euclidean distances.
   }
   \label{table-xor-distances}
-\end{table}
+\end{figure}
 
 Notice that the two pairs of points for which we wish to produce the same
 output always maximize their distance (see right-hand side of Table
