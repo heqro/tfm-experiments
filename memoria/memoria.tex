@@ -256,7 +256,7 @@ hmargin=3cm
       \begin{Large}
         1st Víctor Bayona Revilla\\
         2nd Pedro González Rodríguez\\
-        Place and date\\
+        Leganés, 2024\\
       \end{Large}
     \end{center}
     \vfill
@@ -370,10 +370,7 @@ Moreover, algorithmic improvements like automatic differentiation has enabled a 
 way to find suitable parameters for models solving a wide variety of problems
 \cite{baydin2018automatic}.
 
-A second contributing factor is data availability. Be it social media,
-embedded hardware sensors or any of our technological devices, a copious amount of data
-is produced
-by the minute which can then be labored by ML algorithms to identify patterns and
+A second contributing factor is data availability. Ranging from social media to embedded hardware sensors, a copious amount of data is produced by the minute which can then be labored by ML algorithms to identify patterns and
 make predictions. Not only that, governments worldwide are fostering open access to
 data across domains as varied as culture, demography, environment and technology.
 In particular, the government of Spain, the country where this Master's thesis has been
@@ -381,7 +378,7 @@ written in, is undertaking efforts in the framework of their
 \href{https://datos.gob.es/en}{Open Data initiative} to leverage collaboration between
 analysts and contributing to the spread of knowledge.
 
-Precisely along this last idea, the third key contributing factor is found in the form
+Precisely along this idea, the third key contributing factor is found in the form
 of Free and Open Source Software (FOSS). The open nature of ML libraries like
 \href{https://pytorch.org/}{PyTorch} and \href{https://www.tensorflow.org/}{TensorFlow}
 have not only made state-of-the-art
@@ -390,9 +387,7 @@ project: volunteers and professionals alike freely
 contributing in a transparent environment
 to the improvement, triaging, interoperability and other extensions of these projects.
 
-Despite its widespread adoption and empirical success, a robust theoretical foundation that
-guarantees the effectiveness of ML is still lacking, while empirical evidence abounds
-regarding its usefulness across multiple areas of knowledge.
+Despite its widespread adoption and empirical success, a robust theoretical foundation that guarantees the effectiveness of ML is still lacking, while empirical evidence abounds regarding its usefulness across multiple areas of knowledge: at the time of writing, the website \href{https://huggingface.co/}{Hugging Face} is host to almost three quarters of a million ML models for tasks such as computer vision, audio processing and natural language processing.
 
 One notable characteristic of ML models is their inherent complexity, which often manifests
 in intricate model architectures and parameter configurations \cite{cuomo2022scientific}.
@@ -421,11 +416,12 @@ can potentially show the way forward to reconciling well-known theoretical princ
 surging empirical methodologies. While numerical
 methods offer rigorous formulations and verifiable procedures, ML adopts a more heuristic
 approach by leveraging compositions of functions with empirically validated approximation
-capabilities.
+capabilities. Therefore, the starting point of the work carried out for this thesis is to establish an intermediary perspective that intertwines mathematical theory, particularly that of Radial Basis Functions (RBFs), with the computational power and flexibility supplied by ML techniques. 
 
-The aim of this work is to establish an intermediary perspective that intertwines
-mathematical theory, particularly that of Radial Basis Functions (RBFs), with the
-computational power and flexibility supplied by ML techniques.
+Even though the subsequent chapter serves as a literature review, the experimental chapters of this thesis are to be regarded as a snapshot of the author's research. The relation of experiments proposed thereafter has been meticulously elaborated before the delivery date to capture the most recent advancements. This is because the development of this project is iterative; upon encountering roadblocks in the form of unsatisfactory solutions to the problems we propose, the work plan is then slightly modified and the experiments list then re-evaluated from the beginning. This methodology ensures continuous refinement and validation of our approach.
+
+If the reader is interested in the evolution of the codebase, the progress of the manuscript or the overall time devoted to the project, the publicly available accompanying \href{https://github.com/heqro/tfm-experiments}{repository} published to GitHub serves as an entry point to vacate any such concerns. It also stores relevant Jupyter notebooks that the reader will be referred to as the discussion unfolds.
+
 
 
 \section{Objectives}
