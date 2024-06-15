@@ -2013,7 +2013,7 @@ smaller than $10^{- 1}$ in the case we consider $n = 20$ points.
   \label{fig:runge-polynomial-cheb}
 \end{figure}
 
-As a side note,
+As a sidenote,
 it is not strictly necessary to resample the function over the new points of interest. That is, one may re-map the $x-$values of the function to the Chebyshev points while keeping the $y-$values intact and further reducing the oscillations. See for instance \cite{DEMARCHI2021125628} and, most interestingly, their proposed \href{https://github.com/pog87/FakeNodes/blob/master/Runge.ipynb}{associated code sample} for the Runge function.
 
 Gaussian RBFs are able to further reduce this oscillation problem without the need of considering a separate points distribution. Figure \ref{fig:rbf-runge-phenomenon-eps-5-discussion} generated in the context of the linked \href{https://github.com/heqro/tfm-experiments/blob/main/introductory_notebooks/rbf_interpolation/runge_rbf.ipynb}{Gaussian RBF interpolation notebook} depicts that precision up to the first decimal place can be guaranteed, for instance, by considering 9 equispaced centers alongside a suitable shape parameter $\varepsilon=5$.
@@ -2128,27 +2128,31 @@ The methodology for solving either interpolation problems or differential equati
 
 
 
-Alternatively to this methodology, we propose to let the centers as well as the shape parameters\footnote{We remark that we are now speaking in plural.} be found following an \textbf{unsupervised learning} strategy, whereby the training points will not only dictate the values of $\hat{\lambda}$ as in \eqref{eqn-linear-system-equations-rbf}, but also the position of the RBF centers as well as the value of the shape parameters. Relevant pointers in the repository are the following:
+Alternatively to this methodology, we propose to let the centers as well as the shape \textit{parameters} be found following an \textbf{unsupervised learning} strategy, whereby the training points will not only dictate the values of $\hat{\lambda}$ as in \eqref{eqn-linear-system-equations-rbf}, but also the position of the RBF centers and the value of the shape parameters. Relevant pointers in the repository are the following:
 
 \begin{itemize}
-  \item The \href{https://github.com/heqro/tfm-experiments/blob/4fd010c560a247b00def20dd94d1f984d7992a24/modules/nn_rbf.py\#L6}{\texttt{RBF\_Free\_All}} class, implementing a Radial Basis Function neural network for an unspecified kernel.
+  \item The \href{https://github.com/heqro/tfm-experiments/blob/4fd010c560a247b00def20dd94d1f984d7992a24/modules/nn_rbf.py\#L6}{\texttt{RBF\_Free\_All}} class, implementing the proposed Radial Basis Function-based model for an unspecified kernel.
   \item The \href{https://github.com/heqro/tfm-experiments/blob/4fd010c560a247b00def20dd94d1f984d7992a24/modules/nn_poly.py#L6}{\texttt{PolynomialInterpolant}} class, implementing a polynomial function.
-  \item The \href{https://github.com/heqro/tfm-experiments/blob/4fd010c560a247b00def20dd94d1f984d7992a24/modules/nn_rbf_poly.py#L8}{\texttt{RBF\_Poly\_Free\_All}} class, whose sole functionality is adding the results of the previous two classes.
+  \item The \href{https://github.com/heqro/tfm-experiments/blob/4fd010c560a247b00def20dd94d1f984d7992a24/modules/nn_rbf_poly.py#L8}{\texttt{RBF\_Poly\_Free\_All}} class, whose sole functionality is adding the results of the two previous classes.
 \end{itemize}
 
-Denote by $(P)$  an arbitrary $d-$dimensional interpolation problem or differential equation. We will study solutions to $(P)$ in the form of linear combinations of radial basis functions up to a polynomial, say $\mathcal{NN}(\theta) = \mathcal{NN}(\hat{\varepsilon}, \hat{\tmmathbf{x}})$, where $\hat{\varepsilon}$ and $\hat{\tmmathbf{x}}$ denote the (learnable) shape parameters and centers that conform $\varphi$. To lessen the notation, we simply denote by $\mathcal{NN}(\tmmathbf{x})$ the application of $\mathcal{NN}$ to $\tmmathbf{x}$ up to $\hat{\varepsilon}$ and $\hat{\tmmathbf{x}}$.
+Denote by $(P)$  an arbitrary $d-$dimensional interpolation problem or differential equation. We will study solutions to $(P)$ in the form of linear combinations of radial basis functions up to a polynomial, say $\mathcal{NN}(\theta) = \mathcal{NN}(\hat{\varepsilon}, \hat{\tmmathbf{x}})$, where $\hat{\varepsilon}$ and $\hat{\tmmathbf{x}}$ denote the (learnable) shape parameters and centers that conform $\mathcal{NN}$. To lessen the notation, we simply denote by $\mathcal{NN}(\tmmathbf{x})$ the application of $\mathcal{NN}$ to $\tmmathbf{x}$ up to $\hat{\varepsilon}$ and $\hat{\tmmathbf{x}}$, or alternatively by $\mathcal{NN}(\tmmathbf{x};\theta)$ when the set of parameters of the model are relevant to the discussion.
 
 \subsection{A methodology for finding solutions}
 
-In the case $(P)$ is an interpolation problem, assume we are given $S = \{\tmmathbf{x}_i, \tmmathbf{y}_i\}_{i=1}^n$. Denote by $\mathcal{NN}(S)$ the vector yielding the application of $\mathcal{NN}$ to each $(\tmmathbf{x}_i, \tmmathbf{y}_i)$. In such case, we solve $(P)$ by seeking to minimize the mean-squared error of $\mathcal{NN}(S)$ with respect to $(\tmmathbf{y}_1, \tmmathbf{y}_2, ..., \tmmathbf{y}_n)$. If $(P)$ is instead a differential equation, we then aim to solve a problem of the form \eqref{loss-fun-pinn} following the discussion presented in the corresponding section. Preliminary experimentation showed the Gaussian kernel to be the most suitable kernel to equip to $\mathcal{NN}$, which is the one we refer our experimentation to.
+In the case $(P)$ is an interpolation problem, assume the points are prescribed in the form $S = \{\tmmathbf{x}_i, y_i\}_{i=1}^n \subset \mathbb{R}^d \times \mathbb{R}$. Denote by $\mathcal{NN}(S)$ the vector yielding the application of $\mathcal{NN}$ to each $(\tmmathbf{x}_i, y_i)$. In such case, we solve $(P)$ by seeking to minimize the mean-squared error of $\mathcal{NN}(S)$ with respect to $(y_1, y_2, ..., y_n)$. If $(P)$ is instead a differential equation, we then aim to solve a problem of the form \eqref{loss-fun-pinn} under the considerations in the corresponding section. 
 
-We iteratively minimize the corresponding loss function considering an Adam optimizer alongside a starting learning rate $10^{-2}$. We dynamically modify the learning rate by the action of the \href{https://pytorch.org/docs/stable/generated/torch.optim.lr_scheduler.ReduceLROnPlateau.html}{\texttt{ReduceLROnPlateau}} PyTorch scheduler. It verifies if the loss function took values below \texttt{dynamic\_threshold} in \texttt{patience} iterations:
+Preliminary experimentation showed the Gaussian kernel to be the most suitable kernel to equip to $\mathcal{NN}$, providing significantly better results than the multiquadric kernel. Furthermore, recall that suitable values of $\varepsilon$ allow lower condition number for the matrix of an interpolation problem. Therefore, the PHS kernel was discarded as well due to the condition number depending exclusively on the sampled training points, as no direct improvement can be made to formulate a better-posed version of a problem under such kernel.
+
+For the chosen kernel, we iteratively minimize the prescribed loss function instancing the Adam optimizer alongside a starting learning rate $10^{-2}$. We dynamically modify the learning rate by the action of the \href{https://pytorch.org/docs/stable/generated/torch.optim.lr_scheduler.ReduceLROnPlateau.html}{\texttt{ReduceLROnPlateau}} PyTorch scheduler. It verifies if the loss function took values below \texttt{dynamic\_threshold} in \texttt{patience} iterations:
 \begin{itemize}
   \item If that is the case, its internal variable \texttt{dynamic\_threshold} is reduced and we resume operation.
-  \item If that is not the case, the learning rate is reduced by \texttt{factor}. If the learning rate is $10^{-6}$, we stop the iterative process.
+  \item If that is not the case, the learning rate is reduced by \texttt{factor}. If the learning rate is reduced to $10^{-6}$, the process is terminated.
 \end{itemize}
 
-We chose the Adam optimizer to avoid settling on the first local minimum we find for our loss function, especially for the initial values of our dynamic learning rate. Once a suitable local minimum is found, the loss function is observed to start exhibiting oscillations by the action of the Adam optimizer, which the scheduler eventually shuts down. This results in the last hundreds of iterations featuring smooth loss curves: an implicit and ``forced convergence'' to a solution\footnote{Because the proposed loss functions are not observed to be reduced to machine precision, our solution to the interpolation problem should--rigorously speaking--not be called an interpolator, but rather an approximator.}. This strategy has been devised as a compromise between the ``speed'' that comes with a high learning rate and reducing oscillations, most importantly throughout the last iterations.
+We chose the Adam optimizer to avoid settling on the first local minimum we find for our loss function, especially for the initial values of our dynamic learning rate. Once a suitable local minimum is found, the loss function is observed to start exhibiting oscillations by the action of the Adam optimizer, which the scheduler eventually shuts down. This results in the last hundreds of iterations featuring smooth loss curves: an implicit and ``forced convergence'' to a solution. This strategy has been devised as a compromise between the ``speed'' that comes with a high learning rate and reducing oscillations, most importantly throughout the last iterations.
+
+As a sidenote, the proposed loss functions will not be observed to approach machine precision. Rigorously speaking, the solutions we find to the interpolation problems we pose should not be called interpolators, but rather approximators.
 
 \subsection{A generic experiment case}
 
@@ -2157,13 +2161,13 @@ $T = \lceil \sqrt[d]{C  k} \rceil ^d $.
 
 Furthermore, the training points are uniformly sampled to decisively show the capability of our model to work with an arbitrary set of points. When sampling the training points, we always ensure that some of them are located at the border of the domain. This ensures that $(P)$ is either an interpolation problem (rather than an extrapolation problem) or a well-posed differential equation (so that we have points to work with along the boundary).
 
-For each value of $C$, we compute a starting shape parameter common to all RBFs in the following manner: we first distribute those $C$ centers across an equispaced $d-$dimensional lattice. After that is done, choose $\varepsilon$ such that the condition number of the interpolation problem with interpolation points equal to the centers is between $10^{-6}$ and $10^{-7}$. One can do so, for instance, using the bisection method. For such shapes, the loss function will be observed to steadily decrease while achieving satisfactory performance on the verification dataset. 
+For each value of $C$, we compute a starting shape parameter (initially) common to all RBFs in the following manner: we first distribute the $C$ centers across an equispaced $d-$dimensional lattice. After that is done, choose $\varepsilon$ such that the condition number of the interpolation problem with interpolation points equal to the centers is between $10^{-6}$ and $10^{-7}$. One can do so, for instance, using the bisection method. For such shapes, the loss function will be observed to steadily decrease while achieving satisfactory performance on the verification dataset. Preliminary experimentation ruled out larger or smaller shape parameters for the following reasons:
 \begin{itemize}
-  \item Larger starting values of the shape parameter reduce the loss term to the order $10^{-13}$ in few iterations, effectively interpolating the proposed training points. This is observed to harm the ``generalization'' capability of the model, causing large oscillations to occur between any pair of training nodes.
-  \item Progressively smaller starting values cause the loss function to stagnate too early for $\mathcal{NN}$ to bear any visual resemblance to the actual function. Furthermore, for small enough values of the starting shape parameter the loss function is observed to oscillate, a clear sign of operating under an ill-conditioned problem.
+  \item Larger starting values of the shape parameter reduce the loss term to the order $10^{-13}$ in few iterations, effectively interpolating the proposed training points. However, this is observed to harm the ``generalization'' capability of the model, causing large oscillations to occur between any pair of training nodes.
+  \item Progressively smaller starting values cause the loss function to stagnate too early for $\mathcal{NN}$ to bear any resemblance to the actual function. Furthermore, for small enough values of the starting shape parameter the loss function is observed to oscillate without any clear pattern, a sign of potentially operating under an ill-conditioned problem. 
 \end{itemize}
 
-Each experiment configuration $(C,k)$ will be simultaneously solved several times for the following reasons: firstly, the model features a remarkably low amount of parameters, which might make it more susceptible to ``bad'' starting parameter sets. Secondly, to distill those experiments featuring training points that may not lead us to the actual solution of the problem. Thirdly, to observe the performance of our method on a verification dataset which will be common to every experiment. Finally, to elaborate statistic descriptions of the model's parameters: shape parameter, coefficients and centers. Some recurrent questions to answer will be the following:
+Each experiment configuration $(C,k)$ will be simultaneously solved several times for the following reasons: firstly, the model features a remarkably low amount of parameters, which might make it more susceptible to ``bad'' starting parameter sets. Secondly, to distill those experiments featuring training points that may not lead us to the actual solution of the problem. Thirdly, to observe the performance of our method on a verification dataset which will be common to every experiment. Finally, to elaborate statistic descriptions of the model's parameters: shapes, coefficients and centers. Some of our usual questions will be the following:
 
 \begin{itemize}
   \item How do the $L^\infty$ and $L^2-$norms on the verification dataset behave as $C$ and $k$ increase?
@@ -2172,14 +2176,16 @@ Each experiment configuration $(C,k)$ will be simultaneously solved several time
   \item Are there any recurrent distribution of centers, shape parameters or coefficients?
 \end{itemize}
 
-The question for execution times is a relevant one as well, albeit it cannot be reliably answered as the experiments are launched in a shared server, that is, measurements have been carried out but they have been observed to be inconsistent, varying according to the workload of the server during the launch event.
+The question for execution times is a relevant one as well, albeit it cannot be reliably answered as the experiments are launched in a shared server: measurements have been carried out but they have been observed to be inconsistent, varying according to the workload of the server as the problem is solved.
 
-One reasonable concern for solving any experiment several simultaneous times is exhausting the computing resources of the server, namely CPU and GPU. The multiple processors the server features is enough to quell the CPU concern as long as we launch fewer instances than the amount of idle processors. 
+One reasonable concern for solving any experiment several simultaneous times is exhausting the computing resources of the server, namely CPU and GPU. The multiple processors the server features is enough to quell the CPU concern as long as we launch fewer instances than the amount of idle processors (recall Table \ref{tb:hardware-machinery}).
 
-On the other hand, model memory allocation problem is often an issue when dealing with PINNs, which we address in the following by turning to the \href{https://pytorch.org/docs/stable/generated/torch.cuda.max_memory_allocated.html}{\texttt{max\_memory\_allocated()}}
+On the other hand, model memory allocation is often an issue when dealing with PINNs, which we address in the following by turning to the \href{https://pytorch.org/docs/stable/generated/torch.cuda.max_memory_allocated.html}{\texttt{max\_memory\_allocated()}}
 method of the \texttt{torch.cuda} namespace in Python. This method returns the peak allocated memory (in bytes) since the beginning of the program. Therefore, this
-measurement is to be regarded as approximate. Figure \ref{fig:model-consumption-memory} depicts the memory consumption of the
-model for different numbers of centers per dimension. It is observed to reach $100$ MB for the largest pair of dimensionality and centers we evaluate, two orders of magnitude below the amount the server can allocate. For our purposes, the model is not going to be an issue regarding GPU memory.
+measurement is to be regarded as approximate. 
+
+Figure \ref{fig:model-consumption-memory} depicts the memory consumption of the
+model for different numbers of centers per dimension. It is observed to reach $100$ MB for the largest pair of dimensionality and centers we evaluate, two orders of magnitude below the amount the server can allocate. For our purposes, the model is not going to be an issue regarding GPU memory. It also compares the memory consumption of our model with the storage requirements of an interpolation matrix of a problem whose interpolation nodes equal the number of centers we consider. Notice that four and five-dimensional problems quickly exhaust the memory of the machine, our model requiring up to five orders of magnitude less.
 
 The memory consumed by each instance is not going to be that small. The training and validation datasets are observed to be larger contributors to the total allocated memory. Regardless, the memory they occupy in low dimensions is observed to be negligible in comparison to the memory occupied by the CUDA context\footnote{Recall that the CUDA context manages the interaction between PyTorch tensors and CUDA-capable devices (usually GPUs). The CUDA context in PyTorch handles memory allocation, device synchronization, and execution of CUDA operations on tensors stored on GPU devices. For each separate process, a CUDA context is invoked, which may be a problem if a large amount of ML problems featuring large models are to be solved simultaneously  (refer for instance to \href{https://github.com/pytorch/pytorch/issues/20532}{previous GitHub discussions} in PyTorch's repository).}.
 
@@ -2199,7 +2205,7 @@ In the following, we will work on ``well-behaved'' polynomial functions. Our obj
 
 \subsection*{One-dimensional case}
 
-We consider the function $x \mapsto u_2(x)=(x-1/2)^2$ for $x \in [-1,1]$. We may refer to this function by \texttt{u2} as well. For this interval, we have found suitable starting shape parameters $(0.78125, 1.5625, 2.5, 3.6621, 5.6152)$, which we map to the list of (initially equispaced) centers $(7,11,15,20,30)$, respectively.
+We consider the function $x \mapsto u_2(x)=(x-1/2)^2$ for $x \in [-1,1]$. We may refer to this function by \texttt{u2} as well. For this interval, we have found suitable starting shape parameters $(0.78125, 1.5625, 2.5, 3.6621, 5.6152, 7.8125,9.7656,11.7188)$, which we map to the list of (initially equispaced) centers $(7,11,15,20,30,40,50,60)$, respectively.
 
 Figure \ref{u2-example-training-TR15-C15} shows how an instance of this experiment is carried out. Notice (top-right image) that the largest error is located where the density of training points is at its lowest. Furthermore, the two figures on the left-hand show the location and the shape parameters of the RBF functions, allowing one to see at a glance the parameters of the proposed network. Finally, the image on the bottom-right hand side shows the loss function of our model alongside the $L^2$ and $L^\infty-$norms on the verification dataset. The action of the scheduler allows us to iteratively reduce oscillations in the model, most importantly nullifying them in the very last few iterations.
 
@@ -2760,11 +2766,9 @@ We work with the following functions:
   \item $x\mapsto \sin(\pi x ^2), x \in [-1,1]$. We refer to this function as \texttt{sin\_pi\_x\_sq}.
 \end{itemize}
 
-We expand the set of centers we consider to $\{7,11,15,20,30,40,50,60\}$. This expansion will prove crucial for improving the accuracy in the approximation of some of the functions we consider. This set is mapped to the following shape parameters according to the domain of the problem:
-\begin{itemize}
-  \item Under the interval $[-1,1]$, we map the centers to the starting shape parameters $\{0.78125, 1.5625, 2.5,3.6621, 5.6152, 7.8125,9.7656, 11.7188\}$.
-  \item As for $[0,1]$, we map the centers to the starting shape parameters $\{1.4648,  3.4180, 4.8828$ $  7.3242, 11.2305, 15.6250,19.5313, 23.4375\}$.
-\end{itemize}
+
+This time around, we have a function defined in $[0,1]$. We map the set of centers we used during the previous 1D experimentation, $\{7,11,15,20,30,40,50,60\}$, to the starting shape parameters $\{1.4648,  3.4180, 4.8828$ $  7.3242, 11.2305, 15.6250,19.5313, 23.4375\}$.
+
 
 
 \subsubsection*{Results for \texttt{runge\_function}}
@@ -3188,7 +3192,7 @@ the boundary of the square: four of such points are set on the corners,
 whereas $T - 2$ are uniformly distributed along each of the four sides of the
 square.
 
-Figure \ref{fig:representation-domain-problem} shows a drawing of a possible distribution of nodes we can have with this sampling technique. The interior points are painted as black circles and the corner points are depicted as circumferences. Among the remaining points, boundary points for $t<1$ are painted in pink and the ones for $t=1$ are painted in green. We use this diagram to propose a variational formulation of of the parabolic PDE as follows.
+Figure \ref{fig:representation-domain-problem} shows a drawing of a possible distribution of nodes we can have with this sampling technique. The interior points are painted as black circles and the corner points are depicted as circumferences. Among the remaining points, boundary points for $t<1$ are painted in pink and the ones for $t=1$ are painted in green. We use this diagram to propose a variational formulation of the parabolic PDE as follows.
 
 \begin{figure}
   \includegraphics[width=.3\textwidth]{cool_graphics/cuadrado_dominio_edp_parabolica.pdf}
