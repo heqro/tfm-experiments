@@ -2260,7 +2260,7 @@ A reasonable concern comes from the fact that letting the iterative process run 
   \label{fig:u2-results-incidence-l-norms}
 \end{figure}
 
-Figure \ref{fig:u2-results-average-error} features two diagrams of the averages of the absolute errors across all training experiments that have been carried out, most importantly the cases $k=1$ and $k=4$. In coherence with Figures \ref{fig:u2-results-overall-poly-1} and \ref{fig:u2-results-overall-poly2}, it indicates that the case $k=4$ produces the best results: $(C,k)=(7,4)$ is observed to produce comparable results to the case $(C,k)=(30,1)$, indicating that the results improve with the number of training points.
+Figure \ref{fig:u2-results-average-error} features two diagrams of the averages of the absolute errors across all training experiments that have been carried out, most importantly the cases $k=1$ and $k=4$. In coherence with Figures \ref{fig:u2-results-overall-poly-1} and \ref{fig:u2-results-overall-poly2}, it indicates that the case $k=4$ produces the best results. On the contrary, it is observed that explicitly incorporating a quadratic polynomial addend does little to improve the results for $k=4$, only visibly improving when $7$ centers are considered.
 
 % \begin{figure}
 %   \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/u2_30_1}
@@ -2285,7 +2285,7 @@ Figure \ref{fig:u2-results-average-error} features two diagrams of the averages 
 
 Figure \ref{fig:u2-results-shape-parameters} depicts the incidence of the shape parameters at the end of all training processes fitted to a normal distribution. Some observations are in order:
 \begin{itemize}
-  \item The mean of the fitted normal distributions approach the starting shape parameter as $C$ (and thus the starting parameter) is increased. The fitted variance diminishes as well.
+  \item The means of the fitted normal distributions approach the starting shape parameters as $C$ (and thus the starting parameter) is increased. The fitted variances diminish as well.
   \item For $\varepsilon=0.78125$, associated with $C=7$, some shape parameters are found to be close to zero. This indicates that some RBF addends are effectively working as bias terms. This is observed not to happen for larger values of $C$.
 \end{itemize}
 
@@ -2306,12 +2306,13 @@ Figure \ref{fig:u2-results-shape-parameters} depicts the incidence of the shape 
 % \end{figure}
 
 
-Figure \ref{fig:u2-results-shapes-etc-c60-tr240} depicts a histogram of the trained centers by the end of all training instances, alongside violin plots of the shapes and coefficients. This is the experiment featuring the largest amount of centers and training points. Some immediate observations about this Figure are the following: \begin{itemize}
-  \item There the largest incidence of centers is located \textit{outside} the domain of the problem.
+Figures \ref{fig:u2-results-shapes-etc-c60-tr240} and \ref{fig:u2-results-shapes-etc-c60-tr240-poly2} depict a histogram of trained centers alongside violin plots of the shapes and coefficients, for the case involving $C=60$ and $k=4$. The first Figure shows the information when no polynomial term is considered, whereas the second Figure shows it when a quadratic polynomial term is added, depicting the violin plot of such coefficients of the polynomial. Some immediate observations are the following: \begin{itemize}
+  \item The largest bins of centers are located outside or close to the boundary of the domain.
   \item The medians of the coefficients, depicted by the horizontal lines in the violin plots, seem to match the behavior of the actual function.
+  \item The coefficients of the polynomial hardly match the ones of the polynomial function we are working on.
 \end{itemize}
 
-The same diagrams can be drawn for different pairs $(C,k)$, and the same observations will be reached. However, there are some key differences: the incidence of centers is further away from the domain as fewer centers are taken into consideration, and the coefficients do not resemble the function as closely as Figure \ref{fig:u2-results-shapes-etc-c60-tr240}, the resemblance loosening as fewer centers are considered.
+The same diagrams can be drawn for different pairs $(C,k)$, and similar observations can be made. There are some differences: the incidence of centers is further away from the domain as fewer centers are taken into consideration, and the coefficients do not resemble the function as closely as Figure \ref{fig:u2-results-shapes-etc-c60-tr240}, this resemblance loosening as fewer centers are considered.
 
 \begin{figure}
   \includegraphics[width=\textwidth]{imagenes/experiments/1d/statistical_1d_full_scheduler_interpolation/C60-TR240-u2_poly_-1.pdf}
@@ -2351,7 +2352,7 @@ Working in the interior, it is not correct to sample $r$ from $U[0,1)$ and $\the
 
 For the sake of reproducibility, we explicitly state the number of points we consider on the boundary and inside the circle: let $T^2$ be the number of training points we work with. We then consider $4 (T - 2) + 4$ points on the boundary, and the rest are to be in the interior of the domain\footnote{This apparently obscure formula comes from the idea that, working with a square, a reasonable amount of boundary points is $T$ per side. Provided one would like to always have points at the corners of the square, one would then have $T-2$ uniformly sampled points per side (because of the $2$ fixed points), which yields our proposed formula for the number of points on the boundary.}.
 
-Much like in the one-dimensional case, Figure \ref{fig:parabola-example-training-TR15-C81} depicts a particular instance of this experiment. The metrics of the model (right-hand side) show that the scheduler readily reduces oscillations, reducing the learning rate as soon as they show up. In comparison with the one-dimensional case, the oscillations are much shorter-lived. For this instance of the experiment, the learning rate that occupies most of the time of computation is $10^{-5}$. Note that a notable amount of centers is outside the domain of our data.
+Much like in the one-dimensional case, Figure \ref{fig:parabola-example-training-TR15-C81} depicts a particular instance of this experiment. The metrics of the model (right-hand side) show that the scheduler readily reduces oscillations, diminishing the learning rate as soon as they show up. In comparison with the one-dimensional case, the oscillations are much shorter-lived. For this instance of the experiment, the learning rate that occupies most of the time of computation is $10^{-5}$. Finally, note that a notable amount of centers is outside the domain of our data.
 
 \begin{figure}[h]
   \includegraphics[width=\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/parabola/parabola-TR15-C81-Kgaussian_kernel-Sh1.9531-rrrepetishon-E60521.pdf}
@@ -2362,7 +2363,7 @@ Much like in the one-dimensional case, Figure \ref{fig:parabola-example-training
 
 
 
-In the following, we show the comparison of the distribution of these results in the $L^\infty$ and $L^2-$norms and in execution times, without (Figure \ref{fig:parabola-results-overall-poly-1}) and with a quadratic polynomial addend (Figure \ref{fig:parabola-results-overall-poly2}). As observed in the 1D case, the improvements come not from the consideration of a larger value of $C$, but rather by the increment of $k$. Increasing $k$ is also seen to visibly decrease the spread of results in the $L^2$ and $L^\infty-$norms. The consideration of a quadratic polynomial produces timid improvements on these two metrics. %Finally, the execution times are at their largest for increasing values of $C$.
+In the following, we show the comparison of the distribution of these results in the $L^\infty$ and $L^2-$norms and in execution times, without (Figure \ref{fig:parabola-results-overall-poly-1}) and with a quadratic polynomial addend (Figure \ref{fig:parabola-results-overall-poly2}). As observed in the 1D case, the improvements come not from the consideration of a larger value of $C$, but rather by the increment of $k$. Increasing $k$ is also seen to visibly decrease the spread of results in the $L^2$ and $L^\infty-$norms. The consideration of a quadratic polynomial produces timid but ultimately not decisive improvements on these two metrics. %Finally, the execution times are at their largest for increasing values of $C$.
 \clearpage
 \begin{sidewaysfigure}[H]
   \hspace*{-1cm}
@@ -2390,7 +2391,7 @@ In the following, we show the comparison of the distribution of these results in
   \label{fig:parabola-results-overall-poly2}
 \end{sidewaysfigure}
 
-Figure \ref{fig:parabola-results-incidence-l-norms} features the incidence of maxima in the $L^\infty-$norm across all experiments by the end of each experiment instance. The results differ regarding the 1D case, because there is a smaller spread in the $L^\infty-$norm (left-hand side). Furthermore, $L^2-$norm results for the last iterations are smaller than the ones obtained for the best iteration in the $L^\infty-$norm, indicating that more iterations can reliably produce, on average, better approximations to the verification dataset.
+Figure \ref{fig:parabola-results-incidence-l-norms} features the incidence of maxima in the $L^\infty-$norm across all experiments by the end of each experiment instance. The results differ regarding the 1D case as there is a smaller spread in the $L^\infty-$norm (left-hand side). Furthermore, $L^2-$norm results for the last iterations are smaller than the ones obtained for the best iteration in the $L^\infty-$norm, indicating that more iterations can reliably produce, on average, better approximations to the verification dataset.
 
 \begin{figure}[h]
   \hspace*{-2cm}
