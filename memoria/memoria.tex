@@ -2665,7 +2665,7 @@ discretized formulation of \eqref{eqn:bvp-2d} that our model can solve for is
   \theta) - 4 \right\|_2^2 + \frac{1}{| \mathcal{B} |} \|
   \mathcal{N}\mathcal{N} (\mathcal{B}; \theta) - u (\mathcal{B}) \|_2^2 . \]
 
-Once we have prescribed the discretized formulation, we may proceed by consider our usual configuration of experiments of the form $(C,k)$, with $C$ and $k$ as in the 2D function approximation case.
+Once we have prescribed the discretized formulation, we proceed by considering our usual configuration of experiments of the form $(C,k)$, with $C$, $k$ and starting shape parameters as in the 2D function approximation case.
 
 Figure \ref{fig:2d-pde-usual-result} depicts a usual instance of a training experiment. The model curves are notably smooth, the loss term only spiking up when oscillations do occur. Nevertheless, the scheduler comes shows its usefulness again by immediately reducing the learning rate and making the oscillations disappear.
 
@@ -2675,7 +2675,7 @@ Figure \ref{fig:2d-pde-usual-result} depicts a usual instance of a training expe
   \label{fig:2d-pde-usual-result}
 \end{figure}
 
-Like in the previous experiments, Figures \ref{fig:2d-pde-parabola-results-poly-1} and \ref{fig:2d-pde-parabola-results-poly2} compare the distribution of all instances of experiments in the $L^\infty$ and $L^2-$norms as well as in execution times, without and with a quadratic polynomial term respectively. The latter should (in theory) allow us to recover the actual solution. As in the previous experiments, the consideration of a quadratic polynomial has some impact, reducing the quality metrics we consider, but it is not enough to allow us to recover the actual solution. Nevertheless, the quality metrics improve as $k$ is increased, much like in the previous cases.
+Like in the previous experiments, Figures \ref{fig:2d-pde-parabola-results-poly-1} and \ref{fig:2d-pde-parabola-results-poly2} compare the distribution of all instances of experiments in the $L^\infty$ and $L^2-$norms as well as in execution times, without and with a quadratic polynomial term respectively. The latter should (in theory) allow us to recover the actual solution. The consideration of a quadratic polynomial has some impact, reducing the quality metrics we consider, but it is not enough to allow us to recover the actual solution. Nevertheless, the quality metrics improve as $C$ and $k$ are increased. On the basis of the experience throughout the previous section solving the ODE, one can speculate that the condition number of the differential equation is not large enough for the contribution of the RBF terms to be negligible.
 
 \begin{sidewaysfigure}[H]
   \hspace*{-1cm}
@@ -2704,7 +2704,7 @@ Like in the previous experiments, Figures \ref{fig:2d-pde-parabola-results-poly-
 \end{sidewaysfigure}
 
 
-A striking difference is the fact that the execution times are progressively less spread and smaller as more centers are considered. Furthermore, they clearly are less spread when no polynomial term is considered. After inspecting particular realizations of all experiments for $C=225$, all learning curves were seen to follow the behavior of Figure \ref{fig:2d-pde-usual-result}: smooth, decreasing learning curves, hence ruling out the possibility of having prescribed an ill-suited starting shape parameter $\varepsilon$. It is therefore not clear how this behavior could have been anticipated.
+%A striking difference is the fact that the execution times are progressively less spread and smaller as more centers are considered. Furthermore, they clearly are less spread when no polynomial term is considered. After inspecting particular realizations of all experiments for $C=225$, all learning curves were seen to follow the behavior of Figure \ref{fig:2d-pde-usual-result}: smooth, decreasing learning curves, hence ruling out the possibility of having prescribed an ill-suited starting shape parameter $\varepsilon$. It is therefore not clear how this behavior could have been anticipated.
 
 Like in the previous cases, Figure \ref{fig:pde-2d-results-incidence-l-norms} depicts the incidence of the $L^\infty$ and $L^2-$norms across all training experiments that have been carried out. In coherence with the 2D function approximation case, there is little spread from the line $y=x$, hinting that the last iterations are not far from the best iterations in the quality metrics.
 
@@ -2727,7 +2727,7 @@ Figure \ref{fig:2d-pde-results-shape-parameters} shows the distribution of all s
 \end{figure}
 
 
-Figure \ref{fig:2d-pde-results-average-errors} shows the distribution of the average absolute errors across all training experiments, distinguishing between the number of centers and the degree of the polynomial addend. The consideration of a polynomial term seems to have a slight edge for $C=169,225$, but its impact on the final result is not decisive. 
+Figure \ref{fig:2d-pde-results-average-errors} shows the distribution of the average absolute errors across all training experiments, distinguishing between the number of centers and the degree of the polynomial addend. The consideration of a polynomial term seems to have a slight edge for $C=169,225$, but its contribution to the final result is not decisive. 
 
 \clearpage
 \begin{sidewaysfigure}[H]
