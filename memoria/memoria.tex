@@ -2473,8 +2473,8 @@ mode automatic differentiation. An immediate conclusion is that memory-efficient
 simplifications or identities to reduce the number of nodes on our graph.
 
 
-Even if memory is not a concern to us, the construction of the expression graph is in the context of RBF-based models. To better show this, Figure \ref{fig:wenger-trace-gaussian}
-depicts the Wengert trace of a simple RBF equipped with the Gaussian kernel, operating in the 2D
+Even if memory is not a concern to us, the construction of the expression graph is key in the context of RBF-based models. To better show this, Figure \ref{fig:wenger-trace-gaussian}
+depicts the Wengert trace of a single RBF equipped with the Gaussian kernel, operating in the 2D
 case. The kernel defaults to one in the case the input coincides with the RBF's center. Moreover, it is direct to see that $r=0$ is the sole maximum of the Gaussian kernel, with $\varphi'(r)=-2 \varepsilon^2 r
   e^{-\varepsilon^2 r^2}$, whereupon $\varphi'(0)=0$ iff $r=0$. Wengert's trace as in the proposed Figure
 indeed corresponds to $\varphi(r)$, but yields \texttt{NaN} when attempting to compute
@@ -2541,9 +2541,9 @@ formulation of \eqref{eqn-lebesgue-ode-1} that our PINN can solve for is
 which features the boundary conditions back again. We now solve the
 differential equation minimizing this formulation prescribing the same experiments matrix as in the case of the 1D function approximation. Consequently, in the following we are going to depict the same graphic results.
 
-Figure \ref{fig:ode-1d-example-training} shows the usual behavior solving this ODE. Irrespectively of the training nodes we provide, the absolute error is at its minimum at the boundary points. Like in the 1D case, the shape parameters are shown as well as the model curves. A notable difference between the ODE and the function approximation cases is the fact that oscillations may arise in the $L^2$ and $L^\infty-$norms despite the loss function decreasing smoothly.
+Figure \ref{fig:ode-1d-example-training} shows the usual behavior solving this ODE. Irrespectively of the training nodes we provide, the absolute error is at its minimum at the boundary points. Like in the 1D case, the shape parameters are shown as well as the model curves. 
 
-This can be due to the ``imbalance'' between the weights given to the boundary and interior loss terms, the former constituting a larger penalty for the loss function than the latter. A pathway for smoothing out the two metrics is fine-tuning the weight parameters, which is largely outside the scope of our discussion and, moreover, these oscillations do not always show up.
+A notable difference between the ODE and the function approximation cases is the fact that oscillations may arise in the $L^2$ and $L^\infty-$norms despite the loss function decreasing smoothly. This can be due to the ``imbalance'' between the weights given to the boundary and interior loss terms, the former constituting a larger penalty for the loss function than the latter. A pathway for smoothing out the two metrics is fine-tuning the weight parameters, which is largely outside the scope of our discussion and, moreover, these oscillations do not always show up.
 
 \begin{figure}[h]
   \includegraphics[width=\textwidth]{imagenes/experiments/1d/ode/TR18-C9-Kgaussian_kernel-Poly2-Sh1.25-15.csv-E50533.pdf}
@@ -2551,6 +2551,9 @@ This can be due to the ``imbalance'' between the weights given to the boundary a
   \label{fig:ode-1d-example-training}
 \end{figure}
 
+Figures \ref{fig:ode-results-overall-poly-1} and \ref{fig:ode-results-overall-poly2} denote the $L^2$ and $L^\infty-$norms across all training instances. There is no visible improvement from the case $(C,k)=(7,4)$ onwards, even decreasing the performance as more centers are in play: some instances without a polynomial addend are failing to provide a single digit of accuracy, particularly with $C=40,50,60$.
+
+For further reference, Figure \ref{fig:last-iteration-ode-bad} shows one of such instances. It is clear that the loss term is stuck in a local minimum that the Adam optimizer cannot escape. This situation being more common as more centers are prescribed indicates that the condition number of the associated problem is larger than expected, the proposed starting shape parameters being too small for the problem to be well-conditioned. Recall that these shape parameters were prescribed for reducing the condition number of the problem of approximating a set of points, so they were not necessarily guaranteed to work for an arbitrary differential equation.
 
 \clearpage
 \begin{sidewaysfigure}[H]
@@ -2583,7 +2586,13 @@ This can be due to the ``imbalance'' between the weights given to the boundary a
   \label{fig:ode-results-overall-poly2}
 \end{sidewaysfigure}
 
-Figure \ref{ode-1d-results-average-error} shows the average absolute error that is committed across all training experiment instances. It shows that the case $k=1$ produces the largest absolute errors irrespectively of the number of training points we provide and the degree of the polynomial addend. However, $k=4$ yields notably better results, although the case $(C,k)=(30,4)$ seems to provide the worst result when no polynomial addend is considered. This indicates that the model is capable of overfitting the provided training data. This overfitting is not observed when a quadratic polynomial term is considered, further reducing the average of the absolute error.
+\begin{figure}
+  \includegraphics[width=\textwidth]{imagenes/experiments/1d/ode/TR60-C60-Kgaussian_kernel-Sh11.7188-13.csv-E1560.pdf}
+  \caption{Last iteration of a training experiment with $(C,k)=(60,1)$.}
+  \label{fig:last-iteration-ode-bad}
+\end{figure}
+
+Figure \ref{ode-1d-results-average-error} shows the average absolute error that is committed across all training experiment instances. It shows that the case $k=1$ produces the largest absolute errors irrespectively of the number of training points we provide and the degree of the polynomial addend. However, $k=4$ yields notably better results, although the case $(C,k)=(60,4)$ seems to provide the worst result when no polynomial addend is considered, in coherence with previous comments. This is not observed to happen as a quadratic polynomial term is considered.
 
 \begin{figure}
   \hspace*{-2.5cm}
@@ -2596,13 +2605,19 @@ Figure \ref{ode-1d-results-average-error} shows the average absolute error that 
    \label{ode-1d-results-average-error}
 \end{figure}
 
-Figure \ref{fig:ode-1d-results-shape-parameters} shows the distribution of shape parameters by the end of the training process. The situation is similar to the case of the 1D function approximation: except for the histogram bin located near zero, the distribution of shape parameters follows a normal distribution whose mean is progressively approaching the starting shape parameter and whose variance progressively diminishes as well. The fact that the $\varepsilon$ axis goes all the way to $-2$ implies that there was at least a shape parameter taking negative values. This does not seem to have deep implications in the context of the Gaussian kernel, as it features $\varepsilon^2$ in its formulation.
+Figure \ref{fig:ode-1d-results-shape-parameters} shows the distribution of shape parameters by the end of the training process. The situation is similar to the case of the 1D function approximation: except for the histogram bin located near zero, the distribution of shape parameters follows a normal distribution whose mean is progressively approaching the starting shape parameter and whose variance progressively diminishes as well. The fact that the $\varepsilon$ axis goes all the way to $-2$ implies that there was at least a shape parameter taking negative values. This does not have deep implications in the context of the Gaussian kernel, the latter featuring $\varepsilon^2$ in its formulation.
+
+Figure \ref{fig:ode-1d-results-shape-parameters} depicts the distribution of shape parameters by the end of all training processes. Like in the case of approximation of functions, each of the set of bins are observed to distribute normally, with a mean approaching the starting parameter and a decreasing variance.
 
 \begin{figure}[h]
   \includegraphics[width=\textwidth]{imagenes/experiments/1d/ode/distribution_of_shape_parameters_at_end_of_training.pdf}
   \caption{Distribution of shape parameters at the end of the training process fitted to a normal distribution.}
   \label{fig:ode-1d-results-shape-parameters}
 \end{figure}
+
+Figure \ref{fig:tripleplot-ode-poly-1} shows a histogram of the incidence of centers by the end of all training processes for $(C,k)=(60,4)$, as well as the shape parameters and coefficients when no polynomial term is considered. Figure \ref{fig:tripleplot-ode-poly2} depicts the same information when a quadratic polynomial addend is considered, as well as the distribution of the polynomial's coefficients. 
+
+Both histograms of centers are seen to be distributed in a uniform fashion, which may be due to the differential equation being identically equal to $2$ inside the domain. Shape parameters and coefficients are very spread out outside the domain of the problem when no polynomial is considered, whereas there is little to no spread with a quadratic polynomial addend. Furthermore, the medians of the coefficients of the RBF terms in the latter are null, which implies that the polynomial term is making the largest contribution at the sight of the poor performance when no polynomial term is considered. The medians of the coefficients of such polynomial are seen to be very close to the coefficients of the polynomial of the actual solution.
 
 \begin{figure}
   \includegraphics[width=\textwidth]{imagenes/experiments/1d/ode/C60-TR240-poly-1.pdf}
