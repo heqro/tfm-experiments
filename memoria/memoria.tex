@@ -32,7 +32,7 @@ hmargin=3cm
 \definecolor{gray45}{gray}{.45}
 
 \usepackage{enumerate}
-
+\usepackage[export]{adjustbox}
 % PDF/A -- Important for its inclusion in e-Archive. PDF/A is the optimal format for preservation and for the generation of metadata: http://uc3m.libguides.com/ld.php?content_id=31389625. 
 
 % In the template we include the file OUTPUT.XMPDATA. You can download that file and include the metadata that will be incorporated into the PDF file when you compile the memoria.tex file. Then upload it back to your project.  
@@ -2152,7 +2152,7 @@ For the chosen kernel, we iteratively minimize the prescribed loss function inst
 
 We chose the Adam optimizer to avoid settling on the first local minimum we find for our loss function, especially for the initial values of our dynamic learning rate. Once a suitable local minimum is found, the loss function is observed to start exhibiting oscillations by the action of the Adam optimizer, which the scheduler eventually shuts down. This results in the last hundreds of iterations featuring smooth loss curves: an implicit and ``forced convergence'' to a solution. This strategy has been devised as a compromise between the ``speed'' that comes with a high learning rate and reducing oscillations, most importantly throughout the last iterations.
 
-As a sidenote, the proposed loss functions will not be observed to approach machine precision. Rigorously speaking, the solutions we find to the interpolation problems we pose should not be called interpolators, but rather approximators.
+As a sidenote, the proposed loss functions will not be observed to approach machine precision. Rigorously speaking, the solutions we find to the interpolation problems we pose should not be called ``interpolators'', but rather ``approximators''.
 
 \subsection{A generic experiment case}
 
@@ -2768,9 +2768,9 @@ Finally, Figure \ref{fig:2d-pde-results-centers} depicts the distribution of the
 
 \chapter{Application of methodology to established problems}\label{chap:application-to-established-problems}
 
-Irrespectively of the number of centers that one considers, the case $k=4$ provides the best results in the quality metrics that we have considered thus far. We will consider this case from now on to obtain the best results right off the bat. It has also been observed that incorporating polynomial addends does not decisively improve our quality metrics. Therefore, we do not explore this branch in the following.
+Irrespectively of the number of centers that one considers, the case $k=4$ provides the best results in the quality metrics that we have considered thus far. We will consider this case from now on to immediately obtain the best results we can. It has also been observed that incorporating polynomial addends does not decisively improve our quality metrics unless the condition number for the problem involving solely RBFs is large enough. Under this consideration, we do not further explore the possibility of polynomial addends.
 
-In this chapter, we pose and solve some problems on function approximation and differential equations under these considerations.
+In this chapter, we pose and solve some problems of interest on function approximation and differential equations.
 
 \section{Approximation of functions}
 \subsection*{1D functions approximation}
@@ -2974,13 +2974,13 @@ Figure \ref{fig:triple-plot-sin-pi-x-sq-function} shows the histogram of the inc
 We consider the following functions along the unit circle:
 
 \begin{itemize}
-  \item $(x,y)\mapsto 25/(25+(x-1/5)^2+2y^2)$, named \texttt{runge\_2d} in the following. It is defined in \cite{fornberg2002observations} and \cite{larsson2003numerical} in the context of approximation of functions near the boundary and solving elliptic differential equations, respectively. This is the ``extension'' of \texttt{runge\_function} to the 2D case.
+  \item $(x,y)\mapsto 25/(25+(x-1/5)^2+2y^2)$, named \texttt{runge\_2d} in the following. It is considered in \cite{fornberg2002observations} and \cite{larsson2003numerical} in the context of approximation of functions near the boundary and solving elliptic differential equations, respectively. This is the ``extension'' of \texttt{runge\_function} to the 2D case.
   \item  $(x,y)\mapsto \arctan(2(x+3y-1))$, named \texttt{arctan\_2d} as also proposed in \cite{fornberg2002observations} to evaluate the performance of approximation methods near the boundary. This is the 2D ``extension'' of \texttt{arctan}.
 \end{itemize}
 
 \subsubsection*{Results for \texttt{runge\_2d}}
 
-Figure \ref{fig:example-execution-runge-2d} shows an execution of the approximation of \texttt{runge\_2d}. It is observed that $10^{-5}$ causes most iterations for this instance, albeit it does not necessarily diminish the loss term as effectively as the other learning rates. If a faster speed of execution were desirable, the configuration for the scheduler could be more stringent or one could terminate the execution as soon as this learning rate was hit. Nevertheless, the curves are notably smooth, which again is due to the scheduler.
+Figure \ref{fig:example-execution-runge-2d} shows an execution of the approximation of \texttt{runge\_2d}. It is observed that $10^{-5}$ is the learning rate value causing most iterations for this instance, albeit it does not necessarily diminish the loss term as effectively as the other learning rates. If a faster speed of execution were desirable, the configuration for the scheduler could be more stringent or one could terminate the execution as soon as this learning rate was hit. Nevertheless, the curves are notably smooth, which again is due to the action of the scheduler.
 
 \begin{figure}
   \includegraphics[width=\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/runge_2d/runge_2d-TR22-C121-Kgaussian_kernel-Sh2.5635-rrrepetishon-E47252.pdf}
@@ -3009,7 +3009,7 @@ Figure \ref{fig:runge-2d-results-incidence-l-norms} shows again the incidence of
   \label{fig:runge-2d-results-incidence-l-norms}
 \end{figure}
 
-Figure \ref{fig:runge-2d-results-centers} shows the aggregation of all centers by the end of the experiments. The centers are seen to spread less from the domain as more centers and training points are provided.
+Figure \ref{fig:runge-2d-results-centers} shows the aggregation of all centers by the end of the experiments. The centers are seen to approach the problem domain as more centers and training points are provided. Unlike what happened when approximating \texttt{parabola}, no clear structure for the centers is distinguishable this time around.
 
 \begin{figure}
   \hspace*{-2cm}
@@ -3041,7 +3041,8 @@ Figure \ref{fig:runge-2d-results-errors-avg} holds the average absolute errors t
 \clearpage
 \subsubsection*{Results for \texttt{arctan\_2d}}
 
-Figure \ref{fig:example-execution-arctan-2d} exemplifies an execution of the approximation of \texttt{arctan\_2d}. The loss term is observed to diminish most effectively by the first thousands of iterations, slowly diminishing for the remainder of the instance. Some centers are established along the contour lines, which denote the level curves of the function under study.
+
+Figure \ref{fig:example-execution-arctan-2d} exemplifies an execution of the approximation of \texttt{arctan\_2d}. The loss term is observed to diminish most effectively by the first thousands of iterations, slowing its pace for the remainder of the instance. Some centers are established along the contour lines, which denote the level curves of the function under study.
 
 \begin{figure}
   \includegraphics[width=\textwidth]{imagenes/experiments/2d/statistical_2d_full_scheduler_interpolation/arctan_2d/arctan_paper_2d-TR26-C169-Kgaussian_kernel-Sh3.1738-10-E77017.pdf}
@@ -3084,7 +3085,7 @@ Figure \ref{fig:arctan-2d-results-centers} shows the distribution of the centers
   \label{fig:arctan-2d-results-centers}
 \end{figure}
 
-Finally, Figure \ref{fig:arctan-2d-results-errors-avg} shows the average error across all training experiments. It can be seen that the lower section of the domain is successively better approximated as more centers are provided.
+Finally, Figure \ref{fig:arctan-2d-results-errors-avg} shows the average error across all training experiments. The section where level curves are most incident where the largest errors can be found, steadily receding as more centers are taken into consideration.
 
 \begin{figure}
   \hspace*{-2cm}
@@ -3112,14 +3113,9 @@ We consider a 2D domain and a generic Poisson problem of the form
   \end{array}\right. \label{eqn:poisson}
 \end{equation}
 
-Our domain $\Omega$ is the unit circle. We consider the following problems, as first proposed in \cite{larsson2003numerical}:
+Our domain $\Omega$ is the unit circle. As proposed in \cite{larsson2003numerical}, we particularize \eqref{eqn:poisson} for $u$ set to be equal to \texttt{runge\_2d} as defined in the section of 2D functions approximation. We consider our usual set of 2D center quantities, $\{49,81,121,169,225\}$, which we map to the shape parameters we had been considering up until now.
 
-\begin{itemize}
-  \item $u_1(x,y)$, with $u_1$ defined exactly as \texttt{runge\_2d}.
-  \item $(x,y) \mapsto u_2(x,y)=\sin(\pi(x^2+y^2))$, which we may refer to as \texttt{sin\_pi\_x\_y\_sq} in the following.
-\end{itemize}
-
-\subsubsection*{Results for \texttt{runge\_2d}}
+We refer to Figure \ref{fig:example-execution-runge-2d-pde} for an instance of an experiment with $C=81$. The loss function is notably smooth, and so are the $L^2$ and $L^\infty-$norms on the verification datasets. Alongside this experiment, Figure \ref{fig:violins-runge-pde-2d} holds the violin plots for the $L^2$ and $L^\infty-$norms on the verification dataset, according to the overall number of centers we consider. There is no clear improvement on any of the quality metrics, the case $C=49$ providing the best results overall. This can also be seen in the axes of Figure \ref{fig:runge-pde-2d-results-incidence-l-norms}, which depicts the incidence in the $L^2$ and $L^\infty-$norms. Nevertheless, these metrics are close to the line $y=x$, indicating that the last iterations are close to the best iterations overall.
 
 \begin{figure}
   \includegraphics[width=\textwidth]{imagenes/experiments/2d/pde_runge_2d/runge_2d-TR15-C81-rrrrepetishon-E6270.pdf}
@@ -3127,7 +3123,7 @@ Our domain $\Omega$ is the unit circle. We consider the following problems, as f
   \label{fig:example-execution-runge-2d-pde}
 \end{figure}
 
-Figure \ref{fig:violins-runge-pde-2d} holds the violin plots for the $L^2$ and $L^\infty-$norms on the verification dataset, according to the overall number of centers we consider. %Both metrics are seen to stagnate fast, albeit the $L^2-$norm reduces its spread as more centers and training points are provided.
+
 
 \begin{figure}
   \includegraphics[width=.45\textwidth]{imagenes/experiments/2d/pde_runge_2d/violins_linf_runge_2d_endgame.pdf}
@@ -3145,6 +3141,8 @@ Figure \ref{fig:violins-runge-pde-2d} holds the violin plots for the $L^2$ and $
   \caption{Left: incidence of the $L^\infty-$norm across all experiments, comparing the optimum iteration in this value with the last iteration. Right: incidence of the $L^2-$norm across all experiments, comparing with the value that produced the best iteration in the $L^\infty-$norm.}
   \label{fig:runge-pde-2d-results-incidence-l-norms}
 \end{figure}
+
+Much like in the 2D function approximation case for \texttt{runge\_2d}, Figure \ref{fig:runge-pde-2d-results-centers} holds the distribution of centers by the end of all traininc processes, no clear pattern arising this time either. Finally, Figure \ref{fig:runge-pde-2d-results-errors-avg} depicts the distribution of the average absolute error across all experiments according to the number of centers. It shows that there actually is an improvement in the absolute error that the violin plots failed to account for: as more centers are provided, the absolute error is clearly diminishing close to the boundary.
 
 \begin{figure}
   \hspace*{-2cm}
@@ -3172,7 +3170,7 @@ Figure \ref{fig:violins-runge-pde-2d} holds the violin plots for the $L^2$ and $
   \label{fig:runge-pde-2d-results-errors-avg}
 \end{figure}
 
-
+\clearpage
 \subsection{1D heat equation}
 
 We address the 1D heat equation on the domain $x \in [0, 1], t \in [0, 1]$. We search for a suitable solution $u$ verifying
@@ -3251,6 +3249,64 @@ differential equation is
    (\mathcal{B}; \theta) - u (\mathcal{B}) \|_2^2. \]
 
 As a sidenote, if $\alpha$ would depend on $x$ and $t$, this formulation could easily be modified by just introducing $\alpha=\alpha(\mathcal{I})$ in the first addend instead, the corresponding product then being the element-wise product between vectors.
+
+Before solving the problem, we briefly recap that the development process of the project has been iterative: whenever we would find roadblocks to the methodology we described in Chapter \ref{chap:preliminary-experimentation}, in the form of notably poor quality metrics, we would introduce atomic modifications to the methodology to ensure the roadblock is avoided and then evaluate the methodology's performance on the overall set of experiments.
+
+\begin{figure}
+  % \frame
+  \begin{tabular}{ccc}
+  {\includegraphics[height=.25\textwidth]{imagenes/experiments/2d/heat_1d/heat_1d-TR100-C49-usual-E99548_modified.pdf}}&
+  {\includegraphics[height=.25\textwidth]{imagenes/experiments/2d/heat_1d/heat_1d-TR100-C49-prueba_shape_normal-E3106078_modified.pdf}} &
+  \quad {\includegraphics[height=.15\textwidth]{imagenes/experiments/2d/heat_1d/model_curves_legend.pdf}}  
+  \end{tabular}
+  \caption{Model curves of two attempts to solve the one-dimensional heat equation with $C=49$ and $100$ points per dimension, the left-hand side being with the methodology as described up until now and the right-hand side with the proposed change in the scheduler.}
+  \label{fig:heat-1d-experiment-model-curves}
+\end{figure}
+
+For this particular equation, the methodology we have been using up until now has failed to produce any tractable results. If we turn to Figure \ref{fig:representation-of-the-solution-to-the-heat-equation}, the function features a steep derivative along time for $x=1/2$. As described in \cite{abrahamsen2019explicit}, it is key to provide a large amount of training points in that area to correctly reconstruct the solution. Therefore, we extend the amount of training points we consider, sampling instead $100$ points per dimension and present in the left-hand side of Figure \ref{fig:heat-1d-experiment-model-curves} the learning curves of an attempt at solving the problem featuring a total of $C=49$ centers and the corresponding usual 2D starting shape parameter $\varepsilon=2.6855$. 
+
+As observed in the previous experiments in 2D, the learning curves are very smooth, and any oscillations that may show up are quickly stopped by the action of the scheduler, making the $L^2$ and $L^\infty-$norms are unacceptably large for deeming the results as valid. To overcome this issue, the \texttt{patience} parameter of the scheduler is increased from $30$ to $1000$. This modification comes at the evident cost of non-smooth model curves (excepting the last few iterations) as well as a notorious increase in the number of iterations, which is seen to be of two orders of magnitude (see right-hand side of Figure \ref{fig:heat-1d-experiment-model-curves}). Moreover, the scheduler allows for a great deal of oscillations in the loss function for the interior as it keeps ultimately descending until it stagnates. From that point on, the main contribution to the decrease of the overall loss is comes from the loss term at the boundary.
+
+For further reference, Figure \ref{fig:heat-1d-experiment-model-absolute-errors} depicts a comparison in the absolute error of the two proposed solutions. By means of the \texttt{x} character, it shows the location of the RBF centers. The color of each character indicates the shape at the end of the experiment and their size gives us a notion of the magnitude of the RBF coefficients, their size in proportion to their absolute value (the larger the size, the larger the absolute value). Despite one of the solutions yielding better accuracy than the other, the characteristics of the RBFs seem to be similar at first glance: there is a positive correlation between the shape parameters and the RBFs' coefficients. Moreover, they are all located outside the domain, close to the point $(1/2,0)$ where the function value and derivative along the time dimension are at their largest magnitude. 
+
+However, there are also some differences that may justify the better performance of the modified methodology. Indeed, this attempt features more RBFs with smaller shape parameters (and, consequently, coefficients) distributed along the level curves of the solution, which ultimately improves the accuracy at the region enclosed by them. 
+
+Irrespectively of the improvement of the accuracy, there also is a sharp increase in the number of iterations, which rules out the possibility of performing a statistical analysis of the problem in a reasonable time frame. We proceed instead by increasing the number of centers, from $C=49$ to $C=225$, and attempt to solve the problem under the same number of training points as before. After that, we then consider more training points, concretely $150$ and $200$ points per dimension, to see if there are any notable improvements. 
+
+Figure \ref{fig:heat-1d-experiment-model-absolute-errors-improvement} compares these results in the absolute error, following the same representation scheme for the RBFs' centers locations, coefficients and shape parameters. We observe that there is an even larger incidence of RBFs at the neighborhood of $(x=1/2,t=0)$. They are all located outside the domain, featuring larger shape parameters and coefficients than over the rest of it. Moreover, the largest trained shapes are seen to be increasingly large as more training points are provided.
+
+
+\clearpage
+\begin{sidewaysfigure}[H]
+\hspace*{-1cm}
+\begin{tabular}{cc}
+% {\includegraphics[width=.13\textwidth]{imagenes/experiments/2d/heat_1d/49_100_colorbar.pdf}}    &
+  % \frame
+  {\includegraphics[width=.35\textwidth, clip=true,trim={0 0 0 0}]{imagenes/experiments/2d/heat_1d/49_100_bad.pdf}}  &
+  {\includegraphics[width=.35\textwidth, clip=true,trim={0 0 0 0}]{imagenes/experiments/2d/heat_1d/49_100.pdf}} \\
+  \multicolumn{2}{c}{\includegraphics[width=.3\textwidth]{imagenes/experiments/2d/heat_1d/49_100_colorbar_rotated.pdf} {\includegraphics[width=.3\textwidth]{imagenes/experiments/2d/heat_1d/trained_shapes_cbar.pdf}}}
+\end{tabular}
+\caption{Absolute error of two attempts to solve the one-dimensional heat equation with $C=49$ and $100$ points per dimension, the left-hand side being with the methodology as described up until now and the right-hand side with the proposed change in the scheduler. The crosses represent the location of the trained RBF centers by the end of each training process, their size varying according to the accompanying coefficient and their color changing according to the resulting shape parameter.}
+\label{fig:heat-1d-experiment-model-absolute-errors}
+\end{sidewaysfigure}
+
+
+\clearpage
+\begin{sidewaysfigure}[H]
+\hspace*{-1cm}
+\begin{tabular}{ccc}
+  {\includegraphics[width=.35\textwidth, clip=true,trim={0 0 0 0}]{imagenes/experiments/2d/heat_1d/225_100.pdf}}  &
+  {\includegraphics[width=.35\textwidth, clip=true,trim={0 0 0 0}]{imagenes/experiments/2d/heat_1d/225_150.pdf}} &
+   {\includegraphics[width=.35\textwidth, clip=true,trim={0 0 0 0}]{imagenes/experiments/2d/heat_1d/225_200.pdf}}  \\
+   \multicolumn{3}{c}{{\includegraphics[width=.3\textwidth]{imagenes/experiments/2d/heat_1d/model_curves_legend_2_2.pdf}}  {\includegraphics[width=.3\textwidth]{imagenes/experiments/2d/heat_1d/trained_shapes_cbar.pdf}}}
+    % & {\includegraphics[width=.3\textwidth]{imagenes/experiments/2d/heat_1d/model_curves_legend_2_2.pdf}} & {\includegraphics[width=.3\textwidth]{imagenes/experiments/2d/heat_1d/trained_shapes_cbar.pdf}}
+\end{tabular}
+\caption{Absolute errors for $C=225$ and $100^2,150^2,200^2$ training points.}
+\label{fig:heat-1d-experiment-model-absolute-errors-improvement}
+\end{sidewaysfigure}
+
+
+
 
 %----------
 %	Bibliography
