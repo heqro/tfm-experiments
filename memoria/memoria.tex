@@ -3223,7 +3223,7 @@ We refer to Figure \ref{fig:example-execution-runge-2d-pde} for an instance of a
   \label{fig:runge-pde-2d-results-incidence-l-norms}
 \end{figure}
 
-Much like in the 2D function approximation case for \texttt{runge\_2d}, Figure \ref{fig:runge-pde-2d-results-centers} holds the distribution of centers by the end of all traininc processes, no clear pattern arising this time either. Finally, Figure \ref{fig:runge-pde-2d-results-errors-avg} depicts the distribution of the average absolute error across all experiments according to the number of centers. It shows that there actually is an improvement in the absolute error that the violin plots failed to account for: as more centers are provided, the absolute error is clearly diminishing close to the boundary.
+Much like in the 2D function approximation case for \texttt{runge\_2d}, Figure \ref{fig:runge-pde-2d-results-centers} holds the distribution of centers by the end of all training processes, no clear pattern arising this time either. Finally, Figure \ref{fig:runge-pde-2d-results-errors-avg} depicts the distribution of the average absolute error across all experiments according to the number of centers. It shows that there actually is an improvement in the absolute error that the violin plots failed to account for: as more centers are provided, the absolute error is clearly diminishing close to the boundary.
 
 \begin{figure}
   \hspace*{-2cm}
@@ -3420,10 +3420,38 @@ We handle these points as follows. We denote by $\mathcal{I}$ the set containing
 Starting shape parameters: \textbf{15} and 20
 
 \begin{figure}
-  \includegraphics[width=\textwidth]{imagenes/experiments/2d/hyperbolic_1d/hyperbolic_1d-TR60-C900-test-E1493.pdf}
-  \includegraphics[width=\textwidth]{imagenes/experiments/2d/hyperbolic_1d/hyperbolic_1d-TR60-C900-test-E250590.pdf}
-  
+  \begin{tabular}{ccc}
+    \includegraphics{imagenes/experiments/2d/hyperbolic_1d/bad_900_60_2_model_curves.pdf} &
+    \includegraphics{imagenes/experiments/2d/hyperbolic_1d/good_900_60_6_model_curves.pdf} &
+    \includegraphics{imagenes/experiments/2d/hyperbolic_1d/model_curves_legend.pdf}
+  \end{tabular}
+  \caption{Left-hand side: learning curves of an incorrect instance of a solution to the hyperbolic equation, under the same starting parameters of the model as in the right-hand side, featuring a correct instance.}
+  \label{fig:example-of-model-curves-for-1d-wave-equation}
 \end{figure}
+
+\begin{figure}
+  \hspace*{-1cm}
+  \begin{tabular}{cc}
+    \includegraphics[width=.45\textwidth]{imagenes/experiments/2d/hyperbolic_1d/circle_c900_hyperbolic_1d_gaussian_kernel_incorrect.pdf} &
+    \includegraphics[width=.45\textwidth]{imagenes/experiments/2d/hyperbolic_1d/circle_c900_hyperbolic_1d_gaussian_kernel_correct.pdf}  
+  \end{tabular}
+  \caption{Left-hand side: 2D histogram of centers across all training instances, distinguishing between those experiments that did not work out correctly (left) and those that did (right).}
+  \label{fig:comparison-centers-histogram-1d-wave}
+\end{figure}
+
+\clearpage
+\begin{sidewaysfigure}
+  \hspace*{-2cm}
+  \begin{tabular}{cccc}
+    \includegraphics[width=.09\textwidth]{imagenes/experiments/2d/hyperbolic_1d/abs_err_comp.pdf} &
+    \includegraphics[width=.45\textwidth]{imagenes/experiments/2d/hyperbolic_1d/bad_900_60_2_cropped.pdf}&
+    \includegraphics[width=.45\textwidth]{imagenes/experiments/2d/hyperbolic_1d/good_900_60_6_cropped.pdf}&
+    \includegraphics[width=.08\textwidth]{imagenes/experiments/2d/hyperbolic_1d/tr_shap_comp.pdf}  
+  \end{tabular}
+  \caption{Left-hand side: example of an incorrect instance of a solution of the hyperbolic equation, under the same starting parameters of the model as in the right-hand side, featuring a correct instance.}
+  \label{fig:example-of-experiment-for-1d-wave-equation}
+\end{sidewaysfigure}
+
 
 
 \chapter{Conclusions and future works}
