@@ -2616,8 +2616,11 @@ formulation of \eqref{eqn-lebesgue-ode-1} that our PINN can solve for is
   + \frac{1}{2} \left[ \left(
     \mathcal{N}\mathcal{N} (-1, \theta) - \frac{9}{4} \right)^2 + \left(
     \mathcal{N}\mathcal{N} (1, \theta) - \frac{1}{4} \right)^2 \right], \]
-which features the boundary conditions back again. We now solve the
-differential equation minimizing this formulation prescribing the same experiments matrix as in the case of the 1D function approximation. Consequently, in the following we are going to depict the same graphic results.
+which features the boundary conditions back again. 
+
+We consider the mapping from number of centers to starting shape parameters $7 \mapsto 0.78125, 11 \mapsto 1.5625,
+15 \mapsto 2.5, 20 \mapsto 3.6621, 30 \mapsto 5.6152, 40 \mapsto 7.8125,
+50 \mapsto 9.7656, 60 \mapsto 11.7188$, prescribing the same amounts of training points as in the case of the 1D function approximation. Consequently, in the following we are going to depict the same graphic results.
 
 Figure \ref{fig:ode-1d-example-training} shows the usual behavior solving this ODE. Irrespectively of the training nodes we provide, the absolute error is at its minimum at the boundary points. Like in the 1D case, the shape parameters are shown as well as the model curves. 
 
