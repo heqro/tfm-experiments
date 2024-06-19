@@ -3426,6 +3426,47 @@ Starting shape parameters: \textbf{15} and 20
 \end{figure}
 
 
+\chapter{Conclusions and future works}
+
+\section*{Conclusions}
+
+\begin{itemize}
+  \item Throughout Chapter \ref{chap:state-of-the-art}, a comprehensive literature review has been carried out of the key components of neural networks and physics-informed neural networks. Radial basis function theory has then been introduced for interpolation of functions. Finally, these components have been ultimately combined to propose an RBF-based machine learning model.
+  \item In Chapter \ref{chap:preliminary-experimentation}, a preliminary experimentation worksheet is proposed, addressing approximation and differential problems involving a ``well-behaved'' polynomial function. Moreover, the inexpensive memory cost of the model allows for carrying out statistical analyses, in order to determine recurrent properties exhibited by the model.
+  \item This methodology is then applied for problems of interest on approximation of functions and differential equations. This has been done in Chapter \ref{chap:application-to-established-problems}. 
+  
+  Having been through the entire relation of experiments, we can extract an overall set of conclusions. We begin with the most elementary problem, that of function approximation:\begin{itemize}
+    \item The absolute errors are observed to steadily decrease as the parameter $k$ is increased. 
+    \item The explicit consideration of a polynomial provides no clear improvements, which explains why the coefficients of the corresponding polynomial are nowhere near those of the actual solution.
+    \item Regardless of the amount of training points and centers one provides, some centers clearly organize outside of the domain. Some centers also organize in clear pattern formations to make the most of the data we provide.
+    \item As more training points and centers are provided for the 1D case, the coefficients are observed to show a clear correlation with the function we are sampling.
+  \end{itemize}
+
+With 
+
+\end{itemize}
+
+\section*{Future works}
+
+\begin{itemize}
+  \item Improve our estimates for suitable starting shape parameters when solving an arbitrary differential equation. Some thoughts that have sprung during the development time are the following:
+  \begin{itemize}
+    \item Should we consider a specific set of starting shape parameters for the RBFs initially set close to the boundary of the domain, and another set of parameters for the RBFs that are initially part of the interior of the domain? How does this affect the condition number of the matrix for system \eqref{eqn:system-edp}?
+    \item Especially in the case of differential problems, it has been observed that a ``one-fits-all'' starting shape parameter cannot account for every arbitrary uniformly sampled distribution of training points. Can we extend our methodology for computing shape parameters to an arbitrary experiment instance? 
+    
+    The curves of the condition number of matrix \eqref{eqn:system-edp} for the differential problems we have considered are observed to descend as the proposed initial shape parameter steers away from zero, only to reach a valley and steadily increase again. Therefore, the bisection method cannot help us quickly solve the situation: execution times may be a concern for this alleway for improvement.
+
+    \item When working in higher dimensionality, preparations should be made for computing the condition number of the matrix of the problem. As Figure \ref{fig:model-consumption-memory} shows, this is going to be a concern quite rapidly. Strictly speaking, this rather is a problem of numerical linear algebra.
+  \end{itemize}
+  
+  \item The discussion we have carried out for adequately solving a differential problem has assumed that the differential operators at the boundary and at the interior are linear. If that is not the case, can we provide other reliable starting shape parameters for the operators?
+  \item Due to the iterative nature of the development process we have followed, our attempt at solving the 1D wave equation and the 1D heat equation set us out to propose alternative representations of the shape parameters and the coefficients to get a better understanding of our model. This implies that improvements can be made to the way information is portrayed for this RBF-based model.
+  \item Even before posing the model, the proposed radial basis functions failed to solve problems involving functions which are not in $C^\infty$, such as the sign function (recall e.g. Figure \ref{fig:sign-with-20-pts}). This overwhelmingly narrows down the function space we can approximate. 
+  
+  A future work could therefore involve the consideration of other radial functions, like the hat function. As the code base is structured, defining and swapping the kernel would suffice to tackle the idea.
+
+\end{itemize}
+
 %----------
 %	Bibliography
 %----------	
