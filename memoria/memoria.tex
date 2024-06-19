@@ -3388,6 +3388,43 @@ Figure \ref{fig:heat-1d-experiment-model-absolute-errors-improvement} compares t
 
 
 
+\subsection{1D wave equation}
+
+We turn to the 1D wave equation
+\[ \frac{\partial u}{\partial t} + \frac{\partial u}{\partial x} = 0 \]
+along the domain $[0, 1] \times [0, 1]$, whose initial condition and boundary
+conditions come prescribed by $u (x, t) = \exp \{ - (20 (x - t))^2 \}$. This test problem can also be found in \cite{abrahamsen2019explicit}, which again prescribes an \textit{ad hoc} distribution of nodes, denser along the region where the wave travels. Regardless, we consider the same uniformly distributed subset of $\mathcal{S}\subset[0,1]^2$ as we did when attempting to solve the 1D heat equation. Assume that Figure \ref{fig:representation-domain-problem-wave} is a
+depiction of $\mathcal{S}$. Like in the previous differential equation, diffusion still takes place by the
+top and right sides of the square. Therefore, and as Figure \ref{fig:representation-domain-problem-wave} depicts, one can immediately tell apart some relevant sets of points:
+\begin{itemize}
+  \item Those located in the interior of the domain, painted in black.
+  \item The bottom and left sides of the square, painted in pink.
+  \item The top and right sides of the square, painted in green.
+  \item The corner points, depicted in hollow circles. 
+\end{itemize}
+
+We handle these points as follows. We denote by $\mathcal{I}$ the set containing the points in the interior, the top and right sides of the square, and its top-right corner. Similarly, we denote by $\mathcal{B}$ the set containing the top-left, bottom-right and bottom-left corners, as well the points painted in pink. Denoting by $\mathcal{NN}$ our usual RBF-based model equipped with a set of parameters $\theta$, a variational formulation of the PDE is 
+\[ \min_{\theta} \frac{1}{| \mathcal{I} |} \left\| \frac{\partial
+   \mathcal{N}\mathcal{N} (\mathcal{I}; \theta)}{\partial x} + \frac{\partial
+   \mathcal{N}\mathcal{N} (\mathcal{I}; \theta)}{\partial t} \right\|_2^2 +
+   \frac{1}{| \mathcal{B} |} \| \mathcal{N}\mathcal{N} (\mathcal{B}; \theta) -
+   u (\mathcal{B}) \|_2^2 . \]
+
+\begin{figure}
+  \includegraphics[width=.3\textwidth]{cool_graphics/cuadrado-dominio-edp-onda.pdf}
+  \caption{A representation of the distribution of nodes we consider for the wave equation.}
+  \label{fig:representation-domain-problem-wave}
+\end{figure}
+
+% Like in the previous exercise for the heat equation, we have observed that the 
+Starting shape parameters: \textbf{15} and 20
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{imagenes/experiments/2d/hyperbolic_1d/hyperbolic_1d-TR60-C900-test-E1493.pdf}
+  \includegraphics[width=\textwidth]{imagenes/experiments/2d/hyperbolic_1d/hyperbolic_1d-TR60-C900-test-E250590.pdf}
+  
+\end{figure}
+
 
 %----------
 %	Bibliography
