@@ -2161,13 +2161,91 @@ $T = \lceil \sqrt[d]{C  k} \rceil ^d $.
 
 Furthermore, the training points are uniformly sampled to decisively show the capability of our model to work with an arbitrary set of points. When sampling the training points, we always ensure that some of them are located at the border of the domain. This ensures that $(P)$ is either an interpolation problem (rather than an extrapolation problem) or a well-posed differential equation (so that we have points to work with along the boundary).
 
-For each value of $C$, we compute a starting shape parameter (initially) common to all RBFs in the following manner: we first distribute the $C$ centers across an equispaced $d-$dimensional lattice. After that is done, choose $\varepsilon$ such that the condition number of the interpolation problem with interpolation points equal to the centers is between $10^{-6}$ and $10^{-7}$. One can do so, for instance, using the bisection method. For such shapes, the loss function will be observed to steadily decrease while achieving satisfactory performance on the verification dataset. Preliminary experimentation ruled out larger or smaller shape parameters for the following reasons:
+For each value of $C$, we compute a starting shape parameter (initially) common to all RBFs. We proceed by first distributing the $C$ centers across an equispaced $d-$dimensional lattice. Furthermore, we assume that each training point is located matching the position of each of our RBFs' centers.
+
+In the case we intend to approximate a function, we choose $\varepsilon$ such that the condition number of the matrix in \eqref{eqn-linear-system-equations-rbf} is between $10^{-6}$ and $10^{-7}$. One can do so, for instance, using the bisection method. For such shapes, the loss function will be observed to steadily decrease while achieving satisfactory performance on the verification dataset. Preliminary experimentation ruled out larger or smaller shape parameters for the following reasons:
 \begin{itemize}
   \item Larger starting values of the shape parameter reduce the loss term to the order $10^{-13}$ in few iterations, effectively interpolating the proposed training points. However, this is observed to harm the ``generalization'' capability of the model, causing large oscillations to occur between any pair of training nodes.
   \item Progressively smaller starting values cause the loss function to stagnate too early for $\mathcal{NN}$ to bear any resemblance to the actual function. Furthermore, for small enough values of the starting shape parameter the loss function is observed to oscillate without any clear pattern, a sign of potentially operating under an ill-conditioned problem. 
 \end{itemize}
 
-Each experiment configuration $(C,k)$ will be simultaneously solved several times for the following reasons: firstly, the model features a remarkably low amount of parameters, which might make it more susceptible to ``bad'' starting parameter sets. Secondly, to distill those experiments featuring training points that may not lead us to the actual solution of the problem. Thirdly, to observe the performance of our method on a verification dataset which will be common to every experiment. Finally, to elaborate statistic descriptions of the model's parameters: shapes, coefficients and centers. Some of our usual questions will be the following:
+Conversely, consider a generic differential equation of the form \eqref{pdegeneralform}. Assuming the physics parameter $\gamma$ is known, we restate this problem regarding $\mathcal{NN}$:
+
+\[ \left\{\begin{array}{rlll}
+     F (\mathcal{N}\mathcal{N} (z ; \theta)) & = & f (z), & z \in \Omega\\
+     B (\mathcal{N}\mathcal{N} (z ; \theta)) & = & g (z), & z \in \partial
+     \Omega
+   \end{array}\right. \]
+or, by rewriting
+\[ \mathcal{N}\mathcal{N} (z ; \theta) = \sum_{i = 1}^C \lambda_i \varphi_i
+   (z) \]
+for $\varphi_1, \varphi_2, \ldots, \varphi_C$ some RBFs equipped with their
+corresponding centers and shape parameters, we then have
+\[ \left\{\begin{array}{llll}
+     F \left( \sum_{i = 1}^C \lambda_i \varphi_i (z) \right) & = & f (z), & z
+     \in \Omega\\
+     B \left( \sum_{i = 1}^C \lambda_i \varphi_i (z) \right) & = & g (z), & z
+     \in \partial \Omega
+   \end{array}\right. . \]
+
+For the problems we will solve, $F$ can be assumed to be a {\tmstrong{linear}}
+differential operator. In such case, we rewrite
+\[ F \left( \sum_{i = 1}^C \lambda_i \varphi_i (z) \right) = \sum_{i = 1}^C
+   \lambda_i F (\varphi_i (z)) = f (z), \quad z \in \Omega, \]
+or equivalently
+\[ \left(\begin{array}{cccc}
+     F (\varphi_1 (z)) & F (\varphi_2 (z)) & \ldots & F (\varphi_C (z))
+   \end{array}\right) \left(\begin{array}{cccc}
+     \lambda_1 & \lambda_2 & \ldots & \lambda_C
+   \end{array}\right)^{\top} = f (z), \quad z \in \Omega . \]
+
+Likewise, our problems are going to feature linear differential operators for
+the boundary conditions, which implies
+\[ \left(\begin{array}{cccc}
+     B (\varphi_1 (z)) & B (\varphi_2 (z)) & \ldots & B (\varphi_C (z))
+   \end{array}\right) \left(\begin{array}{cccc}
+     \lambda_1 & \lambda_2 & \ldots & \lambda_C
+   \end{array}\right)^{\top} = g (z), \quad z \in \partial \Omega . \]
+
+If we explicitly denote $z_1, \ldots, z_{C_1} \in \Omega$ and $\hat{z}_1,
+\ldots, \hat{z}_{C_2} \in \partial \Omega$ with $C_1+C_2=C$, we obtain the system of equations
+\begin{equation}
+  \left(\begin{array}{cccc}
+    F (\varphi_1 (z_1)) & F (\varphi_2 (z_1)) & \ldots & F (\varphi_C (z_1))\\
+    F (\varphi_1 (z_2)) & F (\varphi_2 (z_2)) & \ldots & F (\varphi_C (z_2))\\
+    \vdots & \vdots &  & \vdots\\
+    F (\varphi_1 (z_{C_1})) & F (\varphi_2 (z_{C_1})) & \ldots & F (\varphi_C
+    (z_{C_1}))\\
+    B (\varphi_1 (\hat{z}_1)) & B (\varphi_2 (\hat{z}_1)) & \ldots & B
+    (\varphi_C (\hat{z}_1))\\
+    B (\varphi_1 (\hat{z}_2)) & B (\varphi_2 (\hat{z}_2)) & \ldots & B
+    (\varphi_C (\hat{z}_2))\\
+    \vdots & \vdots &  & \vdots\\
+    B (\varphi_1 (\hat{z}_{C_2})) & B (\varphi_2 (\hat{z}_{C_2})) & \ldots & B
+    (\varphi_C (\hat{z}_{C_2}))
+  \end{array}\right) \left(\begin{array}{c}
+    \lambda_1\\
+    \lambda_2\\
+    \vdots\\
+    \lambda_C
+  \end{array}\right) = \left(\begin{array}{c}
+    f (z_1)\\
+    f (z_2)\\
+    \vdots\\
+    f (z_{C_1})\\
+    f (\hat{z}_1)\\
+    f (\hat{z}_2)\\
+    \vdots\\
+    f (\hat{z}_{C_2})
+  \end{array}\right) \label{eqn:system-edp} .
+\end{equation}
+
+
+We choose $\varepsilon$ such that the condition number of the matrix of
+system \eqref{eqn:system-edp} is between $10^{- 6}$ and $10^{- 7}$.
+
+
+Regardless of the type of experiment, each configuration $(C,k)$ will be simultaneously solved several times for the following reasons: firstly, the model features a remarkably low amount of parameters, which might make it more susceptible to ``bad'' starting parameter sets. Secondly, to distill those experiments featuring training points that may not lead us to the actual solution of the problem. Thirdly, to observe the performance of our method on a verification dataset which will be common to every experiment. Finally, to elaborate statistic descriptions of the model's parameters: shapes, coefficients and centers. Some of our usual questions will be the following:
 
 \begin{itemize}
   \item How do the $L^\infty$ and $L^2-$norms on the verification dataset behave as $C$ and $k$ increase?
@@ -2176,7 +2254,7 @@ Each experiment configuration $(C,k)$ will be simultaneously solved several time
   \item Are there any recurrent distribution of centers, shape parameters or coefficients?
 \end{itemize}
 
-The question for execution times is a relevant one as well, albeit it cannot be reliably answered as the experiments are launched in a shared server: measurements have been carried out but they have been observed to be inconsistent, varying according to the workload of the server as the problem is solved.
+The question for execution times is a relevant one as well, albeit it cannot be reliably answered as the experiments are launched in a shared server: measurements have been carried out, but they have been observed to be inconsistent, varying according to the workload of the server as the problem is solved.
 
 One reasonable concern for solving any experiment several simultaneous times is exhausting the computing resources of the server, namely CPU and GPU. The multiple processors the server features is enough to quell the CPU concern as long as we launch fewer instances than the amount of idle processors (recall Table \ref{tb:hardware-machinery}).
 
