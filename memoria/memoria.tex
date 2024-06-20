@@ -3481,7 +3481,7 @@ These striking qualitative differences can best be seen in Figure \ref{fig:compa
     \includegraphics[width=.35\textwidth]{imagenes/experiments/2d/hyperbolic_1d/avg_absolute_error_False.pdf}&
     \includegraphics[width=.15\textwidth]{imagenes/experiments/2d/hyperbolic_1d/avg_absolute_error_caption.pdf}
 \end{tabular}
-\caption{Comparison of the average absolute error, with the incorrect (left-hand side) and the correct attemps (right-hand side).}
+\caption{Comparison of the average absolute error, with the incorrect (left-hand side) and the correct attempts (right-hand side).}
 \label{fig:comparison-avg-absolute-errors-wave}
 \end{figure}
 
@@ -3521,7 +3521,7 @@ Regarding the differential problems, we can highlight the following:
 \begin{itemize}
   \item It has been observed, most notably when attempting to solve the ODE $u_{x x}=2$, that providing a larger amount of centers and training points makes it more likely to find worse-conditioned problems. For such cases, the model's learning curves fail to decrease, the proposed solutions being far from correct. In such cases, the consideration of a polynomial term produces decisive improvements: the distribution of the polynomial's coefficients are observed to be close to the actual solution's.
   \item As observed in the case of function approximation, the centers clearly form structures to conform the boundary conditions and the regime prescribed in the interior of the domain. It has also been observed, for instance in the case of the 1D wave equation, that their disposition differs when the problem is well-posed from an ill-posed one.
-  \item Likewise, many centers are observed to be outside of the domain. This is especially true for the case of the heat equation, whereby the centers were found outside of the domain to most reliably reproduce the rather ``aggressive'' changes in the gradient of the actual solution.
+  \item Likewise, many centers are observed to be outside the domain. This is especially true for the case of the heat equation, whereby the centers were found outside the domain to most reliably reproduce the rather ``aggressive'' changes in the gradient of the actual solution.
 \end{itemize}
 
 \end{itemize}
@@ -3544,7 +3544,7 @@ Regarding the differential problems, we can highlight the following:
 
   \item Due to the iterative nature of the development process we have followed, our attempt at solving the 1D wave equation and the 1D heat equation set us out to propose alternative representations of the shape parameters and the coefficients to get a better understanding of our model. This implies that improvements can be made to the way information is portrayed for this RBF-based model.
   
-  \item Furthermore, the actual solution of the 1D wave equation is a Gaussian travelling wave. In order to reliably reproduce this travelling wave, it would suffice to consider two shape parameters: one ``along'' the $x$ axis, which scales the distance along this axes, and another for the $y$ axis. 
+  \item Furthermore, the actual solution of the 1D wave equation is a Gaussian travelling wave. In order to reliably reproduce this travelling wave, it would suffice to consider two shape parameters: one ``along'' the $x$ axis, which would scale the distance along this axis, and another one for the $y$ axis. 
   
   \item Even before posing the model, the proposed radial basis functions failed to solve problems involving functions which are not in $C^\infty$, such as the sign function (recall e.g. Figure \ref{fig:sign-with-20-pts}). This overwhelmingly narrows down the function space we can approximate. 
   
