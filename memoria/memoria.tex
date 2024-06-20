@@ -3333,58 +3333,70 @@ As a sidenote, if $\alpha$ would depend on $x$ and $t$, this formulation could e
 
 Before solving the problem, we briefly recap that the development process of the project has been iterative: whenever we would find roadblocks to the methodology we described in Chapter \ref{chap:preliminary-experimentation}, in the form of notably poor quality metrics, we would introduce atomic modifications to the methodology to ensure the roadblock is avoided and then evaluate the methodology's performance on the overall set of experiments.
 
+
+For this particular equation, the methodology we have been using up until now has failed to produce any tractable results. 
+Indeed, the amount of centers and training points that we prescribed previously has been observed to be smaller than the one required to reconstruct the solution to a single digit of precision: if we turn to Figure \ref{fig:representation-of-the-solution-to-the-heat-equation}, the function features a steep derivative along time for $x=1/2$. As described in \cite{abrahamsen2019explicit}, it is key to provide a large amount of training points in that area to correctly reconstruct the solution. Therefore, we extend the amount of training points we consider, sampling instead $80$ points per dimension alongside $C=900$ centers, all of which are initially set to the starting shape parameter $\varepsilon=22.3$, which sets the condition number of the matrix of system  \eqref{eqn:system-edp} below $5 \cdot 10^{-5}$.
+
 \begin{figure}
-  % \frame
-  \begin{tabular}{ccc}
-  {\includegraphics[height=.25\textwidth]{imagenes/experiments/2d/heat_1d/heat_1d-TR100-C49-usual-E99548_modified.pdf}}&
-  {\includegraphics[height=.25\textwidth]{imagenes/experiments/2d/heat_1d/heat_1d-TR100-C49-prueba_shape_normal-E3106078_modified.pdf}} &
-  \quad {\includegraphics[height=.15\textwidth]{imagenes/experiments/2d/heat_1d/model_curves_legend.pdf}}  
+  \hspace*{-2cm}
+  \begin{tabular}{cc}
+    {\includegraphics[height=.24\textheight]{imagenes/experiments/2d/heat_1d/new_graphics/900_80.pdf}}
+    {\includegraphics[height=.22\textheight]{imagenes/experiments/2d/heat_1d/new_graphics/heat_1d-TR80-C900-11-E399488_cropped.pdf}}
   \end{tabular}
-  \caption{Model curves of two attempts to solve the one-dimensional heat equation with $C=49$ and $100$ points per dimension, the left-hand side being with the methodology as described up until now and the right-hand side with the proposed change in the scheduler.}
-  \label{fig:heat-1d-experiment-model-curves}
+  \caption{Instance of a solution to the 1D heat equation. The left-hand side shows the absolute error as well as the trained shapes, and the right-hand side shows the model curves.}
+  \label{fig:heat-1d-experiment-model-instance}
 \end{figure}
 
-For this particular equation, the methodology we have been using up until now has failed to produce any tractable results. If we turn to Figure \ref{fig:representation-of-the-solution-to-the-heat-equation}, the function features a steep derivative along time for $x=1/2$. As described in \cite{abrahamsen2019explicit}, it is key to provide a large amount of training points in that area to correctly reconstruct the solution. Therefore, we extend the amount of training points we consider, sampling instead $100$ points per dimension and present in the left-hand side of Figure \ref{fig:heat-1d-experiment-model-curves} the learning curves of an attempt at solving the problem featuring a total of $C=49$ centers and the corresponding usual 2D starting shape parameter $\varepsilon=2.6855$. 
-
-As observed in the previous experiments in 2D, the learning curves are very smooth, and any oscillations that may show up are quickly stopped by the action of the scheduler, making the $L^2$ and $L^\infty-$norms are unacceptably large for deeming the results as valid. To overcome this issue, the \texttt{patience} parameter of the scheduler is increased from $30$ to $1000$. This modification comes at the evident cost of non-smooth model curves (excepting the last few iterations) as well as a notorious increase in the number of iterations, which is seen to be of two orders of magnitude (see right-hand side of Figure \ref{fig:heat-1d-experiment-model-curves}). Moreover, the scheduler allows for a great deal of oscillations in the loss function for the interior as it keeps ultimately descending until it stagnates. From that point on, the main contribution to the decrease of the overall loss is comes from the loss term at the boundary.
-
-For further reference, Figure \ref{fig:heat-1d-experiment-model-absolute-errors} depicts a comparison in the absolute error of the two proposed solutions. By means of the \texttt{x} character, it shows the location of the RBF centers. The color of each character indicates the shape at the end of the experiment and their size gives us a notion of the magnitude of the RBF coefficients, their size in proportion to their absolute value (the larger the size, the larger the absolute value). Despite one of the solutions yielding better accuracy than the other, the characteristics of the RBFs seem to be similar at first glance: there is a positive correlation between the shape parameters and the RBFs' coefficients. Moreover, they are all located outside the domain, close to the point $(1/2,0)$ where the function value and derivative along the time dimension are at their largest magnitude. 
-
-However, there are also some differences that may justify the better performance of the modified methodology. Indeed, this attempt features more RBFs with smaller shape parameters (and, consequently, coefficients) distributed along the level curves of the solution, which ultimately improves the accuracy at the region enclosed by them. 
-
-Irrespectively of the improvement of the accuracy, there also is a sharp increase in the number of iterations, which rules out the possibility of performing a statistical analysis of the problem in a reasonable time frame. We proceed instead by increasing the number of centers, from $C=49$ to $C=225$, and attempt to solve the problem under the same number of training points as before. After that, we then consider more training points, concretely $150$ and $200$ points per dimension, to see if there are any notable improvements. 
-
-Figure \ref{fig:heat-1d-experiment-model-absolute-errors-improvement} compares these results in the absolute error, following the same representation scheme for the RBFs' centers locations, coefficients and shape parameters. We observe that there is an even larger incidence of RBFs at the neighborhood of $(x=1/2,t=0)$. They are all located outside the domain, featuring larger shape parameters and coefficients than over the rest of it. Moreover, the largest trained shapes are seen to be increasingly large as more training points are provided.
 
 
-\clearpage
-\begin{sidewaysfigure}[H]
-\hspace*{-1cm}
-\begin{tabular}{cc}
-% {\includegraphics[width=.13\textwidth]{imagenes/experiments/2d/heat_1d/49_100_colorbar.pdf}}    &
-  % \frame
-  {\includegraphics[width=.35\textwidth, clip=true,trim={0 0 0 0}]{imagenes/experiments/2d/heat_1d/49_100_bad.pdf}}  &
-  {\includegraphics[width=.35\textwidth, clip=true,trim={0 0 0 0}]{imagenes/experiments/2d/heat_1d/49_100.pdf}} \\
-  \multicolumn{2}{c}{\includegraphics[width=.3\textwidth]{imagenes/experiments/2d/heat_1d/49_100_colorbar_rotated.pdf} {\includegraphics[width=.3\textwidth]{imagenes/experiments/2d/heat_1d/trained_shapes_cbar.pdf}}}
+Figure \ref{fig:heat-1d-experiment-model-instance} shows one of the twenty instances we have launched for this experiment configuration. The left-hand side depicts a comparison in the absolute error of the approximation regarding the actual solution. By means of the \texttt{x} character, it shows the location of the RBF centers. The color of each character indicates the shape at the end of the experiment and their size gives us a notion of the magnitude of the RBF coefficients, their size in proportion to their absolute value (the larger the size, the larger the absolute value). 
+
+
+As the Figure shows, there is a positive correlation between the shape parameters and the RBFs' coefficients. Moreover, they are all located outside the domain, close to the point $(1/2,0)$ where the function value and derivative along the time dimension are at their largest magnitude. This observation can be extended to every experiment that has been carried out: the left-hand side of Figure \ref{fig:heat-1d-centers-distribution} shows the aggregation of all distributions of centers, showing that the largest incidence is outside the domain, at the bottom-most side.
+
+\begin{figure}\begin{tabular}{cc}
+    \includegraphics[height=.3\textwidth]{imagenes/experiments/2d/heat_1d/new_graphics/circle_c900_heat_1d_gaussian_kernel.pdf}&
+    \includegraphics[height=.33\textwidth]{imagenes/experiments/2d/heat_1d/new_graphics/avg_absolute_errors.pdf}
 \end{tabular}
-\caption{Absolute error of two attempts to solve the one-dimensional heat equation with $C=49$ and $100$ points per dimension, the left-hand side being with the methodology as described up until now and the right-hand side with the proposed change in the scheduler. The crosses represent the location of the trained RBF centers by the end of each training process, their size varying according to the accompanying coefficient and their color changing according to the resulting shape parameter.}
-\label{fig:heat-1d-experiment-model-absolute-errors}
-\end{sidewaysfigure}
+  \caption{Histogram of the distribution of centers across all training instances.}
+  \label{fig:heat-1d-centers-distribution}
+\end{figure}
+
+%However, there are also some differences that may justify the better performance of the modified methodology. Indeed, this attempt features more RBFs with smaller shape parameters (and, consequently, coefficients) distributed along the level curves of the solution, which ultimately improves the accuracy at the region enclosed by them. 
+
+% Irrespectively of the improvement of the accuracy, there also is a sharp increase in the number of iterations, which rules out the possibility of performing a statistical analysis of the problem in a reasonable time frame. We proceed instead by increasing the number of centers, from $C=49$ to $C=225$, and attempt to solve the problem under the same number of training points as before. After that, we then consider more training points, concretely $150$ and $200$ points per dimension, to see if there are any notable improvements. 
+
+% Figure \ref{fig:heat-1d-experiment-model-absolute-errors-improvement} compares these results in the absolute error, following the same representation scheme for the RBFs' centers locations, coefficients and shape parameters. We observe that there is an even larger incidence of RBFs at the neighborhood of $(x=1/2,t=0)$. They are all located outside the domain, featuring larger shape parameters and coefficients than over the rest of it. Moreover, the largest trained shapes are seen to be increasingly large as more training points are provided.
 
 
-\clearpage
-\begin{sidewaysfigure}[H]
-\hspace*{-1cm}
-\begin{tabular}{ccc}
-  {\includegraphics[width=.35\textwidth, clip=true,trim={0 0 0 0}]{imagenes/experiments/2d/heat_1d/225_100.pdf}}  &
-  {\includegraphics[width=.35\textwidth, clip=true,trim={0 0 0 0}]{imagenes/experiments/2d/heat_1d/225_150.pdf}} &
-   {\includegraphics[width=.35\textwidth, clip=true,trim={0 0 0 0}]{imagenes/experiments/2d/heat_1d/225_200.pdf}}  \\
-   \multicolumn{3}{c}{{\includegraphics[width=.3\textwidth]{imagenes/experiments/2d/heat_1d/model_curves_legend_2_2.pdf}}  {\includegraphics[width=.3\textwidth]{imagenes/experiments/2d/heat_1d/trained_shapes_cbar.pdf}}}
-    % & {\includegraphics[width=.3\textwidth]{imagenes/experiments/2d/heat_1d/model_curves_legend_2_2.pdf}} & {\includegraphics[width=.3\textwidth]{imagenes/experiments/2d/heat_1d/trained_shapes_cbar.pdf}}
-\end{tabular}
-\caption{Absolute errors for $C=225$ and $100^2,150^2,200^2$ training points.}
-\label{fig:heat-1d-experiment-model-absolute-errors-improvement}
-\end{sidewaysfigure}
+% \clearpage
+% \begin{sidewaysfigure}[H]
+% \hspace*{-1cm}
+% \begin{tabular}{cc}
+% % {\includegraphics[width=.13\textwidth]{imagenes/experiments/2d/heat_1d/49_100_colorbar.pdf}}    &
+%   % \frame
+%   {\includegraphics[width=.35\textwidth, clip=true,trim={0 0 0 0}]{imagenes/experiments/2d/heat_1d/49_100_bad.pdf}}  &
+%   {\includegraphics[width=.35\textwidth, clip=true,trim={0 0 0 0}]{imagenes/experiments/2d/heat_1d/49_100.pdf}} \\
+%   \multicolumn{2}{c}{\includegraphics[width=.3\textwidth]{imagenes/experiments/2d/heat_1d/49_100_colorbar_rotated.pdf} {\includegraphics[width=.3\textwidth]{imagenes/experiments/2d/heat_1d/trained_shapes_cbar.pdf}}}
+% \end{tabular}
+% \caption{Absolute error of two attempts to solve the one-dimensional heat equation with $C=49$ and $100$ points per dimension, the left-hand side being with the methodology as described up until now and the right-hand side with the proposed change in the scheduler. The crosses represent the location of the trained RBF centers by the end of each training process, their size varying according to the accompanying coefficient and their color changing according to the resulting shape parameter.}
+% \label{fig:heat-1d-experiment-model-absolute-errors}
+% \end{sidewaysfigure}
+
+
+% \clearpage
+% \begin{sidewaysfigure}[H]
+% \hspace*{-1cm}
+% \begin{tabular}{ccc}
+%   {\includegraphics[width=.35\textwidth, clip=true,trim={0 0 0 0}]{imagenes/experiments/2d/heat_1d/225_100.pdf}}  &
+%   {\includegraphics[width=.35\textwidth, clip=true,trim={0 0 0 0}]{imagenes/experiments/2d/heat_1d/225_150.pdf}} &
+%    {\includegraphics[width=.35\textwidth, clip=true,trim={0 0 0 0}]{imagenes/experiments/2d/heat_1d/225_200.pdf}}  \\
+%    \multicolumn{3}{c}{{\includegraphics[width=.3\textwidth]{imagenes/experiments/2d/heat_1d/model_curves_legend_2_2.pdf}}  {\includegraphics[width=.3\textwidth]{imagenes/experiments/2d/heat_1d/trained_shapes_cbar.pdf}}}
+%     % & {\includegraphics[width=.3\textwidth]{imagenes/experiments/2d/heat_1d/model_curves_legend_2_2.pdf}} & {\includegraphics[width=.3\textwidth]{imagenes/experiments/2d/heat_1d/trained_shapes_cbar.pdf}}
+% \end{tabular}
+% \caption{Absolute errors for $C=225$ and $100^2,150^2,200^2$ training points.}
+% \label{fig:heat-1d-experiment-model-absolute-errors-improvement}
+% \end{sidewaysfigure}
 
 
 
@@ -3416,8 +3428,31 @@ We handle these points as follows. We denote by $\mathcal{I}$ the set containing
   \label{fig:representation-domain-problem-wave}
 \end{figure}
 
-% Like in the previous exercise for the heat equation, we have observed that the 
-Starting shape parameters: \textbf{15} and 20
+For the solution of this equation, it has been preliminarily observed that the prescribed matrix of centers and training points is insufficient for solving the equation to a single digit of accuracy. We instead consider $C=900$ centers, all of them initially set to the starting shape parameter $\varepsilon=20$ which marks the first shape parameter whose condition number in equation \eqref{eqn:system-edp} is under $5\cdot 10^{-5}$, to account for training points distributions that would increase the condition number of the problem. %For the sake of reference, all the computed condition numbers for this problem are presented in Figure \ref{fig:condition-numbers-1d-wave}.
+
+% \begin{figure}
+%   \includegraphics[width=.6\textwidth]{imagenes/experiments/2d/hyperbolic_1d/hyperbolic_conditions.pdf}
+%   \caption{Condition numbers for the 1D wave equation.}
+%   \label{fig:condition-numbers-1d-wave}
+% \end{figure}
+
+Having chosen the amount of centers, we consider $60^2$ uniformly sampled training points following the previous considerations. This amount of points has been chosen as a middle ground between allowing the prescribed solutions to resemble the actual solution and allowing for the multiple repetition of experiments. In particular, we launch 20 experiments simultaneously and about half of them worked out successfully. In other words, the prescribed shape parameter could be speculated to be the ``median'', separating well and bad-conditioning.
+
+
+Figure \ref{fig:example-of-model-curves-for-1d-wave-equation} is a clear comparison between two particular instances of this experiment, one which came out incorrectly and one that did not. The former clearly fails to diminish the loss terms at the interior and at the boundary, whereas the latter clearly achieves that. In such case, the oscillations are visibly reduced by the action of the scheduler, which allow the loss terms to keep decreasing. However, both cases fail to decisively reduce the $L^2$ and $L^\infty-$norms on the verification dataset as the loss terms decrease, the largest improvements being carried out by the first few thousands of iterations.
+
+Figure \ref{fig:example-of-experiment-for-1d-wave-equation} presents the comparison between an incorrect and a correct instance of this experiment. RBF centers are represented in crosses overlaid on the absolute error heatmap. The color of each cross denotes the corresponding trained shape. The larger a cross, the larger the reader may expect the coefficients to be\footnote{The sizes are just for \textit{informally} evaluating the shape parameters across different regions of the domain. They are meant for cursory evaluation.}.
+
+
+
+For the former, the largest error is concentrated in the region of interest, that is, the place the wave actually passes through. For the latter, the largest error is more spread out, albeit is at its largest at that region as well. 
+
+
+The most interesting differences, however, are in the ``behavior'' of the centers: an incorrect instance shows a clear lane of centers travelling along the $y=x$ line, the rest of them spread out rather randomly across the domain. Any correct instance, on the other hand, shows many parallel lanes of centers which ultimately contribute to resembling the actual solution. 
+
+Furthermore, the centers are observed to have larger coefficients as they approach the lane where the solution is at its largest, namely the one at the middle. Regardless of their value and if the instance is correct or not, the RBF centers located at the middle lane and neighboring ones have clearly different trained shapes as the ones spread outside the region, which are close to the starting parameter $\varepsilon=20$. 
+
+These striking qualitative differences can best be seen in Figure \ref{fig:comparison-centers-histogram-1d-wave}, which depicts the 2D histograms of the centers across the two groups of the training instances. Likewise, Figure \ref{fig:example-of-experiment-for-1d-wave-equation} depicts the average absolute errors across all incorrect and correct instances. These two figures contribute to show that the observations we have made in Figure \ref{fig:example-of-experiment-for-1d-wave-equation} are indeed the norm.
 
 \begin{figure}
   \begin{tabular}{ccc}
@@ -3435,8 +3470,19 @@ Starting shape parameters: \textbf{15} and 20
     \includegraphics[width=.45\textwidth]{imagenes/experiments/2d/hyperbolic_1d/circle_c900_hyperbolic_1d_gaussian_kernel_incorrect.pdf} &
     \includegraphics[width=.45\textwidth]{imagenes/experiments/2d/hyperbolic_1d/circle_c900_hyperbolic_1d_gaussian_kernel_correct.pdf}  
   \end{tabular}
-  \caption{Left-hand side: 2D histogram of centers across all training instances, distinguishing between those experiments that did not work out correctly (left) and those that did (right).}
+  \caption{2D histogram of centers across all training instances, distinguishing between those experiments that did not work out correctly (left) and those that did (right).}
   \label{fig:comparison-centers-histogram-1d-wave}
+\end{figure}
+
+\begin{figure}
+  \hspace*{-1cm}
+  \begin{tabular}{ccc}
+    \includegraphics[width=.35\textwidth]{imagenes/experiments/2d/hyperbolic_1d/avg_absolute_error_True.pdf}&
+    \includegraphics[width=.35\textwidth]{imagenes/experiments/2d/hyperbolic_1d/avg_absolute_error_False.pdf}&
+    \includegraphics[width=.15\textwidth]{imagenes/experiments/2d/hyperbolic_1d/avg_absolute_error_caption.pdf}
+\end{tabular}
+\caption{Comparison of the average absolute error, with the incorrect (left-hand side) and the correct attemps (right-hand side).}
+\label{fig:comparison-avg-absolute-errors-wave}
 \end{figure}
 
 \clearpage
@@ -3466,11 +3512,17 @@ Starting shape parameters: \textbf{15} and 20
   Having been through the entire relation of experiments, we can extract an overall set of conclusions. We begin with the most elementary problem, that of function approximation:\begin{itemize}
     \item The absolute errors are observed to steadily decrease as the parameter $k$ is increased. 
     \item The explicit consideration of a polynomial provides no clear improvements, which explains why the coefficients of the corresponding polynomial are nowhere near those of the actual solution.
-    \item Regardless of the amount of training points and centers one provides, some centers clearly organize outside of the domain. Some centers also organize in clear pattern formations to make the most of the data we provide.
+    \item Regardless of the amount of training points and centers one provides, some centers clearly organize outside the domain. Some centers also organize in clear pattern formations to make the most of the data we provide.
     \item As more training points and centers are provided for the 1D case, the coefficients are observed to show a clear correlation with the function we are sampling.
   \end{itemize}
 
-With 
+Regarding the differential problems, we can highlight the following:
+
+\begin{itemize}
+  \item It has been observed, most notably when attempting to solve the ODE $u_{x x}=2$, that providing a larger amount of centers and training points makes it more likely to find worse-conditioned problems. For such cases, the model's learning curves fail to decrease, the proposed solutions being far from correct. In such cases, the consideration of a polynomial term produces decisive improvements: the distribution of the polynomial's coefficients are observed to be close to the actual solution's.
+  \item As observed in the case of function approximation, the centers clearly form structures to conform the boundary conditions and the regime prescribed in the interior of the domain. It has also been observed, for instance in the case of the 1D wave equation, that their disposition differs when the problem is well-posed from an ill-posed one.
+  \item Likewise, many centers are observed to be outside of the domain. This is especially true for the case of the heat equation, whereby the centers were found outside of the domain to most reliably reproduce the rather ``aggressive'' changes in the gradient of the actual solution.
+\end{itemize}
 
 \end{itemize}
 
@@ -3482,17 +3534,22 @@ With
     \item Should we consider a specific set of starting shape parameters for the RBFs initially set close to the boundary of the domain, and another set of parameters for the RBFs that are initially part of the interior of the domain? How does this affect the condition number of the matrix for system \eqref{eqn:system-edp}?
     \item Especially in the case of differential problems, it has been observed that a ``one-fits-all'' starting shape parameter cannot account for every arbitrary uniformly sampled distribution of training points. Can we extend our methodology for computing shape parameters to an arbitrary experiment instance? 
     
-    The curves of the condition number of matrix \eqref{eqn:system-edp} for the differential problems we have considered are observed to descend as the proposed initial shape parameter steers away from zero, only to reach a valley and steadily increase again. Therefore, the bisection method cannot help us quickly solve the situation: execution times may be a concern for this alleway for improvement.
+    The curves of the condition number of matrix \eqref{eqn:system-edp} for the differential problems we have considered are observed to descend as the proposed initial shape parameter steers away from zero, only to reach a valley and steadily increase again. Therefore, the bisection method cannot help us quickly solve the situation: execution times may be a concern for this alleyway for improvement.
 
-    \item When working in higher dimensionality, preparations should be made for computing the condition number of the matrix of the problem. As Figure \ref{fig:model-consumption-memory} shows, this is going to be a concern quite rapidly. Strictly speaking, this rather is a problem of numerical linear algebra.
+    Regardless, we should not compute the condition number of the matrix of the problem any longer. As Figure \ref{fig:model-consumption-memory} shows, this is going to be a concern quite rapidly. Strictly speaking, this rather is a problem of numerical linear algebra. Moreover, the discussion we have carried out for adequately solving a differential problem is assuming that the differential operators at the boundary and at the interior are linear. 
+
+    For all these reasons, a promising way to improve the results is as follows: initially set a large enough shape parameter, common for all RBFs for the remainder of this initial phase. Assuming the centers to be non-learnable parameters for this phase as well, try to find the optimal RBFs' coefficients and common shape parameters by iteratively solving the variational problem. Once a suitable starting RBF parameter has been found, which can safely assumed to be lower than initially set, start the training process learnable shape parameters and centers with the values found up until then.
   \end{itemize}
   
-  \item The discussion we have carried out for adequately solving a differential problem has assumed that the differential operators at the boundary and at the interior are linear. If that is not the case, can we provide other reliable starting shape parameters for the operators?
+
   \item Due to the iterative nature of the development process we have followed, our attempt at solving the 1D wave equation and the 1D heat equation set us out to propose alternative representations of the shape parameters and the coefficients to get a better understanding of our model. This implies that improvements can be made to the way information is portrayed for this RBF-based model.
+  
+  \item Furthermore, the actual solution of the 1D wave equation is a Gaussian travelling wave. In order to reliably reproduce this travelling wave, it would suffice to consider two shape parameters: one ``along'' the $x$ axis, which scales the distance along this axes, and another for the $y$ axis. 
+  
   \item Even before posing the model, the proposed radial basis functions failed to solve problems involving functions which are not in $C^\infty$, such as the sign function (recall e.g. Figure \ref{fig:sign-with-20-pts}). This overwhelmingly narrows down the function space we can approximate. 
   
   A future work could therefore involve the consideration of other radial functions, like the hat function. As the code base is structured, defining and swapping the kernel would suffice to tackle the idea.
-
+ %usar datos experimentales en la pde para entrenar mejor 
 \end{itemize}
 
 %----------
