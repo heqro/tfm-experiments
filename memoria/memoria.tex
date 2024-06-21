@@ -289,10 +289,22 @@ hmargin=3cm
   \thispagestyle{plain}
   \setcounter{page}{3}
 
-  % Write your abstract
+  This thesis aims to explore the application of Radial Basis Function theory to contemporary Machine Learning techniques, focusing on the approximation of functions and the solution of differential equations. 
+
+  To this end, the starting two chapters provide motivation and a review of key concepts from the relevant fields of study. The reader is then introduced to the notation, code bases and methodology, setting the stage for the experimental validation of the proposed model.
+
+  The experimental work is divided into two phases, each described in a dedicated chapter. The first phase addresses ``well-behaved'' problem, aiming to verify the soundness of the methodology. Upon successful verification, the second phase considers a set of relevant function approximation and differential problems, highlighting both the differences and similarities compared to the first phase.
+
+  Once the experimental works are complete, the final chapter presents conclusions drawn from the experimental work and discusses future directions, addressing notable findings and potential limitations of the method.
 
   \textbf{Keywords:} % add the keywords
-
+  \begin{itemize}
+    \item Radial Basis Functions (RBF)
+    \item Physics-Informed Neural Networks (PINNs)
+    \item Partial Differential Equations (PDEs)
+    \item Function Approximation
+    \item Numerical Methods
+  \end{itemize}
   \vfill
 \end{abstract}
 \newpage % Blank page
@@ -381,7 +393,7 @@ analysts and contributing to the spread of knowledge.
 Precisely along this idea, the third key contributing factor is found in the form
 of Free and Open Source Software (FOSS). The open nature of ML libraries like
 \href{https://pytorch.org/}{PyTorch} and \href{https://www.tensorflow.org/}{TensorFlow}
-have not only made state-of-the-art
+has not only made state-of-the-art
 techniques accessible to the broad public, but also seen the benefits entailing any FOSS
 project: volunteers and professionals alike freely
 contributing in a transparent environment
@@ -432,8 +444,8 @@ As previously anticipated, the overarching goal of this Master's thesis is to pr
   \end{itemize}
   This objective is carried out in Chapter \ref{chap:state-of-the-art}.
   \item Propose an embryonic neural network based on RBFs on the basis of the literature review, highlighting foundational works along this line of research and addressing some well-known ``pathological'' cases and relevant workarounds. This objective is achieved by the turn of Section \ref{sec:rbf-based-neural-networks}.
-  \item Discuss the present developmental stage of our methodology involving an RBF-based neural network, detailing the thought process behind its most relevant features as well as describing problems that have been observed before the due date of the thesis. This in Chapter \ref{chap:preliminary-experimentation}.
-  \item Present and solve a series of preliminary simple experiments with our model for the sake of verification. The model will be shown to be inexpensive in memory, which makes possible to carry out statistical analyses repeating the experiment instances and draw solid conclusions on the basis of the usual quality metrics in numerical analysis, namely the $L^\infty$ and $L^2$ norms. This objective is undertaken throughout Sections \ref{sec:preliminary-problem-1} and \ref{sec:preliminary-problem-2} of Chapter \ref{chap:preliminary-experimentation}.
+  \item Discuss the present developmental stage of our methodology involving an RBF-based neural network, detailing the thought process behind its most relevant features as well as describing problems that have been observed before the due date of the thesis. This objective is carried out in Chapter \ref{chap:preliminary-experimentation}.
+  \item Present and solve a series of preliminary simple experiments with our model for the sake of verification. The model will be shown to be inexpensive in memory, which makes possible to carry out statistical analyses repeating the experiment instances and draw solid conclusions on the basis of the usual quality metrics in numerical analysis, namely the $L^\infty$ and $L^2$ norms. This objective is undertaken throughout Sections \ref{sec:preliminary-problem-1} and \ref{sec:preliminary-problem-2}, for function approximation and providing solutions to differential problems respectively.
   \item Extend the experimentation to an array of problems of interest, be it discussed during the previous chapters or newly introduced for steadily approaching state-of-the-art problems. This extension is to be carried out in Chapter \ref{chap:application-to-established-problems}.
 \end{enumerate}
 
