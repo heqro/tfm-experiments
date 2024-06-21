@@ -158,3 +158,5 @@ modules/epsilons.txt
 memoria/memoria_old.pdf
 modules/memory_report_relative.csv
 memoria/memoria_anotada.pdf
+modules/testito_2d_heat.py
+modules/testito_2d_hyperbolic.py
