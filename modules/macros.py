@@ -32,7 +32,7 @@ def histogram_of_shapes(center_sizes: list[int], k_values: list[float], poly_deg
     import scipy.stats as stats
     import matplotlib.pyplot as plt
     import numpy as np
-    shapes_list = [[] for _ in k_values]
+    shapes_list = [[] for _ in starting_shapes]
     for poly_deg in poly_degs:
 
         for c_idx in range(len(center_sizes)):
@@ -87,7 +87,7 @@ def histogram_of_shapes_endgame(center_sizes: list[int], df: DataFrame,
     import matplotlib.pyplot as plt
     import numpy as np
 
-    fig, axes = plt.subplots(len(center_sizes), 1, figsize=(7, 8))
+    fig, axes = plt.subplots(len(center_sizes), 1, figsize=(7, 10))
     for c_idx in range(len(center_sizes)):
         shapes_list = []
         c = center_sizes[c_idx]
@@ -379,6 +379,22 @@ shape_params_dict_1d_1_1: dict[int, float] = {7: 0.78125, 9: 1.25, 11: 1.5625,
 shape_params_dict_1d_0_1: dict[int, float] = {7: 1.4648, 9: 2.4414, 11: 3.4180,
                                               13: 3.9063, 15: 4.8828, 20: 7.3242, 30: 11.2305, 40: 15.6250,
                                               50: 19.5313, 60: 23.4375}
+shape_params_dict_ode: dict[int, float] = {
+    7: 1., 11: 1.4, 15: 2.23, 20: 3.23, 30: 5.16, 40: 7.03, 50: 8.89, 60: 10.74
+}
+shape_params_dict_hyperbolic: dict[int, float] = {
+    # 49: 3.8, 81: 4.25, 121: 11.65, 169: 9.3, 225: 16.45
+    # 49: 2.55, 81: 3.75, 121: 4.9, 169: 6.05, 225: 7.3
+    49: 3.05, 81: 4.4, 121: 5.7, 169: 7.05, 225: 8.4, 900: 20
+}
+
+shape_params_dict_heat: dict[int, float] = {
+    49: 2.9, 81: 4.25, 121: 5.55, 169: 6.8, 225: 8.1, 900: 22.3
+}
+
+shape_params_dict_laplacian: dict[int, float] = {
+    49: 1.75, 81: 2.5, 121: 3.25, 169: 4.05, 225: 4.9, 900: 13.75
+}
 
 
 def get_train_sizes_2d(C: int):
@@ -660,6 +676,7 @@ def get_average_error_1d(df: DataFrame, kernel: str, fn: str | None, fn_callable
                                                    Callable[[torch.Tensor, torch.Tensor], torch.Tensor]],
                          xmin: float = -1., xmax: float = 1.,
                          poly_deg: int | None = None,
+                         ylim: Tuple[float, float] | None = None,
                          k=4.):
     # Get verification dataset
     n_verification = 400
@@ -676,8 +693,7 @@ def get_average_error_1d(df: DataFrame, kernel: str, fn: str | None, fn_callable
         entries = df[(df.Kernel == kernel) &
                      (df.Center_size == C) &
                      (df.Train_size == math.ceil(k*C)) &
-                     (df.Starting_shape == (shape_params_dict_1d_1_1[C] if fn != 'sin_cube_tref' else shape_params_dict_1d_0_1[C])) &
-                     (df.Points_distribution == 'Equi') &
+                     #  (df.Starting_shape == (shape_params_dict_1d_1_1[C] if fn != 'sin_cube_tref' else shape_params_dict_1d_0_1[C])) &
                      (df.Trained_centers.notnull())]
         if fn is not None:
             entries = entries[entries.Function == fn]
@@ -700,7 +716,8 @@ def get_average_error_1d(df: DataFrame, kernel: str, fn: str | None, fn_callable
             floating_list = [float(entry) for entry in list_to_convert]
             nn.set_centers(torch.tensor(floating_list).reshape(-1, 1))
 
-            list_to_convert = data_row['Coefs_list'].split(',')
+            list_to_convert = data_row['Coefs_list'].split(';')[0].split(
+                ',')  # this helps some strange bug in pandas not arise
             floating_list = [float(entry) for entry in list_to_convert]
             if data_row['Poly_degree'] == -1:
                 nn.set_coefs(torch.tensor(floating_list).reshape(1, -1))
@@ -731,14 +748,18 @@ def get_average_error_1d(df: DataFrame, kernel: str, fn: str | None, fn_callable
 
     plt.legend(loc='upper left', bbox_to_anchor=(1.15, 1))
     plt.ylabel('Absolute error')
+    if ylim is not None:
+        plt.ylim(top=ylim[0], bottom=ylim[1])
     plt.twinx()
     plt.plot(x_validate.detach().numpy(), y_validate.detach(
     ).numpy(), color='gray', linestyle='--', alpha=.8)
     plt.ylabel('Function Value', color='gray')
     plt.tick_params(axis='y', labelcolor='gray')
+
     text_title = f', degree = {poly_deg}' if poly_deg is not None else ''
     plt.title(f'k={k}' + text_title)
-    plt.savefig(f'plots/{fn}_{C}_{k}.pdf', bbox_inches='tight')
+    plt.savefig(
+        f'plots/{fn}_{C}_{k}{("_"+str(poly_deg)) if poly_deg is not None else ""}.pdf', bbox_inches='tight')
     plt.close()
 
 
@@ -747,7 +768,8 @@ def get_average_error_2d(df: DataFrame, kernel: str,
                          kernel_callable: Callable[[Union[float, torch.Tensor]], Callable[[
                              torch.Tensor, torch.Tensor], torch.Tensor]] = gaussian_kernel,
                          radius: float = 1., vmin: float | None = None, vmax: float | None = None,
-                         poly_deg: int | None = None
+                         poly_deg: int | None = None, is_circle: bool = True, centers_list=[7**2, 9**2, 11**2, 13**2, 15**2],
+                         shape_params_dict=shape_params_dict_2d_1_1
                          ):
     import matplotlib.pyplot as plt
     import re
@@ -761,13 +783,12 @@ def get_average_error_2d(df: DataFrame, kernel: str,
         x_validate_raw = torch.cartesian_prod(
             *[torch.linspace(-radius, radius, n_verification) for _ in range(dim)]).reshape(-1, dim)
         y_validate_raw = fn(x_validate_raw).reshape(-1, 1)
-        x_validate_indices = torch.sum(x_validate_raw**2, dim=1) <= radius**2
+        x_validate_indices = torch.sum(
+            x_validate_raw**2, dim=1) <= radius**2 if is_circle else x_validate_raw
         x_validate = x_validate_raw[x_validate_indices]
         y_validate = fn(x_validate).reshape(-1, 1)
         y_validate_domain = torch.where(
             x_validate_indices.unsqueeze(1), y_validate_raw, torch.nan).reshape(n_verification, n_verification)
-
-        centers_list = [7**2, 9**2, 11**2, 13**2, 15**2]
 
         for C in centers_list:
             # for TR in get_train_sizes_2d(C):
@@ -777,14 +798,13 @@ def get_average_error_2d(df: DataFrame, kernel: str,
                          (df.Function == fn.__name__) &
                          (df.Center_size == C) &
                          (df.Train_size == TR) &
-                         (df.Starting_shape == shape_params_dict_2d_1_1[C]) &
-                         (df.Points_distribution == 'Equi') &
+                         (df.Starting_shape == shape_params_dict[C]) &
                          (df.Trained_centers.notnull())]
             if poly_deg is not None:
                 entries = entries[entries.Poly_degree == poly_deg]
             if len(entries) == 0:
                 raise Exception(
-                    f'Holy shit!. TR {TR}, C {C}, Shape: {shape_params_dict_2d_1_1[C]}')
+                    f'Holy shit!. TR {TR}, C {C}, Shape: {shape_params_dict[C]}')
 
             for idx in range(len(entries)):
                 data_row = entries.iloc[idx]
@@ -847,11 +867,13 @@ def get_average_error_2d(df: DataFrame, kernel: str,
             contours = plt.contour(X, Y, globals().get(fn.__name__ + '_numpy')(X, Y),
                                    colors='gray', linewidths=1., alpha=.7)
             plt.clabel(contours, inline=True, fontsize=3)
-
-            circ = patches.Circle(xy=(0, 0), radius=1, linewidth=1,
-                                  edgecolor='black', facecolor='none', zorder=10)
-            plt.gca().add_patch(circ)
-
+            if is_circle:
+                circ = patches.Circle(xy=(0, 0), radius=1, linewidth=1,
+                                    edgecolor='black', facecolor='none', zorder=10)
+                plt.gca().add_patch(circ)
+            else:
+                rect = patches.Rectangle(xy=(0,0),width=1.,height=1.,linewidth=1, edgecolor='black',facecolor='none',zorder=10)
+                plt.gca().add_patch(rect)
             avg_err = torch.abs(approximation_domain - y_validate_domain).T
             plt.imshow(X=avg_err,
                        extent=(-radius, radius, -radius, radius),
@@ -876,7 +898,6 @@ def histogram_of_centers_1d_extended(n_train_size: int, df: DataFrame, kernel: s
     import numpy as np
 
     entries = df[(df.Kernel == kernel) &
-                 (df.Points_distribution == 'Equi') &
                  (df.Center_size == n_centers) &
                  (df.Train_size == n_train_size)]
     if fn_name is not None:
@@ -901,7 +922,7 @@ def histogram_of_centers_1d_extended(n_train_size: int, df: DataFrame, kernel: s
         list_of_shapes = [
             float(x) for x in row['Trained_shapes'].split(',')]
         list_of_coefs = [
-            float(x) for x in row['Coefs_list'].split(',')]
+            float(x) for x in row['Coefs_list'].split(';')[0].split(',')]
         # trim in case we have polynomials
         list_of_coefs = list_of_coefs[:len(list_of_centers)]
 
@@ -1010,3 +1031,40 @@ def gather_data_endgame(df: DataFrame, fn_names: list[str], center_sizes: list[i
                              #  ylim=(    (ylims_left[fn_idx]-1, ylims_right[fn_idx]))
                              #  if ylims_left is not None and ylims_right is not None else None)
                              ylim=(-3.1, -2.4))
+
+
+def make_histogram_of_coefs(df: DataFrame, fn_name: str,
+                            training_size: int, centers_size: int,
+                            kernel_name):
+    entries = df[(df.Kernel == kernel_name) &
+                 (df.Poly_degree == 2) & (df.Function == fn_name) &
+                 (df.Center_size == centers_size) & (df.Train_size == training_size)]
+    import matplotlib.pyplot as plt
+    x_sq_coefs, x_coefs, biases = [], [], []
+
+    for row_idx in range(len(entries)):
+        row = entries.iloc[row_idx]
+        trained_coefs = [float(a)
+                         for a in row.Coefs_list.split(';')[0].split(',')]
+
+        x_sq_coefs += [trained_coefs[-1]]
+        x_coefs += [trained_coefs[-2]]
+
+        shape_params = [float(a) for a in row.Trained_shapes.split(',')]
+        indices_of_biases = [index for index, value in enumerate(
+            shape_params) if abs(value) < 1e-10]
+        biases_list = [trained_coefs[index]
+                       for index in indices_of_biases] + [float(trained_coefs[-3])]
+        biases += [sum(biases_list)]
+
+        plt.figure(figsize=(10, 2))
+        plt.subplot(1, 3, 1)
+        plt.violinplot(x_sq_coefs, showmedians=True)
+        plt.title(r'Coefficients of $x^2$')
+        plt.subplot(1, 3, 2)
+        plt.violinplot(x_coefs, showmedians=True)
+        plt.title(r'Coefficients of $x$')
+        plt.subplot(1, 3, 3)
+        plt.violinplot(biases, showmedians=True)
+        plt.title(r'Biases')
+        plt.savefig('pppp.pdf', bbox_inches='tight')
