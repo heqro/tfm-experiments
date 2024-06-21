@@ -161,3 +161,14 @@ def heat_1d_dt(grid: torch.Tensor, a: float = 1/30, tau: float = 1/50):
            * (t + tau)) \
         + (x - 0.5)**2*exp(-(x - 0.5)**2/(4*a*(t + tau)))\
         / (8 * a*sqrt(pi*a*(t + tau))*(t + tau)**2)
+
+
+def hyperbolic_1d(grid: torch.Tensor):
+    from torch import exp
+    x, t = grid[:, 0], grid[:, 1]
+    return exp(-(20*(x-t))**2)
+
+
+def hyperbolic_1d_numpy(X: np.ndarray, T: np.ndarray):
+    from numpy import exp
+    return exp(-(20*(X-T))**2)
