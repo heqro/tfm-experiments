@@ -109,7 +109,7 @@ def show_loss_curves(loss: list[float] | None, linf_norm: list[float] | None, lo
 
 
 def plot_figure_free_shape(centers, nodes, fn, nn: RBF_Free_All | RBF_Poly_Free_All | RBFInterpolantFreeCenters, dim: int,
-                           loss, linf, l2, lr,
+                           loss, linf, l2, lr, loss_int: list[float] | None, loss_boundary: list[float] | None,
                            xmin: float, xmax: float,
                            linf_rel: list[float] | None, l2_rel: list[float] | None,
                            epoch: int = -1, path: str | None = None,  dev='cuda', extension='png',
@@ -141,7 +141,8 @@ def plot_figure_free_shape(centers, nodes, fn, nn: RBF_Free_All | RBF_Poly_Free_
 
         # L^inf and loss curves
         plt.subplot(2, 2, 4)
-        show_loss_curves(loss, linf, None, None, l2, lr, linf_rel, l2_rel)
+        show_loss_curves(loss, linf, loss_int, loss_boundary,
+                         l2, lr, linf_rel, l2_rel)
 
         if path is None:
             plt.show()
@@ -236,8 +237,8 @@ def print_approximation(approx_points, target_points, xmax, xmin, res,
         x_vals = np.linspace(xmin, xmax, res)
         y_vals = np.linspace(xmin, xmax, res)
         X, Y = np.meshgrid(x_vals, y_vals)
-        contours = plt.contour(X, Y, fn_callable(X, Y), levels=20,
-                               colors='gray', linewidths=1., alpha=.7)
+        contours = plt.contour(X, Y, fn_callable(X, Y), levels=3 if fn_callable.__name__ == 'hyperbolic_1d_numpy' else 20,
+                               colors='gray', linewidths=.3 if fn_callable.__name__ == 'hyperbolic_1d_numpy' else 1., alpha=.7)
         plt.clabel(contours, inline=True, fontsize=3)
 
     plt.title('Absolute error (verification)', fontsize=10)
