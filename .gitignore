@@ -31,7 +31,10 @@ interpolate/RBF_Poly_NN/short-experiment-PHS.py
 interpolate/RBF_NN/plots/*
 interpolate/RBF_Poly_NN/plots/*
 introductory_notebooks/polynomial_interpolation/chebyshev_nodes.txt
-learn_centers/experiments/*
+learn_centers/experiments/dim_1/*
+!learn_centers/experiments/dim_1/ode_u_xx-2
+learn_centers/experiments/dim_1/ode_u_xx-2/*
+learn_centers/experiments/dim_2/*
 learn_centers/informal_experiments/*
 safe spot lengthy/
 memoria/scratchpad.MD
