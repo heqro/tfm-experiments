@@ -3573,14 +3573,13 @@ Regarding the differential problems, we can highlight the following:
   \end{itemize}
   
 
-  \item Due to the iterative nature of the development process we have followed, our attempt at solving the 1D wave equation and the 1D heat equation set us out to propose alternative representations of the shape parameters and the coefficients to get a better understanding of our model. This implies that improvements can be made to the way information is portrayed for this RBF-based model.
+  \item Due to the iterative nature of the development process we have followed, our attempt at solving the 1D wave equation and the 1D heat equation set us out to propose alternative graphic representations of the shape parameters and the coefficients to get a better understanding of our model. This implies that improvements can be made to the way information is portrayed for this RBF-based model.
   
-  \item Furthermore, the actual solution of the 1D wave equation is a Gaussian travelling wave. In order to reliably reproduce this travelling wave, it would suffice to consider two shape parameters: one ``along'' the $x$ axis, which would scale the distance along this axis, and another one for the $y$ axis. 
+  \item Furthermore, the actual solution of the 1D wave equation is a Gaussian travelling wave. In order to reliably reproduce this travelling wave, it should suffice to consider two shape parameters: one ``along'' the $x$ axis, which would scale the distance along this axis, and another one for the $y$ axis. Although this could be done by committing precise modifications to the already existing codebase, it poses new questions about suitable starting shape parameters which would result in an in-depth study.
   
-  \item Even before posing the model, the proposed radial basis functions failed to solve problems involving functions which are not in $C^\infty$, such as the sign function (recall e.g. Figure \ref{fig:sign-with-20-pts}). This overwhelmingly narrows down the function space we can approximate. 
-  
-  A future work could therefore involve the consideration of other radial functions, like the hat function. As the code base is structured, defining and swapping the kernel would suffice to tackle the idea.
- %usar datos experimentales en la pde para entrenar mejor 
+  \item Even before posing the model, the proposed radial basis functions failed to solve problems involving functions which are not in $C^\infty$, such as the sign function (recall e.g. Figure \ref{fig:sign-with-20-pts}). This overwhelmingly narrows down the function space we can approximate. A future work could therefore involve the consideration of other radial functions, like the hat function. As the code base is structured, defining and swapping the kernel would suffice to tackle the idea.
+%  usar datos experimentales en la pde para entrenar mejor 
+  \item The differential problems we have attempted to solve are the so-called forward problems, where the parameters of the problem (say, diffusive constant) are predetermined by the physics. Future works could involve inverse problems, where these constants are to be found up to particular measurements of the phenomenon under study.
 \end{itemize}
 
 %----------
